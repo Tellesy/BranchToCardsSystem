@@ -14,8 +14,12 @@ namespace Branch_System.Errors
         //Error While Executing a query to DB
         public static string Error002 = "خطأ رقم 002, الرجاء الإتصال بمدير النظام";
 
-
+        //Recharge Error
+        //Connectiong to Recharche table
         public static string Error010 = "خطأ رقم 010و لا يمكن استرجاع بيانات السنة المالية او القيمة المتاحة";
+        //Recharge and Issuense is not active
+        public static string Error011 = "خطأ رقم 011, الشحن و الإصدار غير متاح";
+
     }
 
 }

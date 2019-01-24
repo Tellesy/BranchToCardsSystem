@@ -11,9 +11,10 @@ namespace Branch_System.Database
     {
         public static string year;
         public static int amount;
+        public static string active;
 
 
-        private static Status CheckYear()
+        public static Status CheckYear()
         {
             Status status = new Status();
             status.status = false;
@@ -25,9 +26,7 @@ namespace Branch_System.Database
 
             if (conn.State == System.Data.ConnectionState.Open)
             {
-                string query = @"SELECT TOP 1 [Year]
-                            ,[Amount]
-                            FROM [newDB].[dbo].[Year]";
+                string query = @"SELECT * FROM [newDB].[dbo].[Year]";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -40,6 +39,26 @@ namespace Branch_System.Database
                             status.message = Errors.ErrorsString.Error010;
 
                             return status;
+
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            { 
+                                year = reader[0].ToString();
+                                amount = int.Parse(reader[1].ToString());
+                                active = reader[2].ToString();
+
+                                if (active != "True")
+                                {
+                                    status.status = false;
+                                    status.message = Errors.ErrorsString.Error011;
+                                    return status;
+                                }
+
+                                status.status = true;
+                                return status;
+                              }
 
                         }
                     }

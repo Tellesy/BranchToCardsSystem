@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Branch_System.Database;
+using Branch_System.Main;
 
 namespace Branch_System.Login
 {
@@ -37,7 +38,7 @@ namespace Branch_System.Login
                 {
                    // MessageBox.Show("Welcome " + Database.Login.username + " ");
                     this.Hide();
-                    Application app = new Application();
+                    Branch_System.Main.Main app = new Branch_System.Main.Main();
                     app.Closed += (s, args) => this.Show();
                     app.Show();
                    

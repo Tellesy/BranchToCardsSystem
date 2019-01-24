@@ -61,6 +61,7 @@ namespace Branch_System.Database
                             role = reader[4].ToString();
                             branch = reader[5].ToString();
 
+                            
                         }
 
                         if(active != "True")
