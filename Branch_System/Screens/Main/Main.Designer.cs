@@ -31,34 +31,36 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Name_LBL = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Status_LBL = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Year_LBL = new System.Windows.Forms.Label();
             this.Amount_LBL = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Year_LBL = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Status_LBL = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Start_BTN = new System.Windows.Forms.Button();
+            this.Branch_LBL = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label1.Location = new System.Drawing.Point(370, 19);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label1.Location = new System.Drawing.Point(386, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 26);
+            this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "مرحباً ";
             // 
             // Name_LBL
             // 
             this.Name_LBL.AutoSize = true;
-            this.Name_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.Name_LBL.Location = new System.Drawing.Point(136, 19);
+            this.Name_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Name_LBL.Location = new System.Drawing.Point(152, 9);
             this.Name_LBL.Name = "Name_LBL";
-            this.Name_LBL.Size = new System.Drawing.Size(27, 26);
+            this.Name_LBL.Size = new System.Drawing.Size(20, 20);
             this.Name_LBL.TabIndex = 1;
             this.Name_LBL.Text = "X";
             // 
@@ -74,46 +76,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(193, 127);
             this.panel1.TabIndex = 2;
-            // 
-            // Status_LBL
-            // 
-            this.Status_LBL.AutoSize = true;
-            this.Status_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Status_LBL.Location = new System.Drawing.Point(10, 11);
-            this.Status_LBL.Name = "Status_LBL";
-            this.Status_LBL.Size = new System.Drawing.Size(20, 20);
-            this.Status_LBL.TabIndex = 4;
-            this.Status_LBL.Text = "X";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label3.Location = new System.Drawing.Point(54, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "حالة الشحن و الإصدار";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label2.Location = new System.Drawing.Point(152, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "السنة";
-            // 
-            // Year_LBL
-            // 
-            this.Year_LBL.AutoSize = true;
-            this.Year_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Year_LBL.Location = new System.Drawing.Point(10, 48);
-            this.Year_LBL.Name = "Year_LBL";
-            this.Year_LBL.Size = new System.Drawing.Size(20, 20);
-            this.Year_LBL.TabIndex = 6;
-            this.Year_LBL.Text = "X";
             // 
             // Amount_LBL
             // 
@@ -134,6 +96,46 @@
             this.label5.Size = new System.Drawing.Size(75, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "سقف الشحن";
+            // 
+            // Year_LBL
+            // 
+            this.Year_LBL.AutoSize = true;
+            this.Year_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Year_LBL.Location = new System.Drawing.Point(10, 48);
+            this.Year_LBL.Name = "Year_LBL";
+            this.Year_LBL.Size = new System.Drawing.Size(20, 20);
+            this.Year_LBL.TabIndex = 6;
+            this.Year_LBL.Text = "X";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label2.Location = new System.Drawing.Point(152, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "السنة";
+            // 
+            // Status_LBL
+            // 
+            this.Status_LBL.AutoSize = true;
+            this.Status_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Status_LBL.Location = new System.Drawing.Point(10, 11);
+            this.Status_LBL.Name = "Status_LBL";
+            this.Status_LBL.Size = new System.Drawing.Size(20, 20);
+            this.Status_LBL.TabIndex = 4;
+            this.Status_LBL.Text = "X";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label3.Location = new System.Drawing.Point(54, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "حالة الشحن و الإصدار";
             // 
             // label4
             // 
@@ -157,11 +159,33 @@
             this.Start_BTN.UseVisualStyleBackColor = true;
             this.Start_BTN.Click += new System.EventHandler(this.Start_BTN_Click);
             // 
+            // Branch_LBL
+            // 
+            this.Branch_LBL.AutoSize = true;
+            this.Branch_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Branch_LBL.Location = new System.Drawing.Point(152, 33);
+            this.Branch_LBL.Name = "Branch_LBL";
+            this.Branch_LBL.Size = new System.Drawing.Size(20, 20);
+            this.Branch_LBL.TabIndex = 6;
+            this.Branch_LBL.Text = "X";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label7.Location = new System.Drawing.Point(368, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 20);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "رقم الفرع";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 202);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.Branch_LBL);
             this.Controls.Add(this.Start_BTN);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
@@ -190,5 +214,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Start_BTN;
+        private System.Windows.Forms.Label Branch_LBL;
+        private System.Windows.Forms.Label label7;
     }
 }

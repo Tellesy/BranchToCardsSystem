@@ -51,10 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs">
+    <Compile Include="Database\Issue.cs" />
+    <Compile Include="Screens\Application\Application.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application.Designer.cs">
+    <Compile Include="Screens\Application\Application.Designer.cs">
       <DependentUpon>Application.cs</DependentUpon>
     </Compile>
     <Compile Include="BranchSystem.cs" />
@@ -70,27 +71,36 @@
     <Compile Include="Database\Status.cs" />
     <Compile Include="Errors\Errors.cs" />
     <Compile Include="ExcelFileManager.cs" />
-    <Compile Include="Login\Login.cs">
+    <Compile Include="Screens\Issue\Issue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Login.Designer.cs">
+    <Compile Include="Screens\Issue\Issue.Designer.cs">
+      <DependentUpon>Issue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Main.cs">
+    <Compile Include="Screens\Main\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\Main.Designer.cs">
+    <Compile Include="Screens\Main\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Application.resx">
+    <EmbeddedResource Include="Screens\Application\Application.resx">
       <DependentUpon>Application.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\Login.resx">
+    <EmbeddedResource Include="Screens\Issue\Issue.resx">
+      <DependentUpon>Issue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Main.resx">
+    <EmbeddedResource Include="Screens\Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -132,6 +142,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Screens\PIN\" />
+    <Folder Include="Screens\Recharge\" />
+    <Folder Include="Screens\ReIssue\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

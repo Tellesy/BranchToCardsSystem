@@ -25,11 +25,9 @@ namespace Branch_System.Main
             CheckStatus();
 
             Name_LBL.Text = Database.Login.name;
+            Branch_LBL.Text = Database.Login.branch;
             Amount_LBL.Text = Database.Recharge.amount.ToString();
             Year_LBL.Text = Database.Recharge.year;
-
-
-
 
         }
 

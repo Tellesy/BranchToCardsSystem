@@ -309,6 +309,7 @@
             this.Back_BTN.TabIndex = 24;
             this.Back_BTN.Text = "رجوع";
             this.Back_BTN.UseVisualStyleBackColor = true;
+            this.Back_BTN.Click += new System.EventHandler(this.Back_BTN_Click);
             // 
             // label13
             // 
@@ -393,7 +394,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CardNo_TXT);
             this.Name = "Application";
-            this.Text = "Form1";
+            this.Text = "الإصدار و الشحن";
             this.Load += new System.EventHandler(this.Application_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

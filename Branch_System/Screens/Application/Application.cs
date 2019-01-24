@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Branch_System.Database;
 
 namespace Branch_System
 {
@@ -19,8 +20,8 @@ namespace Branch_System
         private static string PO_Begin_Date;
         private static string PO_EXP_Date;
         private static string Account_EXP_Date;
-        private static readonly int year = 2018;
-        private static readonly int AlrafiqLimit = 10000;
+        private static readonly int year = int.Parse(Database.Recharge.year);
+        private static readonly int AlrafiqLimit = Database.Recharge.amount;
         
 
 
@@ -714,6 +715,11 @@ namespace Branch_System
             {
                 NIDUpdate_BTN.Enabled = true;
             }
+        }
+
+        private void Back_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     }
