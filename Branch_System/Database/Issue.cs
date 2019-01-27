@@ -423,9 +423,12 @@ namespace Branch_System.Database
                             }
                             if (oldNumber != "")
                             {
-                                SqlCommand cmd2 = new SqlCommand("UPDATE CARDS SET Active = 0 WHERE Card_Number = @value ", conn);
+                                conn.Close();
+                                conn.Open();
+                                SqlCommand cmd2 = new SqlCommand("UPDATE Cards SET Active = 0 WHERE Card_Number = @value ", conn);
                                 cmd2.Parameters.AddWithValue("@value", oldNumber);
                                 cmd2.ExecuteNonQuery();
+                                conn.Close();
 
                             }
                         }
@@ -433,6 +436,7 @@ namespace Branch_System.Database
 
                     }
 
+                    conn.Open();
                     SqlCommand cmd3 = new SqlCommand("INSERT INTO Cards (Card_Account,Card_Number,Active) " +
                                         "VALUES (@value1, @value2,1)", conn);
                     cmd3.Parameters.AddWithValue("@value1", Card_Account);

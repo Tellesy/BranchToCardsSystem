@@ -150,16 +150,16 @@ namespace Branch_System.Screens
         private void AccountUSD_TXT_Leave(object sender, EventArgs e)
         {
             
-            if (AccountUSD_TXT.Text.Length >= 7)
-            {
-                Status<Customer> customer = Database.Issue.getCustomer(AccountUSD_TXT.Text.Substring(0, 7));
+            //if (AccountUSD_TXT.Text.Length >= 7)
+            //{
+            //    Status<Customer> customer = Database.Issue.getCustomer(AccountUSD_TXT.Text.Substring(0, 7));
 
-                if (!customer.status)
-                {
-                    MessageBox.Show(customer.message);
-                }
+            //    if (!customer.status)
+            //    {
+            //        MessageBox.Show(customer.message);
+            //    }
 
-            }
+            //}
         }
 
         private void IssueAndRecharege()
@@ -349,7 +349,7 @@ namespace Branch_System.Screens
                 }
 
                 AddToFile("I");
-                //Update Customer Info if Flag = ture
+
                 Database.Status CAFStatus = Database.CAF.addCAF(CardNumber, CardNumber, SheetManager.Account_EXP_Date, Product);
                 if (!CAFStatus.status)
                 {
@@ -370,7 +370,7 @@ namespace Branch_System.Screens
                 {
                     MessageBox.Show("Error in Adding to PO table\n" + POStatus.message);
                 }
-
+                //Update Customer Info if Flag = ture
                 if (UpdateInfoFlag)
                 {
                     Customer customer = new Customer();

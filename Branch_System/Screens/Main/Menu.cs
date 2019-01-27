@@ -15,6 +15,7 @@ namespace Branch_System.Screens
     {
         private Issue issueApp;
         private Recharge recargeApp;
+        private ReIssue reIssueApp;
 
         public Menu()
         {
@@ -92,6 +93,26 @@ namespace Branch_System.Screens
             {
 
             }
+        }
+
+        private void Reissue_BTN_Click(object sender, EventArgs e)
+        {
+            if (reIssueApp == null)
+            {
+                reIssueApp = new ReIssue();
+                reIssueApp.Closed += (s, args) => { reIssueApp.UnlockRecord(); reIssueApp = null; Reissue_BTN.Enabled = true; };
+                reIssueApp.Show();
+                Reissue_BTN.Enabled = false;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void PIN_BTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

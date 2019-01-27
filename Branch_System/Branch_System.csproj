@@ -75,6 +75,12 @@
     <Compile Include="Database\Recharge.cs" />
     <Compile Include="Database\Status.cs" />
     <Compile Include="Errors\Errors.cs" />
+    <Compile Include="Screens\PIN\PIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PIN\PIN.Designer.cs">
+      <DependentUpon>PIN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Recharge\Recharge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     <EmbeddedResource Include="Screens\Main\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PIN\PIN.resx">
+      <DependentUpon>PIN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Recharge\Recharge.resx">
       <DependentUpon>Recharge.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,8 +174,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Screens\PIN\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

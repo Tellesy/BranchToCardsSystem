@@ -47,9 +47,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CustomerName_TXT = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Amount_TXT = new System.Windows.Forms.TextBox();
             this.Back_BTN = new System.Windows.Forms.Button();
             this.Submit_BTN = new System.Windows.Forms.Button();
+            this.Amount_TXT = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label11
@@ -236,15 +236,6 @@
             this.label9.TabIndex = 43;
             this.label9.Text = "قيمة الشحن بالدولار";
             // 
-            // Amount_TXT
-            // 
-            this.Amount_TXT.Enabled = false;
-            this.Amount_TXT.Location = new System.Drawing.Point(234, 520);
-            this.Amount_TXT.MaxLength = 5;
-            this.Amount_TXT.Name = "Amount_TXT";
-            this.Amount_TXT.Size = new System.Drawing.Size(141, 20);
-            this.Amount_TXT.TabIndex = 11;
-            // 
             // Back_BTN
             // 
             this.Back_BTN.Location = new System.Drawing.Point(12, 595);
@@ -265,6 +256,15 @@
             this.Submit_BTN.Text = "إضافة";
             this.Submit_BTN.UseVisualStyleBackColor = true;
             this.Submit_BTN.Click += new System.EventHandler(this.Submit_BTN_Click);
+            // 
+            // Amount_TXT
+            // 
+            this.Amount_TXT.Enabled = false;
+            this.Amount_TXT.Location = new System.Drawing.Point(234, 520);
+            this.Amount_TXT.MaxLength = 5;
+            this.Amount_TXT.Name = "Amount_TXT";
+            this.Amount_TXT.Size = new System.Drawing.Size(141, 20);
+            this.Amount_TXT.TabIndex = 11;
             // 
             // Issue
             // 
@@ -321,8 +321,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox CustomerName_TXT;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox Amount_TXT;
         private System.Windows.Forms.Button Back_BTN;
         private System.Windows.Forms.Button Submit_BTN;
+        private System.Windows.Forms.TextBox Amount_TXT;
     }
 }

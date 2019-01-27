@@ -252,8 +252,8 @@ namespace Branch_System.Database
             {
                 try
                 {
-                    string query = @"INSERT INTO Recharge (Customer_ID, NID, Amount, Product, R_Year,Inputter) " +
-                 "VALUES (@value1, @value2, @value3, @value4, @value5,@value6)";
+                    string query = @"INSERT INTO Recharge (Customer_ID, NID, Amount, Product, R_Year,Inputter,Branch) " +
+                 "VALUES (@value1, @value2, @value3, @value4, @value5,@value6,@value7)";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@value1", Customer_ID);
@@ -262,6 +262,8 @@ namespace Branch_System.Database
                     cmd.Parameters.AddWithValue("@value4", Product);
                     cmd.Parameters.AddWithValue("@value5", year);
                     cmd.Parameters.AddWithValue("@value6", int.Parse(Login.id));
+                    cmd.Parameters.AddWithValue("@value7", int.Parse(Login.branch));
+
                     cmd.ExecuteNonQuery();
                     conn.Close();
 

@@ -184,6 +184,7 @@
             this.Reissue_BTN.TabIndex = 15;
             this.Reissue_BTN.Text = "إعادة إصدار";
             this.Reissue_BTN.UseVisualStyleBackColor = true;
+            this.Reissue_BTN.Click += new System.EventHandler(this.Reissue_BTN_Click);
             // 
             // PIN_BTN
             // 
@@ -195,6 +196,7 @@
             this.PIN_BTN.TabIndex = 16;
             this.PIN_BTN.Text = "إصدار رقم سري";
             this.PIN_BTN.UseVisualStyleBackColor = true;
+            this.PIN_BTN.Click += new System.EventHandler(this.PIN_BTN_Click);
             // 
             // Logout_BTN
             // 

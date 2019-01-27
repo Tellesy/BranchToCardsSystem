@@ -91,9 +91,6 @@ namespace Branch_System.Database
                 return status;
             }
 
-
-
-            return status;
         }
     }
 }
