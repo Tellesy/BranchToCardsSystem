@@ -1,4 +1,4 @@
-﻿namespace Branch_System.Screens.Issue
+﻿namespace Branch_System.Screens
 {
     partial class Issue
     {
@@ -46,7 +46,6 @@
             this.NID_TXT = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CustomerName_TXT = new System.Windows.Forms.TextBox();
-            this.NIDUpdate_BTN = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.Amount_TXT = new System.Windows.Forms.TextBox();
             this.Back_BTN = new System.Windows.Forms.Button();
@@ -125,6 +124,7 @@
             // 
             // Passport
             // 
+            this.Passport.Enabled = false;
             this.Passport.Location = new System.Drawing.Point(142, 332);
             this.Passport.MaxLength = 8;
             this.Passport.Name = "Passport";
@@ -148,6 +148,7 @@
             this.PhoneNo_TXT.Name = "PhoneNo_TXT";
             this.PhoneNo_TXT.Size = new System.Drawing.Size(233, 20);
             this.PhoneNo_TXT.TabIndex = 10;
+            this.PhoneNo_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNo_TXT_KeyPress);
             // 
             // label7
             // 
@@ -166,6 +167,7 @@
             this.BirthDate_TXT.Name = "BirthDate_TXT";
             this.BirthDate_TXT.Size = new System.Drawing.Size(233, 20);
             this.BirthDate_TXT.TabIndex = 9;
+            this.BirthDate_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BirthDate_TXT_KeyPress);
             // 
             // label6
             // 
@@ -184,6 +186,9 @@
             this.AccountUSD_TXT.Name = "AccountUSD_TXT";
             this.AccountUSD_TXT.Size = new System.Drawing.Size(233, 20);
             this.AccountUSD_TXT.TabIndex = 4;
+            this.AccountUSD_TXT.TextChanged += new System.EventHandler(this.AccountUSD_TXT_TextChanged);
+            this.AccountUSD_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AccountUSD_TXT_KeyPress);
+            this.AccountUSD_TXT.Leave += new System.EventHandler(this.AccountUSD_TXT_Leave);
             // 
             // label5
             // 
@@ -202,6 +207,7 @@
             this.NID_TXT.Name = "NID_TXT";
             this.NID_TXT.Size = new System.Drawing.Size(233, 20);
             this.NID_TXT.TabIndex = 6;
+            this.NID_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NID_TXT_KeyPress);
             // 
             // label4
             // 
@@ -220,16 +226,6 @@
             this.CustomerName_TXT.Name = "CustomerName_TXT";
             this.CustomerName_TXT.Size = new System.Drawing.Size(233, 20);
             this.CustomerName_TXT.TabIndex = 5;
-            // 
-            // NIDUpdate_BTN
-            // 
-            this.NIDUpdate_BTN.Enabled = false;
-            this.NIDUpdate_BTN.Location = new System.Drawing.Point(32, 275);
-            this.NIDUpdate_BTN.Name = "NIDUpdate_BTN";
-            this.NIDUpdate_BTN.Size = new System.Drawing.Size(89, 36);
-            this.NIDUpdate_BTN.TabIndex = 7;
-            this.NIDUpdate_BTN.Text = "إضافة\\تعديل الرقم الوطني";
-            this.NIDUpdate_BTN.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -257,6 +253,7 @@
             this.Back_BTN.TabIndex = 13;
             this.Back_BTN.Text = "رجوع";
             this.Back_BTN.UseVisualStyleBackColor = true;
+            this.Back_BTN.Click += new System.EventHandler(this.Back_BTN_Click);
             // 
             // Submit_BTN
             // 
@@ -267,6 +264,7 @@
             this.Submit_BTN.TabIndex = 12;
             this.Submit_BTN.Text = "إضافة";
             this.Submit_BTN.UseVisualStyleBackColor = true;
+            this.Submit_BTN.Click += new System.EventHandler(this.Submit_BTN_Click);
             // 
             // Issue
             // 
@@ -277,7 +275,6 @@
             this.Controls.Add(this.Submit_BTN);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Amount_TXT);
-            this.Controls.Add(this.NIDUpdate_BTN);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.Passport);
             this.Controls.Add(this.label8);
@@ -323,7 +320,6 @@
         private System.Windows.Forms.TextBox NID_TXT;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox CustomerName_TXT;
-        private System.Windows.Forms.Button NIDUpdate_BTN;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox Amount_TXT;
         private System.Windows.Forms.Button Back_BTN;

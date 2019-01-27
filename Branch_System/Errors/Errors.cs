@@ -19,6 +19,8 @@ namespace Branch_System.Errors
         public static string Error010 = "خطأ رقم 010و لا يمكن استرجاع بيانات السنة المالية او القيمة المتاحة";
         //Recharge and Issuense is not active
         public static string Error011 = "خطأ رقم 011, الشحن و الإصدار غير متاح";
+        //No Customer in DB
+        public static string Error012 = "لا يوجد زبون بهذا الرقم في قاعدة البيانات.يمكنك الإستمرار و لكن لتخزين بيانات هذا الزبون تأكد من صحة بياناته";
 
     }
 

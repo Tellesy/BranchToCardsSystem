@@ -188,7 +188,7 @@ namespace Branch_System
             Cards.Add(BirthDate_TXT.Text);
             Cards.Add("Email");
 
-            ExcelFileManager.AddToExcelSheet(Cards,ProductCode,sheet);
+            SheetManager.AddToExcelSheet(Cards,ProductCode,sheet);
         }
         private void Application_Load(object sender, EventArgs e)
         {
@@ -205,8 +205,8 @@ namespace Branch_System
                     Console.WriteLine("That path exists already.");
 
                     //Crate Excel Export file for each product
-                    ExcelFileManager.CreateExcelSheet("10");
-                    ExcelFileManager.CreateExcelSheet("30");
+                    SheetManager.CreateExcelSheet("10");
+                    SheetManager.CreateExcelSheet("30");
 
 
                     return;
@@ -219,8 +219,8 @@ namespace Branch_System
                     Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
 
                     //Crate Excel Export file for each product
-                    ExcelFileManager.CreateExcelSheet("10");
-                    ExcelFileManager.CreateExcelSheet("30");
+                    SheetManager.CreateExcelSheet("10");
+                    SheetManager.CreateExcelSheet("30");
 
                 }
 

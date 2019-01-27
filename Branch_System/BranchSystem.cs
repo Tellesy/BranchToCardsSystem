@@ -138,8 +138,8 @@ namespace Branch_System
             }
 
             return HasCardAccount;
-
         }
+
         public static void createCardAccount(string Card_Account, string Customer_Account, string Customer_ID,string NID,string Product_Code)
         {
 

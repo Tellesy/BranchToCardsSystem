@@ -1,4 +1,4 @@
-﻿namespace Branch_System.Login
+﻿namespace Branch_System.Screens
 {
     partial class Login
     {

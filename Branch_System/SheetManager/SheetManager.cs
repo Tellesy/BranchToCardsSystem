@@ -9,10 +9,94 @@ using OfficeOpenXml;
 
 namespace Branch_System
 {
-   public static class ExcelFileManager
+   public static class SheetManager
     {
-
         private static string TodayFile;
+        private static string FilePath = @"c:\BranchToCards";
+        private static string[] Products = {"10", "30"};
+        public static string PO_EXP_Date;
+        public static string Account_EXP_Date;
+        public static string PO_Begin_Date;
+
+
+        private static void setDate()
+        {
+            int m = DateTime.Today.Month + 1;
+            int y = DateTime.Today.Year;
+
+            if (m > 12)
+            {
+                m = m - 12;
+                y = y + 3;
+            }
+            else
+            {
+                y = y + 2;
+            }
+
+            string year = y.ToString().Substring(2);
+
+
+            string month = m.ToString();
+            if (m < 10)
+            {
+                month = "0" + month;
+            }
+
+            PO_EXP_Date = month + year;
+            Account_EXP_Date = year + month;
+            PO_Begin_Date = "1118";
+
+
+        }
+
+        public static void CreateFile()
+        {
+            setDate();
+            //Create direcotry
+            string path = FilePath;
+
+
+            try
+            {
+                // Determine whether the directory exists.
+                if (Directory.Exists(path))
+                {
+                    Console.WriteLine("That path exists already.");
+
+                    //Crate Excel Export file for each product
+                    for(int i = 0; i <= Products.Count<string>(); i++)
+                    {
+                        SheetManager.CreateExcelSheet(Products[i]);
+
+                    }
+
+                    return;
+                }
+                else
+                {
+
+                    // Try to create the directory.
+                    DirectoryInfo di = Directory.CreateDirectory(path);
+                    Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
+
+                    //Crate Excel Export file for each product
+                    for (int i = 0; i <= Products.Count<string>(); i++)
+                    {
+                        SheetManager.CreateExcelSheet(Products[i]);
+
+                    }
+
+                }
+
+            }
+            catch (Exception e1)
+            {
+                Console.WriteLine("The process failed: {0}", e1.ToString());
+                //MessageBox.Show("خطأ في النظام, الرجاء التواصل مع المطور" + "\nThe process failed:" + e1.ToString());
+            }
+            finally { }
+        }
 
         public static void CreateExcelSheet(string Product)
         {
@@ -113,6 +197,8 @@ namespace Branch_System
                     cn.Close();
             }
         }
+
+
     }
 
 }

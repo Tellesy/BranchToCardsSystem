@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Branch_System.Database;
-using Branch_System.Main;
 
-namespace Branch_System.Login
+
+namespace Branch_System.Screens
 {
     public partial class Login : Form
     {
@@ -38,7 +38,7 @@ namespace Branch_System.Login
                 {
                    // MessageBox.Show("Welcome " + Database.Login.username + " ");
                     this.Hide();
-                    Branch_System.Main.Main app = new Branch_System.Main.Main();
+                    Menu app = new Menu();
                     app.Closed += (s, args) => this.Show();
                     app.Show();
                    

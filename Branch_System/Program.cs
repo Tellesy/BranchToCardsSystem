@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Branch_System;
+using Branch_System.Screens;
 namespace Branch_System
 {
     static class Program
@@ -16,7 +16,7 @@ namespace Branch_System
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            System.Windows.Forms.Application.Run(new Login.Login());
+            System.Windows.Forms.Application.Run(new Login());
         }
     }
 }
