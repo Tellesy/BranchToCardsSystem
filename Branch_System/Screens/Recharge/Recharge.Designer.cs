@@ -237,6 +237,7 @@
             this.Controls.Add(this.NID_TXT);
             this.Name = "Recharge";
             this.Text = "الشحن";
+            this.Load += new System.EventHandler(this.Recharge_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

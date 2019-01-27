@@ -295,6 +295,7 @@
             this.Controls.Add(this.Product_CBox);
             this.Name = "Issue";
             this.Text = "الإصدار";
+            this.Load += new System.EventHandler(this.Issue_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

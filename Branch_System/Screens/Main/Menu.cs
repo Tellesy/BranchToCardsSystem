@@ -16,6 +16,7 @@ namespace Branch_System.Screens
         private Issue issueApp;
         private Recharge recargeApp;
         private ReIssue reIssueApp;
+        private PIN pin;
 
         public Menu()
         {
@@ -112,7 +113,17 @@ namespace Branch_System.Screens
 
         private void PIN_BTN_Click(object sender, EventArgs e)
         {
+            if (pin == null)
+            {
+                pin = new PIN();
+                pin.Closed += (s, args) => {  pin = null; PIN_BTN.Enabled = true; };
+                pin.Show();
+                PIN_BTN.Enabled = false;
+            }
+            else
+            {
 
+            }
         }
     }
 }

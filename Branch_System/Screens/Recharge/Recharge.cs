@@ -400,6 +400,13 @@ namespace Branch_System.Screens
                 e.Handled = true;
             }
         }
+
+        private void Recharge_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+        }
     }
 
    

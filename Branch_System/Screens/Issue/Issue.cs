@@ -534,5 +534,12 @@ namespace Branch_System.Screens
         {
             Database.Issue.unlockSequences(CardNumber);
         }
+
+        private void Issue_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+        }
     }
 }

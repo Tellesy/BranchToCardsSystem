@@ -348,7 +348,7 @@ namespace Branch_System.Screens
         private void NID_TXT_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-(e.KeyChar != '.'))
+            (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
