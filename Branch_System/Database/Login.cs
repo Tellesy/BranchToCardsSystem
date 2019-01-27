@@ -36,7 +36,7 @@ namespace Branch_System.Database
                               ,[LIB_ID]
                               ,[Role]
                               ,[Branch]
-                          FROM [newDB].[dbo].[Users] WHERE Username = '{0}' AND Password = '{1}'",username,password);
+                          FROM [Users] WHERE Username = '{0}' AND Password = '{1}'",username,password);
 
                 try
                 {

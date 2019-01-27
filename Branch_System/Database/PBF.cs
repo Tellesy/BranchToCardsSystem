@@ -22,7 +22,7 @@ namespace Branch_System.Database
             {
                 try
                 {
-                    string query = @"INSERT INTO [dbo].[PBF] ([Card_Account],[Balance] ,[Inputter])
+                    string query = @"INSERT INTO [PBF] ([Card_Account],[Balance] ,[Inputter])
                      VALUES (@v1, @v2, @v3)";
 
                     SqlCommand cmd = new SqlCommand(query, conn);

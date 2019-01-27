@@ -75,6 +75,18 @@
     <Compile Include="Database\Recharge.cs" />
     <Compile Include="Database\Status.cs" />
     <Compile Include="Errors\Errors.cs" />
+    <Compile Include="Screens\AuthRecharge\AuthRecharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\AuthRecharge\AuthRecharge.Designer.cs">
+      <DependentUpon>AuthRecharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Main\BranchAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\BranchAdmin.Designer.cs">
+      <DependentUpon>BranchAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PIN\PIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,9 @@
     <EmbeddedResource Include="Screens\Application\Application.resx">
       <DependentUpon>Application.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AuthRecharge\AuthRecharge.resx">
+      <DependentUpon>AuthRecharge.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Issue\Issue.resx">
       <DependentUpon>Issue.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +147,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Screens\Main\BranchAdmin.resx">
+      <DependentUpon>BranchAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\Inputter.resx">
       <DependentUpon>Inputter.cs</DependentUpon>
     </EmbeddedResource>

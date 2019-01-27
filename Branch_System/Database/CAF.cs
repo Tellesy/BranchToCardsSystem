@@ -22,7 +22,7 @@ namespace Branch_System.Database
             {
                 try
                 {
-                    string query = @"INSERT INTO [dbo].[CAF]   
+                    string query = @"INSERT INTO [CAF]   
                     ([Card_Number],[Card_Account],[EXP_Date],[Product],[Inputter])
                      VALUES (@v1, @v2, @v3, @v4, @v5)";
 

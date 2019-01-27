@@ -21,7 +21,7 @@ namespace Branch_System.Database
 
             if (conn.State == System.Data.ConnectionState.Open)
             {
-                string query = @"SELECT TOP (1) [Card_Number] FROM [newDB].[dbo].[Sequences] where [Used] = 0 AND Locked = 0 AND [Product] = '"+Product+"' AND Branch = " + Login.branch;
+                string query = @"SELECT TOP (1) [Card_Number] FROM [Sequences] where [Used] = 0 AND Locked = 0 AND [Product] = '"+Product+"' AND Branch = " + Login.branch;
 
                 try
                 {
@@ -132,7 +132,6 @@ namespace Branch_System.Database
 
         }
 
-
         public static Status<Customer> getCustomer(string ID)
         {
             Status<Customer> statusObject = new Status<Customer>();
@@ -152,7 +151,7 @@ namespace Branch_System.Database
                               ,[Birthdate]
                               ,[Phone]
                               ,[NID]
-                          FROM [newDB].[dbo].[Customer] where [Customer_ID] = " + ID;
+                          FROM [Customer] where [Customer_ID] = " + ID;
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -215,7 +214,7 @@ namespace Branch_System.Database
 
             if (conn.State == System.Data.ConnectionState.Open)
             {
-                string query = "INSERT INTO [dbo].[Customer] ([Customer_ID],[Name],[Birthdate]"
+                string query = "INSERT INTO [Customer] ([Customer_ID],[Name],[Birthdate]"
                                         + ",[Phone],[NID])" +
                                          " VALUES (@value1,@value2,@value3,@value4,@value5)";
 
@@ -250,7 +249,6 @@ namespace Branch_System.Database
             }
 
         }
-
 
         public static Status hasCardAccount(string Customer_ID, string Product)
         {
@@ -435,7 +433,7 @@ namespace Branch_System.Database
 
 
                     }
-
+                    conn.Close();
                     conn.Open();
                     SqlCommand cmd3 = new SqlCommand("INSERT INTO Cards (Card_Account,Card_Number,Active) " +
                                         "VALUES (@value1, @value2,1)", conn);
