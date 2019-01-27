@@ -1,6 +1,6 @@
 ﻿namespace Branch_System.Screens
 {
-    partial class Menu
+    partial class Inputter
     {
         /// <summary>
         /// Required designer variable.
@@ -219,11 +219,12 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "مرحباً ";
             // 
-            // Menu
+            // Inputter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(296, 488);
+            this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Logout_BTN);
             this.Controls.Add(this.PIN_BTN);
@@ -234,8 +235,8 @@
             this.Controls.Add(this.Branch_LBL);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Name_LBL);
-            this.Name = "Menu";
-            this.Text = "Menu";
+            this.Name = "Inputter";
+            this.Text = "Inputter";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

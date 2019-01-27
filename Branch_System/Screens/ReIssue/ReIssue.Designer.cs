@@ -270,7 +270,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Product_CBox);
             this.Name = "ReIssue";
-            this.Text = "ReIssue";
+            this.Text = "إعادة إصدار بطاقة";
             this.Load += new System.EventHandler(this.ReIssue_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

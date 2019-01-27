@@ -38,7 +38,7 @@ namespace Branch_System.Screens
                 {
                    // MessageBox.Show("Welcome " + Database.Login.username + " ");
                     this.Hide();
-                    Menu app = new Menu();
+                    Inputter app = new Inputter();
                     app.Closed += (s, args) => this.Show();
                     app.Show();
                    

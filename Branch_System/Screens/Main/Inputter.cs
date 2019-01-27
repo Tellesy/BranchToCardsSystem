@@ -11,20 +11,24 @@ using Branch_System.Database;
 
 namespace Branch_System.Screens
 {
-    public partial class Menu : Form
+    public partial class Inputter : Form
     {
         private Issue issueApp;
         private Recharge recargeApp;
         private ReIssue reIssueApp;
         private PIN pin;
 
-        public Menu()
+        public Inputter()
         {
             InitializeComponent();
         }
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
             Status IssueStatus = Database.Recharge.checkYear();
 
             CheckStatus();
@@ -62,6 +66,16 @@ namespace Branch_System.Screens
 
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
+            if (issueApp != null)
+                issueApp.Close();
+            if (recargeApp != null)
+                recargeApp.Close();
+            if (reIssueApp != null)
+                reIssueApp.Close();
+            if (pin != null)
+                pin.Close();
+
+
             this.Close();
         }
 
