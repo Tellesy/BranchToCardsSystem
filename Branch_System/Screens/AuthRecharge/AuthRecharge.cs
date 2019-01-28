@@ -15,6 +15,8 @@ namespace Branch_System.Screens.AuthRecharge
 {
     public partial class AuthRecharge : Form
     {
+        private bool isBranchAdmin = true;
+        public List<Database.Objects.Recharge> records ;
 
         public AuthRecharge()
         {
@@ -27,7 +29,16 @@ namespace Branch_System.Screens.AuthRecharge
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
+            if(Database.Login.role == "0")
+            {
+                isBranchAdmin = false;
+            }
+            else
+            {
+                isBranchAdmin = true;
+            }
             GetUnAuthRecords();
+
         }
 
 
@@ -35,12 +46,13 @@ namespace Branch_System.Screens.AuthRecharge
         public void GetUnAuthRecords()
         {
             //Get un Auth recharge records
-            Status<List<Database.Objects.Recharge>> statusObject = Database.Recharge.getUnAuthRecharge(true);
+            records = null;
+            Status<List<Database.Objects.Recharge>> statusObject = Database.Recharge.getUnAuthRecharge(isBranchAdmin);
 
             if (statusObject.status)
             {
                 List<ViewList> viewLists = new List<ViewList>();
-                List<Database.Objects.Recharge> records = statusObject.Object;
+                 records = statusObject.Object;
                 for (int i = 0; i < records.Count; i++)
                 {
                     ViewList viewList = new ViewList();
@@ -74,6 +86,37 @@ namespace Branch_System.Screens.AuthRecharge
             public int Amount { get; set; }
             public string Product { get; set; }
             public int Branch { get; set; }
+        }
+
+        private void Record_DGView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
+
+        private void Sync_BTN_Click(object sender, EventArgs e)
+        {
+            GetUnAuthRecords();
+        }
+
+        private void Exit_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Record_DGView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow r = Record_DGView.SelectedRows[0];
+            Authorize authorize = new Authorize();
+            var q = records.Where(x => x.ID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
+
+            if(q.Count() > 0)
+            {
+                authorize.record = q[0];
+
+                authorize.Show();
+            }
+
         }
     }
 

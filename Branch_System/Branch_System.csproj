@@ -82,6 +82,12 @@
     <Compile Include="Screens\AuthRecharge\AuthRecharge.Designer.cs">
       <DependentUpon>AuthRecharge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\AuthRecharge\SubForms\Authorize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\AuthRecharge\SubForms\Authorize.Designer.cs">
+      <DependentUpon>Authorize.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Main\BranchAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\AuthRecharge\AuthRecharge.resx">
       <DependentUpon>AuthRecharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AuthRecharge\SubForms\Authorize.ar-LY.resx">
+      <DependentUpon>Authorize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\AuthRecharge\SubForms\Authorize.resx">
+      <DependentUpon>Authorize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Issue\Issue.resx">
       <DependentUpon>Issue.cs</DependentUpon>
