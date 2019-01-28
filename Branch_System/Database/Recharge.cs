@@ -98,7 +98,7 @@ namespace Branch_System.Database
             conn.Open();
             if (conn.State == System.Data.ConnectionState.Open)
             {
-                string query = @"SELECT SUM(AMOUNT) FROM [Recharge]  where [NID] = @value1 AND [Product] = @value2 AND [R_Year] = @value3";
+                string query = @"SELECT SUM(AMOUNT) FROM [Recharge]  where [NID] = @value1 AND [Authorized] = 1 AND [Product] = @value2 AND [R_Year] = @value3";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@value1",Int64.Parse(NID));
                 cmd.Parameters.AddWithValue("@value2",int.Parse(Product));
@@ -147,7 +147,7 @@ namespace Branch_System.Database
             conn.Open();
             if (conn.State == System.Data.ConnectionState.Open)
             {
-                string query = @"SELECT SUM(AMOUNT) FROM [Recharge]  where [NID] = @value1 AND [Product] = @value2";
+                string query = @"SELECT SUM(AMOUNT) FROM [Recharge]  where [NID] = @value1 AND [Authorized] = 1 AND [Product] = @value2";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@value1", Int64.Parse(NID));
                 cmd.Parameters.AddWithValue("@value2", int.Parse(Product));
