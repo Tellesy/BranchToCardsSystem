@@ -239,7 +239,7 @@ namespace Branch_System.Database
 
         }
 
-        public static Status recharge(string Customer_ID, string NID, int Recharge_Amount, string Product)
+        public static Status recharge(string Customer_ID, string NID, int Recharge_Amount, string Product, string CardAccount)
         {
             Status status = new Status();
             status.status = false;
@@ -252,8 +252,8 @@ namespace Branch_System.Database
             {
                 try
                 {
-                    string query = @"INSERT INTO Recharge (Customer_ID, NID, Amount, Product, R_Year,Inputter,Branch) " +
-                 "VALUES (@value1, @value2, @value3, @value4, @value5,@value6,@value7)";
+                    string query = @"INSERT INTO Recharge (Customer_ID, NID, Amount, Product, R_Year,Inputter,Branch,CardAccount) " +
+                                    "VALUES (@value1, @value2, @value3, @value4, @value5,@value6,@value7,@value8)";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@value1", Customer_ID);
@@ -263,6 +263,7 @@ namespace Branch_System.Database
                     cmd.Parameters.AddWithValue("@value5", year);
                     cmd.Parameters.AddWithValue("@value6", int.Parse(Login.id));
                     cmd.Parameters.AddWithValue("@value7", int.Parse(Login.branch));
+                    cmd.Parameters.AddWithValue("@value8", CardAccount);
 
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -306,11 +307,11 @@ namespace Branch_System.Database
 
                     if(branchFlag)
                     {
-                        query = @"SELECT [ID],[Customer_ID],[R_Year],[Product],[Amount],[Time] ,[NID] ,[Inputter] ,[Branch] FROM [Recharge] WHERE  [Authorized] = 0 AND [Branch] = @value1";
+                        query = @"SELECT [ID],[Customer_ID],[R_Year],[Product],[Amount],[Time] ,[NID] ,[Inputter] ,[Branch], [CardAccount] FROM [Recharge] WHERE  [Authorized] = 0 AND [Branch] = @value1";
                     }
                     else
                     {
-                        query = @"SELECT [ID],[Customer_ID],[R_Year],[Product],[Amount],[Time] ,[NID] ,[Inputter] ,[Branch] FROM [Recharge] WHERE  [Authorized] = 0";
+                        query = @"SELECT [ID],[Customer_ID],[R_Year],[Product],[Amount],[Time] ,[NID] ,[Inputter] ,[Branch], [CardAccount] FROM [Recharge] WHERE  [Authorized] = 0";
                     }
 
 
@@ -342,7 +343,7 @@ namespace Branch_System.Database
                             request.NID = reader[6].ToString();
                             request.Inputter = int.Parse(reader[7].ToString());
                             request.Branch = int.Parse(reader[8].ToString());
-
+                            request.CardAccount = reader[9].ToString();
                             statusObject.Object.Add(request);
                         }
                         statusObject.status = true;
@@ -367,6 +368,84 @@ namespace Branch_System.Database
             }
         }
 
+        public static Status deleteRecharge(int id)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "DELETE FROM [Recharge] WHERE ID = @v1";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@v1", id);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    status.status = false;
+                    status.message = "Recharge Record Delete" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
+
+        public static Status authRecharge(int id)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "UPDATE [Recharge] SET Authorizer = @v1 , Authorized = 1 WHERE ID = @v2";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@v1", Database.Login.id);
+                    cmd.Parameters.AddWithValue("@v2", id);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    status.status = false;
+                    status.message = "Rechage Auth (Update Auth)\n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
         //public static Status authRecharge()
         //{
 

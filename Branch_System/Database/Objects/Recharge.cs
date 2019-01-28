@@ -17,6 +17,7 @@ namespace Branch_System.Database.Objects
         public int Amount;
         public int Inputter;
         public int Branch;
+        public string CardAccount;
 
     }
 }

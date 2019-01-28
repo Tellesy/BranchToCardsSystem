@@ -148,7 +148,7 @@ namespace Branch_System.Screens
                     if (RechargeAmount <= Database.Recharge.amount)
                     {
                         //Add recharge to the records
-                        Database.Recharge.recharge(Customer_ID.Text, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product);
+                        Database.Recharge.recharge(Customer_ID.Text, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product, CardNo_TXT.Text);
 
                         //To add it BPF file
                         RechargeAmount = int.Parse(this.Amount_TXT.Text) + AmountTotal;
@@ -162,11 +162,11 @@ namespace Branch_System.Screens
                             AddToFile("RFirst");
                         }
 
-                        Database.Status PBFStatus = Database.PBF.addPBF(CardNo_TXT.Text, RechargeAmount);
-                        if (!PBFStatus.status)
-                        {
-                            MessageBox.Show("Error in Adding to PBF table\n" + PBFStatus.message);
-                        }
+                        //Database.Status PBFStatus = Database.PBF.addPBF(CardNo_TXT.Text, RechargeAmount);
+                        //if (!PBFStatus.status)
+                        //{
+                        //    MessageBox.Show("Error in Adding to PBF table\n" + PBFStatus.message);
+                        //}
 
                     }
                     else
@@ -178,7 +178,7 @@ namespace Branch_System.Screens
                 else
                 {
                     //Add recharge to the records
-                    Database.Recharge.recharge(Customer_ID.Text, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product);
+                    Database.Recharge.recharge(Customer_ID.Text, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product, CardNo_TXT.Text);
 
                     //To add it BPF file
                     RechargeAmount = int.Parse(this.Amount_TXT.Text) + AmountTotal;
@@ -193,11 +193,11 @@ namespace Branch_System.Screens
                         AddToFile("RFirst");
                     }
 
-                    Database.Status PBFStatus = Database.PBF.addPBF(CardNo_TXT.Text, RechargeAmount);
-                    if (!PBFStatus.status)
-                    {
-                        MessageBox.Show("Error in Adding to PBF table\n" + PBFStatus.message);
-                    }
+                    //Database.Status PBFStatus = Database.PBF.addPBF(CardNo_TXT.Text, RechargeAmount);
+                    //if (!PBFStatus.status)
+                    //{
+                    //    MessageBox.Show("Error in Adding to PBF table\n" + PBFStatus.message);
+                    //}
                 }
 
                 Submit_BTN.Enabled = false;

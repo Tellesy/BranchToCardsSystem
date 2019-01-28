@@ -62,8 +62,14 @@ namespace Branch_System.Screens
 
         private void Recharge_BTN_Click(object sender, EventArgs e)
         {
-            authRecharge = new AuthRecharge.AuthRecharge();
-            authRecharge.Show();
+            if (authRecharge == null)
+            {
+                authRecharge = new AuthRecharge.AuthRecharge();
+                authRecharge.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    authRecharge = null; Recharge_BTN.Enabled = true; };
+                authRecharge.Show();
+                Recharge_BTN.Enabled = false;
+            }
         }
     }
 }

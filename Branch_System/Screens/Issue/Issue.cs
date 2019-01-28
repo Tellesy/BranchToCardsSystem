@@ -229,7 +229,7 @@ namespace Branch_System.Screens
                             return;
                         }
 
-                        status = Database.Recharge.recharge(Customer_ID, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product);
+                        status = Database.Recharge.recharge(Customer_ID, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product, CardNumber);
                         if (!status.status)
                         {
                             MessageBox.Show(status.message);
@@ -258,11 +258,11 @@ namespace Branch_System.Screens
                             MessageBox.Show("Error in Adding to PO table\n" + POStatus.message);
                         }
 
-                        Database.Status PBFStatus = Database.PBF.addPBF(CardNumber, int.Parse(Amount_TXT.Text));
-                        if (!PBFStatus.status)
-                        {
-                            MessageBox.Show("Error in Adding to PBF table\n" + PBFStatus.message);
-                        }
+                        //Database.Status PBFStatus = Database.PBF.addPBF(CardNumber, int.Parse(Amount_TXT.Text));
+                        //if (!PBFStatus.status)
+                        //{
+                        //    MessageBox.Show("Error in Adding to PBF table\n" + PBFStatus.message);
+                        //}
                         //Update Customer Info if Flag = ture
                         if (UpdateInfoFlag)
                         {

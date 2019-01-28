@@ -46,6 +46,7 @@ namespace Branch_System.Screens.AuthRecharge
                 Product_LBL.Text = record.Product;
                 Inputter_LBL.Text = record.Inputter.ToString();
                 Amount_LBL.Text = record.Amount.ToString();
+                CardAccount_LBL.Text = record.CardAccount;
             }
         }
 
@@ -54,7 +55,23 @@ namespace Branch_System.Screens.AuthRecharge
             DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //do something
+                Database.Status status = Database.Recharge.authRecharge(record.ID);
+
+                if (status.status)
+                {
+                    Database.Status s =  Database.PBF.addPBF(record.CardAccount, record.Amount);
+                    if(!s.status)
+                    {
+                        MessageBox.Show(s.message);
+                    }
+                    MessageBox.Show("تم تخويل العملية بنجاح");
+                    record = null;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(status.message);
+                }
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -73,7 +90,18 @@ namespace Branch_System.Screens.AuthRecharge
             DialogResult dialogResult = MessageBox.Show("هل انت متأكد من إلغاء هذه العملية؟", "إلغاء العملية", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //do something
+               Database.Status status =  Database.Recharge.deleteRecharge(record.ID);
+
+                if(status.status)
+                {
+                    MessageBox.Show("تم إلغاء العملية بنجاح");
+                    record = null;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(status.message);
+                }
             }
             else if (dialogResult == DialogResult.No)
             {

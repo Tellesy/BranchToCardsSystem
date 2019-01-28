@@ -47,34 +47,52 @@ namespace Branch_System.Screens.AuthRecharge
         {
             //Get un Auth recharge records
             records = null;
+            List<ViewList> viewLists = new List<ViewList>();
             Status<List<Database.Objects.Recharge>> statusObject = Database.Recharge.getUnAuthRecharge(isBranchAdmin);
 
             if (statusObject.status)
             {
-                List<ViewList> viewLists = new List<ViewList>();
-                 records = statusObject.Object;
-                for (int i = 0; i < records.Count; i++)
+                if(statusObject.Object.Count > 0)
                 {
-                    ViewList viewList = new ViewList();
-                    viewList.id = records[i].ID;
-                    viewList.Customer_ID = records[i].Customer_ID;
-                    viewList.Nantional_ID = records[i].NID;
-                    viewList.Amount = records[i].Amount;
-                    viewList.Product = records[i].Product;
-                    viewList.Branch = records[i].Branch;
+                    records = statusObject.Object;
+                    for (int i = 0; i < records.Count; i++)
+                    {
+                        ViewList viewList = new ViewList();
+                        viewList.id = records[i].ID;
+                        viewList.Customer_ID = records[i].Customer_ID;
+                        viewList.Nantional_ID = records[i].NID;
+                        viewList.Amount = records[i].Amount;
+                        viewList.Product = records[i].Product;
+                        viewList.Branch = records[i].Branch;
+                        viewLists.Add(viewList);
+                    }
 
-                    //viewList.Name = "Nigga";
-                    // viewList.Customer_ID = statusObject.Object[i].Customer_ID;
-
-                    viewLists.Add(viewList);
                 }
+                else
+                {
+                     viewLists = null;
+                }
+                
                 Record_DGView.DataSource = viewLists;
+
                 Record_DGView.Columns[0].HeaderText = "id";
                 Record_DGView.Columns[1].HeaderText = "رقم الزبون";
                 Record_DGView.Columns[2].HeaderText = "الرقم الوطني";
                 Record_DGView.Columns[3].HeaderText = "القيمة";
                 Record_DGView.Columns[4].HeaderText = "المنتج";
                 Record_DGView.Columns[5].HeaderText = "الفرع";
+
+                if (records == null)
+                {
+                    Record_DGView.Rows.Clear();
+                    Record_DGView.DataSource = null;
+                    Record_DGView.Rows.Clear();
+                    while (Record_DGView.Rows.Count > 0)
+                    {
+                        Record_DGView.Rows.RemoveAt(0);
+                    }
+                    Record_DGView.Update();
+                }
             }
         }
 
@@ -108,14 +126,19 @@ namespace Branch_System.Screens.AuthRecharge
         {
             DataGridViewRow r = Record_DGView.SelectedRows[0];
             Authorize authorize = new Authorize();
-            var q = records.Where(x => x.ID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
-
-            if(q.Count() > 0)
+            if(records != null)
             {
-                authorize.record = q[0];
+                var q = records.Where(x => x.ID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
 
-                authorize.Show();
+                if (q.Count() > 0)
+                {
+                    this.Hide();
+                    authorize.record = q[0];
+                    authorize.Closed += (s, args) => { this.GetUnAuthRecords(); this.Show(); };
+                    authorize.Show();
+                }
             }
+
 
         }
     }

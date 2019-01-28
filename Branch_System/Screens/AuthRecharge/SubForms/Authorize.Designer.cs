@@ -46,6 +46,8 @@
             this.Accept_BTN = new System.Windows.Forms.Button();
             this.Deny_BTN = new System.Windows.Forms.Button();
             this.Exit_BTN = new System.Windows.Forms.Button();
+            this.CardAccount_LBL = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -140,11 +142,23 @@
             this.Exit_BTN.UseVisualStyleBackColor = true;
             this.Exit_BTN.Click += new System.EventHandler(this.Exit_BTN_Click);
             // 
+            // CardAccount_LBL
+            // 
+            resources.ApplyResources(this.CardAccount_LBL, "CardAccount_LBL");
+            this.CardAccount_LBL.Name = "CardAccount_LBL";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
             // Authorize
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ControlBox = false;
+            this.Controls.Add(this.CardAccount_LBL);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Deny_BTN);
             this.Controls.Add(this.Accept_BTN);
@@ -188,5 +202,7 @@
         private System.Windows.Forms.Button Accept_BTN;
         private System.Windows.Forms.Button Deny_BTN;
         private System.Windows.Forms.Button Exit_BTN;
+        private System.Windows.Forms.Label CardAccount_LBL;
+        private System.Windows.Forms.Label label9;
     }
 }
