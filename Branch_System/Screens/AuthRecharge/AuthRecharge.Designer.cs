@@ -29,21 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.branch_system1DataSet = new Branch_System.Branch_system1DataSet();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Record_DGView = new System.Windows.Forms.DataGridView();
+            this.branchsystem1DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 197);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 205);
-            this.dataGridView1.TabIndex = 0;
             // 
             // branch_system1DataSet
             // 
@@ -55,25 +50,53 @@
             this.branchsystem1DataSetBindingSource.DataSource = this.branch_system1DataSet;
             this.branchsystem1DataSetBindingSource.Position = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(22, 440);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // Record_DGView
+            // 
+            this.Record_DGView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Record_DGView.Location = new System.Drawing.Point(22, 181);
+            this.Record_DGView.Name = "Record_DGView";
+            this.Record_DGView.ReadOnly = true;
+            this.Record_DGView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Record_DGView.Size = new System.Drawing.Size(647, 229);
+            this.Record_DGView.TabIndex = 2;
+            // 
+            // branchsystem1DataSetBindingSource1
+            // 
+            this.branchsystem1DataSetBindingSource1.DataSource = this.branch_system1DataSet;
+            this.branchsystem1DataSetBindingSource1.Position = 0;
+            // 
             // AuthRecharge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(682, 492);
+            this.Controls.Add(this.Record_DGView);
+            this.Controls.Add(this.button1);
             this.Name = "AuthRecharge";
             this.Text = "تخويل طلبات الشحن";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.AuthRecharge_Load);
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private Branch_system1DataSet branch_system1DataSet;
         private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView Record_DGView;
+        private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource1;
     }
 }

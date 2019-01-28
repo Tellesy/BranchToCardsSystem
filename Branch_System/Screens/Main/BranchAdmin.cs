@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Branch_System.Database;
+using Branch_System.Screens;
+using Branch_System.Screens.AuthRecharge;
+
+
 using System.Windows.Forms;
 
 namespace Branch_System.Screens
 {
     public partial class BranchAdmin : Form
     {
+        public AuthRecharge.AuthRecharge authRecharge;
         public BranchAdmin()
         {
             InitializeComponent();
@@ -53,6 +58,12 @@ namespace Branch_System.Screens
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Recharge_BTN_Click(object sender, EventArgs e)
+        {
+            authRecharge = new AuthRecharge.AuthRecharge();
+            authRecharge.Show();
         }
     }
 }

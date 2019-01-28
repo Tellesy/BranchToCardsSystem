@@ -36,12 +36,18 @@ namespace Branch_System.Screens
             {
                 if(Database.Login.role == "0" || Database.Login.role == "1")
                 {
-                   // MessageBox.Show("Welcome " + Database.Login.username + " ");
                     this.Hide();
                     Inputter app = new Inputter();
                     app.Closed += (s, args) => this.Show();
                     app.Show();
                    
+                }
+                else if(Database.Login.role == "2")
+                {
+                    this.Hide();
+                    BranchAdmin adminApp = new BranchAdmin();
+                    adminApp.Closed += (s, args) => this.Show();
+                    adminApp.Show();
                 }
                 else
                     MessageBox.Show("لا تملك الصلاحيات للدخول الى هذا النظام");
@@ -50,6 +56,8 @@ namespace Branch_System.Screens
             {
                 MessageBox.Show(status.message);
             }
+
+
         }
     }
 }

@@ -170,7 +170,6 @@
             // 
             // Recharge_BTN
             // 
-            this.Recharge_BTN.Enabled = false;
             this.Recharge_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Recharge_BTN.Location = new System.Drawing.Point(45, 225);
             this.Recharge_BTN.Name = "Recharge_BTN";
@@ -178,6 +177,7 @@
             this.Recharge_BTN.TabIndex = 25;
             this.Recharge_BTN.Text = "تخويل طلبات الشحن";
             this.Recharge_BTN.UseVisualStyleBackColor = true;
+            this.Recharge_BTN.Click += new System.EventHandler(this.Recharge_BTN_Click);
             // 
             // BranchAdmin
             // 
