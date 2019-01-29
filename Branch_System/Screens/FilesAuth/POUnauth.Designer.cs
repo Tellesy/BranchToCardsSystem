@@ -1,6 +1,6 @@
 ﻿namespace Branch_System.Screens
 {
-    partial class POAuth
+    partial class POUnauth
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POAuth));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POUnauth));
             this.Exit_BTN = new System.Windows.Forms.Button();
             this.Sync_BTN = new System.Windows.Forms.Button();
             this.Record_DGView = new System.Windows.Forms.DataGridView();
@@ -72,7 +72,7 @@
             this.Record_DGView.TabIndex = 5;
             this.Record_DGView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Record_DGView_CellMouseDoubleClick);
             // 
-            // POAuth
+            // POUnauth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -81,8 +81,8 @@
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Sync_BTN);
             this.Controls.Add(this.Record_DGView);
-            this.Name = "POAuth";
-            this.Text = "POAuth";
+            this.Name = "POUnauth";
+            this.Text = "POUnauth";
             this.Load += new System.EventHandler(this.POAuth_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).EndInit();
             this.ResumeLayout(false);

@@ -13,11 +13,11 @@ using Branch_System.Screens.FilesAuth;
 
 namespace Branch_System.Screens
 {
-    public partial class POAuth : Form
+    public partial class POUnauth : Form
     {
 
         public List<Database.Objects.PObject> records;
-        public POAuth()
+        public POUnauth()
         {
             InitializeComponent();
         }
