@@ -41,7 +41,7 @@
             this.Exit_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Exit_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Exit_BTN.Location = new System.Drawing.Point(763, 494);
+            this.Exit_BTN.Location = new System.Drawing.Point(820, 498);
             this.Exit_BTN.Name = "Exit_BTN";
             this.Exit_BTN.Size = new System.Drawing.Size(80, 59);
             this.Exit_BTN.TabIndex = 7;
@@ -68,14 +68,15 @@
             this.Record_DGView.Name = "Record_DGView";
             this.Record_DGView.ReadOnly = true;
             this.Record_DGView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Record_DGView.Size = new System.Drawing.Size(826, 400);
+            this.Record_DGView.Size = new System.Drawing.Size(928, 400);
             this.Record_DGView.TabIndex = 5;
+            this.Record_DGView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Record_DGView_CellMouseDoubleClick);
             // 
             // POAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 565);
+            this.ClientSize = new System.Drawing.Size(957, 569);
             this.ControlBox = false;
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Sync_BTN);

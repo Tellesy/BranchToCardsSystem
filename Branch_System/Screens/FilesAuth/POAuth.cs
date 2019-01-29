@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Branch_System.Database;
 using Branch_System.Database.Objects;
-using Branch_System.Screens.AuthRecharge;
+using Branch_System.Screens.FilesAuth;
 
 namespace Branch_System.Screens
 {
@@ -41,34 +41,9 @@ namespace Branch_System.Screens
 
             if (statusObject.status)
             {
-                //if (statusObject.Object.Count > 0)
-                //{
-                //    records = statusObject.Object;
-                //    for (int i = 0; i < records.Count; i++)
-                //    {
-                //        PObject viewList = new PObject();
-                //        viewList.ID = records[i].ID;
-                //        viewList.Card_Number = records[i].Card_Number;
-                //        viewList.Name = records[i].Name;
-                //        viewList.Account = records[i].Account;
-                //        viewList.Process_Indicator = records[i].Process_Indicator;
-
-                //        viewLists.Add(viewList);
-                //    }
-
-                //}
-                //else
-                //{
-                //    viewLists = null;
-                //}
-
-                //Record_DGView.DataSource = viewLists;
+                records = statusObject.Object;
                 Record_DGView.DataSource = statusObject.Object;
                 //Record_DGView.Columns[0].HeaderText = "id";
-                //Record_DGView.Columns[1].HeaderText = "رقم الزبون";
-                //Record_DGView.Columns[2].HeaderText = "الرقم الوطني";
-                //Record_DGView.Columns[3].HeaderText = "القيمة";
-                //Record_DGView.Columns[4].HeaderText = "المنتج";
 
                 if (statusObject.Object == null)
                 {
@@ -77,9 +52,7 @@ namespace Branch_System.Screens
                     Record_DGView.Rows.Clear();
                     while (Record_DGView.Rows.Count > 0)
                     {
-
                         Record_DGView.Rows.RemoveAt(0);
-                        //Record_DGView.Rows.Add();
                     }
                     Record_DGView.Update();
                 }
@@ -94,6 +67,24 @@ namespace Branch_System.Screens
         private void Sync_BTN_Click(object sender, EventArgs e)
         {
             GetUnAuthRecords();
+        }
+
+        private void Record_DGView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow r = Record_DGView.SelectedRows[0];
+            AuthorizePO authorize = new AuthorizePO();
+            if (records != null)
+            {
+                var q = records.Where(x => x.ID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
+
+                if (q.Count() > 0)
+                {
+                    this.Hide();
+                    authorize.record = q[0];
+                    authorize.Closed += (s, args) => { this.GetUnAuthRecords(); this.Show(); };
+                    authorize.Show();
+                }
+            }
         }
     }
 }
