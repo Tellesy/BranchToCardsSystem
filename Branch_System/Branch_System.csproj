@@ -54,6 +54,7 @@
     <Compile Include="Database\CAF.cs" />
     <Compile Include="Database\Issue.cs" />
     <Compile Include="Database\Objects\Customer.cs" />
+    <Compile Include="Database\Objects\PObject.cs" />
     <Compile Include="Database\Objects\Recharge.cs" />
     <Compile Include="Database\Objects\Status.cs" />
     <Compile Include="Database\PBF.cs" />
@@ -87,6 +88,12 @@
     </Compile>
     <Compile Include="Screens\AuthRecharge\SubForms\Authorize.Designer.cs">
       <DependentUpon>Authorize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\POAuth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\POAuth.Designer.cs">
+      <DependentUpon>POAuth.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Main\Admin.cs">
       <SubType>Form</SubType>
@@ -150,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\AuthRecharge\SubForms\Authorize.resx">
       <DependentUpon>Authorize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\FilesAuth\POAuth.resx">
+      <DependentUpon>POAuth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Issue\Issue.resx">
       <DependentUpon>Issue.cs</DependentUpon>

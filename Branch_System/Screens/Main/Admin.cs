@@ -16,6 +16,7 @@ namespace Branch_System.Screens
     public partial class Admin : Form
     {
         private AuthRecharge.AuthRecharge unauthRecords;
+        private POAuth POApp;
         public Admin()
         {
             InitializeComponent();
@@ -71,6 +72,19 @@ namespace Branch_System.Screens
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void PO_Auth_BTN_Click(object sender, EventArgs e)
+        {
+            if (POApp == null)
+            {
+                POApp = new POAuth();
+                POApp.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    POApp = null; PO_Auth_BTN.Enabled = true;
+                };
+                POApp.Show();
+                PO_Auth_BTN.Enabled = false;
+            }
         }
     }
 }

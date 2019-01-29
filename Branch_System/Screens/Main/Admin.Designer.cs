@@ -43,7 +43,7 @@
             this.Logout_BTN = new System.Windows.Forms.Button();
             this.CAF_Auth_BTN = new System.Windows.Forms.Button();
             this.PBF_Auth_BTN = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.PO_Auth_BTN = new System.Windows.Forms.Button();
             this.PO_Gen_BTN = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -205,15 +205,16 @@
             this.PBF_Auth_BTN.Text = "Authorize PBF Reocrds";
             this.PBF_Auth_BTN.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // PO_Auth_BTN
             // 
-            this.button1.Font = new System.Drawing.Font("Modern No. 20", 12.25F);
-            this.button1.Location = new System.Drawing.Point(45, 398);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 50);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Authorize PO Reocrds";
-            this.button1.UseVisualStyleBackColor = true;
+            this.PO_Auth_BTN.Font = new System.Drawing.Font("Modern No. 20", 12.25F);
+            this.PO_Auth_BTN.Location = new System.Drawing.Point(45, 398);
+            this.PO_Auth_BTN.Name = "PO_Auth_BTN";
+            this.PO_Auth_BTN.Size = new System.Drawing.Size(222, 50);
+            this.PO_Auth_BTN.TabIndex = 35;
+            this.PO_Auth_BTN.Text = "Authorize PO Reocrds";
+            this.PO_Auth_BTN.UseVisualStyleBackColor = true;
+            this.PO_Auth_BTN.Click += new System.EventHandler(this.PO_Auth_BTN_Click);
             // 
             // PO_Gen_BTN
             // 
@@ -254,7 +255,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.PO_Gen_BTN);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.PO_Auth_BTN);
             this.Controls.Add(this.PBF_Auth_BTN);
             this.Controls.Add(this.CAF_Auth_BTN);
             this.Controls.Add(this.label7);
@@ -291,7 +292,7 @@
         private System.Windows.Forms.Button Logout_BTN;
         private System.Windows.Forms.Button CAF_Auth_BTN;
         private System.Windows.Forms.Button PBF_Auth_BTN;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button PO_Auth_BTN;
         private System.Windows.Forms.Button PO_Gen_BTN;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
