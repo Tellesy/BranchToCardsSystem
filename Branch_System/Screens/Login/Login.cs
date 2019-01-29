@@ -22,7 +22,7 @@ namespace Branch_System.Screens
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            this.CenterToScreen();
         }
 
         private void Login_BTN_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Branch_System.Screens
 
             if(status.status)
             {
-                if(Database.Login.role == "0" || Database.Login.role == "1")
+                if(Database.Login.role == "1")
                 {
                     this.Hide();
                     Inputter app = new Inputter();
@@ -45,12 +45,21 @@ namespace Branch_System.Screens
                 else if(Database.Login.role == "2")
                 {
                     this.Hide();
-                    BranchAdmin adminApp = new BranchAdmin();
+                    BranchAdmin branchApp = new BranchAdmin();
+                    branchApp.Closed += (s, args) => this.Show();
+                    branchApp.Show();
+                }
+                else if(Database.Login.role == "0")
+                {
+                    this.Hide();
+                    Admin adminApp = new Admin();
                     adminApp.Closed += (s, args) => this.Show();
                     adminApp.Show();
                 }
                 else
+                {
                     MessageBox.Show("لا تملك الصلاحيات للدخول الى هذا النظام");
+                }
             }
             else
             {

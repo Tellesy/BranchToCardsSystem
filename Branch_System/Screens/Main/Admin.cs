@@ -6,19 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Branch_System.Database;
 using Branch_System.Screens;
 using Branch_System.Screens.AuthRecharge;
 
-
-using System.Windows.Forms;
-
 namespace Branch_System.Screens
 {
-    public partial class BranchAdmin : Form
+    public partial class Admin : Form
     {
-        public AuthRecharge.AuthRecharge authRecharge;
-        public BranchAdmin()
+        private AuthRecharge.AuthRecharge unauthRecords;
+        public Admin()
         {
             InitializeComponent();
         }
@@ -37,7 +35,8 @@ namespace Branch_System.Screens
                 Status_LBL.ForeColor = Color.Green;
             }
         }
-        private void BranchAdmin_Load(object sender, EventArgs e)
+
+        private void Admin_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -56,21 +55,22 @@ namespace Branch_System.Screens
             SheetManager.CreateFile();
         }
 
+        private void UnuthReport_BTN_Click(object sender, EventArgs e)
+        {
+            if (unauthRecords == null)
+            {
+                unauthRecords = new AuthRecharge.AuthRecharge();
+                unauthRecords.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    unauthRecords = null; UnuthReport_BTN.Enabled = true;
+                };
+                unauthRecords.Show();
+                UnuthReport_BTN.Enabled = false;
+            }
+        }
+
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void Recharge_BTN_Click(object sender, EventArgs e)
-        {
-            if (authRecharge == null)
-            {
-                authRecharge = new AuthRecharge.AuthRecharge();
-                authRecharge.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    authRecharge = null; Recharge_BTN.Enabled = true; };
-                authRecharge.Show();
-                Recharge_BTN.Enabled = false;
-            }
         }
     }
 }

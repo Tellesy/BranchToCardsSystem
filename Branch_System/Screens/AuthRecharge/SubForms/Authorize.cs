@@ -14,7 +14,8 @@ namespace Branch_System.Screens.AuthRecharge
     {
 
         public Database.Objects.Recharge record;
-
+        private int TotalAmountThisYear;
+        //private bool isEnquire = false;
         public Authorize()
         {
             InitializeComponent();
@@ -22,9 +23,18 @@ namespace Branch_System.Screens.AuthRecharge
 
         private void Authorize_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
+            if (Database.Login.role == "0")
+            {
+                Accept_BTN.Enabled = false;
+                Deny_BTN.Enabled = false;
+                Accept_BTN.Hide();
+                Deny_BTN.Hide();
+            }
 
             if(record == null)
             {
@@ -41,6 +51,15 @@ namespace Branch_System.Screens.AuthRecharge
                     CustomerName_LBL.Text = status.Object.Name;
                 }
 
+                Database.Objects.Status<int> amountStatus = Database.Recharge.checkRechargeAmountThisYear(record.NID, record.Product);
+
+                if (amountStatus.status)
+                {
+                    TotalAmountThisYear = amountStatus.Object;
+                    Total_Amount_LBL.Text = amountStatus.Object.ToString();
+                }
+
+
                 NID_LBL.Text = record.NID;
                 Branch_LBL.Text = record.Branch.ToString() ;
                 Product_LBL.Text = record.Product;
@@ -55,11 +74,31 @@ namespace Branch_System.Screens.AuthRecharge
             DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Database.Status status = Database.Recharge.authRecharge(record.ID);
+                //Cancel the request if the total amount this year is bigger than the allowed amount of this year
+                if(TotalAmountThisYear + record.Amount > Database.Recharge.amount)
+                {
+                    MessageBox.Show("إجمالي العملية يتجاوز سقف الشحن لهذا العام");
+                    return;
+                }
 
+                int recharge = 0; 
+                Database.Status status = Database.Recharge.authRecharge(record.ID);
+        
                 if (status.status)
                 {
-                    Database.Status s =  Database.PBF.addPBF(record.CardAccount, record.Amount);
+                    //Get Total Amount to be added to PBF
+                    Database.Objects.Status<int> amountStatus = Database.Recharge.checkRechargeAmount(record.NID, record.Product);
+                    if(amountStatus.status)
+                    {
+                        recharge = amountStatus.Object;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(amountStatus.message);
+                    }
+
+                    Database.Status s =  Database.PBF.addPBF(record.CardAccount, recharge);
                     if(!s.status)
                     {
                         MessageBox.Show(s.message);

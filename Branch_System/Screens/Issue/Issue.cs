@@ -537,6 +537,7 @@ namespace Branch_System.Screens
 
         private void Issue_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

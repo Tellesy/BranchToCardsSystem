@@ -48,6 +48,8 @@
             this.Exit_BTN = new System.Windows.Forms.Button();
             this.CardAccount_LBL = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.Total_Amount_LBL = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -152,11 +154,24 @@
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
             // 
+            // Total_Amount_LBL
+            // 
+            resources.ApplyResources(this.Total_Amount_LBL, "Total_Amount_LBL");
+            this.Total_Amount_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Total_Amount_LBL.Name = "Total_Amount_LBL";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
             // Authorize
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ControlBox = false;
+            this.Controls.Add(this.Total_Amount_LBL);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.CardAccount_LBL);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Exit_BTN);
@@ -204,5 +219,7 @@
         private System.Windows.Forms.Button Exit_BTN;
         private System.Windows.Forms.Label CardAccount_LBL;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label Total_Amount_LBL;
+        private System.Windows.Forms.Label label10;
     }
 }

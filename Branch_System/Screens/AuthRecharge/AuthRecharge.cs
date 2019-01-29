@@ -17,6 +17,7 @@ namespace Branch_System.Screens.AuthRecharge
     {
         private bool isBranchAdmin = true;
         public List<Database.Objects.Recharge> records ;
+        //public bool isEnquire = false;
 
         public AuthRecharge()
         {
@@ -25,6 +26,7 @@ namespace Branch_System.Screens.AuthRecharge
 
         private void AuthRecharge_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -89,7 +91,9 @@ namespace Branch_System.Screens.AuthRecharge
                     Record_DGView.Rows.Clear();
                     while (Record_DGView.Rows.Count > 0)
                     {
+                        
                         Record_DGView.Rows.RemoveAt(0);
+                        //Record_DGView.Rows.Add();
                     }
                     Record_DGView.Update();
                 }
