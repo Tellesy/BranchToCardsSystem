@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Branch_System.Database;
-using Branch_System.Database.Objects;
+using CTS.Database;
+using CTS.Database.Objects;
 using System.Windows.Forms;
 
-namespace Branch_System.Screens.FilesAuth
+namespace CTS.Screens.FilesAuth
 {
     public partial class AuthorizePO : Form
     {

@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Branch_System.Database.Objects;
+using CTS.Database.Objects;
 
-namespace Branch_System.Screens.FilesAuth
+namespace CTS.Screens.FilesAuth
 {
     public partial class AuthorizeCAF : Form
     {

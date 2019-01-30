@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using Branch_System.Database;
+using CTS.Database;
 
-namespace Branch_System
+namespace CTS
 {
     public partial class Application : Form
     {

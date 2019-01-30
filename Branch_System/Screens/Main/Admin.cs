@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Branch_System.Database;
-using Branch_System.Screens;
-using Branch_System.Screens.AuthRecharge;
+using CTS.Database;
+using CTS.Screens;
+using CTS.Screens.AuthRecharge;
 
-namespace Branch_System.Screens
+namespace CTS.Screens
 {
     public partial class Admin : Form
     {

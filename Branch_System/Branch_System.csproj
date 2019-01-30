@@ -61,6 +61,7 @@
     <Compile Include="Database\Objects\Status.cs" />
     <Compile Include="Database\PBF.cs" />
     <Compile Include="Database\PO.cs" />
+    <Compile Include="FilesCreator\FilesCreator.cs" />
     <Compile Include="Screens\Application\Application.cs">
       <SubType>Form</SubType>
     </Compile>

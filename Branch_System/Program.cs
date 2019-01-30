@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Branch_System.Screens;
-namespace Branch_System
+using CTS.Screens;
+namespace CTS
 {
     static class Program
     {

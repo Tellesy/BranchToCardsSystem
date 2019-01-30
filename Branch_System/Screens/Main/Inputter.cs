@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Branch_System.Database;
+using CTS.Database;
 
-namespace Branch_System.Screens
+namespace CTS.Screens
 {
     public partial class Inputter : Form
     {
@@ -34,11 +34,10 @@ namespace Branch_System.Screens
 
             CheckStatus();
 
-            Name_LBL.Text = Database.Login.name;
+            Name_LBL.Text   = Database.Login.name;
             Branch_LBL.Text = Database.Login.branch;
             Amount_LBL.Text = Database.Recharge.amount.ToString();
-            Year_LBL.Text = Database.Recharge.year;
-
+            Year_LBL.Text   = Database.Recharge.year;
             SheetManager.CreateFile();
         }
 

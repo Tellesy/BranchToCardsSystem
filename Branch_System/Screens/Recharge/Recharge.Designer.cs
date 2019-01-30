@@ -1,4 +1,4 @@
-﻿namespace Branch_System.Screens
+﻿namespace CTS.Screens
 {
     partial class Recharge
     {

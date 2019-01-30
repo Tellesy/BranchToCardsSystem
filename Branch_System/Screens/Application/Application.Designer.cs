@@ -1,4 +1,4 @@
-﻿namespace Branch_System
+﻿namespace CTS
 {
     partial class Application
     {

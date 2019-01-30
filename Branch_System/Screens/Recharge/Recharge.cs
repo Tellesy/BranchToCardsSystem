@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Branch_System;
-using Branch_System.Database;
-using Branch_System.Database.Objects;
+using CTS;
+using CTS.Database;
+using CTS.Database.Objects;
 
-namespace Branch_System.Screens
+namespace CTS.Screens
 {
     public partial class Recharge : Form
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Branch_System
+namespace CTS
 {
     public static class CardsValidation
     {

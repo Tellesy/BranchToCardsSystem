@@ -1,4 +1,4 @@
-﻿namespace Branch_System.Screens.AuthRecharge
+﻿namespace CTS.Screens.AuthRecharge
 {
     partial class Authorize
     {

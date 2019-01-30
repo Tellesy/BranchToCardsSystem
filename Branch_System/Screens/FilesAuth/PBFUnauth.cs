@@ -1,4 +1,4 @@
-﻿using Branch_System.Database.Objects;
+﻿using CTS.Database.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Branch_System.Screens.FilesAuth;
+using CTS.Screens.FilesAuth;
 
-namespace Branch_System.Screens
+namespace CTS.Screens
 {
     public partial class PBFUnauth : Form
     {

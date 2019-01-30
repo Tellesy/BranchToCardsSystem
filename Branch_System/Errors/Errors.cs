@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Branch_System.Errors
+namespace CTS.Errors
 {
     public static class ErrorsString
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace Branch_System.Database
+namespace CTS.Database
 {
     public static class Login
     {

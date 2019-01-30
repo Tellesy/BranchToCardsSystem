@@ -1,4 +1,4 @@
-﻿using Branch_System.Database.Objects;
+﻿using CTS.Database.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Branch_System.Screens
+namespace CTS.Screens
 {
     public partial class PIN : Form
     {

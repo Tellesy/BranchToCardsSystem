@@ -1,4 +1,4 @@
-﻿namespace Branch_System.Screens
+﻿namespace CTS.Screens
 {
     partial class PBFUnauth
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PBFUnauth));
-            this.branch_system1DataSet = new Branch_System.Branch_system1DataSet();
+            this.branch_system1DataSet = new CTS.Branch_system1DataSet();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Record_DGView = new System.Windows.Forms.DataGridView();
             this.branchsystem1DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);

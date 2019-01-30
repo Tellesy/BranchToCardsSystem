@@ -1,4 +1,4 @@
-﻿namespace Branch_System.Screens.FilesAuth
+﻿namespace CTS.Screens.FilesAuth
 {
     partial class AuthorizePO
     {

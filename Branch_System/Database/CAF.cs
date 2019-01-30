@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using Branch_System.Database.Objects;
+using CTS.Database.Objects;
 
-namespace Branch_System.Database
+namespace CTS.Database
 {
    public static class CAF
     {
@@ -120,6 +120,71 @@ namespace Branch_System.Database
             }
         }
 
+        public static Status<List<CAFObject>> getAuthCAF()
+        {
+            Status<List<CAFObject>> statusObject = new Status<List<CAFObject>>();
+            statusObject.Object = new List<CAFObject>();
+            statusObject.status = false;
+
+
+            SqlConnection conn = DBConnection.Connection();
+
+            conn.Open();
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string query = @"SELECT [ID],[Card_Number],[Card_Account],[EXP_Date],[Product],[Inputter], convert(varchar,[Time], 103) FROM [CAF] WHERE Authorized = 1 AND Processed = 0";
+
+
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (!reader.HasRows)
+                        {
+                            statusObject.status = false;
+                            statusObject.message = "لا يوجد سجلات تحتاج الى تخويل";
+                            return statusObject;
+
+                        }
+
+                        while (reader.Read())
+                        {
+                            CAFObject request = new CAFObject();
+                            request.ID = Convert.ToInt32(reader[0].ToString());
+                            request.Card_Number = reader[1].ToString();
+                            request.Card_Account = reader[2].ToString();
+                            request.EXP_Date = reader[3].ToString();
+                            request.Product = reader[4].ToString();
+                            request.Inputter = Convert.ToInt32(reader[5].ToString());
+                            request.Time = reader[6].ToString();
+                            statusObject.Object.Add(request);
+                        }
+                        statusObject.status = true;
+                        return statusObject;
+                    }
+
+
+                }
+                catch
+                {
+                    statusObject.status = false;
+                    statusObject.message = "Get Auth CAF records \n" + Errors.ErrorsString.Error002;
+                    return statusObject;
+                }
+            }
+            else
+            {
+                statusObject.status = false;
+                statusObject.message = Errors.ErrorsString.Error001;
+
+                return statusObject;
+            }
+        }
+
         public static Status deleteCAF(int id)
         {
             Status status = new Status();
@@ -184,7 +249,46 @@ namespace Branch_System.Database
                 catch
                 {
                     status.status = false;
-                    status.message = "CAF Auth (Update Auth)\n" + Errors.ErrorsString.Error002;
+                    status.message = "CAF Auth (Update CAF)\n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
+
+        public static Status processCAF(int id)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "UPDATE [CAF] SET [Processed] = 1 WHERE ID = @v1";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@v1", id);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    status.status = false;
+                    status.message = "CAF Process (Update CAF)\n" + Errors.ErrorsString.Error002;
                     return status;
                 }
 

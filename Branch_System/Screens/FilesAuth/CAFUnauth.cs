@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Branch_System.Database.Objects;
-using Branch_System.Screens.FilesAuth;
-namespace Branch_System.Screens
+using CTS.Database.Objects;
+using CTS.Screens.FilesAuth;
+namespace CTS.Screens
 {
     public partial class CAFUnauth : Form
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using Branch_System.Database.Objects;
+using CTS.Database.Objects;
 
-namespace Branch_System.Database
+namespace CTS.Database
 {
     public static class Issue
     {

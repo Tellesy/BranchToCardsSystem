@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using Branch_System.Database;
+using CTS.Database;
 
 
-namespace Branch_System.Screens
+namespace CTS.Screens
 {
     public partial class Login : Form
     {
@@ -26,6 +26,7 @@ namespace Branch_System.Screens
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            SheetManager.CreateFile();
         }
 
         private void Login_BTN_Click(object sender, EventArgs e)
