@@ -249,6 +249,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 578);
+            this.ControlBox = false;
             this.Controls.Add(this.label14);
             this.Controls.Add(this.Passport);
             this.Controls.Add(this.label8);

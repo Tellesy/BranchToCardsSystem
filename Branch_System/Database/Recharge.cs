@@ -149,8 +149,16 @@ namespace Branch_System.Database
             {
                 string query = @"SELECT SUM(AMOUNT) FROM [Recharge]  where [NID] = @value1 AND [Authorized] = 1 AND [Product] = @value2";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@value1", Int64.Parse(NID));
-                cmd.Parameters.AddWithValue("@value2", int.Parse(Product));
+                if(NID == "")
+                {
+                    NID = "0";
+                }
+                if(Product == "")
+                {
+                    Product = "0";
+                }
+                cmd.Parameters.AddWithValue("@value1", Convert.ToInt64(NID));
+                cmd.Parameters.AddWithValue("@value2", Convert.ToInt32(Product));
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -160,7 +168,7 @@ namespace Branch_System.Database
                         while (reader.Read())
                         {
                             if (reader[0].ToString() != "")
-                                statusObject.Object = int.Parse(reader[0].ToString());
+                                statusObject.Object = Convert.ToInt32(reader[0].ToString());
                             else
                                 statusObject.Object = 0;
                         }

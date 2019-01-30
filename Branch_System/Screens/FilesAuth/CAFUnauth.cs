@@ -7,38 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Branch_System.Database;
 using Branch_System.Database.Objects;
 using Branch_System.Screens.FilesAuth;
-
 namespace Branch_System.Screens
 {
-    public partial class POUnauth : Form
+    public partial class CAFUnauth : Form
     {
+        public List<CAFObject> records;
 
-        public List<Database.Objects.PObject> records;
-
-        public POUnauth()
+        public CAFUnauth()
         {
             InitializeComponent();
-        }
-
-        private void POAuth_Load(object sender, EventArgs e)
-        {
-            this.CenterToScreen();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-
-            GetUnAuthRecords();
         }
 
         public void GetUnAuthRecords()
         {
             //Get un Auth recharge records
             records = null;
-            List<Database.Objects.PObject> viewLists = new List<Database.Objects.PObject>();
-            Status<List<Database.Objects.PObject>> statusObject = Database.PO.getUnauthPO();
+            List<CAFObject> viewLists = new List<CAFObject>();
+            Status<List<CAFObject>> statusObject = Database.CAF.getUnauthCAF();
 
             if (statusObject.status)
             {
@@ -55,15 +42,45 @@ namespace Branch_System.Screens
                     {
                         Record_DGView.Rows.RemoveAt(0);
                     }
+                    
                     Record_DGView.Update();
                     Record_DGView.Refresh();
+
                 }
             }
         }
 
-        private void Exit_BTN_Click(object sender, EventArgs e)
+
+        private void CAFUnauth_Load(object sender, EventArgs e)
         {
-            this.Close();
+            this.CenterToScreen();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
+            GetUnAuthRecords();
+        }
+        private void Auth_All_BTN_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل جميع العمليات؟", "تخويل كل العمليات", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                for (int i = 0; i < records.Count(); i++)
+                {
+                    Database.Status status = Database.CAF.authCAF(records[i].ID);
+                    if (!status.status)
+                    {
+                        MessageBox.Show(status.message + "\nRecord ID: \n" + records[i].ID.ToString());
+                    }
+                }
+                GetUnAuthRecords();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+            
         }
 
         private void Sync_BTN_Click(object sender, EventArgs e)
@@ -71,10 +88,16 @@ namespace Branch_System.Screens
             GetUnAuthRecords();
         }
 
+        private void Exit_BTN_Click(object sender, EventArgs e)
+        {
+            this.records = null;
+            this.Close();
+        }
+
         private void Record_DGView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridViewRow r = Record_DGView.SelectedRows[0];
-            AuthorizePO authorize = new AuthorizePO();
+            AuthorizeCAF authorize = new AuthorizeCAF ();
             if (records != null)
             {
                 var q = records.Where(x => x.ID == Convert.ToInt32(r.Cells[0].Value)).ToArray();

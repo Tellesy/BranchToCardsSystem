@@ -98,7 +98,7 @@ namespace Branch_System.Screens.AuthRecharge
                         MessageBox.Show(amountStatus.message);
                     }
 
-                    Database.Status s =  Database.PBF.addPBF(record.CardAccount, recharge);
+                    Database.Status s =  Database.PBF.addPBF(record.CardAccount, recharge, record.NID, record.Product);
                     if(!s.status)
                     {
                         MessageBox.Show(s.message);

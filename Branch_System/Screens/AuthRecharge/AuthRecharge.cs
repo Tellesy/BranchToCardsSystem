@@ -96,6 +96,7 @@ namespace Branch_System.Screens.AuthRecharge
                         //Record_DGView.Rows.Add();
                     }
                     Record_DGView.Update();
+                    Record_DGView.Refresh();
                 }
             }
         }

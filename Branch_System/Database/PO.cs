@@ -80,7 +80,7 @@ namespace Branch_System.Database
             {
                 try
                 {
-                        string query = @"SELECT [ID],[Card_Number],[Name],[Customer_ID] ,[Account],[Begin_Date],[End_Date],[Email],[Phone],[Passport],[Update_Code],[Process_Indicator],[Branch_Code] ,[Inputter] ,[Time] FROM [PO] WHERE Authorized = 0 AND Processed = 0";
+                        string query = @"SELECT [ID],[Card_Number],[Name],[Customer_ID] ,[Account],[Begin_Date],[End_Date],[Email],[Phone],[Passport],[Update_Code],[Process_Indicator],[Branch_Code] ,[Inputter] ,convert(varchar,[Time], 103) FROM [PO] WHERE Authorized = 0 AND Processed = 0";
                     
 
 
@@ -126,7 +126,7 @@ namespace Branch_System.Database
                 catch
                 {
                     statusObject.status = false;
-                    statusObject.message = "Get Unauth Recharge requests \n" + Errors.ErrorsString.Error002;
+                    statusObject.message = "Get Unauth PO records \n" + Errors.ErrorsString.Error002;
                     return statusObject;
                 }
             }

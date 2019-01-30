@@ -17,6 +17,9 @@ namespace Branch_System.Screens
     {
         private AuthRecharge.AuthRecharge unauthRecords;
         private POUnauth POApp;
+        private PBFUnauth PBFApp;
+        private CAFUnauth CAFApp;
+
         public Admin()
         {
             InitializeComponent();
@@ -84,6 +87,32 @@ namespace Branch_System.Screens
                 };
                 POApp.Show();
                 PO_Auth_BTN.Enabled = false;
+            }
+        }
+
+        private void PBF_Auth_BTN_Click(object sender, EventArgs e)
+        {
+            if(PBFApp == null)
+            {
+                PBFApp = new PBFUnauth();
+                PBFApp.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    PBFApp = null; PBF_Auth_BTN.Enabled = true;
+                };
+                PBFApp.Show();
+                PBF_Auth_BTN.Enabled = false;
+            }
+        }
+
+        private void CAF_Auth_BTN_Click(object sender, EventArgs e)
+        {
+            if (CAFApp == null)
+            {
+                CAFApp = new CAFUnauth();
+                CAFApp.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    CAFApp = null; CAF_Auth_BTN.Enabled = true;
+                };
+                CAFApp.Show();
+                CAF_Auth_BTN.Enabled = false;
             }
         }
     }

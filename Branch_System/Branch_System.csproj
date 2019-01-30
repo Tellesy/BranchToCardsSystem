@@ -53,7 +53,9 @@
   <ItemGroup>
     <Compile Include="Database\CAF.cs" />
     <Compile Include="Database\Issue.cs" />
+    <Compile Include="Database\Objects\CAFObject.cs" />
     <Compile Include="Database\Objects\Customer.cs" />
+    <Compile Include="Database\Objects\PBFObject.cs" />
     <Compile Include="Database\Objects\PObject.cs" />
     <Compile Include="Database\Objects\Recharge.cs" />
     <Compile Include="Database\Objects\Status.cs" />
@@ -89,11 +91,35 @@
     <Compile Include="Screens\AuthRecharge\SubForms\Authorize.Designer.cs">
       <DependentUpon>Authorize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\FilesAuth\CAFUnauth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\CAFUnauth.Designer.cs">
+      <DependentUpon>CAFUnauth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\PBFUnauth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\PBFUnauth.Designer.cs">
+      <DependentUpon>PBFUnauth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\FilesAuth\POUnauth.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screens\FilesAuth\POUnauth.Designer.cs">
       <DependentUpon>POUnauth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\SubForms\AuthorizeCAF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\SubForms\AuthorizeCAF.Designer.cs">
+      <DependentUpon>AuthorizeCAF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\SubForms\AuthorizePBF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\SubForms\AuthorizePBF.Designer.cs">
+      <DependentUpon>AuthorizePBF.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\FilesAuth\SubForms\AuthorizePO.cs">
       <SubType>Form</SubType>
@@ -164,8 +190,20 @@
     <EmbeddedResource Include="Screens\AuthRecharge\SubForms\Authorize.resx">
       <DependentUpon>Authorize.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\FilesAuth\CAFUnauth.resx">
+      <DependentUpon>CAFUnauth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\FilesAuth\PBFUnauth.resx">
+      <DependentUpon>PBFUnauth.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\FilesAuth\POUnauth.resx">
       <DependentUpon>POUnauth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\FilesAuth\SubForms\AuthorizeCAF.resx">
+      <DependentUpon>AuthorizeCAF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\FilesAuth\SubForms\AuthorizePBF.resx">
+      <DependentUpon>AuthorizePBF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\FilesAuth\SubForms\AuthorizePO.resx">
       <DependentUpon>AuthorizePO.cs</DependentUpon>

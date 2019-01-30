@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Branch_System.Database.Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Branch_System.Screens.FilesAuth;
 
 namespace Branch_System.Screens
 {
     public partial class PBFUnauth : Form
     {
+        public List<Database.Objects.PBFObject> records;
         public PBFUnauth()
         {
             InitializeComponent();
@@ -31,8 +34,8 @@ namespace Branch_System.Screens
         {
             //Get un Auth recharge records
             records = null;
-            List<Database.Objects.PObject> viewLists = new List<Database.Objects.PObject>();
-            Status<List<Database.Objects.PObject>> statusObject = Database.PO.getUnauthPO();
+            List<Database.Objects.PBFObject> viewLists = new List<Database.Objects.PBFObject>();
+            Status<List<Database.Objects.PBFObject>> statusObject = Database.PBF.getUnauthPBF();
 
             if (statusObject.status)
             {
@@ -50,9 +53,38 @@ namespace Branch_System.Screens
                         Record_DGView.Rows.RemoveAt(0);
                     }
                     Record_DGView.Update();
+                    Record_DGView.Refresh();
                 }
             }
         }
 
+        private void Exit_BTN_Click(object sender, EventArgs e)
+        {
+            records = null;
+            this.Close();
+        }
+
+        private void Sync_BTN_Click(object sender, EventArgs e)
+        {
+            GetUnAuthRecords();
+        }
+
+        private void Record_DGView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow r = Record_DGView.SelectedRows[0];
+            AuthorizePBF authorize = new AuthorizePBF();
+            if (records != null)
+            {
+                var q = records.Where(x => x.ID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
+
+                if (q.Count() > 0)
+                {
+                    this.Hide();
+                    authorize.record = q[0];
+                    authorize.Closed += (s, args) => { this.GetUnAuthRecords(); this.Show(); };
+                    authorize.Show();
+                }
+            }
+        }
     }
 }

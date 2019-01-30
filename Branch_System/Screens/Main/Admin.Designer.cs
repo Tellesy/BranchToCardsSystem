@@ -194,6 +194,7 @@
             this.CAF_Auth_BTN.TabIndex = 33;
             this.CAF_Auth_BTN.Text = "Authorize CAF Reocrds";
             this.CAF_Auth_BTN.UseVisualStyleBackColor = true;
+            this.CAF_Auth_BTN.Click += new System.EventHandler(this.CAF_Auth_BTN_Click);
             // 
             // PBF_Auth_BTN
             // 
@@ -204,6 +205,7 @@
             this.PBF_Auth_BTN.TabIndex = 34;
             this.PBF_Auth_BTN.Text = "Authorize PBF Reocrds";
             this.PBF_Auth_BTN.UseVisualStyleBackColor = true;
+            this.PBF_Auth_BTN.Click += new System.EventHandler(this.PBF_Auth_BTN_Click);
             // 
             // PO_Auth_BTN
             // 

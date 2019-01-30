@@ -23,6 +23,9 @@ namespace Branch_System.Screens
         private void Login_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void Login_BTN_Click(object sender, EventArgs e)
