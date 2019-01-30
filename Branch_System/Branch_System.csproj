@@ -57,6 +57,7 @@
     <Compile Include="Database\Objects\Customer.cs" />
     <Compile Include="Database\Objects\PBFObject.cs" />
     <Compile Include="Database\Objects\PObject.cs" />
+    <Compile Include="Database\Objects\Product.cs" />
     <Compile Include="Database\Objects\Recharge.cs" />
     <Compile Include="Database\Objects\Status.cs" />
     <Compile Include="Database\PBF.cs" />

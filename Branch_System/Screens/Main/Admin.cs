@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CTS.Database;
+using CTS.Database.Objects;
 using CTS.Screens;
 using CTS.Screens.AuthRecharge;
+using CTS.FilesCreator;
 
 namespace CTS.Screens
 {
@@ -46,6 +48,15 @@ namespace CTS.Screens
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
+            //FileCreator
+            FileExporter.POFile = new List<string>();
+            System.IO.Directory.CreateDirectory(FileExporter.location);
+            string RECEPT = String.Format(FileExporter.location + "RECEPT");
+            string REFRESH = String.Format(FileExporter.location + "REFRESH");
+
+            System.IO.Directory.CreateDirectory(RECEPT);
+            System.IO.Directory.CreateDirectory(REFRESH);
 
             Status IssueStatus = Database.Recharge.checkYear();
 
@@ -115,5 +126,143 @@ namespace CTS.Screens
                 CAF_Auth_BTN.Enabled = false;
             }
         }
+
+        private void PO_Gen_BTN_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("هل انت متأكد؟", " Generate PO file", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+        }
+
+        private void CAF_Gen_BTN_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult dialogResult = MessageBox.Show("هل انت متأكد؟", " Generate CAF file", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                CreateCAFile();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+
+        }
+
+        private void PBF_Gen_BTN_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("هل انت متأكد؟", " Generate PBF file", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                CreatePBFile();
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+        }
+
+        private void CreateCAFile()
+        {
+            List<int> Processed_IDs = new List<int>();
+            //First Get all Auth CAF files
+            Status<List<CAFObject>> statusObject = Database.CAF.getAuthCAF();
+
+            if(statusObject.status)
+            {
+                //Add each record to FileCreator List
+                foreach(CAFObject record in statusObject.Object)
+                {
+                    //Get Limits for record product
+                    Status<Product> status = Database.CAF.getLimit(record.Product);
+                    if(status.status)
+                    {
+                        Product p = status.Object;
+                        //start adding to FileCreator
+                        FileExporter.Card_Account_Number_s = record.Card_Account;
+                        FileExporter.Card_Number_s = record.Card_Number;
+                        FileExporter.AggregateDailyLimit_s = "5000";
+                        FileExporter.CashDailyLimit_s = p.Cash_Limit.ToString();
+                        FileExporter.POSDailyLimit_s = p.POS_Limit.ToString();
+                        FileExporter.CashTransCount_s = p.Cash_Transactions_Limit.ToString();
+                        FileExporter.POSTransCount_s = p.POS_Transactions_Limit.ToString();
+                        FileExporter.CAFExpDate_s = record.EXP_Date;
+                        FileExporter.AddToCAFile();
+
+                        Processed_IDs.Add(record.ID);
+                    }
+                    else
+                    {
+                        MessageBox.Show(record.Card_Number + "\n" + status.message);
+                    }
+                }
+
+                //Export CAF
+                FileExporter.CAFileExporter();
+
+                //Update DB to reflect processed CAFs
+                foreach(int id in Processed_IDs)
+                {
+                    Status s = Database.CAF.processCAF(id);
+                    if(!s.status)
+                    { MessageBox.Show(s.message); }
+                }
+                
+                
+            }
+            else
+            {
+                MessageBox.Show(statusObject.message);
+            }
+        }
+
+
+        private void CreatePBFile()
+        {
+            List<int> Processed_IDs = new List<int>();
+            //First Get all Auth CAF files
+            Status<List<PBFObject>> statusObject = Database.PBF.getAuthPBF();
+
+            if (statusObject.status)
+            {
+                //Add each record to FileCreator List
+                foreach (PBFObject record in statusObject.Object)
+                {
+                        //start adding to FileCreator
+                    FileExporter.Card_Account_Number_s = record.Card_Account;
+                    FileExporter.Amount_s = record.Balance;
+
+                    FileExporter.AddToBPFile();
+
+                    Processed_IDs.Add(record.ID);
+                }
+
+                //Export PBF
+                FileExporter.BPFileExporter();
+
+                //Update DB to reflect processed PBFs
+                foreach (int id in Processed_IDs)
+                {
+                    Status s = Database.PBF.processPBF(id);
+                    if (!s.status)
+                    { MessageBox.Show(s.message); }
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show(statusObject.message);
+            }
+        }
+
+
     }
 }

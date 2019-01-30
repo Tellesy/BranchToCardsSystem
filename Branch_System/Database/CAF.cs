@@ -302,5 +302,66 @@ namespace CTS.Database
             }
 
         }
+
+        public static Status<Product> getLimit(string Product)
+        {
+            Status<Product> statusObject = new Status<Product>();
+            statusObject.status = false;
+
+            SqlConnection conn = DBConnection.Connection();
+
+            conn.Open();
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string query = @"SELECT [Code],[Name],[Cash_Limit],[Cash_Transactions_Limit] ,[POS_Limit],[POS_Transactions_Limit] FROM [Products] WHERE Code = @v1";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@v1", Product);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (!reader.HasRows)
+                        {
+                            statusObject.status = false;
+                            statusObject.message = "هذا المنتج غير موجود في قاعدة البيانات";
+                            return statusObject;
+
+                        }
+
+                        while (reader.Read())
+                        {
+                            Product request = new Product();
+                            request.Code = reader[0].ToString();
+                            request.Name = reader[1].ToString();
+                            request.Cash_Limit = Convert.ToInt32(reader[2].ToString());
+                            request.Cash_Transactions_Limit = Convert.ToInt32(reader[3].ToString());
+                            request.POS_Limit = Convert.ToInt32(reader[4].ToString());
+                            request.POS_Transactions_Limit = Convert.ToInt32(reader[5].ToString());
+                            statusObject.Object = request;
+                        }
+                        statusObject.status = true;
+                        return statusObject;
+                    }
+
+
+                }
+                catch
+                {
+                    statusObject.status = false;
+                    statusObject.message = "Get Limit for CAF record \n" + Errors.ErrorsString.Error002;
+                    return statusObject;
+                }
+            }
+            else
+            {
+                statusObject.status = false;
+                statusObject.message = Errors.ErrorsString.Error001;
+
+                return statusObject;
+            }
+        }
     }
 }

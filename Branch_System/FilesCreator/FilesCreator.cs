@@ -40,7 +40,7 @@ namespace CTS.FilesCreator
         public static string AggregateDailyLimit_s;
         public static string CAFExpDate_s;
         public static string CashDailyLimit_s;
-        public static string ATMTransCount_s;
+        public static string CashTransCount_s;
         public static string POSDailyLimit_s;
         public static string POSTransCount_s;
         public static string CALine;
@@ -204,9 +204,11 @@ namespace CTS.FilesCreator
 
         public static void CAFileExporter()
         {
-            string random = DateTime.UtcNow.Minute.ToString();
+            string random = DateTime.UtcNow.Hour.ToString() + DateTime.UtcNow.Minute.ToString() +
+                DateTime.UtcNow.Second.ToString();
             string day = DateTime.Today.Day.ToString();
             string month = DateTime.Today.Month.ToString();
+
             if (DateTime.Today.Day < 10)
             {
                 day = String.Format("0{0}", day);
@@ -217,8 +219,8 @@ namespace CTS.FilesCreator
                 month = String.Format("0{0}", month);
             }
 
-            if (DateTime.UtcNow.Hour > 10)
-                random = random.Substring(0, 1);
+            //if (DateTime.UtcNow.Hour > 10)
+            //    random = random.Substring(0, 1);
 
             string fileName = String.Format(@"{0}REFRESH\" + "CF{1}{2}{3}{4}.txt", location, day, month, DateTime.Today.Year, random);
 
@@ -237,8 +239,36 @@ namespace CTS.FilesCreator
 
             if (isFirstCAF)
             {
+                string day = DateTime.Today.Day.ToString();
+                string month = DateTime.Today.Month.ToString();
+                string hour = DateTime.UtcNow.Hour.ToString();
+                string minute = DateTime.UtcNow.Minute.ToString();
+
+
+                if (DateTime.Today.Day < 10)
+                {
+                    day = String.Format("0{0}", day);
+                }
+
+                if (DateTime.Today.Month < 10)
+                {
+                    month = String.Format("0{0}", month);
+                }
+
+                if (DateTime.UtcNow.Hour < 10)
+                {
+                    hour = String.Format("0{0}", hour);
+                }
+
+                if (DateTime.UtcNow.Minute < 10)
+                {
+                    minute = String.Format("0{0}", minute);
+                }
+
+
                 CAFile = new List<string>();
-                string first_line = String.Format("000000001FH1CF0143{0}{1}{2}0836PRO260  1809182018091808363635353518091820180918083636353535                          100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Z", DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+                string first_line = String.Format("000000001FH1CF0143{0}{1}{2}{3}{4}PRO260  1809182018091808363635353518091820180918083636353535                          100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Z", 
+                    DateTime.Today.Year, month, day,hour,minute);
                 CAFile.Add(first_line);
                 string second_line = "000000002BH0143                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Z";
                 CAFile.Add(second_line);
@@ -253,9 +283,20 @@ namespace CTS.FilesCreator
                 CashDailyLimit = "0" + CashDailyLimit;
             }
             //008800200000000000500000000000000000000000000000000000000000000000000000ATM  
-            //00880020000000000{5}000000000000000000000000000000000000000000000000000ATM             
-            if (CACount < 10)
-                line = String.Format("034600000000{0}{1}   000CMD01431                " +
+            //00880020000000000{5}000000000000000000000000000000000000000000000000000ATM    
+            if (CACount >= 100  && CACount < 1000)     //0346000000001
+                line = String.Format("0346000000{0}{1}   000CMD01431                " +
+                    "0000000{4}0000000000000000000000000000000000000000000000{4}00000000000" +
+                    "            {2}" +
+                    "                                                                                                                                                                                                       "
+                    + "00880020000000000{5}000000000000000000000000000000000000000000000000000ATM             " +
+                    "0140000000000000000000000000000000000000000000000000000000000000000000000{6}000000000000100000000000000000000000000        POS             00280010NN0000        " +
+                    "00000100400101{3}   1CHECK ACCT                   Z"
+                    , CACount, Card_Number_s, CAFExpDate_s, Card_Account_Number_s, AggregateDailyLimit_s, CashDailyLimit, POSDailyLimit_s);
+
+           else if (CACount >= 10 && CACount < 100)
+                                    //0346000000001
+                line = String.Format("03460000000{0}{1}   000CMD01431                " +
                     "0000000{4}0000000000000000000000000000000000000000000000{4}00000000000" +
                     "            {2}" +
                     "                                                                                                                                                                                                       "
@@ -264,8 +305,8 @@ namespace CTS.FilesCreator
                     "00000100400101{3}   1CHECK ACCT                   Z"
                     , CACount, Card_Number_s, CAFExpDate_s, Card_Account_Number_s, AggregateDailyLimit_s, CashDailyLimit, POSDailyLimit_s);
             else
-            {
-                line = String.Format("03460000000{0}{1}   000CMD01431                " +
+            {//                       0346000000001
+                line = String.Format("034600000000{0}{1}   000CMD01431                " +
                 "0000000{4}0000000000000000000000000000000000000000000000{4}00000000000" +
                 "            {2}" +
                 "                                                                                                                                                                                                       "
@@ -306,6 +347,8 @@ namespace CTS.FilesCreator
             BPCount = 1;
             BPFile = new List<string>();
         }
+
+
         public static void AddToBPFile()
         {
             string line;
@@ -314,7 +357,19 @@ namespace CTS.FilesCreator
             {
                 int hour = DateTime.Now.Hour;
                 int minitus = DateTime.Now.Minute;
+                string day_header = DateTime.Today.Day.ToString();
+                string month_header = DateTime.Today.Month.ToString();
 
+
+                if (DateTime.Today.Day < 10)
+                {
+                    day_header = String.Format("0{0}", day_header);
+                }
+
+                if (DateTime.Today.Month < 10)
+                {
+                    month_header = String.Format("0{0}", month_header);
+                }
                 string hourString = hour.ToString();
                 string minitusString = minitus.ToString();
                 if (hour < 10)
@@ -330,7 +385,8 @@ namespace CTS.FilesCreator
                 string hourMinitus = hourString + minitusString;
 
                 BPFile = new List<string>();
-                string first_line = String.Format("000000001FH1BF0143{0}{1}{2}{3}PRO260  1809182018091808363635353518091820180918083636353535                          100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Z", DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, hourMinitus);
+                string first_line = String.Format("000000001FH1BF0143{0}{1}{2}{3}PRO260  1809182018091808363635353518091820180918083636353535                          100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Z", 
+                    DateTime.Today.Year, month_header, day_header, hourMinitus);
                 BPFile.Add(first_line);
                 string second_line = "000000002BH0143                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Z";
                 BPFile.Add(second_line);
@@ -373,7 +429,7 @@ namespace CTS.FilesCreator
             else
                 month = DateTime.Today.Month.ToString();
 
-            if (BPCount < 10)
+            if (BPCount < 10 && BPCount > 0)
             {
                 line = String.Format("030000000000{0}0143{1}"
                     +
@@ -387,14 +443,27 @@ namespace CTS.FilesCreator
                 , BPCount, Card_Account_Number_s, amount, DateTime.Today.Year, month, day, @"{");
 
             }
-            else
-            {
+            else if(BPCount >= 10 && BPCount < 100)
+            {   //                    030000000000{0}
                 line = String.Format("03000000000{0}0143{1}" + "    " +
                 "11C00000000000{2}0{6}00000000000{2}0{6}0000000000000000000000000000000000000000000000000000000000000000000000840                                                                                                     " +
                 "{3}{4}{5}0848                                      00420000000000000000000000000000000000000                                                                                                                                                                                                                                                                                                                              Z"
                 , BPCount, Card_Account_Number_s, amount, DateTime.Today.Year, month, day, @"{");
             }
-
+            else if (BPCount >= 100 && BPCount < 1000)
+            {   //                    030000000000{0}
+                line = String.Format("0300000000{0}0143{1}" + "    " +
+                "11C00000000000{2}0{6}00000000000{2}0{6}0000000000000000000000000000000000000000000000000000000000000000000000840                                                                                                     " +
+                "{3}{4}{5}0848                                      00420000000000000000000000000000000000000                                                                                                                                                                                                                                                                                                                              Z"
+                , BPCount, Card_Account_Number_s, amount, DateTime.Today.Year, month, day, @"{");
+            }
+            else
+            {   //                    030000000000{0}
+                line = String.Format("03000000000{0}0143{1}" + "    " +
+                "11C00000000000{2}0{6}00000000000{2}0{6}0000000000000000000000000000000000000000000000000000000000000000000000840                                                                                                     " +
+                "{3}{4}{5}0848                                      00420000000000000000000000000000000000000                                                                                                                                                                                                                                                                                                                              Z"
+                , BPCount, Card_Account_Number_s, amount, DateTime.Today.Year, month, day, @"{");
+            }
             BFLine = line;
             BPFile.Add(line);
             BPCount++;

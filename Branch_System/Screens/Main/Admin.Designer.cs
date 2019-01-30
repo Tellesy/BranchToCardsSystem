@@ -45,8 +45,8 @@
             this.PBF_Auth_BTN = new System.Windows.Forms.Button();
             this.PO_Auth_BTN = new System.Windows.Forms.Button();
             this.PO_Gen_BTN = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.PBF_Gen_BTN = new System.Windows.Forms.Button();
+            this.CAF_Gen_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -227,26 +227,29 @@
             this.PO_Gen_BTN.TabIndex = 36;
             this.PO_Gen_BTN.Text = "Generate PO File";
             this.PO_Gen_BTN.UseVisualStyleBackColor = true;
+            this.PO_Gen_BTN.Click += new System.EventHandler(this.PO_Gen_BTN_Click);
             // 
-            // button2
+            // PBF_Gen_BTN
             // 
-            this.button2.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.button2.Location = new System.Drawing.Point(120, 472);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(71, 50);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "Generate PO File";
-            this.button2.UseVisualStyleBackColor = true;
+            this.PBF_Gen_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.PBF_Gen_BTN.Location = new System.Drawing.Point(120, 472);
+            this.PBF_Gen_BTN.Name = "PBF_Gen_BTN";
+            this.PBF_Gen_BTN.Size = new System.Drawing.Size(71, 50);
+            this.PBF_Gen_BTN.TabIndex = 37;
+            this.PBF_Gen_BTN.Text = "Generate PBF File";
+            this.PBF_Gen_BTN.UseVisualStyleBackColor = true;
+            this.PBF_Gen_BTN.Click += new System.EventHandler(this.PBF_Gen_BTN_Click);
             // 
-            // button3
+            // CAF_Gen_BTN
             // 
-            this.button3.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.button3.Location = new System.Drawing.Point(196, 472);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 50);
-            this.button3.TabIndex = 38;
-            this.button3.Text = "Generate PO File";
-            this.button3.UseVisualStyleBackColor = true;
+            this.CAF_Gen_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.CAF_Gen_BTN.Location = new System.Drawing.Point(196, 472);
+            this.CAF_Gen_BTN.Name = "CAF_Gen_BTN";
+            this.CAF_Gen_BTN.Size = new System.Drawing.Size(71, 50);
+            this.CAF_Gen_BTN.TabIndex = 38;
+            this.CAF_Gen_BTN.Text = "Generate CAF File";
+            this.CAF_Gen_BTN.UseVisualStyleBackColor = true;
+            this.CAF_Gen_BTN.Click += new System.EventHandler(this.CAF_Gen_BTN_Click);
             // 
             // Admin
             // 
@@ -254,8 +257,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 613);
             this.ControlBox = false;
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.CAF_Gen_BTN);
+            this.Controls.Add(this.PBF_Gen_BTN);
             this.Controls.Add(this.PO_Gen_BTN);
             this.Controls.Add(this.PO_Auth_BTN);
             this.Controls.Add(this.PBF_Auth_BTN);
@@ -296,7 +299,7 @@
         private System.Windows.Forms.Button PBF_Auth_BTN;
         private System.Windows.Forms.Button PO_Auth_BTN;
         private System.Windows.Forms.Button PO_Gen_BTN;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button PBF_Gen_BTN;
+        private System.Windows.Forms.Button CAF_Gen_BTN;
     }
 }
