@@ -132,7 +132,7 @@ namespace CTS.Screens
             DialogResult dialogResult = MessageBox.Show("هل انت متأكد؟", " Generate PO file", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                
+                CreatePOFile();
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -206,9 +206,10 @@ namespace CTS.Screens
 
                 //Export CAF
                 FileExporter.CAFileExporter();
-
+                FileExporter.CAFile = new List<string>();
+                FileExporter.isFirstCAF = true;
                 //Update DB to reflect processed CAFs
-                foreach(int id in Processed_IDs)
+                foreach (int id in Processed_IDs)
                 {
                     Status s = Database.CAF.processCAF(id);
                     if(!s.status)
@@ -222,7 +223,6 @@ namespace CTS.Screens
                 MessageBox.Show(statusObject.message);
             }
         }
-
 
         private void CreatePBFile()
         {
@@ -246,11 +246,64 @@ namespace CTS.Screens
 
                 //Export PBF
                 FileExporter.BPFileExporter();
+                FileExporter.BPFile = new List<string>();
+                FileExporter.isFirstBP = true;
 
                 //Update DB to reflect processed PBFs
                 foreach (int id in Processed_IDs)
                 {
                     Status s = Database.PBF.processPBF(id);
+                    if (!s.status)
+                    { MessageBox.Show(s.message); }
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show(statusObject.message);
+            }
+        }
+
+        private void CreatePOFile()
+        {
+            List<int> Processed_IDs = new List<int>();
+            //First Get all Auth CAF files
+            Status<List<PObject>> statusObject = Database.PO.getAuthPO();
+
+            if (statusObject.status)
+            {
+                //Add each record to FileCreator List
+                foreach (PObject record in statusObject.Object)
+                {
+                    //start adding to FileCreator
+                    FileExporter.Bank_Account_Number_1_s = record.Account;
+                    FileExporter.Card_Begin_Date_s = record.Begin_Date;
+                    FileExporter.Branch_Code_s = record.Branch_Code;
+                    FileExporter.Card_Number_s = record.Card_Number;
+                    //FileExporter.ID_Code_s = record.Customer_ID;
+                    FileExporter.Email_s = record.Email;
+                    FileExporter.Card_End_Date_s = record.End_Date;
+                    FileExporter.Card_Holder_Name_s = record.Name;
+                    FileExporter.Passport_ID_s = record.Passport;
+                    FileExporter.Phone_Number_s = record.Phone;
+                    FileExporter.CARD_PROCESS_INDICATOR_s = record.Process_Indicator.ToString();
+                    FileExporter.Update_code_s = record.Update_Code.ToString() ;
+
+
+                    FileExporter.AddToPOFile();
+
+                    Processed_IDs.Add(record.ID);
+                }
+
+                //Export PBF
+                FileExporter.POFileExporter();
+                FileExporter.POFile = new List<string>();
+
+                //Update DB to reflect processed PBFs
+                foreach (int id in Processed_IDs)
+                {
+                    Status s = Database.PO.processPO(id);
                     if (!s.status)
                     { MessageBox.Show(s.message); }
                 }
