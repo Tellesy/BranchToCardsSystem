@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inputter));
             this.label7 = new System.Windows.Forms.Label();
             this.Branch_LBL = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -77,7 +78,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(4, 65);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(286, 127);
+            this.panel1.Size = new System.Drawing.Size(287, 127);
             this.panel1.TabIndex = 10;
             // 
             // Amount_LBL
@@ -153,12 +154,15 @@
             // Issue_BTN
             // 
             this.Issue_BTN.Enabled = false;
-            this.Issue_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.Issue_BTN.Location = new System.Drawing.Point(37, 200);
+            this.Issue_BTN.Font = new System.Drawing.Font("Modern No. 20", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Issue_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Issue_BTN.Image")));
+            this.Issue_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Issue_BTN.Location = new System.Drawing.Point(4, 198);
             this.Issue_BTN.Name = "Issue_BTN";
-            this.Issue_BTN.Size = new System.Drawing.Size(222, 50);
+            this.Issue_BTN.Size = new System.Drawing.Size(135, 119);
             this.Issue_BTN.TabIndex = 13;
             this.Issue_BTN.Text = "إصدار";
+            this.Issue_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Issue_BTN.UseVisualStyleBackColor = true;
             this.Issue_BTN.Click += new System.EventHandler(this.Issue_BTN_Click);
             // 
@@ -166,9 +170,9 @@
             // 
             this.Recharge_BTN.Enabled = false;
             this.Recharge_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.Recharge_BTN.Location = new System.Drawing.Point(37, 256);
+            this.Recharge_BTN.Location = new System.Drawing.Point(4, 323);
             this.Recharge_BTN.Name = "Recharge_BTN";
-            this.Recharge_BTN.Size = new System.Drawing.Size(222, 50);
+            this.Recharge_BTN.Size = new System.Drawing.Size(135, 119);
             this.Recharge_BTN.TabIndex = 14;
             this.Recharge_BTN.Text = "شحن";
             this.Recharge_BTN.UseVisualStyleBackColor = true;
@@ -178,9 +182,9 @@
             // 
             this.Reissue_BTN.Enabled = false;
             this.Reissue_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.Reissue_BTN.Location = new System.Drawing.Point(37, 312);
+            this.Reissue_BTN.Location = new System.Drawing.Point(145, 198);
             this.Reissue_BTN.Name = "Reissue_BTN";
-            this.Reissue_BTN.Size = new System.Drawing.Size(222, 50);
+            this.Reissue_BTN.Size = new System.Drawing.Size(135, 119);
             this.Reissue_BTN.TabIndex = 15;
             this.Reissue_BTN.Text = "إعادة إصدار";
             this.Reissue_BTN.UseVisualStyleBackColor = true;
@@ -190,9 +194,9 @@
             // 
             this.PIN_BTN.Enabled = false;
             this.PIN_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.PIN_BTN.Location = new System.Drawing.Point(37, 368);
+            this.PIN_BTN.Location = new System.Drawing.Point(145, 323);
             this.PIN_BTN.Name = "PIN_BTN";
-            this.PIN_BTN.Size = new System.Drawing.Size(222, 50);
+            this.PIN_BTN.Size = new System.Drawing.Size(135, 119);
             this.PIN_BTN.TabIndex = 16;
             this.PIN_BTN.Text = "إصدار رقم سري";
             this.PIN_BTN.UseVisualStyleBackColor = true;
@@ -201,9 +205,9 @@
             // Logout_BTN
             // 
             this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.Logout_BTN.Location = new System.Drawing.Point(37, 435);
+            this.Logout_BTN.Location = new System.Drawing.Point(4, 448);
             this.Logout_BTN.Name = "Logout_BTN";
-            this.Logout_BTN.Size = new System.Drawing.Size(222, 50);
+            this.Logout_BTN.Size = new System.Drawing.Size(276, 59);
             this.Logout_BTN.TabIndex = 17;
             this.Logout_BTN.Text = "تسجيل الخروج";
             this.Logout_BTN.UseVisualStyleBackColor = true;
@@ -223,7 +227,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 488);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(632, 519);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Logout_BTN);
