@@ -103,7 +103,8 @@ namespace CTS.Screens
             if(PBFApp == null)
             {
                 PBFApp = new PBFUnauth();
-                PBFApp.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                PBFApp.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
                     PBFApp = null; PBF_Auth_BTN.Enabled = true;
                 };
                 PBFApp.Show();
