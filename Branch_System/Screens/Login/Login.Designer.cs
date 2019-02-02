@@ -96,9 +96,9 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(2, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(-7, -2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(920, 288);
+            this.pictureBox1.Size = new System.Drawing.Size(929, 288);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -118,9 +118,9 @@
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(2, 491);
+            this.panel1.Location = new System.Drawing.Point(-7, 491);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(914, 162);
+            this.panel1.Size = new System.Drawing.Size(929, 162);
             this.panel1.TabIndex = 7;
             // 
             // label4
@@ -148,6 +148,7 @@
             this.Controls.Add(this.Password_TXT);
             this.Controls.Add(this.Username_TXT);
             this.Controls.Add(this.Login_BTN);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Cards Tracking System (CTS)";
             this.Load += new System.EventHandler(this.Login_Load);

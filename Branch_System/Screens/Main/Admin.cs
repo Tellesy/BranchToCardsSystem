@@ -63,7 +63,7 @@ namespace CTS.Screens
             CheckStatus();
 
             Name_LBL.Text = Database.Login.name;
-            Branch_LBL.Text = Database.Login.branch;
+            //Branch_LBL.Text = Database.Login.branch;
             Amount_LBL.Text = Database.Recharge.amount.ToString();
             Year_LBL.Text = Database.Recharge.year;
 
@@ -83,10 +83,7 @@ namespace CTS.Screens
             }
         }
 
-        private void Logout_BTN_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         private void PO_Auth_BTN_Click(object sender, EventArgs e)
         {
@@ -316,6 +313,9 @@ namespace CTS.Screens
             }
         }
 
-
+        private void Logout_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

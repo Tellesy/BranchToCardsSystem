@@ -56,11 +56,6 @@ namespace CTS.Screens
             SheetManager.CreateFile();
         }
 
-        private void Logout_BTN_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Recharge_BTN_Click(object sender, EventArgs e)
         {
             if (authRecharge == null)
@@ -71,6 +66,11 @@ namespace CTS.Screens
                 authRecharge.Show();
                 Recharge_BTN.Enabled = false;
             }
+        }
+
+        private void Logout_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -52,7 +52,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label7.Location = new System.Drawing.Point(222, 30);
+            this.label7.Location = new System.Drawing.Point(281, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 20);
             this.label7.TabIndex = 12;
@@ -78,7 +78,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(4, 65);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(287, 127);
+            this.panel1.Size = new System.Drawing.Size(350, 127);
             this.panel1.TabIndex = 10;
             // 
             // Amount_LBL
@@ -95,7 +95,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label5.Location = new System.Drawing.Point(205, 85);
+            this.label5.Location = new System.Drawing.Point(264, 85);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 20);
             this.label5.TabIndex = 7;
@@ -115,7 +115,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label2.Location = new System.Drawing.Point(244, 48);
+            this.label2.Location = new System.Drawing.Point(303, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 20);
             this.label2.TabIndex = 5;
@@ -135,7 +135,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label3.Location = new System.Drawing.Point(146, 11);
+            this.label3.Location = new System.Drawing.Point(205, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 20);
             this.label3.TabIndex = 3;
@@ -154,12 +154,12 @@
             // Issue_BTN
             // 
             this.Issue_BTN.Enabled = false;
-            this.Issue_BTN.Font = new System.Drawing.Font("Modern No. 20", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Issue_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
             this.Issue_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Issue_BTN.Image")));
             this.Issue_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Issue_BTN.Location = new System.Drawing.Point(4, 198);
             this.Issue_BTN.Name = "Issue_BTN";
-            this.Issue_BTN.Size = new System.Drawing.Size(135, 119);
+            this.Issue_BTN.Size = new System.Drawing.Size(172, 119);
             this.Issue_BTN.TabIndex = 13;
             this.Issue_BTN.Text = "إصدار";
             this.Issue_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -169,24 +169,30 @@
             // Recharge_BTN
             // 
             this.Recharge_BTN.Enabled = false;
-            this.Recharge_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.Recharge_BTN.Location = new System.Drawing.Point(4, 323);
+            this.Recharge_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
+            this.Recharge_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Recharge_BTN.Image")));
+            this.Recharge_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Recharge_BTN.Location = new System.Drawing.Point(182, 198);
             this.Recharge_BTN.Name = "Recharge_BTN";
-            this.Recharge_BTN.Size = new System.Drawing.Size(135, 119);
+            this.Recharge_BTN.Size = new System.Drawing.Size(172, 119);
             this.Recharge_BTN.TabIndex = 14;
             this.Recharge_BTN.Text = "شحن";
+            this.Recharge_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Recharge_BTN.UseVisualStyleBackColor = true;
             this.Recharge_BTN.Click += new System.EventHandler(this.Recharge_BTN_Click);
             // 
             // Reissue_BTN
             // 
             this.Reissue_BTN.Enabled = false;
-            this.Reissue_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.Reissue_BTN.Location = new System.Drawing.Point(145, 198);
+            this.Reissue_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
+            this.Reissue_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reissue_BTN.Image")));
+            this.Reissue_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Reissue_BTN.Location = new System.Drawing.Point(4, 323);
             this.Reissue_BTN.Name = "Reissue_BTN";
-            this.Reissue_BTN.Size = new System.Drawing.Size(135, 119);
+            this.Reissue_BTN.Size = new System.Drawing.Size(172, 119);
             this.Reissue_BTN.TabIndex = 15;
             this.Reissue_BTN.Text = "إعادة إصدار";
+            this.Reissue_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Reissue_BTN.UseVisualStyleBackColor = true;
             this.Reissue_BTN.Click += new System.EventHandler(this.Reissue_BTN_Click);
             // 
@@ -194,20 +200,25 @@
             // 
             this.PIN_BTN.Enabled = false;
             this.PIN_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.PIN_BTN.Location = new System.Drawing.Point(145, 323);
+            this.PIN_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PIN_BTN.Image")));
+            this.PIN_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PIN_BTN.Location = new System.Drawing.Point(182, 323);
             this.PIN_BTN.Name = "PIN_BTN";
-            this.PIN_BTN.Size = new System.Drawing.Size(135, 119);
+            this.PIN_BTN.Size = new System.Drawing.Size(172, 119);
             this.PIN_BTN.TabIndex = 16;
             this.PIN_BTN.Text = "إصدار رقم سري";
+            this.PIN_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.PIN_BTN.UseVisualStyleBackColor = true;
             this.PIN_BTN.Click += new System.EventHandler(this.PIN_BTN_Click);
             // 
             // Logout_BTN
             // 
             this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
+            this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Logout_BTN.Location = new System.Drawing.Point(4, 448);
             this.Logout_BTN.Name = "Logout_BTN";
-            this.Logout_BTN.Size = new System.Drawing.Size(276, 59);
+            this.Logout_BTN.Size = new System.Drawing.Size(350, 70);
             this.Logout_BTN.TabIndex = 17;
             this.Logout_BTN.Text = "تسجيل الخروج";
             this.Logout_BTN.UseVisualStyleBackColor = true;
@@ -217,7 +228,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label1.Location = new System.Drawing.Point(238, 6);
+            this.label1.Location = new System.Drawing.Point(297, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 18;
@@ -240,8 +251,9 @@
             this.Controls.Add(this.Branch_LBL);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Name_LBL);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inputter";
-            this.Text = "Inputter";
+            this.Text = "مدخل";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
