@@ -83,8 +83,6 @@ namespace CTS.Screens
             }
         }
 
-
-
         private void PO_Auth_BTN_Click(object sender, EventArgs e)
         {
             if (POApp == null)

@@ -35,11 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +45,7 @@
             // 
             this.Login_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Login_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Login_BTN.Location = new System.Drawing.Point(359, 405);
+            this.Login_BTN.Location = new System.Drawing.Point(440, 406);
             this.Login_BTN.Name = "Login_BTN";
             this.Login_BTN.Size = new System.Drawing.Size(110, 42);
             this.Login_BTN.TabIndex = 0;
@@ -58,7 +56,7 @@
             // Username_TXT
             // 
             this.Username_TXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username_TXT.Location = new System.Drawing.Point(283, 316);
+            this.Username_TXT.Location = new System.Drawing.Point(364, 317);
             this.Username_TXT.Name = "Username_TXT";
             this.Username_TXT.Size = new System.Drawing.Size(257, 29);
             this.Username_TXT.TabIndex = 1;
@@ -66,7 +64,7 @@
             // Password_TXT
             // 
             this.Password_TXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password_TXT.Location = new System.Drawing.Point(283, 360);
+            this.Password_TXT.Location = new System.Drawing.Point(364, 361);
             this.Password_TXT.Name = "Password_TXT";
             this.Password_TXT.PasswordChar = '*';
             this.Password_TXT.Size = new System.Drawing.Size(257, 29);
@@ -76,7 +74,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.label1.Location = new System.Drawing.Point(191, 322);
+            this.label1.Location = new System.Drawing.Point(272, 323);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 3;
@@ -86,7 +84,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.label2.Location = new System.Drawing.Point(191, 366);
+            this.label2.Location = new System.Drawing.Point(272, 367);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 4;
@@ -101,16 +99,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(929, 288);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(588, 301);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(156, 133);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
             // 
             // panel1
             // 
@@ -141,7 +129,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(918, 650);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -153,7 +140,6 @@
             this.Text = "Cards Tracking System (CTS)";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -169,7 +155,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
     }
