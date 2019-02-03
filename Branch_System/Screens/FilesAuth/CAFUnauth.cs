@@ -66,15 +66,22 @@ namespace CTS.Screens
             DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل جميع العمليات؟", "تخويل كل العمليات", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                for (int i = 0; i < records.Count(); i++)
+                if(records != null)
                 {
-                    Database.Status status = Database.CAF.authCAF(records[i].ID);
-                    if (!status.status)
+                    for (int i = 0; i < records.Count(); i++)
                     {
-                        MessageBox.Show(status.message + "\nRecord ID: \n" + records[i].ID.ToString());
+                        Database.Status status = Database.CAF.authCAF(records[i].ID);
+                        if (!status.status)
+                        {
+                            MessageBox.Show(status.message + "\nRecord ID: \n" + records[i].ID.ToString());
+                        }
                     }
+                    GetUnAuthRecords();
                 }
-                GetUnAuthRecords();
+                else
+                {
+                    return;
+                }
             }
             else if (dialogResult == DialogResult.No)
             {
