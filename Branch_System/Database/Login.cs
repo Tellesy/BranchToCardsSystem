@@ -22,9 +22,18 @@ namespace CTS.Database
             string active = "False";
 
             SqlConnection conn = Database.DBConnection.Connection();
+            try
+            {
+                conn.Open();
 
-            conn.Open();
+            }
+            catch
+            {
+                status.status = false;
+                status.message = "لا يمكن الوصول بقاعدة البيانات, الرجاء التأكد من الإتصال";
 
+                return status;
+            }
             if (conn.State == System.Data.ConnectionState.Open)
             {
             
@@ -67,7 +76,7 @@ namespace CTS.Database
                         if(active != "True")
                         {
                             status.status = false;
-                            status.message = "هذا السمتخدم غير مفعل, الرجاء الاستفسار من مديرك";
+                            status.message = "هذا المستخدم غير مفعل, الرجاء الاستفسار من مديرك";
 
                             return status;
                         }

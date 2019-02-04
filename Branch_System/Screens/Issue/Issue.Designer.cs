@@ -87,8 +87,7 @@
             this.Application_CBox.Enabled = false;
             this.Application_CBox.FormattingEnabled = true;
             this.Application_CBox.Items.AddRange(new object[] {
-            "إصدار جديد + شحن",
-            "إصدار جديد فقط (صفر رصيد)"});
+            "إصدار جديد + شحن"});
             this.Application_CBox.Location = new System.Drawing.Point(166, 79);
             this.Application_CBox.Name = "Application_CBox";
             this.Application_CBox.Size = new System.Drawing.Size(209, 21);
