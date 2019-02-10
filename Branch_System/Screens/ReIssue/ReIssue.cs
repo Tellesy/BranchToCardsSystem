@@ -222,6 +222,7 @@ namespace CTS.Screens
             customerInfo.Name = CustomerName_TXT.Text;
             customerInfo.Passport = Passport.Text;
             customerInfo.Phone = PhoneNo_TXT.Text;
+            //customerInfo.
 
             Database.Status POStatus = Database.PO.addPO(CardNumber, customerInfo, AccountUSD_TXT.Text, 1, 'D');
             if (!POStatus.status)
@@ -304,7 +305,14 @@ namespace CTS.Screens
                 if (customer.status)
                 {
                     UpdateInfoFlag = false;
-                    CustomerName_TXT.Text = customer.Object.Name;
+                    if(customer.Object.Name.Count() > 25)
+                    {
+                        CustomerName_TXT.Text =  customer.Object.Name.Substring(0,24);
+                    }
+                    else
+                    {
+                        CustomerName_TXT.Text = customer.Object.Name;
+                    }
                     NID_TXT.Text = customer.Object.NID.ToString();
                     BirthDate_TXT.Text = customer.Object.Birthdate;
                     PhoneNo_TXT.Text = customer.Object.Phone;

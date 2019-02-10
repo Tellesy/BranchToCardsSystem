@@ -134,7 +134,14 @@ namespace CTS.Screens
                 if(customer.status)
                 {
                     UpdateInfoFlag = false;
-                    CustomerName_TXT.Text = customer.Object.Name;
+                    if (customer.Object.Name.Count() > 25)
+                    {
+                        CustomerName_TXT.Text = customer.Object.Name.Substring(0, 24);
+                    }
+                    else
+                    {
+                        CustomerName_TXT.Text = customer.Object.Name;
+                    }
                     NID_TXT.Text = customer.Object.NID.ToString();
                     BirthDate_TXT.Text = customer.Object.Birthdate;
                     PhoneNo_TXT.Text = customer.Object.Phone;

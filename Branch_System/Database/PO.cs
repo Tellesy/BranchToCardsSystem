@@ -54,7 +54,7 @@ namespace CTS.Database
                 {
                     status.status = false;
                     status.status = false;
-                    status.message = "Add to CAF\n" + Errors.ErrorsString.Error002;
+                    status.message = "Add to PO\n" + Errors.ErrorsString.Error002;
                     return status;
                 }
             }

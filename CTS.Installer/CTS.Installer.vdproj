@@ -118,6 +118,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -290,7 +298,7 @@
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_3E5D17F1BAA44CA2A806EC527ACAA8B2"
                     {
-                    "Name" = "8:Tellesy's Apps"
+                    "Name" = "8:Mu Tellesy's Apps"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
@@ -317,18 +325,18 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CTS"
-        "ProductCode" = "8:{D5985C69-58E0-4CC1-9AC6-83EA75551678}"
-        "PackageCode" = "8:{A9056756-0118-4E95-820D-88BD5FA0FAC1}"
+        "ProductCode" = "8:{ECB2AEC7-C37B-4D8A-B7F3-87657FC3D2DA}"
+        "PackageCode" = "8:{8529A32E-37E2-443D-866C-BE94EA528014}"
         "UpgradeCode" = "8:{7C5DDAC3-D9D3-4320-B1D7-A703F3AE3009}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.7"
+        "ProductVersion" = "8:1.0.81"
         "Manufacturer" = "8:Mu Tellesy Software"
-        "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:"
+        "ARPHELPTELEPHONE" = "8:00218911091195"
+        "ARPHELPLINK" = "8:www.tellesy.wordpress.com"
         "Title" = "8:Cards Tracking System"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Mu Tellesy"
@@ -449,7 +457,7 @@
             "Target" = "8:_C638A59ECDEC4A38BC11EB60A9D3A30B"
             "Folder" = "8:_480B0327266D498082CA2E83DBDF7464"
             "WorkingFolder" = "8:_17C341C92EF345F798D02024731E9F5E"
-            "Icon" = "8:"
+            "Icon" = "8:_44C289AA66C04327B4F10CCEDF1F7441"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B77006C329B34D0D9CC535D96F0C1EE0"
@@ -463,7 +471,7 @@
             "Target" = "8:_C638A59ECDEC4A38BC11EB60A9D3A30B"
             "Folder" = "8:_3E5D17F1BAA44CA2A806EC527ACAA8B2"
             "WorkingFolder" = "8:_17C341C92EF345F798D02024731E9F5E"
-            "Icon" = "8:"
+            "Icon" = "8:_44C289AA66C04327B4F10CCEDF1F7441"
             "Feature" = "8:"
             }
         }
