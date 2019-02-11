@@ -45,12 +45,13 @@
             this.Customer_ID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.Validate_BTN = new System.Windows.Forms.Button();
+            this.Customer_Name_TXT = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(277, 194);
+            this.label9.Location = new System.Drawing.Point(277, 237);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(95, 13);
             this.label9.TabIndex = 49;
@@ -59,7 +60,7 @@
             // Amount_TXT
             // 
             this.Amount_TXT.Enabled = false;
-            this.Amount_TXT.Location = new System.Drawing.Point(231, 210);
+            this.Amount_TXT.Location = new System.Drawing.Point(231, 253);
             this.Amount_TXT.MaxLength = 5;
             this.Amount_TXT.Name = "Amount_TXT";
             this.Amount_TXT.Size = new System.Drawing.Size(141, 20);
@@ -69,7 +70,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(304, 119);
+            this.label5.Location = new System.Drawing.Point(304, 170);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 48;
@@ -78,16 +79,17 @@
             // NID_TXT
             // 
             this.NID_TXT.Enabled = false;
-            this.NID_TXT.Location = new System.Drawing.Point(136, 135);
+            this.NID_TXT.Location = new System.Drawing.Point(136, 186);
             this.NID_TXT.MaxLength = 12;
             this.NID_TXT.Name = "NID_TXT";
             this.NID_TXT.Size = new System.Drawing.Size(233, 20);
             this.NID_TXT.TabIndex = 3;
+            this.NID_TXT.TextChanged += new System.EventHandler(this.NID_TXT_TextChanged);
             this.NID_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NID_TXT_KeyPress);
             // 
             // Back_BTN
             // 
-            this.Back_BTN.Location = new System.Drawing.Point(12, 364);
+            this.Back_BTN.Location = new System.Drawing.Point(12, 407);
             this.Back_BTN.Name = "Back_BTN";
             this.Back_BTN.Size = new System.Drawing.Size(363, 33);
             this.Back_BTN.TabIndex = 51;
@@ -98,7 +100,7 @@
             // Submit_BTN
             // 
             this.Submit_BTN.Enabled = false;
-            this.Submit_BTN.Location = new System.Drawing.Point(12, 326);
+            this.Submit_BTN.Location = new System.Drawing.Point(12, 369);
             this.Submit_BTN.Name = "Submit_BTN";
             this.Submit_BTN.Size = new System.Drawing.Size(363, 32);
             this.Submit_BTN.TabIndex = 6;
@@ -109,7 +111,7 @@
             // Total_This_Year_TXT
             // 
             this.Total_This_Year_TXT.Enabled = false;
-            this.Total_This_Year_TXT.Location = new System.Drawing.Point(231, 258);
+            this.Total_This_Year_TXT.Location = new System.Drawing.Point(231, 301);
             this.Total_This_Year_TXT.MaxLength = 5;
             this.Total_This_Year_TXT.Name = "Total_This_Year_TXT";
             this.Total_This_Year_TXT.Size = new System.Drawing.Size(141, 20);
@@ -118,7 +120,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(233, 242);
+            this.label1.Location = new System.Drawing.Point(233, 285);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 13);
             this.label1.TabIndex = 53;
@@ -127,7 +129,7 @@
             // Total_Amount_TXT
             // 
             this.Total_Amount_TXT.Enabled = false;
-            this.Total_Amount_TXT.Location = new System.Drawing.Point(46, 258);
+            this.Total_Amount_TXT.Location = new System.Drawing.Point(46, 301);
             this.Total_Amount_TXT.MaxLength = 5;
             this.Total_Amount_TXT.Name = "Total_Amount_TXT";
             this.Total_Amount_TXT.Size = new System.Drawing.Size(141, 20);
@@ -136,7 +138,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 242);
+            this.label2.Location = new System.Drawing.Point(15, 285);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 13);
             this.label2.TabIndex = 55;
@@ -145,7 +147,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(96, 69);
+            this.label3.Location = new System.Drawing.Point(96, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(273, 13);
             this.label3.TabIndex = 57;
@@ -154,7 +156,7 @@
             // CardNo_TXT
             // 
             this.CardNo_TXT.Enabled = false;
-            this.CardNo_TXT.Location = new System.Drawing.Point(136, 85);
+            this.CardNo_TXT.Location = new System.Drawing.Point(136, 135);
             this.CardNo_TXT.MaxLength = 16;
             this.CardNo_TXT.Name = "CardNo_TXT";
             this.CardNo_TXT.Size = new System.Drawing.Size(233, 20);
@@ -186,17 +188,18 @@
             // Customer_ID
             // 
             this.Customer_ID.Enabled = false;
-            this.Customer_ID.Location = new System.Drawing.Point(28, 135);
+            this.Customer_ID.Location = new System.Drawing.Point(280, 87);
             this.Customer_ID.MaxLength = 7;
             this.Customer_ID.Name = "Customer_ID";
             this.Customer_ID.Size = new System.Drawing.Size(89, 20);
             this.Customer_ID.TabIndex = 4;
+            this.Customer_ID.TextChanged += new System.EventHandler(this.Customer_ID_TextChanged);
             this.Customer_ID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Customer_ID_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 119);
+            this.label4.Location = new System.Drawing.Point(315, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 62;
@@ -205,7 +208,7 @@
             // Validate_BTN
             // 
             this.Validate_BTN.Enabled = false;
-            this.Validate_BTN.Location = new System.Drawing.Point(12, 288);
+            this.Validate_BTN.Location = new System.Drawing.Point(12, 331);
             this.Validate_BTN.Name = "Validate_BTN";
             this.Validate_BTN.Size = new System.Drawing.Size(363, 32);
             this.Validate_BTN.TabIndex = 63;
@@ -213,12 +216,22 @@
             this.Validate_BTN.UseVisualStyleBackColor = true;
             this.Validate_BTN.Click += new System.EventHandler(this.Validate_BTN_Click);
             // 
+            // Customer_Name_TXT
+            // 
+            this.Customer_Name_TXT.Enabled = false;
+            this.Customer_Name_TXT.Location = new System.Drawing.Point(136, 212);
+            this.Customer_Name_TXT.MaxLength = 30;
+            this.Customer_Name_TXT.Name = "Customer_Name_TXT";
+            this.Customer_Name_TXT.Size = new System.Drawing.Size(233, 20);
+            this.Customer_Name_TXT.TabIndex = 64;
+            // 
             // Recharge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 420);
+            this.ClientSize = new System.Drawing.Size(381, 469);
             this.ControlBox = false;
+            this.Controls.Add(this.Customer_Name_TXT);
             this.Controls.Add(this.Validate_BTN);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Customer_ID);
@@ -263,5 +276,6 @@
         private System.Windows.Forms.TextBox Customer_ID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Validate_BTN;
+        private System.Windows.Forms.TextBox Customer_Name_TXT;
     }
 }

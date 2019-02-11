@@ -408,6 +408,60 @@ namespace CTS.Screens
             this.MaximizeBox = false;
             this.MinimizeBox = false;
         }
+
+        private void Customer_ID_TextChanged(object sender, EventArgs e)
+        {
+            if(Customer_ID.Text.Count() >= 7)
+            {
+               Status<Customer> customer = Database.Issue.getCustomer(Customer_ID.Text);
+                if(customer.status)
+                {
+                    NID_TXT.Text = customer.Object.NID.ToString();
+                    Customer_Name_TXT.Text = customer.Object.Name;
+
+                    Status<string> cardAccount = Database.Issue.getCardAccount(Customer_ID.Text,Product);
+                    if(cardAccount.status)
+                    {
+                        CardNo_TXT.Text = cardAccount.Object;
+                    }
+                    else
+                    {
+                        CardNo_TXT.Text = "";
+                        //Customer_ID.Text = "";
+                        //NID_TXT.Text = "";
+                    }
+                }
+            }
+        }
+
+        private void NID_TXT_TextChanged(object sender, EventArgs e)
+        {
+            if (NID_TXT.Text.Count() == 12)
+            {
+                Status<Customer> customer = Database.Issue.getCustomerByNID(NID_TXT.Text);
+                if (customer.status)
+                {
+                    Customer_ID.Text = customer.Object.Id.ToString();
+                    Customer_Name_TXT.Text = customer.Object.Name;
+
+                    Status<string> cardAccount = Database.Issue.getCardAccount(customer.Object.Id.ToString(), Product);
+                    if (cardAccount.status)
+                    {
+                        CardNo_TXT.Text = cardAccount.Object;
+                    }
+                    else
+                    {
+                        CardNo_TXT.Text = "";
+                        //Customer_ID.Text = "";
+                        //NID_TXT.Text = "";
+                    }
+                }
+                else
+                {
+
+                }
+            }
+        }
     }
 
    

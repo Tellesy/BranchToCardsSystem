@@ -184,10 +184,82 @@ namespace CTS.Database
 
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
                         statusObject.status = false;
-                        statusObject.message = "Get Customer Info\n" + Errors.ErrorsString.Error002;
+                        statusObject.message = "Get Customer Info\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                        return statusObject;
+                    }
+
+
+                }
+
+            }
+            else
+            {
+                statusObject.status = false;
+                statusObject.message = Errors.ErrorsString.Error001;
+
+                return statusObject;
+            }
+        }
+
+        public static Status<Customer> getCustomerByNID(string NID)
+        {
+            Status<Customer> statusObject = new Status<Customer>();
+            statusObject.status = false;
+            Customer customer = new Customer();
+
+            SqlConnection conn = Database.DBConnection.Connection();
+
+
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = @"SELECT TOP 1 
+                               [Name]
+                              ,[Birthdate]
+                              ,[Phone]
+                              ,[Customer_ID]
+                          FROM [Customer] where [NID] = " + NID;
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        if (!reader.HasRows)
+                        {
+                            statusObject.status = false;
+                            statusObject.message = Errors.ErrorsString.Error012;
+
+                            return statusObject;
+
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+                                customer.Name = reader[0].ToString();
+                                customer.Birthdate = reader[1].ToString();
+                                customer.Phone = reader[2].ToString();
+                                customer.Id = Int32.Parse(reader[3].ToString());
+
+                                statusObject.status = true;
+                                statusObject.Object = customer;
+                                return statusObject;
+                            }
+                            return statusObject;
+
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        statusObject.status = false;
+                        statusObject.message = "Get Customer Info\n" + Errors.ErrorsString.Error002 +"\n" + e;
                         return statusObject;
                     }
 
@@ -302,6 +374,61 @@ namespace CTS.Database
                 return status;
             }
             
+        }
+
+        public static Status<string> getCardAccount(string Customer_ID, string Product)
+        {
+            Status<string> status = new Status<string>();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                string query = @"SELECT TOP 1 [Card_Account] from Card_Accounts Where Product_Code = '" + Product + "' AND Customer_ID = " + int.Parse(Customer_ID) + " ";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        if (!reader.HasRows)
+                        {
+                            status.status = false;
+                            return status;
+
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+                                status.Object = reader[0].ToString();
+                                status.status = true;
+                              //  status.message = "هذا الزبون لديه بطاقة, الرجاء التأكد او الذهاب الى خيار اعادة الاصدار";
+                            }
+                            return status;
+
+                        }
+                    }
+                    catch
+                    {
+                        status.status = false;
+                        status.message = Errors.ErrorsString.Error002;
+                        return status;
+                    }
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
         }
 
         public static Status updateSequences(string CardNumber)
