@@ -54,7 +54,6 @@
   <PropertyGroup>
     <StartupObject>CTS.Program</StartupObject>
   </PropertyGroup>
-
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
@@ -185,6 +184,12 @@
     </Compile>
     <Compile Include="Screens\ReIssue\ReIssue.Designer.cs">
       <DependentUpon>ReIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Reports\RechargeReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Reports\RechargeReports.Designer.cs">
+      <DependentUpon>RechargeReports.cs</DependentUpon>
     </Compile>
     <Compile Include="SheetManager\SheetManager.cs" />
     <Compile Include="Screens\Issue\Issue.cs">
