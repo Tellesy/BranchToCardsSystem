@@ -18,6 +18,7 @@ namespace CTS.Database.Objects
         public int Inputter;
         public int Branch;
         public string CardAccount;
+        public int Type;
 
     }
 }

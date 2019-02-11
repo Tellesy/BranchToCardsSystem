@@ -148,7 +148,7 @@ namespace CTS.Screens
                     if (RechargeAmount <= Database.Recharge.amount)
                     {
                         //Add recharge to the records
-                        Database.Recharge.recharge(Customer_ID.Text, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product, CardNo_TXT.Text);
+                        Database.Recharge.recharge(Customer_ID.Text, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product, CardNo_TXT.Text,1);
 
                         //To add it BPF file
                         RechargeAmount = int.Parse(this.Amount_TXT.Text) + AmountTotal;
@@ -178,20 +178,20 @@ namespace CTS.Screens
                 else
                 {
                     //Add recharge to the records
-                    Database.Recharge.recharge(Customer_ID.Text, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product, CardNo_TXT.Text);
+                    Database.Recharge.recharge(Customer_ID.Text, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product, CardNo_TXT.Text,1);
 
                     //To add it BPF file
                     RechargeAmount = int.Parse(this.Amount_TXT.Text) + AmountTotal;
 
 
-                    if (AmountTotal > 0)
-                    {
-                        AddToFile("R");
-                    }
-                    else
-                    {
-                        AddToFile("RFirst");
-                    }
+                    //if (AmountTotal > 0)
+                    //{
+                    //    AddToFile("R");
+                    //}
+                    //else
+                    //{
+                    //    AddToFile("RFirst");
+                    //}
 
                     //Database.Status PBFStatus = Database.PBF.addPBF(CardNo_TXT.Text, RechargeAmount);
                     //if (!PBFStatus.status)

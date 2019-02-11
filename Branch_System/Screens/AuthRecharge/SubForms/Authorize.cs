@@ -66,6 +66,15 @@ namespace CTS.Screens.AuthRecharge
                 Inputter_LBL.Text = record.Inputter.ToString();
                 Amount_LBL.Text = record.Amount.ToString();
                 CardAccount_LBL.Text = record.CardAccount;
+                RecordDate_LBL.Text = record.Time;
+                if(record.Type == 0)
+                {
+                    Type_LBL.Text = "إصدار";
+                }
+                if(record.Type == 1)
+                {
+                    Type_LBL.Text = "شحن \\ إعادة شحن";
+                }
             }
         }
 

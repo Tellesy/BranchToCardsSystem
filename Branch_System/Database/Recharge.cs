@@ -247,7 +247,7 @@ namespace CTS.Database
 
         }
 
-        public static Status recharge(string Customer_ID, string NID, int Recharge_Amount, string Product, string CardAccount)
+        public static Status recharge(string Customer_ID, string NID, int Recharge_Amount, string Product, string CardAccount,int Type)
         {
             Status status = new Status();
             status.status = false;
@@ -260,8 +260,8 @@ namespace CTS.Database
             {
                 try
                 {
-                    string query = @"INSERT INTO Recharge (Customer_ID, NID, Amount, Product, R_Year,Inputter,Branch,CardAccount) " +
-                                    "VALUES (@value1, @value2, @value3, @value4, @value5,@value6,@value7,@value8)";
+                    string query = @"INSERT INTO Recharge (Customer_ID, NID, Amount, Product, R_Year,Inputter,Branch,CardAccount,Type) " +
+                                    "VALUES (@value1, @value2, @value3, @value4, @value5,@value6,@value7,@value8,@value9)";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@value1", Customer_ID);
@@ -272,6 +272,8 @@ namespace CTS.Database
                     cmd.Parameters.AddWithValue("@value6", int.Parse(Login.id));
                     cmd.Parameters.AddWithValue("@value7", int.Parse(Login.branch));
                     cmd.Parameters.AddWithValue("@value8", CardAccount);
+                    cmd.Parameters.AddWithValue("@value9", Convert.ToInt32(Type));
+
 
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -315,11 +317,11 @@ namespace CTS.Database
 
                     if(branchFlag)
                     {
-                        query = @"SELECT [ID],[Customer_ID],[R_Year],[Product],[Amount],[Time] ,[NID] ,[Inputter] ,[Branch], [CardAccount] FROM [Recharge] WHERE  [Authorized] = 0 AND [Branch] = @value1";
+                        query = @"SELECT [ID],[Customer_ID],[R_Year],[Product],[Amount],[Time] ,[NID] ,[Inputter] ,[Branch], [CardAccount], [Type] FROM [Recharge] WHERE  [Authorized] = 0 AND [Branch] = @value1";
                     }
                     else
                     {
-                        query = @"SELECT [ID],[Customer_ID],[R_Year],[Product],[Amount],[Time] ,[NID] ,[Inputter] ,[Branch], [CardAccount] FROM [Recharge] WHERE  [Authorized] = 0";
+                        query = @"SELECT [ID],[Customer_ID],[R_Year],[Product],[Amount],[Time] ,[NID] ,[Inputter] ,[Branch], [CardAccount], [Type] FROM [Recharge] WHERE  [Authorized] = 0";
                     }
 
 
@@ -352,6 +354,8 @@ namespace CTS.Database
                             request.Inputter = int.Parse(reader[7].ToString());
                             request.Branch = int.Parse(reader[8].ToString());
                             request.CardAccount = reader[9].ToString();
+                            request.Type = Convert.ToInt32(reader[10].ToString());
+
                             statusObject.Object.Add(request);
                         }
                         statusObject.status = true;
@@ -360,10 +364,10 @@ namespace CTS.Database
 
 
                 }
-                catch
+                catch (Exception e)
                 {
                     statusObject.status = false;
-                    statusObject.message = "Get Unauth Recharge requests \n" + Errors.ErrorsString.Error002;
+                    statusObject.message = "Get Unauth Recharge requests \n" + Errors.ErrorsString.Error002 + "\n" + e ;
                     return statusObject;
                 }
             }
@@ -454,9 +458,5 @@ namespace CTS.Database
             }
 
         }
-        //public static Status authRecharge()
-        //{
-
-        //}
     }
 }

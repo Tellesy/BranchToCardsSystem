@@ -50,6 +50,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.Total_Amount_LBL = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.RecordDate_LBL = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Type_LBL = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -165,11 +169,35 @@
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
             // 
+            // RecordDate_LBL
+            // 
+            resources.ApplyResources(this.RecordDate_LBL, "RecordDate_LBL");
+            this.RecordDate_LBL.Name = "RecordDate_LBL";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // Type_LBL
+            // 
+            resources.ApplyResources(this.Type_LBL, "Type_LBL");
+            this.Type_LBL.Name = "Type_LBL";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
             // Authorize
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ControlBox = false;
+            this.Controls.Add(this.Type_LBL);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.RecordDate_LBL);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.Total_Amount_LBL);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.CardAccount_LBL);
@@ -221,5 +249,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label Total_Amount_LBL;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label RecordDate_LBL;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label Type_LBL;
+        private System.Windows.Forms.Label label12;
     }
 }

@@ -236,13 +236,13 @@ namespace CTS.Screens
                             return;
                         }
 
-                        status = Database.Recharge.recharge(Customer_ID, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product, CardNumber);
+                        status = Database.Recharge.recharge(Customer_ID, NID_TXT.Text, int.Parse(Amount_TXT.Text), Product, CardNumber,0);
                         if (!status.status)
                         {
                             MessageBox.Show(status.message);
                             return;
                         }
-                        AddToFile("IR");
+                       // AddToFile("IR");
 
                         Database.Status CAFStatus = Database.CAF.addCAF(CardNumber, CardNumber, SheetManager.Account_EXP_Date, Product);
                         if(!CAFStatus.status)
@@ -355,7 +355,7 @@ namespace CTS.Screens
                     return;
                 }
 
-                AddToFile("I");
+                //AddToFile("I");
 
                 Database.Status CAFStatus = Database.CAF.addCAF(CardNumber, CardNumber, SheetManager.Account_EXP_Date, Product);
                 if (!CAFStatus.status)
