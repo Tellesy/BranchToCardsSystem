@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CTS.Database;
-
+using System.Reflection;
 
 namespace CTS.Screens
 {
@@ -27,6 +27,13 @@ namespace CTS.Screens
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             SheetManager.CreateFile();
+
+            Assembly thisAssem = typeof(Login).Assembly;
+            AssemblyName thisAssemName = thisAssem.GetName();
+
+            Version ver = thisAssemName.Version;
+
+            Version_LBL.Text = Version_LBL.Text + " V" + thisAssemName.Version;
         }
 
         private void Login_BTN_Click(object sender, EventArgs e)

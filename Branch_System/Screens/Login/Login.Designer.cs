@@ -36,7 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Version_LBL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -105,22 +105,22 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.Version_LBL);
             this.panel1.Location = new System.Drawing.Point(-7, 491);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(929, 162);
             this.panel1.TabIndex = 7;
             // 
-            // label4
+            // Version_LBL
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label4.Location = new System.Drawing.Point(389, 133);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(149, 17);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Mu Tellesy Software ©";
+            this.Version_LBL.AutoSize = true;
+            this.Version_LBL.BackColor = System.Drawing.Color.Transparent;
+            this.Version_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Version_LBL.Location = new System.Drawing.Point(389, 133);
+            this.Version_LBL.Name = "Version_LBL";
+            this.Version_LBL.Size = new System.Drawing.Size(149, 17);
+            this.Version_LBL.TabIndex = 1;
+            this.Version_LBL.Text = "Mu Tellesy Software ©";
             // 
             // Login
             // 
@@ -157,6 +157,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Version_LBL;
     }
 }
