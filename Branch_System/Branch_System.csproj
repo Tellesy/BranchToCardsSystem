@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\CAF.cs" />
+    <Compile Include="Database\DataObjects\Recharge.cs" />
     <Compile Include="Database\Issue.cs" />
     <Compile Include="Database\Objects\CAFObject.cs" />
     <Compile Include="Database\Objects\Customer.cs" />
@@ -288,6 +289,9 @@
     <EmbeddedResource Include="Screens\ReIssue\ReIssue.resx">
       <DependentUpon>ReIssue.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Reports\RechargeReports.resx">
+      <DependentUpon>RechargeReports.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Branch_system1DataSet.xsc">
       <DependentUpon>Branch_system1DataSet.xsd</DependentUpon>
     </None>
@@ -329,6 +333,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

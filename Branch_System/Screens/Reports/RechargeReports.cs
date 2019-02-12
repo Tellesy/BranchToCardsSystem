@@ -16,5 +16,11 @@ namespace CTS.Screens.Reports
         {
             InitializeComponent();
         }
+
+        private void RechargeReports_Load(object sender, EventArgs e)
+        {
+
+            this.RechargeReport_LBL.RefreshReport();
+        }
     }
 }

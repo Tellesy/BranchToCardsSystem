@@ -28,12 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.RechargeReport_LBL = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.SuspendLayout();
+            // 
+            // RechargeReport_LBL
+            // 
+            this.RechargeReport_LBL.Location = new System.Drawing.Point(12, 12);
+            this.RechargeReport_LBL.Name = "RechargeReport_LBL";
+            this.RechargeReport_LBL.Size = new System.Drawing.Size(776, 414);
+            this.RechargeReport_LBL.TabIndex = 0;
+            // 
+            // RechargeReports
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RechargeReport_LBL);
+            this.Name = "RechargeReports";
             this.Text = "RechargeReports";
+            this.Load += new System.EventHandler(this.RechargeReports_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer RechargeReport_LBL;
     }
 }
