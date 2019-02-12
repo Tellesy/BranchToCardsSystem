@@ -1,3 +1,4 @@
 https://www.crystalreports.com/crvs/confirm/
 https://www.crystalreports.com/crystal-reports-visual-studio/
 https://www.youtube.com/watch?v=bRf8MTfUjhY
+https://social.msdn.microsoft.com/Forums/vstudio/en-US/3a756ef3-38e0-47de-a8b4-44ddedb6a05f/visual-studio-2017-reportviewer-runtime-redistributable?forum=winforms
