@@ -562,6 +562,10 @@ namespace CTS.Database
                     }
                     conn.Close();
                     conn.Open();
+                    if (Card_Account == "")
+                    {
+                        Card_Account = Card_Number;
+                    }
                     SqlCommand cmd3 = new SqlCommand("INSERT INTO Cards (Card_Account,Card_Number,Active) " +
                                         "VALUES (@value1, @value2,1)", conn);
                     cmd3.Parameters.AddWithValue("@value1", Card_Account);

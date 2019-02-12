@@ -52,13 +52,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_015930493DEBC9A9D4A5BB37760F204A"
+        "OwnerKey" = "8:_6EBDB3D75D20840FC125FE98EBFD89F8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6EBDB3D75D20840FC125FE98EBFD89F8"
+        "OwnerKey" = "8:_015930493DEBC9A9D4A5BB37760F204A"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -163,11 +163,6 @@
             "AssemblyAsmDisplayName" = "8:EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_015930493DEBC9A9D4A5BB37760F204A"
-                    {
-                    "Name" = "8:EPPlus.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:EPPlus.dll"
             "TargetName" = "8:"
@@ -214,11 +209,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_6EBDB3D75D20840FC125FE98EBFD89F8"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -325,15 +315,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CTS"
-        "ProductCode" = "8:{ECB2AEC7-C37B-4D8A-B7F3-87657FC3D2DA}"
-        "PackageCode" = "8:{8529A32E-37E2-443D-866C-BE94EA528014}"
+        "ProductCode" = "8:{E05FD966-1BEE-4D26-88F1-4A3E211F04AF}"
+        "PackageCode" = "8:{9351695D-1FAC-4B72-8942-442119E17413}"
         "UpgradeCode" = "8:{7C5DDAC3-D9D3-4320-B1D7-A703F3AE3009}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.81"
+        "ProductVersion" = "8:1.0.90"
         "Manufacturer" = "8:Mu Tellesy Software"
         "ARPHELPTELEPHONE" = "8:00218911091195"
         "ARPHELPLINK" = "8:www.tellesy.wordpress.com"

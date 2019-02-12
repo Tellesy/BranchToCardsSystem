@@ -104,10 +104,10 @@ namespace CTS.Database
 
 
                 }
-                catch
+                catch (Exception e)
                 {
                     statusObject.status = false;
-                    statusObject.message = "Get Unauth PBF records \n" + Errors.ErrorsString.Error002;
+                    statusObject.message = "Get Unauth PBF records \n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return statusObject;
                 }
             }
