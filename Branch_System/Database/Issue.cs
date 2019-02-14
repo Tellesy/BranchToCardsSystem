@@ -44,10 +44,10 @@ namespace CTS.Database
                         }
                     }
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = Errors.ErrorsString.Error002;
+                    status.message = Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
 
@@ -76,10 +76,10 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = "Seqeuence Lock\n" + Errors.ErrorsString.Error002;
+                    status.message = "Seqeuence Lock\n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
 
@@ -114,10 +114,10 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = "Seqeuence Unlock\n" + Errors.ErrorsString.Error002;
+                    status.message = "Seqeuence Unlock\n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
 
@@ -305,10 +305,10 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch(Exception e)
                 {
                     status.status = false;
-                    status.message = "Add Customer Info \n" + Errors.ErrorsString.Error002;
+                    status.message = "Add Customer Info \n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
             }
@@ -357,10 +357,10 @@ namespace CTS.Database
 
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
                         status.status = false;
-                        status.message = Errors.ErrorsString.Error002;
+                        status.message = Errors.ErrorsString.Error002 + "\n" + e;
                         return status;
                     }
                 }
@@ -412,10 +412,10 @@ namespace CTS.Database
 
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
                         status.status = false;
-                        status.message = Errors.ErrorsString.Error002;
+                        status.message = Errors.ErrorsString.Error002 +"\n" + e;
                         return status;
                     }
                 }
@@ -451,10 +451,10 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = "Seqeuence Update\n" + Errors.ErrorsString.Error002;
+                    status.message = "Seqeuence Update\n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
                
@@ -498,10 +498,10 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = "Create Card Account\n" + Errors.ErrorsString.Error002;
+                    status.message = "Create Card Account\n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
 
@@ -576,10 +576,10 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = "Create Card\n" + Errors.ErrorsString.Error002;
+                    status.message = "Create Card\n" + Errors.ErrorsString.Error002+ "\n" + e;
                     return status;
                 }
 

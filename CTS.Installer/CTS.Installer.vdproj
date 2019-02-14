@@ -52,13 +52,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6EBDB3D75D20840FC125FE98EBFD89F8"
+        "OwnerKey" = "8:_015930493DEBC9A9D4A5BB37760F204A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_015930493DEBC9A9D4A5BB37760F204A"
+        "OwnerKey" = "8:_6EBDB3D75D20840FC125FE98EBFD89F8"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -315,15 +315,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CTS"
-        "ProductCode" = "8:{E05FD966-1BEE-4D26-88F1-4A3E211F04AF}"
-        "PackageCode" = "8:{9351695D-1FAC-4B72-8942-442119E17413}"
+        "ProductCode" = "8:{C1322453-A298-408F-BB55-256626C7767F}"
+        "PackageCode" = "8:{383544C8-9650-42EA-821B-15E5989D61A7}"
         "UpgradeCode" = "8:{7C5DDAC3-D9D3-4320-B1D7-A703F3AE3009}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.90"
+        "ProductVersion" = "8:1.0.91"
         "Manufacturer" = "8:Mu Tellesy Software"
         "ARPHELPTELEPHONE" = "8:00218911091195"
         "ARPHELPLINK" = "8:www.tellesy.wordpress.com"
