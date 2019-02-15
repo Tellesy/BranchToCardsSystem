@@ -37,7 +37,6 @@ namespace CTS.Database
             if (conn.State == System.Data.ConnectionState.Open)
             {
             
-
                 string query = String.Format(@"SELECT 
                                [Username]
                               ,[Employee]
@@ -69,7 +68,6 @@ namespace CTS.Database
                             Login.id = reader[3].ToString();
                             role = reader[4].ToString();
                             branch = reader[5].ToString();
-
                             
                         }
 
@@ -100,6 +98,66 @@ namespace CTS.Database
                 return status;
             }
 
+        }
+
+        public static Status changePassowrd(string newPassword,string oldPassword)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            //First Chick Password
+            SqlConnection conn = Database.DBConnection.Connection();
+            try
+            {
+                conn.Open();
+
+            }
+            catch (Exception e)
+            {
+                status.status = false;
+                status.message = "لا يمكن الوصول بقاعدة البيانات, الرجاء التأكد من الإتصال" + "\n" + e;
+                return status;
+            }
+            if(conn.State == System.Data.ConnectionState.Open)
+            {
+                string query = String.Format(@"SELECT *
+                          FROM [Users] WHERE Username = '{0}' AND Password = '{1}'", username, oldPassword);
+
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            status.status = false;
+                            status.message = "الرقم السري القديم غير صحيح, الرجاء التأكد";
+
+                            return status;
+
+                        }
+                        else
+                        {
+                            query = String.Format(@"Update [Users] 
+                            SET [Password] ={0} WHERE Username = '{1}' ", newPassword,username);
+
+                            SqlCommand cmd2 = new SqlCommand(query, conn);
+                            cmd2.ExecuteNonQuery();
+
+                            status.status = true;
+                            return status;
+
+                        }
+                    }
+                }
+                catch(Exception e)
+                {
+                    status.status = false;
+                    status.message = e.ToString();
+                    return status;
+                }
+            }
+            return status;
         }
     }
 }

@@ -316,5 +316,10 @@ namespace CTS.Screens
         {
             this.Close();
         }
+
+        private void Password_LBL_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

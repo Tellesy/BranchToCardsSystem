@@ -47,6 +47,7 @@
             this.CAF_Gen_BTN = new System.Windows.Forms.Button();
             this.Logout_BTN = new System.Windows.Forms.Button();
             this.Reports_BTN = new System.Windows.Forms.Button();
+            this.Password_LBL = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,6 +248,18 @@
             this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Reports_BTN.UseVisualStyleBackColor = true;
             // 
+            // Password_LBL
+            // 
+            this.Password_LBL.AutoSize = true;
+            this.Password_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Underline);
+            this.Password_LBL.ForeColor = System.Drawing.Color.Blue;
+            this.Password_LBL.Location = new System.Drawing.Point(614, 11);
+            this.Password_LBL.Name = "Password_LBL";
+            this.Password_LBL.Size = new System.Drawing.Size(104, 20);
+            this.Password_LBL.TabIndex = 32;
+            this.Password_LBL.Text = "تغير كلمة المرور";
+            this.Password_LBL.Click += new System.EventHandler(this.Password_LBL_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,6 +267,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(731, 613);
             this.ControlBox = false;
+            this.Controls.Add(this.Password_LBL);
             this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.Logout_BTN);
             this.Controls.Add(this.CAF_Gen_BTN);
@@ -295,5 +309,6 @@
         private System.Windows.Forms.Button CAF_Gen_BTN;
         private System.Windows.Forms.Button Logout_BTN;
         private System.Windows.Forms.Button Reports_BTN;
+        private System.Windows.Forms.Label Password_LBL;
     }
 }

@@ -204,6 +204,12 @@
     <Compile Include="Screens\Reports\RechargeReports.Designer.cs">
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\User\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\User\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="SheetManager\SheetManager.cs" />
     <Compile Include="Screens\Issue\Issue.cs">
       <SubType>Form</SubType>
@@ -291,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Reports\RechargeReports.resx">
       <DependentUpon>RechargeReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\User\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Branch_system1DataSet.xsc">
       <DependentUpon>Branch_system1DataSet.xsd</DependentUpon>
