@@ -30,10 +30,29 @@ namespace CTS.Screens.User
             string newPassword = NewPassword_TXT.Text;
             string confirmPassword = ConfirmPassword_TXT.Text;
             string password = Password_TXT.Text;
+            if(password.Count() == 0 || newPassword.Count() == 0 || password.Count() == 0)
+            {
+                MessageBox.Show("الرجاء تعبئة جميع الحقول");
+                return;
+            }
 
             if(newPassword == confirmPassword)
             {
+                if (newPassword.Count() < 6)
+                {
+                    MessageBox.Show("كلمة المرور يجب ان تتكون من 6 رموز على الاقل");
+                    return;
+                }
 
+                Database.Status status =  Database.Login.changePassowrd(newPassword, password);
+                if(status.status)
+                {
+                    MessageBox.Show("تم تغيير كلمة المرور بنجاح");
+                }
+                else
+                {
+                    MessageBox.Show(status.message);
+                }
             }
             else
             {

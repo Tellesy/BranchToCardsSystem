@@ -12,6 +12,7 @@ using CTS.Database.Objects;
 using CTS.Screens;
 using CTS.Screens.AuthRecharge;
 using CTS.FilesCreator;
+using CTS.Screens.User;
 
 namespace CTS.Screens
 {
@@ -21,6 +22,7 @@ namespace CTS.Screens
         private POUnauth POApp;
         private PBFUnauth PBFApp;
         private CAFUnauth CAFApp;
+        private ChangePassword changePassword;
 
         public Admin()
         {
@@ -319,7 +321,17 @@ namespace CTS.Screens
 
         private void Password_LBL_Click(object sender, EventArgs e)
         {
-
+            if (changePassword == null)
+            {
+                changePassword = new ChangePassword();
+                changePassword.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    Password_LBL.Enabled = true;
+                    changePassword = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                changePassword.Show();
+                Password_LBL.Enabled = false;
+            }
         }
     }
 }

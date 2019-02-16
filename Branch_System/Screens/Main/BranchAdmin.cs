@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using CTS.Database;
 using CTS.Screens;
 using CTS.Screens.AuthRecharge;
+using CTS.Screens.User;
 
 
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace CTS.Screens
     public partial class BranchAdmin : Form
     {
         public AuthRecharge.AuthRecharge authRecharge;
+        public ChangePassword changePassword;
         public BranchAdmin()
         {
             InitializeComponent();
@@ -71,6 +73,21 @@ namespace CTS.Screens
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Password_LBL_Click(object sender, EventArgs e)
+        {
+            if (changePassword == null)
+            {
+                changePassword = new ChangePassword();
+                changePassword.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    Password_LBL.Enabled = true;
+                    changePassword = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                changePassword.Show();
+                Password_LBL.Enabled = false;
+            }
         }
     }
 }

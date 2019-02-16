@@ -49,6 +49,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.Password_LBL = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -278,6 +279,18 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "إعلانات";
             // 
+            // Password_LBL
+            // 
+            this.Password_LBL.AutoSize = true;
+            this.Password_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Underline);
+            this.Password_LBL.ForeColor = System.Drawing.Color.Blue;
+            this.Password_LBL.Location = new System.Drawing.Point(776, 233);
+            this.Password_LBL.Name = "Password_LBL";
+            this.Password_LBL.Size = new System.Drawing.Size(104, 20);
+            this.Password_LBL.TabIndex = 33;
+            this.Password_LBL.Text = "تغير كلمة المرور";
+            this.Password_LBL.Click += new System.EventHandler(this.Password_LBL_Click);
+            // 
             // Inputter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,6 +298,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(892, 825);
             this.ControlBox = false;
+            this.Controls.Add(this.Password_LBL);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
@@ -333,5 +347,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label Password_LBL;
     }
 }

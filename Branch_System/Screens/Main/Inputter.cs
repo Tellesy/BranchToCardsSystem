@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CTS.Database;
+using CTS.Screens.User;
 
 namespace CTS.Screens
 {
@@ -17,6 +18,7 @@ namespace CTS.Screens
         private Recharge recargeApp;
         private ReIssue reIssueApp;
         private PIN pin;
+        public ChangePassword changePassword;
 
         public Inputter()
         {
@@ -137,6 +139,21 @@ namespace CTS.Screens
             else
             {
 
+            }
+        }
+
+        private void Password_LBL_Click(object sender, EventArgs e)
+        {
+            if (changePassword == null)
+            {
+                changePassword = new ChangePassword();
+                changePassword.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    Password_LBL.Enabled = true;
+                    changePassword = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                changePassword.Show();
+                Password_LBL.Enabled = false;
             }
         }
     }

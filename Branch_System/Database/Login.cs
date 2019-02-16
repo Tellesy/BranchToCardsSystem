@@ -118,6 +118,7 @@ namespace CTS.Database
                 status.message = "لا يمكن الوصول بقاعدة البيانات, الرجاء التأكد من الإتصال" + "\n" + e;
                 return status;
             }
+
             if(conn.State == System.Data.ConnectionState.Open)
             {
                 string query = String.Format(@"SELECT *
@@ -138,6 +139,8 @@ namespace CTS.Database
                         }
                         else
                         {
+                            conn.Close();
+                            conn.Open();
                             query = String.Format(@"Update [Users] 
                             SET [Password] ={0} WHERE Username = '{1}' ", newPassword,username);
 
@@ -145,7 +148,9 @@ namespace CTS.Database
                             cmd2.ExecuteNonQuery();
 
                             status.status = true;
+                            conn.Close();
                             return status;
+
 
                         }
                     }
