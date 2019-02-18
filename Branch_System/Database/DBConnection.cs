@@ -16,10 +16,10 @@ namespace CTS.Database
        // private static string ConnectionString = @"Data Source=DESKTOP-77BFLLF\SQLEXPRESS;Initial Catalog=newDB;Integrated Security=True";
 
         //All local Enviroment :: Should enable port first
-        private static string ConnectionString = @"Server=127.0.0.1,8888; Database=newDB; User Id= sa; Password = TellesyM1195;";
+        //private static string ConnectionString = @"Server=127.0.0.1,8888; Database=newDB; User Id= sa; Password = TellesyM1195;";
 
         // Production DB
-        //private static string ConnectionString =  @"Server=10.128.130.119,8888; Database=CTS; User Id= sa; Password = TellesyM1195; ";
+        private static string ConnectionString =  @"Server=10.128.130.119,8888; Database=CTS; User Id= sa; Password = TellesyM1195; ";
         // Test DB
         //private static string ConnectionString = @"Server=10.128.130.119,8888; Database=CTS-Test; User Id= sa; Password = TellesyM1195; ";
 
