@@ -18,5 +18,8 @@ namespace CTS.Database.DataObjects
         public int Inputter { get; set; }
         public int Branch { get; set; }
         public int Authorizer { get; set; }
+        public int Authorized { get; set; }
+        public string CardAccount { get; set; }
+        public string Type { get; set; }
     }
 }
