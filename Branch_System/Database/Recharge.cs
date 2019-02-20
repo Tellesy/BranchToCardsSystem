@@ -281,11 +281,11 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
                     status.status = false;
-                    status.message = "Recharge Function\n" + Errors.ErrorsString.Error002;
+                    status.message = "Recharge Function\n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
             }
