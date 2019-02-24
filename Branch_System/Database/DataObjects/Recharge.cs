@@ -21,5 +21,6 @@ namespace CTS.Database.DataObjects
         public int Authorized { get; set; }
         public string CardAccount { get; set; }
         public string Type { get; set; }
+
     }
 }

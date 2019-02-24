@@ -33,9 +33,10 @@
             // 
             // RechargeReport_LBL
             // 
-            this.RechargeReport_LBL.Location = new System.Drawing.Point(12, 12);
+            this.RechargeReport_LBL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RechargeReport_LBL.Location = new System.Drawing.Point(0, 0);
             this.RechargeReport_LBL.Name = "RechargeReport_LBL";
-            this.RechargeReport_LBL.Size = new System.Drawing.Size(776, 414);
+            this.RechargeReport_LBL.Size = new System.Drawing.Size(800, 450);
             this.RechargeReport_LBL.TabIndex = 0;
             // 
             // RechargeReports
