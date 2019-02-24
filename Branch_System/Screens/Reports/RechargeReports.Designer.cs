@@ -45,6 +45,7 @@
             this.RechargeReport_LBL.Name = "RechargeReport_LBL";
             this.RechargeReport_LBL.Size = new System.Drawing.Size(794, 409);
             this.RechargeReport_LBL.TabIndex = 0;
+            this.RechargeReport_LBL.Load += new System.EventHandler(this.RechargeReport_LBL_Load);
             // 
             // RechargeBindingSource
             // 

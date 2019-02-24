@@ -22,5 +22,10 @@ namespace CTS.Screens.Reports
 
             this.RechargeReport_LBL.RefreshReport();
         }
+
+        private void RechargeReport_LBL_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
