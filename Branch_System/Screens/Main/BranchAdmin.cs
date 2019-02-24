@@ -89,5 +89,11 @@ namespace CTS.Screens
                 Password_LBL.Enabled = false;
             }
         }
+
+        private void Reports_BTN_Click(object sender, EventArgs e)
+        {
+            CTS.Screens.Reports.RechargeReports x = new Reports.RechargeReports();
+            x.Show();
+        }
     }
 }

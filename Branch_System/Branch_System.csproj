@@ -298,6 +298,7 @@
     <EmbeddedResource Include="Screens\Reports\RechargeReports.resx">
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RechargeReport.rdlc" />
     <EmbeddedResource Include="Screens\User\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +315,7 @@
     </None>
     <None Include="Branch_System_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CTS.Database.DataObjects.Recharge.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -343,8 +345,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

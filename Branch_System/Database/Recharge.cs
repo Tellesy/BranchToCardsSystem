@@ -458,5 +458,75 @@ namespace CTS.Database
             }
 
         }
+
+        public static Status<DataObjects.Recharge> getRegarches(string from,string to)
+        {
+            Status<DataObjects.Recharge> status = new Status<DataObjects.Recharge>();
+            status.status = false;
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                string query = @"
+                                SELECT r.[ID]
+                                      ,r.[Customer_ID]
+	                                  , c.Name
+                                      ,[R_Year]
+                                      ,[Product]
+                                      ,[Amount]
+                                      ,[Time]
+                                      ,r.[NID]
+                                      ,[Inputter]
+                                      ,[Branch]
+                                      ,[Authorizer]
+                                      ,[Authorized]
+                                      ,[CardAccount]
+                                      ,[Type]
+                                  FROM  [newDB].[dbo].[Recharge] as r join Customer as c on c.Customer_ID = r.Customer_ID
+                                  Where r.Time Between '01-01-2019' And '01-01-2020'";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        if (!reader.HasRows)
+                        {
+                            status.status = false;
+                            status.message = " لا يوجد حساب بطاقة بهذا الرقم الرجاء التحقق او ارسال رقم الحساب الى مدير النظام";
+                            return status;
+
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+                                status.status = true;
+
+                            }
+                            return status;
+
+                        }
+                    }
+                    catch
+                    {
+                        status.status = false;
+                        status.message = Errors.ErrorsString.Error002;
+                        return status;
+                    }
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
     }
 }

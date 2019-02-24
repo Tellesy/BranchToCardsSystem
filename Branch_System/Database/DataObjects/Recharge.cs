@@ -10,6 +10,7 @@ namespace CTS.Database.DataObjects
     {
         public int ID { get; set; }
         public string Customer_ID { get; set; }
+        public string Name { get; set; }
         public int R_Year { get; set; }
         public string Product { get; set; }
         public int Amount { get; set; }

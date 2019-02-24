@@ -108,7 +108,6 @@
             // 
             // Reports_BTN
             // 
-            this.Reports_BTN.Enabled = false;
             this.Reports_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -119,6 +118,7 @@
             this.Reports_BTN.Text = "تقارير";
             this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Reports_BTN.UseVisualStyleBackColor = true;
+            this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
             // 
             // Logout_BTN
             // 
@@ -262,7 +262,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(894, 846);
+            this.ClientSize = new System.Drawing.Size(894, 749);
             this.ControlBox = false;
             this.Controls.Add(this.Password_LBL);
             this.Controls.Add(this.panel1);
