@@ -459,17 +459,19 @@ namespace CTS.Database
 
         }
 
-        public static Status<DataObjects.Recharge> getRegarches(string from,string to)
+        public static Status<List<DataObjects.Recharge>> getRegarches(string from,string to)
         {
-            Status<DataObjects.Recharge> status = new Status<DataObjects.Recharge>();
+            Status<List<DataObjects.Recharge>> status = new Status<List<DataObjects.Recharge>>();
             status.status = false;
+            status.Object = new List<DataObjects.Recharge>();
+           
+
             SqlConnection conn = Database.DBConnection.Connection();
             conn.Open();
 
             if (conn.State == System.Data.ConnectionState.Open)
             {
-                string query = @"
-                                SELECT r.[ID]
+                string query = @"SELECT r.[ID]
                                       ,r.[Customer_ID]
 	                                  , c.Name
                                       ,[R_Year]
@@ -483,39 +485,104 @@ namespace CTS.Database
                                       ,[Authorized]
                                       ,[CardAccount]
                                       ,[Type]
-                                  FROM  [newDB].[dbo].[Recharge] as r join Customer as c on c.Customer_ID = r.Customer_ID
+                                  FROM  [Recharge] as r join Customer as c on c.Customer_ID = r.Customer_ID
                                   Where r.Time Between '01-01-2019' And '01-01-2020'";
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                try
                 {
-                    try
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    if (from == "" || from == null)
                     {
+                        from = "01-01-2018";
+                    }
+                    if (to == "" || to == null)
+                    {
+                        to = "31-01-2090";
+                    }
+
+                    cmd.Parameters.AddWithValue("@v1",from);
+                    cmd.Parameters.AddWithValue("@v2",to);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
                         if (!reader.HasRows)
                         {
                             status.status = false;
-                            status.message = " لا يوجد حساب بطاقة بهذا الرقم الرجاء التحقق او ارسال رقم الحساب الى مدير النظام";
+                            status.message = " لا يوجد عمليات شحن في الفترة المحددة";
                             return status;
 
                         }
                         else
                         {
+                            int i = 1;
                             while (reader.Read())
                             {
-                                status.status = true;
+                                
+                                DataObjects.Recharge recharge = new DataObjects.Recharge();
 
+                                if (reader[0].ToString() != "" && reader[0] != null)
+                                    recharge.ID =Convert.ToInt32(reader[0].ToString());
+
+                                if (reader[1].ToString() != "" && reader[1] != null)                            
+                                    recharge.Customer_ID = reader[1].ToString();
+
+                                recharge.Name = reader[2].ToString();
+
+                                if (reader[3].ToString() != "" && reader[3] != null)
+                                    recharge.R_Year = Convert.ToInt32(reader[3].ToString());
+
+                                recharge.Product = reader[4].ToString();
+
+                                if (reader[5].ToString() != "" && reader[5] != null)
+                                    recharge.Amount = Convert.ToInt32(reader[5].ToString());
+
+                                if (reader[6].ToString() != "" && reader[6] != null)
+                                    recharge.Time = reader[6].ToString();
+
+                                if (reader[7].ToString() != "" && reader[7] != null)
+                                    recharge.NID = reader[7].ToString();
+
+                                if (reader[8].ToString() != "" && reader[8] != null)
+                                    recharge.Inputter = Convert.ToInt32(reader[8].ToString());
+
+                                if(reader[9].ToString() != "" && reader[9] != null)
+                                    recharge.Branch = Convert.ToInt32(reader[9].ToString());
+
+                                var x = reader[10].ToString();
+                                if(reader[10].ToString() != "" && reader[10] != null)
+                                    recharge.Authorizer = Convert.ToInt16(reader[10].ToString());
+
+                                var y = reader[11].ToString();
+                                if (reader[11].ToString() != "" && reader[11] != null)
+                                    if (reader[11].ToString() == "False")
+                                        recharge.Authorized = 0;
+                                    if(reader[11].ToString() == "True")
+                                        recharge.Authorized = 1;
+
+                                if (reader[12].ToString() != "" && reader[12] != null)
+                                    recharge.CardAccount = reader[12].ToString();
+
+                                if (reader[13].ToString() != "" && reader[13] != null)
+                                    recharge.Type = reader[13].ToString();
+                                i++;
+                                Console.WriteLine(i);
+                                status.Object.Add(recharge);
                             }
+                            status.status = true;
                             return status;
 
                         }
+
+
                     }
-                    catch
-                    {
-                        status.status = false;
-                        status.message = Errors.ErrorsString.Error002;
-                        return status;
-                    }
+                }
+                catch(Exception e)
+                {
+                    status.status = false;
+                    status.message = Errors.ErrorsString.Error002 + "\n" + e.Message;
+                    return status;
                 }
 
             }

@@ -78,6 +78,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -298,7 +299,7 @@
     <EmbeddedResource Include="Screens\Reports\RechargeReports.resx">
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RechargeReport.rdlc" />
+    <EmbeddedResource Include="Screens\Reports\Report1.rdlc" />
     <EmbeddedResource Include="Screens\User\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -345,6 +346,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

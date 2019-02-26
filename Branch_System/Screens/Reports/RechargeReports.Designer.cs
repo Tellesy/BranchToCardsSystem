@@ -29,23 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.RechargeReport_LBL = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.RechargeReport = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.RechargeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.RechargeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // RechargeReport_LBL
+            // RechargeReport
             // 
-            reportDataSource1.Name = "Recharge_DT";
-            reportDataSource1.Value = this.RechargeBindingSource;
-            this.RechargeReport_LBL.LocalReport.DataSources.Add(reportDataSource1);
-            this.RechargeReport_LBL.LocalReport.ReportEmbeddedResource = "CTS.Reports.RechargeReport.rdlc";
-            this.RechargeReport_LBL.Location = new System.Drawing.Point(3, 129);
-            this.RechargeReport_LBL.Name = "RechargeReport_LBL";
-            this.RechargeReport_LBL.Size = new System.Drawing.Size(794, 409);
-            this.RechargeReport_LBL.TabIndex = 0;
-            this.RechargeReport_LBL.Load += new System.EventHandler(this.RechargeReport_LBL_Load);
+            this.RechargeReport.LocalReport.ReportEmbeddedResource = "CTS.Screens.Reports.Report1.rdlc";
+            this.RechargeReport.Location = new System.Drawing.Point(3, 123);
+            this.RechargeReport.Name = "RechargeReport";
+            this.RechargeReport.Size = new System.Drawing.Size(794, 415);
+            this.RechargeReport.TabIndex = 0;
+            this.RechargeReport.Load += new System.EventHandler(this.RechargeReport_LBL_Load);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(29, 35);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(387, 35);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 2;
             // 
             // RechargeBindingSource
             // 
@@ -56,7 +68,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 540);
-            this.Controls.Add(this.RechargeReport_LBL);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.RechargeReport);
             this.Name = "RechargeReports";
             this.Text = "RechargeReports";
             this.Load += new System.EventHandler(this.RechargeReports_Load);
@@ -67,7 +81,9 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer RechargeReport_LBL;
+        private Microsoft.Reporting.WinForms.ReportViewer RechargeReport;
         private System.Windows.Forms.BindingSource RechargeBindingSource;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
