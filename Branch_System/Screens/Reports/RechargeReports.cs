@@ -22,47 +22,74 @@ namespace CTS.Screens.Reports
 
         private void RechargeReports_Load(object sender, EventArgs e)
         {
-            // string sql = "";
-            // sql += "SELECT * FROM TABLE WHERE NAME='JOHN SMITH'";
-            // OdbcDataAdapter adptr = new OdbcDataAdapter(sql, _connection);
+            string year = Database.Recharge.year.ToString();
+            this.LoadReport("01/01/"+year,"12/31/"+year);
+        }
+
+        private void Search_BTN_Click(object sender, EventArgs e)
+        {
+            string from = FromDatePicker.Value.ToShortDateString();
+            string to = ToDatePicker.Value.ToShortDateString();
+            this.LoadReport(from, to);
+
+
+        }
+
+        private void LoadReport(string from, string to)
+        {
+           // this.RechargeReport.LocalReport.C
+            this.RechargeReport.LocalReport.Refresh();
+            this.RechargeReport.LocalReport.DataSources.Clear();
+            this.RechargeReport.LocalReport.Refresh();
+
+            //this.RechargeReport.LocalReport.DataSources.cl
+
+            //this.RechargeReport.LocalReport.res
+
+            //this.RechargeReport.Clear();
+            // this.RechargeReport.Refresh();
+
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
 
             ds.Tables.Add(dt);
-            dt.Columns.Add("Name");
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Customer_ID");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Time");
+            dt.Columns.Add("Branch");
+            dt.Columns.Add("Amount", typeof(int));
 
+            var s = Database.Recharge.getRegarches(from, to);
 
-            var s = Database.Recharge.getRegarches("01-01-2019", "31-12-2020");
-
-            if(s.status)
+            if (s.status)
             {
-                foreach(Database.DataObjects.Recharge r in s.Object)
+                foreach (Database.DataObjects.Recharge r in s.Object)
                 {
                     DataRow dr = dt.Rows.Add();
-                    dr.SetField("Name", r.Name);
-                    dr.SetField("Customer_ID", r.Customer_ID);
-
                     dr.SetField("ID", r.ID);
+                    dr.SetField("Customer_ID", r.Customer_ID);
+                    dr.SetField("Name", r.Name);
+                    dr.SetField("Branch", Database.Branch.getBranch(r.Branch));
+                    dr.SetField("Time", r.Time);
+                    dr.SetField("Amount", r.Amount);
                 }
 
                 this.RechargeReport.Clear();
-                //this.RechargeReport.LocalReport.ReportEmbeddedResource = "ReportViewerForm.Report1.rdlc";
+                ReportParameter[] parameters = new ReportParameter[1];
+                parameters[0] = new ReportParameter("Date", "");
+                this.RechargeReport.LocalReport.SetParameters(parameters);
                 ReportDataSource reportDataSource = new ReportDataSource("Dataset", dt);
                 this.RechargeReport.LocalReport.DataSources.Add(reportDataSource);
-
             }
-           // var reportViewer = new ReportViewer();
+            else
+            {
+                ReportDataSource reportDataSource = new ReportDataSource("Dataset", dt);
+                this.RechargeReport.LocalReport.DataSources.Add(reportDataSource);
+                MessageBox.Show("لا يوجد عمليات في الفترة المحددة");
+            }
 
-
-          //  this.RechargeReport.
             this.RechargeReport.RefreshReport();
-        }
-
-        private void RechargeReport_LBL_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

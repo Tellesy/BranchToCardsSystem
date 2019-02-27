@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Branch.cs" />
     <Compile Include="Database\CAF.cs" />
     <Compile Include="Database\DataObjects\Recharge.cs" />
     <Compile Include="Database\Issue.cs" />
@@ -299,7 +300,7 @@
     <EmbeddedResource Include="Screens\Reports\RechargeReports.resx">
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Screens\Reports\RechargeReport.rdlc" />
     <EmbeddedResource Include="Screens\User\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,8 +347,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

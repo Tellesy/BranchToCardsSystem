@@ -344,17 +344,23 @@ namespace CTS.Database
                         while (reader.Read())
                         {
                            Objects.Recharge request = new Objects.Recharge();
-                            request.ID = int.Parse(reader[0].ToString());
+                            if (reader[0].ToString() != "" && reader[0] != null)
+                                request.ID = int.Parse(reader[0].ToString());
                             request.Customer_ID = reader[1].ToString();
-                            request.R_year = int.Parse(reader[2].ToString());
+                            if (reader[2].ToString() != "" && reader[2] != null)
+                                request.R_year = int.Parse(reader[2].ToString());
                             request.Product = reader[3].ToString();
-                            request.Amount = int.Parse(reader[4].ToString());
+                            if (reader[4].ToString() != "" && reader[4] != null)
+                                request.Amount = int.Parse(reader[4].ToString());
                             request.Time = reader[5].ToString();
                             request.NID = reader[6].ToString();
-                            request.Inputter = int.Parse(reader[7].ToString());
-                            request.Branch = int.Parse(reader[8].ToString());
+                            if (reader[7].ToString() != "" && reader[7] != null)
+                                request.Inputter = int.Parse(reader[7].ToString());
+                            if (reader[8].ToString() != "" && reader[8] != null)
+                                request.Branch = int.Parse(reader[8].ToString());
                             request.CardAccount = reader[9].ToString();
-                            request.Type = Convert.ToInt32(reader[10].ToString());
+                            if(reader[10].ToString() != "" && reader[10] != null)
+                                request.Type = Convert.ToInt32(reader[10].ToString());
 
                             statusObject.Object.Add(request);
                         }
@@ -486,7 +492,7 @@ namespace CTS.Database
                                       ,[CardAccount]
                                       ,[Type]
                                   FROM  [Recharge] as r join Customer as c on c.Customer_ID = r.Customer_ID
-                                  Where r.Time Between '01-01-2019' And '01-01-2020'";
+                                  Where r.Time >= @v1 And r.Time <= @v2";
 
                 try
                 {
@@ -494,11 +500,11 @@ namespace CTS.Database
 
                     if (from == "" || from == null)
                     {
-                        from = "01-01-2018";
+                        from = "01/01/2018";
                     }
                     if (to == "" || to == null)
                     {
-                        to = "31-01-2090";
+                        to = "12/31/2090";
                     }
 
                     cmd.Parameters.AddWithValue("@v1",from);
@@ -511,6 +517,7 @@ namespace CTS.Database
                         {
                             status.status = false;
                             status.message = " لا يوجد عمليات شحن في الفترة المحددة";
+                            conn.Close();
                             return status;
 
                         }
@@ -570,6 +577,7 @@ namespace CTS.Database
                                 Console.WriteLine(i);
                                 status.Object.Add(recharge);
                             }
+                            conn.Close();
                             status.status = true;
                             return status;
 
@@ -580,6 +588,7 @@ namespace CTS.Database
                 }
                 catch(Exception e)
                 {
+                    conn.Close();
                     status.status = false;
                     status.message = Errors.ErrorsString.Error002 + "\n" + e.Message;
                     return status;
@@ -588,6 +597,7 @@ namespace CTS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
 
