@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.RechargeReport = new Microsoft.Reporting.WinForms.ReportViewer();
             this.FromDatePicker = new System.Windows.Forms.DateTimePicker();
             this.ToDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -40,16 +40,20 @@
             this.CustomerID_CBX = new System.Windows.Forms.CheckBox();
             this.CustomerID_TXT = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.Family_RB = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Alrafiq_RB = new System.Windows.Forms.RadioButton();
             this.RechargeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RechargeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // RechargeReport
             // 
-            reportDataSource1.Name = "RechargeDT";
-            reportDataSource1.Value = this.RechargeBindingSource;
-            this.RechargeReport.LocalReport.DataSources.Add(reportDataSource1);
-            this.RechargeReport.LocalReport.ReportEmbeddedResource = "CTS.Screens.Reports.RechargeReport.rdlc";
+            reportDataSource2.Name = "RechargeDT";
+            reportDataSource2.Value = this.RechargeBindingSource;
+            this.RechargeReport.LocalReport.DataSources.Add(reportDataSource2);
+            this.RechargeReport.LocalReport.ReportEmbeddedResource = "CTS.Screens.Reports.AlrafiqRechargReport.rdlc";
             this.RechargeReport.Location = new System.Drawing.Point(3, 123);
             this.RechargeReport.Name = "RechargeReport";
             this.RechargeReport.Size = new System.Drawing.Size(794, 415);
@@ -57,15 +61,16 @@
             // 
             // FromDatePicker
             // 
-            this.FromDatePicker.Location = new System.Drawing.Point(452, 34);
+            this.FromDatePicker.Location = new System.Drawing.Point(485, 32);
             this.FromDatePicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.FromDatePicker.Name = "FromDatePicker";
             this.FromDatePicker.Size = new System.Drawing.Size(200, 20);
             this.FromDatePicker.TabIndex = 1;
+            this.FromDatePicker.Value = new System.DateTime(2018, 1, 1, 15, 7, 0, 0);
             // 
             // ToDatePicker
             // 
-            this.ToDatePicker.Location = new System.Drawing.Point(452, 85);
+            this.ToDatePicker.Location = new System.Drawing.Point(485, 83);
             this.ToDatePicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.ToDatePicker.Name = "ToDatePicker";
             this.ToDatePicker.Size = new System.Drawing.Size(200, 20);
@@ -73,7 +78,8 @@
             // 
             // Search_BTN
             // 
-            this.Search_BTN.Location = new System.Drawing.Point(29, 70);
+            this.Search_BTN.Enabled = false;
+            this.Search_BTN.Location = new System.Drawing.Point(29, 78);
             this.Search_BTN.Name = "Search_BTN";
             this.Search_BTN.Size = new System.Drawing.Size(95, 35);
             this.Search_BTN.TabIndex = 3;
@@ -85,7 +91,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(658, 11);
+            this.label1.Location = new System.Drawing.Point(691, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 20);
             this.label1.TabIndex = 4;
@@ -95,7 +101,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(658, 61);
+            this.label2.Location = new System.Drawing.Point(691, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 20);
             this.label2.TabIndex = 5;
@@ -116,7 +122,7 @@
             this.CustomerID_CBX.AutoSize = true;
             this.CustomerID_CBX.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CustomerID_CBX.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerID_CBX.Location = new System.Drawing.Point(235, 23);
+            this.CustomerID_CBX.Location = new System.Drawing.Point(268, 21);
             this.CustomerID_CBX.Name = "CustomerID_CBX";
             this.CustomerID_CBX.Size = new System.Drawing.Size(157, 22);
             this.CustomerID_CBX.TabIndex = 7;
@@ -127,7 +133,7 @@
             // CustomerID_TXT
             // 
             this.CustomerID_TXT.Enabled = false;
-            this.CustomerID_TXT.Location = new System.Drawing.Point(235, 88);
+            this.CustomerID_TXT.Location = new System.Drawing.Point(268, 86);
             this.CustomerID_TXT.MaxLength = 7;
             this.CustomerID_TXT.Name = "CustomerID_TXT";
             this.CustomerID_TXT.Size = new System.Drawing.Size(157, 20);
@@ -139,11 +145,48 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(328, 65);
+            this.label4.Location = new System.Drawing.Point(361, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "رقم الزبون";
+            // 
+            // Family_RB
+            // 
+            this.Family_RB.AutoSize = true;
+            this.Family_RB.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Family_RB.Location = new System.Drawing.Point(20, 19);
+            this.Family_RB.Name = "Family_RB";
+            this.Family_RB.Size = new System.Drawing.Size(75, 17);
+            this.Family_RB.TabIndex = 10;
+            this.Family_RB.TabStop = true;
+            this.Family_RB.Text = "ارباب الأسر";
+            this.Family_RB.UseVisualStyleBackColor = true;
+            this.Family_RB.CheckedChanged += new System.EventHandler(this.Family_RB_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Alrafiq_RB);
+            this.groupBox1.Controls.Add(this.Family_RB);
+            this.groupBox1.Location = new System.Drawing.Point(29, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(111, 68);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "نوع المنتج";
+            // 
+            // Alrafiq_RB
+            // 
+            this.Alrafiq_RB.AutoSize = true;
+            this.Alrafiq_RB.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Alrafiq_RB.Location = new System.Drawing.Point(2, 42);
+            this.Alrafiq_RB.Name = "Alrafiq_RB";
+            this.Alrafiq_RB.Size = new System.Drawing.Size(93, 17);
+            this.Alrafiq_RB.TabIndex = 11;
+            this.Alrafiq_RB.TabStop = true;
+            this.Alrafiq_RB.Text = "أغراض شخصية";
+            this.Alrafiq_RB.UseVisualStyleBackColor = true;
+            this.Alrafiq_RB.CheckedChanged += new System.EventHandler(this.Alrafiq_RB_CheckedChanged);
             // 
             // RechargeBindingSource
             // 
@@ -154,6 +197,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 540);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CustomerID_TXT);
             this.Controls.Add(this.CustomerID_CBX);
@@ -167,6 +211,8 @@
             this.Name = "RechargeReports";
             this.Text = "RechargeReports";
             this.Load += new System.EventHandler(this.RechargeReports_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RechargeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -186,5 +232,8 @@
         private System.Windows.Forms.CheckBox CustomerID_CBX;
         private System.Windows.Forms.TextBox CustomerID_TXT;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton Family_RB;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton Alrafiq_RB;
     }
 }

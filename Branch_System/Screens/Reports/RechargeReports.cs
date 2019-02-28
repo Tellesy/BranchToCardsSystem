@@ -16,6 +16,7 @@ namespace CTS.Screens.Reports
     public partial class RechargeReports : Form
     {
         private int CustomerID;
+        private string Product;
         public RechargeReports()
         {
             InitializeComponent();
@@ -23,6 +24,10 @@ namespace CTS.Screens.Reports
 
         private void RechargeReports_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             //string year = Database.Recharge.year.ToString();
             //this.LoadReport("01/01/"+year,"12/31/"+year);
         }
@@ -56,9 +61,10 @@ namespace CTS.Screens.Reports
                     return;
                 }
             }
-           // this.RechargeReport.LocalReport.C
+            this.RechargeReport.LocalReport.ReportEmbeddedResource = "CTS.Screens.Reports.MyFamilyRechargReport.rdlc";
+            var x = this.RechargeReport.LocalReport.ReportEmbeddedResource;
             this.RechargeReport.LocalReport.Refresh();
-            this.RechargeReport.LocalReport.DataSources.Clear();
+             this.RechargeReport.LocalReport.DataSources.Clear();
             this.RechargeReport.LocalReport.Refresh();
 
             //this.RechargeReport.LocalReport.DataSources.cl
@@ -82,7 +88,7 @@ namespace CTS.Screens.Reports
             dt.Columns.Add("Authorizer", typeof(int));
             dt.Columns.Add("CardAccount");             
 
-            var s = Database.Recharge.getRegarches(from, to,"30",CustomerID);
+            var s = Database.Recharge.getRegarches(from, to,Product,CustomerID);
 
             if (s.status)
             {
@@ -144,6 +150,25 @@ namespace CTS.Screens.Reports
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void Family_RB_CheckedChanged(object sender, EventArgs e)
+        {
+            if(Family_RB.Checked)
+            {
+                Product = "10";
+                Search_BTN.Enabled = true;
+
+            }
+        }
+
+        private void Alrafiq_RB_CheckedChanged(object sender, EventArgs e)
+        {
+            if(Alrafiq_RB.Checked)
+            {
+                Product = "30";
+                Search_BTN.Enabled = true;
             }
         }
     }

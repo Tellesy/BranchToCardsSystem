@@ -297,10 +297,11 @@
     <EmbeddedResource Include="Screens\ReIssue\ReIssue.resx">
       <DependentUpon>ReIssue.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Reports\MyFamilyRechargReport.rdlc" />
     <EmbeddedResource Include="Screens\Reports\RechargeReports.resx">
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Reports\RechargeReport.rdlc" />
+    <EmbeddedResource Include="Screens\Reports\AlrafiqRechargReport.rdlc" />
     <EmbeddedResource Include="Screens\User\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
