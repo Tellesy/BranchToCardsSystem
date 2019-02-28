@@ -465,8 +465,11 @@ namespace CTS.Database
 
         }
 
-        public static Status<List<DataObjects.Recharge>> getRegarches(string from,string to)
+        public static Status<List<DataObjects.Recharge>> getRegarches(string from,string to,string prodouct,int customer_ID)
         {
+            //is searching using Customer ID or Product ID
+            bool isCustomer = false;
+            bool isBranch = false;
             Status<List<DataObjects.Recharge>> status = new Status<List<DataObjects.Recharge>>();
             status.status = false;
             status.Object = new List<DataObjects.Recharge>();
@@ -492,7 +495,20 @@ namespace CTS.Database
                                       ,[CardAccount]
                                       ,[Type]
                                   FROM  [Recharge] as r join Customer as c on c.Customer_ID = r.Customer_ID
-                                  Where r.Time >= @v1 And r.Time <= @v2";
+                                  Where r.Time >= @v1 And r.Time <= @v2 AND r.Product = @v3";
+
+                if(Database.Login.role != "0")
+                {
+                    isBranch = true;
+                    query = query + " AND Branch = @v4";
+                }
+                if(customer_ID > 0)
+                {
+                    isCustomer = true;
+                    query = query + " AND r.[Customer_ID] = @v5";
+
+                }
+
 
                 try
                 {
@@ -509,6 +525,15 @@ namespace CTS.Database
 
                     cmd.Parameters.AddWithValue("@v1",from);
                     cmd.Parameters.AddWithValue("@v2",to);
+                    cmd.Parameters.AddWithValue("@v3", prodouct);
+                    if(isBranch)
+                    {
+                        cmd.Parameters.AddWithValue("@v4", Database.Login.branch);
+                    }
+                    if(isCustomer)
+                    {
+                        cmd.Parameters.AddWithValue("@v5", customer_ID);
+                    }
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {

@@ -15,6 +15,7 @@ namespace CTS.Screens.Reports
 {
     public partial class RechargeReports : Form
     {
+        private int CustomerID;
         public RechargeReports()
         {
             InitializeComponent();
@@ -22,8 +23,8 @@ namespace CTS.Screens.Reports
 
         private void RechargeReports_Load(object sender, EventArgs e)
         {
-            string year = Database.Recharge.year.ToString();
-            this.LoadReport("01/01/"+year,"12/31/"+year);
+            //string year = Database.Recharge.year.ToString();
+            //this.LoadReport("01/01/"+year,"12/31/"+year);
         }
 
         private void Search_BTN_Click(object sender, EventArgs e)
@@ -37,6 +38,24 @@ namespace CTS.Screens.Reports
 
         private void LoadReport(string from, string to)
         {
+            CustomerID = 0;
+            if(CustomerID_CBX.Checked)
+            {
+                if(CustomerID_TXT.Text.Length != 7 )
+                {
+                    MessageBox.Show("الرجاء إدخال رقم الزبون بشكل صحيح");
+                    return;
+                }
+                try
+                {
+                    CustomerID = int.Parse(CustomerID_TXT.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("الرجاء إدخال رقم الزبون بشكل صحيح");
+                    return;
+                }
+            }
            // this.RechargeReport.LocalReport.C
             this.RechargeReport.LocalReport.Refresh();
             this.RechargeReport.LocalReport.DataSources.Clear();
@@ -63,7 +82,7 @@ namespace CTS.Screens.Reports
             dt.Columns.Add("Authorizer", typeof(int));
             dt.Columns.Add("CardAccount");             
 
-            var s = Database.Recharge.getRegarches(from, to);
+            var s = Database.Recharge.getRegarches(from, to,"30",CustomerID);
 
             if (s.status)
             {
@@ -97,6 +116,35 @@ namespace CTS.Screens.Reports
             }
 
             this.RechargeReport.RefreshReport();
+        }
+
+        private void CustomerID_CBX_CheckedChanged(object sender, EventArgs e)
+        {
+            if(CustomerID_CBX.Checked)
+            {
+                CustomerID_TXT.Enabled = true;
+                
+            }
+            else
+            {
+                CustomerID_TXT.Enabled = false;
+            }
+        }
+
+        private void CustomerID_TXT_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(CustomerID_TXT.Text, "  ^ [0-9]"))
+            {
+                CustomerID_TXT.Text = "";
+            }
+        }
+
+        private void CustomerID_TXT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
