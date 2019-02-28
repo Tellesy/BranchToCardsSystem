@@ -43,10 +43,10 @@
             // 
             // RechargeReport
             // 
-            reportDataSource1.Name = "RechargeDS";
+            reportDataSource1.Name = "RechargeDT";
             reportDataSource1.Value = this.RechargeBindingSource;
             this.RechargeReport.LocalReport.DataSources.Add(reportDataSource1);
-            this.RechargeReport.LocalReport.ReportEmbeddedResource = "CTS.Screens.Reports.RechargeReport.rdlc";
+            this.RechargeReport.LocalReport.ReportEmbeddedResource = "CTS.Screens.Reports.Report1.rdlc";
             this.RechargeReport.Location = new System.Drawing.Point(3, 123);
             this.RechargeReport.Name = "RechargeReport";
             this.RechargeReport.Size = new System.Drawing.Size(794, 415);

@@ -59,6 +59,9 @@ namespace CTS.Screens.Reports
             dt.Columns.Add("Time");
             dt.Columns.Add("Branch");
             dt.Columns.Add("Amount", typeof(int));
+            dt.Columns.Add("Inputter", typeof(int));
+            dt.Columns.Add("Authorizer", typeof(int));
+            dt.Columns.Add("CardAccount");             
 
             var s = Database.Recharge.getRegarches(from, to);
 
@@ -73,18 +76,22 @@ namespace CTS.Screens.Reports
                     dr.SetField("Branch", Database.Branch.getBranch(r.Branch));
                     dr.SetField("Time", r.Time);
                     dr.SetField("Amount", r.Amount);
+                    dr.SetField("Inputter", r.Inputter);
+                    dr.SetField("Authorizer", r.Authorizer);
+                    dr.SetField("CardAccount", r.CardAccount.Substring(0,4)+ "___" + r.CardAccount.Substring(11,4));
+
                 }
 
                 this.RechargeReport.Clear();
-                ReportParameter[] parameters = new ReportParameter[1];
-                parameters[0] = new ReportParameter("Date", "");
-                this.RechargeReport.LocalReport.SetParameters(parameters);
-                ReportDataSource reportDataSource = new ReportDataSource("Dataset", dt);
+              //  ReportParameter[] parameters = new ReportParameter[1];
+               // parameters[0] = new ReportParameter("Date", "");
+                //this.RechargeReport.LocalReport.SetParameters(parameters);
+                ReportDataSource reportDataSource = new ReportDataSource("RechargeDT", dt);
                 this.RechargeReport.LocalReport.DataSources.Add(reportDataSource);
             }
             else
             {
-                ReportDataSource reportDataSource = new ReportDataSource("Dataset", dt);
+                ReportDataSource reportDataSource = new ReportDataSource("RechargeDT", dt);
                 this.RechargeReport.LocalReport.DataSources.Add(reportDataSource);
                 MessageBox.Show("لا يوجد عمليات في الفترة المحددة");
             }
