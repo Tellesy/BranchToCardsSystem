@@ -301,7 +301,6 @@
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Reports\RechargeReport.rdlc" />
-    <EmbeddedResource Include="Screens\Reports\Report1.rdlc" />
     <EmbeddedResource Include="Screens\User\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
