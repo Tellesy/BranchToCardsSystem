@@ -92,8 +92,8 @@ namespace CTS.Screens
 
         private void Reports_BTN_Click(object sender, EventArgs e)
         {
-            CTS.Screens.Reports.RechargeReports x = new Reports.RechargeReports();
-            x.Show();
+            CTS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
+            rechargeReport.Show();
         }
     }
 }

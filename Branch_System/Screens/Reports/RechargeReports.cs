@@ -17,12 +17,15 @@ namespace CTS.Screens.Reports
     {
         private int CustomerID;
         private string Product;
+        private string reportViewerLink;
         public RechargeReports()
         {
             InitializeComponent();
         }
 
-        private void RechargeReports_Load(object sender, EventArgs e)
+        private void 
+            
+            RechargeReports_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -61,7 +64,7 @@ namespace CTS.Screens.Reports
                     return;
                 }
             }
-            this.RechargeReport.LocalReport.ReportEmbeddedResource = "CTS.Screens.Reports.MyFamilyRechargReport.rdlc";
+            this.RechargeReport.LocalReport.ReportEmbeddedResource = "CTS.Screens.Reports." + reportViewerLink;
             var x = this.RechargeReport.LocalReport.ReportEmbeddedResource;
             this.RechargeReport.LocalReport.Refresh();
              this.RechargeReport.LocalReport.DataSources.Clear();
@@ -158,6 +161,7 @@ namespace CTS.Screens.Reports
             if(Family_RB.Checked)
             {
                 Product = "10";
+                reportViewerLink = "MyFamilyRechargReport.rdlc";
                 Search_BTN.Enabled = true;
 
             }
@@ -168,6 +172,7 @@ namespace CTS.Screens.Reports
             if(Alrafiq_RB.Checked)
             {
                 Product = "30";
+                reportViewerLink = "AlrafiqRechargReport.rdlc";
                 Search_BTN.Enabled = true;
             }
         }

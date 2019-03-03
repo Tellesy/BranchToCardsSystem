@@ -82,12 +82,13 @@ namespace CTS.Database
 
                     
                     status.status = true;
+                    conn.Close();
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = Errors.ErrorsString.Error002;
+                    status.message = Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
             }

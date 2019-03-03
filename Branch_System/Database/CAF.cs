@@ -39,11 +39,11 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
                     status.status = false;
-                    status.message = "Add to CAF\n" + Errors.ErrorsString.Error002;
+                    status.message = "Add to CAF\n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
             }
@@ -104,10 +104,10 @@ namespace CTS.Database
 
 
                 }
-                catch
+                catch (Exception e)
                 {
                     statusObject.status = false;
-                    statusObject.message = "Get Unauth CAF records \n" + Errors.ErrorsString.Error002;
+                    statusObject.message = "Get Unauth CAF records \n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return statusObject;
                 }
             }
@@ -169,10 +169,10 @@ namespace CTS.Database
 
 
                 }
-                catch
+                catch (Exception e)
                 {
                     statusObject.status = false;
-                    statusObject.message = "Get Auth CAF records \n" + Errors.ErrorsString.Error002;
+                    statusObject.message = "Get Auth CAF records \n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return statusObject;
                 }
             }
@@ -206,10 +206,11 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = "CAF Record Delete" + Errors.ErrorsString.Error002;
+                    status.message = "CAF Record Delete" + Errors.ErrorsString.Error002 + "\n" + e;
+
                     return status;
                 }
 
@@ -246,10 +247,10 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = "CAF Auth (Update CAF)\n" + Errors.ErrorsString.Error002;
+                    status.message = "CAF Auth (Update CAF)\n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
 
@@ -285,10 +286,10 @@ namespace CTS.Database
                     status.status = true;
                     return status;
                 }
-                catch
+                catch (Exception e)
                 {
                     status.status = false;
-                    status.message = "CAF Process (Update CAF)\n" + Errors.ErrorsString.Error002;
+                    status.message = "CAF Process (Update CAF)\n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
                 }
 
@@ -348,10 +349,10 @@ namespace CTS.Database
 
 
                 }
-                catch
+                catch (Exception e)
                 {
                     statusObject.status = false;
-                    statusObject.message = "Get Limit for CAF record \n" + Errors.ErrorsString.Error002;
+                    statusObject.message = "Get Limit for CAF record \n" + Errors.ErrorsString.Error002 + "\n" +e;
                     return statusObject;
                 }
             }

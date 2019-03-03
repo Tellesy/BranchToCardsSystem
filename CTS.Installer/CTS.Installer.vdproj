@@ -64,13 +64,13 @@
         "Entry"
         {
         "MsmKey" = "8:_8D137992519724DC366ADCC7D378EE6A"
-        "OwnerKey" = "8:_16C678B4EFD8A68A87489E654BFEE8A0"
+        "OwnerKey" = "8:_C638A59ECDEC4A38BC11EB60A9D3A30B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_8D137992519724DC366ADCC7D378EE6A"
-        "OwnerKey" = "8:_C638A59ECDEC4A38BC11EB60A9D3A30B"
+        "OwnerKey" = "8:_16C678B4EFD8A68A87489E654BFEE8A0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -142,7 +142,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_16C678B4EFD8A68A87489E654BFEE8A0"
+        "OwnerKey" = "8:_B6F83316D999413749E7CB916795B882"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_905966A9A309B76A072418856F5A7804"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -154,19 +160,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B6F83316D999413749E7CB916795B882"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_710C801AB5702353E9CBEADB1D8988EE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_905966A9A309B76A072418856F5A7804"
+        "OwnerKey" = "8:_16C678B4EFD8A68A87489E654BFEE8A0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -711,15 +711,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CTS"
-        "ProductCode" = "8:{500837F4-5829-472C-A266-AEA59AE826EE}"
-        "PackageCode" = "8:{B9B1A4CC-E81D-49F9-9773-D60F3E95CF63}"
+        "ProductCode" = "8:{7BF86D16-619E-47FE-BDB8-6FFA474FAE68}"
+        "PackageCode" = "8:{54E3D986-AC4D-4823-B8C6-DAAF1CED9A44}"
         "UpgradeCode" = "8:{7C5DDAC3-D9D3-4320-B1D7-A703F3AE3009}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:1.5.0"
         "Manufacturer" = "8:Mu Tellesy Software"
         "ARPHELPTELEPHONE" = "8:00218911091195"
         "ARPHELPLINK" = "8:www.tellesy.wordpress.com"

@@ -252,6 +252,7 @@ namespace CTS.Database
                                 statusObject.Object = customer;
                                 return statusObject;
                             }
+                            conn.Close();
                             return statusObject;
 
                         }

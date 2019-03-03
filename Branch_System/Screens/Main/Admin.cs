@@ -333,5 +333,11 @@ namespace CTS.Screens
                 Password_LBL.Enabled = false;
             }
         }
+
+        private void Reports_BTN_Click(object sender, EventArgs e)
+        {
+            CTS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
+            rechargeReport.Show();
+        }
     }
 }

@@ -247,6 +247,7 @@
             this.Reports_BTN.Text = "Reports";
             this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Reports_BTN.UseVisualStyleBackColor = true;
+            this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
             // 
             // Password_LBL
             // 

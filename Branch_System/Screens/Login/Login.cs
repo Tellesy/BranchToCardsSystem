@@ -47,6 +47,8 @@ namespace CTS.Screens
             {
                 if(Database.Login.role == "1")
                 {
+                    Username_TXT.Text = "";
+                    Password_TXT.Text = "";
                     this.Hide();
                     Inputter app = new Inputter();
                     app.Closed += (s, args) => this.Show();
@@ -55,6 +57,8 @@ namespace CTS.Screens
                 }
                 else if(Database.Login.role == "2")
                 {
+                    Username_TXT.Text = "";
+                    Password_TXT.Text = "";
                     this.Hide();
                     BranchAdmin branchApp = new BranchAdmin();
                     branchApp.Closed += (s, args) => this.Show();
@@ -62,6 +66,8 @@ namespace CTS.Screens
                 }
                 else if(Database.Login.role == "0")
                 {
+                    Username_TXT.Text = "";
+                    Password_TXT.Text = "";
                     this.Hide();
                     Admin adminApp = new Admin();
                     adminApp.Closed += (s, args) => this.Show();
