@@ -10,7 +10,7 @@ namespace CTS.Database
     public static class DBConnection
     {
         //Local DB Laptop
-       //  private static string ConnectionString = @"Data Source=DESKTOP-9T6FOLM\SQLEXPRESS;Initial Catalog=newDB;Integrated Security=True";
+         //private static string ConnectionString = @"Data Source=DESKTOP-9T6FOLM\SQLEXPRESS;Initial Catalog=newDB;Integrated Security=True";
 
         //Local DB Desktop
         //private static string ConnectionString = @"Data Source=DESKTOP-77BFLLF\SQLEXPRESS;Initial Catalog=newDB;Integrated Security=True";

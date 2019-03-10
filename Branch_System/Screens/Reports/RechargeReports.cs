@@ -106,6 +106,7 @@ namespace CTS.Screens.Reports
                     dr.SetField("Amount", r.Amount);
                     dr.SetField("Inputter", r.Inputter);
                     dr.SetField("Authorizer", r.Authorizer);
+                    if(r.CardAccount != null && r.CardAccount.Count() == 16)
                     dr.SetField("CardAccount", r.CardAccount.Substring(0,4)+ "___" + r.CardAccount.Substring(11,4));
 
                 }
