@@ -94,6 +94,7 @@
     <Compile Include="Database\CAF.cs" />
     <Compile Include="Database\DataObjects\Recharge.cs" />
     <Compile Include="Database\Issue.cs" />
+    <Compile Include="Database\Objects\Branch.cs" />
     <Compile Include="Database\Objects\CAFObject.cs" />
     <Compile Include="Database\Objects\Customer.cs" />
     <Compile Include="Database\Objects\PBFObject.cs" />

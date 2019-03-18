@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using CTS.Database;
 using System.Reflection;
+using CTS.Screens.Main;
 
 namespace CTS.Screens
 {
@@ -72,6 +73,15 @@ namespace CTS.Screens
                     Admin adminApp = new Admin();
                     adminApp.Closed += (s, args) => this.Show();
                     adminApp.Show();
+                }
+                else if(Database.Login.role == "3")
+                {
+                    Username_TXT.Text = "";
+                    Password_TXT.Text = "";
+                    this.Hide();
+                    Auditor auditorApp = new Auditor();
+                    auditorApp.Closed += (s, args) => this.Show();
+                    auditorApp.Show();
                 }
                 else
                 {

@@ -497,7 +497,7 @@ namespace CTS.Database
                                   FROM  [Recharge] as r join Customer as c on c.Customer_ID = r.Customer_ID
                                   Where r.Time >= @v1 And r.Time <= @v2 AND r.Product = @v3";
 
-                if(Database.Login.role != "0")
+                if(Database.Login.role != "0" && Database.Login.role != "3")
                 {
                     isBranch = true;
                     query = query + " AND Branch = @v4";

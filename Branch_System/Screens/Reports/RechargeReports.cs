@@ -15,6 +15,8 @@ namespace CTS.Screens.Reports
 {
     public partial class RechargeReports : Form
     {
+        public List<Database.Objects.Branch> brances;
+
         private int CustomerID;
         private string Product;
         private string reportViewerLink;
@@ -33,6 +35,18 @@ namespace CTS.Screens.Reports
             this.MinimizeBox = false;
             //string year = Database.Recharge.year.ToString();
             //this.LoadReport("01/01/"+year,"12/31/"+year);
+            brances = new List<Database.Objects.Branch>();
+            Database.Objects.Status<List<Database.Objects.Branch>> statusObject = Database.Branch.getBranches();
+            if(statusObject.status)
+            {
+                brances = statusObject.Object;
+                Branches_CBL.Items.Clear();
+                foreach(Database.Objects.Branch branch in brances)
+                {
+                    Branches_CBL.Items.Add(branch.Name);
+                }
+            }
+
         }
 
         private void Search_BTN_Click(object sender, EventArgs e)

@@ -236,7 +236,6 @@
             // 
             // Reports_BTN
             // 
-            this.Reports_BTN.Enabled = false;
             this.Reports_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

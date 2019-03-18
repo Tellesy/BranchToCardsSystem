@@ -187,6 +187,7 @@
             this.Logout_BTN.TabIndex = 43;
             this.Logout_BTN.Text = "تسجيل الخروج";
             this.Logout_BTN.UseVisualStyleBackColor = true;
+            this.Logout_BTN.Click += new System.EventHandler(this.Logout_BTN_Click);
             // 
             // label4
             // 

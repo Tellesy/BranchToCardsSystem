@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.RechargeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.RechargeReport = new Microsoft.Reporting.WinForms.ReportViewer();
             this.FromDatePicker = new System.Windows.Forms.DateTimePicker();
             this.ToDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -44,13 +43,11 @@
             this.Family_RB = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Alrafiq_RB = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.RechargeBindingSource)).BeginInit();
+            this.Branches_CBL = new System.Windows.Forms.CheckedListBox();
+            this.RechargeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RechargeBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // RechargeBindingSource
-            // 
-            this.RechargeBindingSource.DataSource = typeof(CTS.Database.DataObjects.Recharge);
             // 
             // RechargeReport
             // 
@@ -83,7 +80,7 @@
             // Search_BTN
             // 
             this.Search_BTN.Enabled = false;
-            this.Search_BTN.Location = new System.Drawing.Point(130, 81);
+            this.Search_BTN.Location = new System.Drawing.Point(12, 81);
             this.Search_BTN.Name = "Search_BTN";
             this.Search_BTN.Size = new System.Drawing.Size(95, 35);
             this.Search_BTN.TabIndex = 3;
@@ -172,7 +169,7 @@
             // 
             this.groupBox1.Controls.Add(this.Alrafiq_RB);
             this.groupBox1.Controls.Add(this.Family_RB);
-            this.groupBox1.Location = new System.Drawing.Point(130, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(111, 68);
             this.groupBox1.TabIndex = 11;
@@ -192,11 +189,24 @@
             this.Alrafiq_RB.UseVisualStyleBackColor = true;
             this.Alrafiq_RB.CheckedChanged += new System.EventHandler(this.Alrafiq_RB_CheckedChanged);
             // 
+            // Branches_CBL
+            // 
+            this.Branches_CBL.FormattingEnabled = true;
+            this.Branches_CBL.Location = new System.Drawing.Point(180, 12);
+            this.Branches_CBL.Name = "Branches_CBL";
+            this.Branches_CBL.Size = new System.Drawing.Size(120, 94);
+            this.Branches_CBL.TabIndex = 12;
+            // 
+            // RechargeBindingSource
+            // 
+            this.RechargeBindingSource.DataSource = typeof(CTS.Database.DataObjects.Recharge);
+            // 
             // RechargeReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 540);
+            this.Controls.Add(this.Branches_CBL);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CustomerID_TXT);
@@ -211,9 +221,9 @@
             this.Name = "RechargeReports";
             this.Text = "RechargeReports";
             this.Load += new System.EventHandler(this.RechargeReports_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.RechargeBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RechargeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +245,6 @@
         private System.Windows.Forms.RadioButton Family_RB;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton Alrafiq_RB;
+        private System.Windows.Forms.CheckedListBox Branches_CBL;
     }
 }

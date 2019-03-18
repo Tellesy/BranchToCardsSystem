@@ -62,7 +62,22 @@ namespace CTS.Screens.Main
 
         private void CheckStatus()
         {
-            throw new NotImplementedException();
+            if (Database.Recharge.active != "True")
+            {
+                MessageBox.Show("عذراً, الشحن و الإصدار غير متاح");
+                Status_LBL.Text = "غير متاح";
+                Status_LBL.ForeColor = Color.Red;
+            }
+            else
+            {
+                Status_LBL.Text = "متاح";
+                Status_LBL.ForeColor = Color.Green;
+            }
+        }
+
+        private void Logout_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
