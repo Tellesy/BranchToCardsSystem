@@ -42,6 +42,8 @@
             this.lable_LBL = new System.Windows.Forms.Label();
             this.Total_Amount_LBL = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CurrentBalanceTXT = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Time_LBL
@@ -187,7 +189,7 @@
             this.Total_Amount_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.Total_Amount_LBL.ForeColor = System.Drawing.Color.Green;
             this.Total_Amount_LBL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Total_Amount_LBL.Location = new System.Drawing.Point(54, 148);
+            this.Total_Amount_LBL.Location = new System.Drawing.Point(410, 87);
             this.Total_Amount_LBL.Name = "Total_Amount_LBL";
             this.Total_Amount_LBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Total_Amount_LBL.Size = new System.Drawing.Size(26, 25);
@@ -199,12 +201,32 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(186, 148);
+            this.label4.Location = new System.Drawing.Point(542, 87);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(235, 25);
             this.label4.TabIndex = 58;
             this.label4.Text = " إجمالي الشحن منذ فتح الحساب:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(283, 148);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(63, 26);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "القيمة :";
+            // 
+            // CurrentBalanceTXT
+            // 
+            this.CurrentBalanceTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentBalanceTXT.Location = new System.Drawing.Point(78, 148);
+            this.CurrentBalanceTXT.Name = "CurrentBalanceTXT";
+            this.CurrentBalanceTXT.Size = new System.Drawing.Size(169, 44);
+            this.CurrentBalanceTXT.TabIndex = 61;
             // 
             // AuthorizePBF
             // 
@@ -212,6 +234,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 316);
             this.ControlBox = false;
+            this.Controls.Add(this.CurrentBalanceTXT);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Total_Amount_LBL);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Balance_LBL);
@@ -248,5 +272,7 @@
         private System.Windows.Forms.Label lable_LBL;
         private System.Windows.Forms.Label Total_Amount_LBL;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox CurrentBalanceTXT;
     }
 }

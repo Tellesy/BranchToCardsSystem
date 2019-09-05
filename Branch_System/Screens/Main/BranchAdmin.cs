@@ -95,5 +95,11 @@ namespace CTS.Screens
             CTS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
             rechargeReport.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CTS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
+            cardAccount.Show();
+        }
     }
 }

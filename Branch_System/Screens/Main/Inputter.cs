@@ -162,5 +162,10 @@ namespace CTS.Screens
             CTS.Screens.Reports.RechargeReports rechargeReports = new Reports.RechargeReports();
             rechargeReports.Show();
         }
+
+        private void CardENQ_BTN_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

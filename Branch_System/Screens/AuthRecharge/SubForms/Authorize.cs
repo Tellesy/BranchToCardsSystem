@@ -107,8 +107,10 @@ namespace CTS.Screens.AuthRecharge
                         MessageBox.Show(amountStatus.message);
                     }
 
-                    Database.Status s =  Database.PBF.addPBF(record.CardAccount, recharge, record.NID, record.Product);
-                    if(!s.status)
+                    //Database.Status s =  Database.PBF.addPBF(record.CardAccount, recharge, record.NID, record.Product);
+                    Database.Status s = Database.PBF.addPBF(record.CardAccount, record.Amount, record.NID, record.Product);
+
+                    if (!s.status)
                     {
                         MessageBox.Show(s.message);
                     }

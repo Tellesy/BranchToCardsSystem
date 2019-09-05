@@ -73,8 +73,12 @@ namespace CTS.Screens.FilesAuth
             DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                int CurrentBalance = 0;
+                CurrentBalance = Int16.Parse(CurrentBalanceTXT.Text);
 
-                Database.Status status = Database.PBF.authPBF(record.ID);
+
+                // Database.Status status = Database.PBF.authPBF(record.ID);
+                Database.Status status = Database.PBF.authAndUpdateBalancePBF(record.ID, CurrentBalance+record.Balance);
 
               if (status.status)
                 {

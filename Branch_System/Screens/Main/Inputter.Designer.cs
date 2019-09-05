@@ -49,6 +49,7 @@
             this.Password_LBL = new System.Windows.Forms.Label();
             this.Reports_BTN = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.CardENQ_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,7 +164,7 @@
             this.Issue_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Issue_BTN.Location = new System.Drawing.Point(3, 221);
             this.Issue_BTN.Name = "Issue_BTN";
-            this.Issue_BTN.Size = new System.Drawing.Size(352, 63);
+            this.Issue_BTN.Size = new System.Drawing.Size(198, 63);
             this.Issue_BTN.TabIndex = 13;
             this.Issue_BTN.Text = "إصدار";
             this.Issue_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -178,7 +179,7 @@
             this.Recharge_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Recharge_BTN.Location = new System.Drawing.Point(3, 290);
             this.Recharge_BTN.Name = "Recharge_BTN";
-            this.Recharge_BTN.Size = new System.Drawing.Size(352, 63);
+            this.Recharge_BTN.Size = new System.Drawing.Size(198, 63);
             this.Recharge_BTN.TabIndex = 14;
             this.Recharge_BTN.Text = "شحن";
             this.Recharge_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -191,9 +192,9 @@
             this.Reissue_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
             this.Reissue_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reissue_BTN.Image")));
             this.Reissue_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reissue_BTN.Location = new System.Drawing.Point(3, 359);
+            this.Reissue_BTN.Location = new System.Drawing.Point(212, 221);
             this.Reissue_BTN.Name = "Reissue_BTN";
-            this.Reissue_BTN.Size = new System.Drawing.Size(352, 63);
+            this.Reissue_BTN.Size = new System.Drawing.Size(198, 63);
             this.Reissue_BTN.TabIndex = 15;
             this.Reissue_BTN.Text = "إعادة إصدار";
             this.Reissue_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -206,9 +207,9 @@
             this.PIN_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.PIN_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PIN_BTN.Image")));
             this.PIN_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PIN_BTN.Location = new System.Drawing.Point(3, 428);
+            this.PIN_BTN.Location = new System.Drawing.Point(212, 291);
             this.PIN_BTN.Name = "PIN_BTN";
-            this.PIN_BTN.Size = new System.Drawing.Size(352, 63);
+            this.PIN_BTN.Size = new System.Drawing.Size(198, 62);
             this.PIN_BTN.TabIndex = 16;
             this.PIN_BTN.Text = "إصدار رقم سري";
             this.PIN_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -220,9 +221,9 @@
             this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
             this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Logout_BTN.Location = new System.Drawing.Point(5, 612);
+            this.Logout_BTN.Location = new System.Drawing.Point(212, 429);
             this.Logout_BTN.Name = "Logout_BTN";
-            this.Logout_BTN.Size = new System.Drawing.Size(350, 70);
+            this.Logout_BTN.Size = new System.Drawing.Size(198, 61);
             this.Logout_BTN.TabIndex = 17;
             this.Logout_BTN.Text = "تسجيل الخروج";
             this.Logout_BTN.UseVisualStyleBackColor = true;
@@ -266,9 +267,9 @@
             this.Reports_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(5, 497);
+            this.Reports_BTN.Location = new System.Drawing.Point(3, 359);
             this.Reports_BTN.Name = "Reports_BTN";
-            this.Reports_BTN.Size = new System.Drawing.Size(350, 61);
+            this.Reports_BTN.Size = new System.Drawing.Size(198, 61);
             this.Reports_BTN.TabIndex = 34;
             this.Reports_BTN.Text = "تقرير عمليات الشحن";
             this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -280,19 +281,35 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label6.Location = new System.Drawing.Point(105, 685);
+            this.label6.Location = new System.Drawing.Point(6, 576);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(149, 17);
             this.label6.TabIndex = 35;
             this.label6.Text = "Mu Tellesy Software ©";
+            // 
+            // CardENQ_BTN
+            // 
+            this.CardENQ_BTN.Enabled = false;
+            this.CardENQ_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
+            this.CardENQ_BTN.Image = ((System.Drawing.Image)(resources.GetObject("CardENQ_BTN.Image")));
+            this.CardENQ_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CardENQ_BTN.Location = new System.Drawing.Point(212, 360);
+            this.CardENQ_BTN.Name = "CardENQ_BTN";
+            this.CardENQ_BTN.Size = new System.Drawing.Size(198, 60);
+            this.CardENQ_BTN.TabIndex = 36;
+            this.CardENQ_BTN.Text = "إستفسار عن بطاقة";
+            this.CardENQ_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CardENQ_BTN.UseVisualStyleBackColor = true;
+            this.CardENQ_BTN.Click += new System.EventHandler(this.CardENQ_BTN_Click);
             // 
             // Inputter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(360, 707);
+            this.ClientSize = new System.Drawing.Size(416, 603);
             this.ControlBox = false;
+            this.Controls.Add(this.CardENQ_BTN);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.PIN_BTN);
@@ -340,5 +357,6 @@
         private System.Windows.Forms.Label Password_LBL;
         private System.Windows.Forms.Button Reports_BTN;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button CardENQ_BTN;
     }
 }

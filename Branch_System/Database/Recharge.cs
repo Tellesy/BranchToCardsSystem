@@ -109,20 +109,31 @@ namespace CTS.Database
 
                     try
                     {
-                        while (reader.Read())
+                        if(reader.HasRows)
                         {
-                            if (reader[0].ToString() != "")
-                                statusObject.Object = int.Parse(reader[0].ToString());
-                            else
-                                statusObject.Object = 0;
+                            while (reader.Read())
+                            {
+                                if (reader[0].ToString() != "")
+                                    statusObject.Object = int.Parse(reader[0].ToString());
+                                else
+                                    statusObject.Object = 0;
+                            }
+
+                            statusObject.status = true;
+                            return statusObject;
                         }
-                        statusObject.status = true;
-                        return statusObject;
+                       
+                        else
+                        {
+                            statusObject.Object = 0;
+                            statusObject.status = true;
+                            return statusObject;
+                        }
                     }
-                    catch
+                    catch(Exception e)
                     {
                         statusObject.status = false;
-                        statusObject.message = "Check Recharge amount this year\n" + Errors.ErrorsString.Error002;
+                        statusObject.message = "Check Recharge amount this year\n" + Errors.ErrorsString.Error002 + "\n" + e;
                         return statusObject;
                     }
                 }
@@ -165,12 +176,20 @@ namespace CTS.Database
 
                     try
                     {
-                        while (reader.Read())
+                        if(reader.HasRows)
                         {
-                            if (reader[0].ToString() != "")
-                                statusObject.Object = Convert.ToInt32(reader[0].ToString());
-                            else
-                                statusObject.Object = 0;
+                            while (reader.Read())
+                            {
+                                if (reader[0].ToString() != "")
+                                    statusObject.Object = Convert.ToInt32(reader[0].ToString());
+                                else
+                                    statusObject.Object = 0;
+                            }
+                           
+                        }
+                        else
+                        {
+                            statusObject.Object = 0;
                         }
                         statusObject.status = true;
                         return statusObject;

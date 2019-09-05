@@ -263,7 +263,46 @@ namespace CTS.Database
             }
 
         }
+        public static Status authAndUpdateBalancePBF(int id, int balance)
+        {
+            Status status = new Status();
+            status.status = false;
 
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "UPDATE [PBF] SET Balance = @v1 ,Authorizer = @v2 , Authorized = 1 WHERE ID = @v3";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@v1", balance);
+                    cmd.Parameters.AddWithValue("@v2", Database.Login.id);
+                    cmd.Parameters.AddWithValue("@v3", id);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    status.status = false;
+                    status.message = "PBF Auth (Update Auth)\n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
         public static Status processPBF(int id)
         {
             Status status = new Status();

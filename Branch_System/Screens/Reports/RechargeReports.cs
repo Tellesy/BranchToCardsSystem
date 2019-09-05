@@ -55,9 +55,7 @@ namespace CTS.Screens.Reports
             string to = ToDatePicker.Value.ToShortDateString();
             this.LoadReport(from, to);
 
-            List<> selected = new List<ListItem>();
-            foreach (ListItem item in CBLGold.Items)
-                if (item.Selected) selected.Add(item);
+           //
 
 
         }

@@ -48,6 +48,7 @@
             this.Logout_BTN = new System.Windows.Forms.Button();
             this.Reports_BTN = new System.Windows.Forms.Button();
             this.Password_LBL = new System.Windows.Forms.Label();
+            this.AddCardAccount_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -260,6 +261,17 @@
             this.Password_LBL.Text = "تغير كلمة المرور";
             this.Password_LBL.Click += new System.EventHandler(this.Password_LBL_Click);
             // 
+            // AddCardAccount_BTN
+            // 
+            this.AddCardAccount_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.AddCardAccount_BTN.Location = new System.Drawing.Point(546, 70);
+            this.AddCardAccount_BTN.Name = "AddCardAccount_BTN";
+            this.AddCardAccount_BTN.Size = new System.Drawing.Size(172, 119);
+            this.AddCardAccount_BTN.TabIndex = 33;
+            this.AddCardAccount_BTN.Text = "Add Card Account";
+            this.AddCardAccount_BTN.UseVisualStyleBackColor = true;
+            this.AddCardAccount_BTN.Click += new System.EventHandler(this.AddCardAccount_BTN_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +279,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(731, 613);
             this.ControlBox = false;
+            this.Controls.Add(this.AddCardAccount_BTN);
             this.Controls.Add(this.Password_LBL);
             this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.Logout_BTN);
@@ -310,5 +323,6 @@
         private System.Windows.Forms.Button Logout_BTN;
         private System.Windows.Forms.Button Reports_BTN;
         private System.Windows.Forms.Label Password_LBL;
+        private System.Windows.Forms.Button AddCardAccount_BTN;
     }
 }
