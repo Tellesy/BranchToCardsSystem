@@ -189,5 +189,10 @@ namespace CTS.Screens.Card_Enquire
                 return;
             }
         }
+
+        private void CustomerID_TXT_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -73,10 +73,11 @@
             // 
             this.CustomerID_TXT.Enabled = false;
             this.CustomerID_TXT.Location = new System.Drawing.Point(142, 161);
-            this.CustomerID_TXT.MaxLength = 15;
+            this.CustomerID_TXT.MaxLength = 7;
             this.CustomerID_TXT.Name = "CustomerID_TXT";
             this.CustomerID_TXT.Size = new System.Drawing.Size(233, 20);
             this.CustomerID_TXT.TabIndex = 39;
+            this.CustomerID_TXT.TextChanged += new System.EventHandler(this.CustomerID_TXT_TextChanged);
             this.CustomerID_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerID_TXT_KeyPress);
             // 
             // label2
