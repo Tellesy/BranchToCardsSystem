@@ -23,6 +23,7 @@ namespace CTS.Screens
 
         private void Login_Load(object sender, EventArgs e)
         {
+           
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -34,6 +35,12 @@ namespace CTS.Screens
 
             Version ver = thisAssemName.Version;
 
+           Status status = CTSystem.CheckVersion(thisAssemName.Version.ToString());
+            if(!status.status)
+            {
+                MessageBox.Show(status.message);
+                this.Close();
+            }
             Version_LBL.Text = Version_LBL.Text + " V" + thisAssemName.Version;
         }
 

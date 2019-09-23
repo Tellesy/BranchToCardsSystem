@@ -49,6 +49,8 @@
             this.Reports_BTN = new System.Windows.Forms.Button();
             this.Password_LBL = new System.Windows.Forms.Label();
             this.AddCardAccount_BTN = new System.Windows.Forms.Button();
+            this.AddUser_BTN = new System.Windows.Forms.Button();
+            this.UpdateUser_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +64,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(12, 70);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 127);
+            this.panel1.Size = new System.Drawing.Size(350, 132);
             this.panel1.TabIndex = 27;
             // 
             // Amount_LBL
@@ -128,9 +130,9 @@
             // UnuthReport_BTN
             // 
             this.UnuthReport_BTN.Font = new System.Drawing.Font("Modern No. 20", 12.25F);
-            this.UnuthReport_BTN.Location = new System.Drawing.Point(12, 217);
+            this.UnuthReport_BTN.Location = new System.Drawing.Point(12, 218);
             this.UnuthReport_BTN.Name = "UnuthReport_BTN";
-            this.UnuthReport_BTN.Size = new System.Drawing.Size(172, 119);
+            this.UnuthReport_BTN.Size = new System.Drawing.Size(145, 64);
             this.UnuthReport_BTN.TabIndex = 1;
             this.UnuthReport_BTN.Text = "Unauthorized Recharge Report";
             this.UnuthReport_BTN.UseVisualStyleBackColor = true;
@@ -159,9 +161,9 @@
             // CAF_Auth_BTN
             // 
             this.CAF_Auth_BTN.Font = new System.Drawing.Font("Modern No. 20", 12.25F);
-            this.CAF_Auth_BTN.Location = new System.Drawing.Point(190, 343);
+            this.CAF_Auth_BTN.Location = new System.Drawing.Point(163, 288);
             this.CAF_Auth_BTN.Name = "CAF_Auth_BTN";
-            this.CAF_Auth_BTN.Size = new System.Drawing.Size(172, 119);
+            this.CAF_Auth_BTN.Size = new System.Drawing.Size(140, 63);
             this.CAF_Auth_BTN.TabIndex = 4;
             this.CAF_Auth_BTN.Text = "Authorize CAF Reocrds";
             this.CAF_Auth_BTN.UseVisualStyleBackColor = true;
@@ -170,9 +172,9 @@
             // PBF_Auth_BTN
             // 
             this.PBF_Auth_BTN.Font = new System.Drawing.Font("Modern No. 20", 12.25F);
-            this.PBF_Auth_BTN.Location = new System.Drawing.Point(12, 343);
+            this.PBF_Auth_BTN.Location = new System.Drawing.Point(12, 288);
             this.PBF_Auth_BTN.Name = "PBF_Auth_BTN";
-            this.PBF_Auth_BTN.Size = new System.Drawing.Size(172, 119);
+            this.PBF_Auth_BTN.Size = new System.Drawing.Size(145, 63);
             this.PBF_Auth_BTN.TabIndex = 3;
             this.PBF_Auth_BTN.Text = "Authorize PBF Reocrds";
             this.PBF_Auth_BTN.UseVisualStyleBackColor = true;
@@ -181,9 +183,9 @@
             // PO_Auth_BTN
             // 
             this.PO_Auth_BTN.Font = new System.Drawing.Font("Modern No. 20", 12.25F);
-            this.PO_Auth_BTN.Location = new System.Drawing.Point(190, 217);
+            this.PO_Auth_BTN.Location = new System.Drawing.Point(163, 218);
             this.PO_Auth_BTN.Name = "PO_Auth_BTN";
-            this.PO_Auth_BTN.Size = new System.Drawing.Size(172, 119);
+            this.PO_Auth_BTN.Size = new System.Drawing.Size(140, 64);
             this.PO_Auth_BTN.TabIndex = 2;
             this.PO_Auth_BTN.Text = "Authorize PO Reocrds";
             this.PO_Auth_BTN.UseVisualStyleBackColor = true;
@@ -192,9 +194,9 @@
             // PO_Gen_BTN
             // 
             this.PO_Gen_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.PO_Gen_BTN.Location = new System.Drawing.Point(546, 343);
+            this.PO_Gen_BTN.Location = new System.Drawing.Point(455, 288);
             this.PO_Gen_BTN.Name = "PO_Gen_BTN";
-            this.PO_Gen_BTN.Size = new System.Drawing.Size(172, 119);
+            this.PO_Gen_BTN.Size = new System.Drawing.Size(145, 63);
             this.PO_Gen_BTN.TabIndex = 7;
             this.PO_Gen_BTN.Text = "Generate PO File";
             this.PO_Gen_BTN.UseVisualStyleBackColor = true;
@@ -203,9 +205,9 @@
             // PBF_Gen_BTN
             // 
             this.PBF_Gen_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.PBF_Gen_BTN.Location = new System.Drawing.Point(368, 218);
+            this.PBF_Gen_BTN.Location = new System.Drawing.Point(309, 218);
             this.PBF_Gen_BTN.Name = "PBF_Gen_BTN";
-            this.PBF_Gen_BTN.Size = new System.Drawing.Size(172, 119);
+            this.PBF_Gen_BTN.Size = new System.Drawing.Size(140, 64);
             this.PBF_Gen_BTN.TabIndex = 5;
             this.PBF_Gen_BTN.Text = "Generate PBF File";
             this.PBF_Gen_BTN.UseVisualStyleBackColor = true;
@@ -214,9 +216,9 @@
             // CAF_Gen_BTN
             // 
             this.CAF_Gen_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.CAF_Gen_BTN.Location = new System.Drawing.Point(368, 343);
+            this.CAF_Gen_BTN.Location = new System.Drawing.Point(309, 287);
             this.CAF_Gen_BTN.Name = "CAF_Gen_BTN";
-            this.CAF_Gen_BTN.Size = new System.Drawing.Size(172, 119);
+            this.CAF_Gen_BTN.Size = new System.Drawing.Size(140, 64);
             this.CAF_Gen_BTN.TabIndex = 6;
             this.CAF_Gen_BTN.Text = "Generate CAF File";
             this.CAF_Gen_BTN.UseVisualStyleBackColor = true;
@@ -240,9 +242,9 @@
             this.Reports_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(546, 218);
+            this.Reports_BTN.Location = new System.Drawing.Point(455, 218);
             this.Reports_BTN.Name = "Reports_BTN";
-            this.Reports_BTN.Size = new System.Drawing.Size(172, 119);
+            this.Reports_BTN.Size = new System.Drawing.Size(145, 63);
             this.Reports_BTN.TabIndex = 8;
             this.Reports_BTN.Text = "Reports";
             this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -254,7 +256,7 @@
             this.Password_LBL.AutoSize = true;
             this.Password_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Underline);
             this.Password_LBL.ForeColor = System.Drawing.Color.Blue;
-            this.Password_LBL.Location = new System.Drawing.Point(614, 11);
+            this.Password_LBL.Location = new System.Drawing.Point(560, 11);
             this.Password_LBL.Name = "Password_LBL";
             this.Password_LBL.Size = new System.Drawing.Size(104, 20);
             this.Password_LBL.TabIndex = 32;
@@ -264,21 +266,44 @@
             // AddCardAccount_BTN
             // 
             this.AddCardAccount_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.AddCardAccount_BTN.Location = new System.Drawing.Point(546, 70);
+            this.AddCardAccount_BTN.Location = new System.Drawing.Point(368, 139);
             this.AddCardAccount_BTN.Name = "AddCardAccount_BTN";
-            this.AddCardAccount_BTN.Size = new System.Drawing.Size(172, 119);
+            this.AddCardAccount_BTN.Size = new System.Drawing.Size(145, 63);
             this.AddCardAccount_BTN.TabIndex = 33;
             this.AddCardAccount_BTN.Text = "Add Card Account";
             this.AddCardAccount_BTN.UseVisualStyleBackColor = true;
             this.AddCardAccount_BTN.Click += new System.EventHandler(this.AddCardAccount_BTN_Click);
+            // 
+            // AddUser_BTN
+            // 
+            this.AddUser_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.AddUser_BTN.Location = new System.Drawing.Point(368, 70);
+            this.AddUser_BTN.Name = "AddUser_BTN";
+            this.AddUser_BTN.Size = new System.Drawing.Size(145, 63);
+            this.AddUser_BTN.TabIndex = 34;
+            this.AddUser_BTN.Text = "Add New User";
+            this.AddUser_BTN.UseVisualStyleBackColor = true;
+            this.AddUser_BTN.Click += new System.EventHandler(this.AddUser_BTN_Click);
+            // 
+            // UpdateUser_BTN
+            // 
+            this.UpdateUser_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.UpdateUser_BTN.Location = new System.Drawing.Point(519, 70);
+            this.UpdateUser_BTN.Name = "UpdateUser_BTN";
+            this.UpdateUser_BTN.Size = new System.Drawing.Size(145, 63);
+            this.UpdateUser_BTN.TabIndex = 35;
+            this.UpdateUser_BTN.Text = "Update User";
+            this.UpdateUser_BTN.UseVisualStyleBackColor = true;
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(731, 613);
+            this.ClientSize = new System.Drawing.Size(669, 613);
             this.ControlBox = false;
+            this.Controls.Add(this.UpdateUser_BTN);
+            this.Controls.Add(this.AddUser_BTN);
             this.Controls.Add(this.AddCardAccount_BTN);
             this.Controls.Add(this.Password_LBL);
             this.Controls.Add(this.Reports_BTN);
@@ -324,5 +349,7 @@
         private System.Windows.Forms.Button Reports_BTN;
         private System.Windows.Forms.Label Password_LBL;
         private System.Windows.Forms.Button AddCardAccount_BTN;
+        private System.Windows.Forms.Button AddUser_BTN;
+        private System.Windows.Forms.Button UpdateUser_BTN;
     }
 }

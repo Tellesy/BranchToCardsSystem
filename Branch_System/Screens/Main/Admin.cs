@@ -345,5 +345,11 @@ namespace CTS.Screens
             CTS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
             cardAccount.Show();
         }
+
+        private void AddUser_BTN_Click(object sender, EventArgs e)
+        {
+            CTS.Screens.User.Add_User adduser = new CTS.Screens.User.Add_User();
+            adduser.Show();
+        }
     }
 }

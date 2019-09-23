@@ -104,6 +104,8 @@
     <Compile Include="Database\Objects\Status.cs" />
     <Compile Include="Database\PBF.cs" />
     <Compile Include="Database\PO.cs" />
+    <Compile Include="Database\CTSystem.cs" />
+    <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\FilesCreator.cs" />
     <Compile Include="Screens\Application\Application.cs">
       <SubType>Form</SubType>
@@ -153,11 +155,23 @@
     <Compile Include="Screens\FilesAuth\PBFUnauth.Designer.cs">
       <DependentUpon>PBFUnauth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\FilesAuth\POBranchUnauth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\POBranchUnauth.Designer.cs">
+      <DependentUpon>POBranchUnauth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\FilesAuth\POUnauth.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screens\FilesAuth\POUnauth.Designer.cs">
       <DependentUpon>POUnauth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\SubForms\AuthorizeBranchPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\FilesAuth\SubForms\AuthorizeBranchPO.Designer.cs">
+      <DependentUpon>AuthorizeBranchPO.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\FilesAuth\SubForms\AuthorizeCAF.cs">
       <SubType>Form</SubType>
@@ -219,6 +233,12 @@
     <Compile Include="Screens\Reports\RechargeReports.Designer.cs">
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\User\Add User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\User\Add User.Designer.cs">
+      <DependentUpon>Add User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\User\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,8 +287,14 @@
     <EmbeddedResource Include="Screens\FilesAuth\PBFUnauth.resx">
       <DependentUpon>PBFUnauth.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\FilesAuth\POBranchUnauth.resx">
+      <DependentUpon>POBranchUnauth.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\FilesAuth\POUnauth.resx">
       <DependentUpon>POUnauth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\FilesAuth\SubForms\AuthorizeBranchPO.resx">
+      <DependentUpon>AuthorizeBranchPO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\FilesAuth\SubForms\AuthorizeCAF.resx">
       <DependentUpon>AuthorizeCAF.cs</DependentUpon>
@@ -321,6 +347,9 @@
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Reports\AlrafiqRechargReport.rdlc" />
+    <EmbeddedResource Include="Screens\User\Add User.resx">
+      <DependentUpon>Add User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\User\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>

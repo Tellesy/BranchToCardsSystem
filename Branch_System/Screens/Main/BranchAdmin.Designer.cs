@@ -46,6 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Password_LBL = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.Card_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,7 +95,7 @@
             this.Recharge_BTN.Font = new System.Drawing.Font("Modern No. 20", 15.25F);
             this.Recharge_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Recharge_BTN.Image")));
             this.Recharge_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Recharge_BTN.Location = new System.Drawing.Point(12, 259);
+            this.Recharge_BTN.Location = new System.Drawing.Point(12, 349);
             this.Recharge_BTN.Name = "Recharge_BTN";
             this.Recharge_BTN.Size = new System.Drawing.Size(350, 61);
             this.Recharge_BTN.TabIndex = 25;
@@ -108,7 +109,7 @@
             this.Reports_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(12, 326);
+            this.Reports_BTN.Location = new System.Drawing.Point(12, 416);
             this.Reports_BTN.Name = "Reports_BTN";
             this.Reports_BTN.Size = new System.Drawing.Size(350, 61);
             this.Reports_BTN.TabIndex = 26;
@@ -231,7 +232,7 @@
             this.button1.Font = new System.Drawing.Font("Modern No. 20", 15.25F);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(13, 393);
+            this.button1.Location = new System.Drawing.Point(13, 483);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(350, 61);
             this.button1.TabIndex = 34;
@@ -240,6 +241,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Card_BTN
+            // 
+            this.Card_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.Card_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Card_BTN.Image")));
+            this.Card_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Card_BTN.Location = new System.Drawing.Point(13, 285);
+            this.Card_BTN.Name = "Card_BTN";
+            this.Card_BTN.Size = new System.Drawing.Size(350, 61);
+            this.Card_BTN.TabIndex = 35;
+            this.Card_BTN.Text = "تخويل طلبات الإصدار";
+            this.Card_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Card_BTN.UseVisualStyleBackColor = true;
+            this.Card_BTN.Click += new System.EventHandler(this.Card_BTN_Click);
+            // 
             // BranchAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +262,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(375, 728);
             this.ControlBox = false;
+            this.Controls.Add(this.Card_BTN);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Logout_BTN);
             this.Controls.Add(this.Password_LBL);
@@ -287,5 +303,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Password_LBL;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Card_BTN;
     }
 }

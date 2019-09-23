@@ -13,6 +13,7 @@ using CTS.Screens.User;
 
 
 using System.Windows.Forms;
+using CTS.Screens.FilesAuth;
 
 namespace CTS.Screens
 {
@@ -20,6 +21,7 @@ namespace CTS.Screens
     {
         public AuthRecharge.AuthRecharge authRecharge;
         public ChangePassword changePassword;
+        private POBranchUnauth POApp;
         public BranchAdmin()
         {
             InitializeComponent();
@@ -100,6 +102,19 @@ namespace CTS.Screens
         {
             CTS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
             cardAccount.Show();
+        }
+
+        private void Card_BTN_Click(object sender, EventArgs e)
+        {
+            if (POApp == null)
+            {
+                POApp = new POBranchUnauth();
+                POApp.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    POApp = null; Card_BTN.Enabled = true;
+                };
+                POApp.Show();
+               Card_BTN.Enabled = false;
+            }
         }
     }
 }
