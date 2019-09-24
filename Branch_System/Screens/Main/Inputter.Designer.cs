@@ -50,6 +50,7 @@
             this.Reports_BTN = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.CardENQ_BTN = new System.Windows.Forms.Button();
+            this.ShareFolder_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -221,7 +222,7 @@
             this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
             this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Logout_BTN.Location = new System.Drawing.Point(212, 429);
+            this.Logout_BTN.Location = new System.Drawing.Point(212, 503);
             this.Logout_BTN.Name = "Logout_BTN";
             this.Logout_BTN.Size = new System.Drawing.Size(198, 61);
             this.Logout_BTN.TabIndex = 17;
@@ -302,6 +303,17 @@
             this.CardENQ_BTN.UseVisualStyleBackColor = true;
             this.CardENQ_BTN.Click += new System.EventHandler(this.CardENQ_BTN_Click);
             // 
+            // ShareFolder_BTN
+            // 
+            this.ShareFolder_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.ShareFolder_BTN.Location = new System.Drawing.Point(212, 426);
+            this.ShareFolder_BTN.Name = "ShareFolder_BTN";
+            this.ShareFolder_BTN.Size = new System.Drawing.Size(198, 61);
+            this.ShareFolder_BTN.TabIndex = 38;
+            this.ShareFolder_BTN.Text = "Shared Folder";
+            this.ShareFolder_BTN.UseVisualStyleBackColor = true;
+            this.ShareFolder_BTN.Click += new System.EventHandler(this.ShareFolder_BTN_Click);
+            // 
             // Inputter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +321,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(416, 603);
             this.ControlBox = false;
+            this.Controls.Add(this.ShareFolder_BTN);
             this.Controls.Add(this.CardENQ_BTN);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Reports_BTN);
@@ -358,5 +371,6 @@
         private System.Windows.Forms.Button Reports_BTN;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button CardENQ_BTN;
+        private System.Windows.Forms.Button ShareFolder_BTN;
     }
 }

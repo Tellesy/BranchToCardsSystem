@@ -51,6 +51,7 @@
             this.AddCardAccount_BTN = new System.Windows.Forms.Button();
             this.AddUser_BTN = new System.Windows.Forms.Button();
             this.UpdateUser_BTN = new System.Windows.Forms.Button();
+            this.ShareFolder_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -295,6 +296,17 @@
             this.UpdateUser_BTN.Text = "Update User";
             this.UpdateUser_BTN.UseVisualStyleBackColor = true;
             // 
+            // ShareFolder_BTN
+            // 
+            this.ShareFolder_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.ShareFolder_BTN.Location = new System.Drawing.Point(455, 394);
+            this.ShareFolder_BTN.Name = "ShareFolder_BTN";
+            this.ShareFolder_BTN.Size = new System.Drawing.Size(145, 63);
+            this.ShareFolder_BTN.TabIndex = 36;
+            this.ShareFolder_BTN.Text = "Open Share Folder";
+            this.ShareFolder_BTN.UseVisualStyleBackColor = true;
+            this.ShareFolder_BTN.Click += new System.EventHandler(this.ShareFolder_BTN_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,6 +314,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(669, 613);
             this.ControlBox = false;
+            this.Controls.Add(this.ShareFolder_BTN);
             this.Controls.Add(this.UpdateUser_BTN);
             this.Controls.Add(this.AddUser_BTN);
             this.Controls.Add(this.AddCardAccount_BTN);
@@ -351,5 +364,6 @@
         private System.Windows.Forms.Button AddCardAccount_BTN;
         private System.Windows.Forms.Button AddUser_BTN;
         private System.Windows.Forms.Button UpdateUser_BTN;
+        private System.Windows.Forms.Button ShareFolder_BTN;
     }
 }

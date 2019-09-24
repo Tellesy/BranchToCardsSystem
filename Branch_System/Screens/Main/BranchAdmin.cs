@@ -116,5 +116,10 @@ namespace CTS.Screens
                Card_BTN.Enabled = false;
             }
         }
+
+        private void ShareFolder_BTN_Click(object sender, EventArgs e)
+        {
+            CTS.ConnectToSharedFolder.ShowShareFolder();
+        }
     }
 }

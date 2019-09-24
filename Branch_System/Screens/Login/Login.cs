@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.InteropServices;
+using System.Net;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +8,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CTS.Database;
@@ -21,26 +25,42 @@ namespace CTS.Screens
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private async void Login_Load(object sender, EventArgs e)
         {
-           
+            //Testing Area
+            CTS.ConnectToSharedFolder.CreateShortcut();
+            //End of Testing 
+
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             SheetManager.CreateFile();
 
+         await CTSystem.CheckIfSystemActiveAsync();
+
             Assembly thisAssem = typeof(Login).Assembly;
             AssemblyName thisAssemName = thisAssem.GetName();
 
             Version ver = thisAssemName.Version;
+            Status status = new Status();
 
-           Status status = CTSystem.CheckVersion(thisAssemName.Version.ToString());
-            if(!status.status)
-            {
-                MessageBox.Show(status.message);
-                this.Close();
-            }
+            //We can skip this part 
+            //from here 
+
+            //status = CTSystem.GetActiveStatus();
+            //if (!status.status)
+            //{
+            //    MessageBox.Show(status.message);
+            //    this.Close();
+            //}
+            //status = CTSystem.CheckVersion(thisAssemName.Version.ToString());
+            //if (!status.status)
+            //{
+            //    MessageBox.Show(status.message);
+            //    this.Close();
+            //}
+            //To here 
             Version_LBL.Text = Version_LBL.Text + " V" + thisAssemName.Version;
         }
 
@@ -102,5 +122,7 @@ namespace CTS.Screens
 
 
         }
+
+      
     }
 }

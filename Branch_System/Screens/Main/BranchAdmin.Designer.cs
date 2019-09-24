@@ -47,6 +47,7 @@
             this.Password_LBL = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.Card_BTN = new System.Windows.Forms.Button();
+            this.ShareFolder_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,13 +256,25 @@
             this.Card_BTN.UseVisualStyleBackColor = true;
             this.Card_BTN.Click += new System.EventHandler(this.Card_BTN_Click);
             // 
+            // ShareFolder_BTN
+            // 
+            this.ShareFolder_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.ShareFolder_BTN.Location = new System.Drawing.Point(13, 550);
+            this.ShareFolder_BTN.Name = "ShareFolder_BTN";
+            this.ShareFolder_BTN.Size = new System.Drawing.Size(350, 55);
+            this.ShareFolder_BTN.TabIndex = 37;
+            this.ShareFolder_BTN.Text = "Shared Folder";
+            this.ShareFolder_BTN.UseVisualStyleBackColor = true;
+            this.ShareFolder_BTN.Click += new System.EventHandler(this.ShareFolder_BTN_Click);
+            // 
             // BranchAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(375, 728);
+            this.ClientSize = new System.Drawing.Size(375, 739);
             this.ControlBox = false;
+            this.Controls.Add(this.ShareFolder_BTN);
             this.Controls.Add(this.Card_BTN);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Logout_BTN);
@@ -304,5 +317,6 @@
         private System.Windows.Forms.Label Password_LBL;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Card_BTN;
+        private System.Windows.Forms.Button ShareFolder_BTN;
     }
 }

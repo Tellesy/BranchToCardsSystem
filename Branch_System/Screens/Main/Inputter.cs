@@ -167,5 +167,10 @@ namespace CTS.Screens
         {
 
         }
+
+        private void ShareFolder_BTN_Click(object sender, EventArgs e)
+        {
+            CTS.ConnectToSharedFolder.ShowShareFolder();
+        }
     }
 }

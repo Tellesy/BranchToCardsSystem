@@ -13,6 +13,8 @@ using CTS.Screens;
 using CTS.Screens.AuthRecharge;
 using CTS.FilesCreator;
 using CTS.Screens.User;
+using System.Net;
+using System.IO;
 
 namespace CTS.Screens
 {
@@ -350,6 +352,15 @@ namespace CTS.Screens
         {
             CTS.Screens.User.Add_User adduser = new CTS.Screens.User.Add_User();
             adduser.Show();
+        }
+
+
+      
+  
+
+        private void ShareFolder_BTN_Click(object sender, EventArgs e)
+        {
+            CTS.ConnectToSharedFolder.ShowShareFolder();
         }
     }
 }
