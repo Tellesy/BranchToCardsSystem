@@ -153,7 +153,7 @@ namespace CTS.Database
             {
                 try
                 {
-                    string query = @"SELECT [ID],[Card_Number],[Name],[Customer_ID] ,[Account],[Begin_Date],[End_Date],[Email],[Phone],[Passport],[Update_Code],[Process_Indicator],[Branch_Code] ,[Inputter] ,convert(varchar,[Time], 103) FROM [PO] WHERE Branch_Authorized = 0 AND Authorized = 0 AND Processed = 0";
+                    string query = @"SELECT [ID],[Card_Number],[Name],[Customer_ID] ,[Account],[Begin_Date],[End_Date],[Email],[Phone],[Passport],[Update_Code],[Process_Indicator],[Branch_Code] ,[Inputter] ,convert(varchar,[Time], 103) FROM [PO] WHERE Branch_Authorized = 0 AND Authorized = 0 AND Processed = 0 AND [Branch_Code] = " + Login.branch;
 
 
 
