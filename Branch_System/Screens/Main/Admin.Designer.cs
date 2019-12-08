@@ -52,6 +52,7 @@
             this.AddUser_BTN = new System.Windows.Forms.Button();
             this.UpdateUser_BTN = new System.Windows.Forms.Button();
             this.ShareFolder_BTN = new System.Windows.Forms.Button();
+            this.AccountDetails_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -257,7 +258,7 @@
             this.Password_LBL.AutoSize = true;
             this.Password_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Underline);
             this.Password_LBL.ForeColor = System.Drawing.Color.Blue;
-            this.Password_LBL.Location = new System.Drawing.Point(560, 11);
+            this.Password_LBL.Location = new System.Drawing.Point(496, 11);
             this.Password_LBL.Name = "Password_LBL";
             this.Password_LBL.Size = new System.Drawing.Size(104, 20);
             this.Password_LBL.TabIndex = 32;
@@ -291,7 +292,7 @@
             this.UpdateUser_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
             this.UpdateUser_BTN.Location = new System.Drawing.Point(519, 70);
             this.UpdateUser_BTN.Name = "UpdateUser_BTN";
-            this.UpdateUser_BTN.Size = new System.Drawing.Size(145, 63);
+            this.UpdateUser_BTN.Size = new System.Drawing.Size(81, 63);
             this.UpdateUser_BTN.TabIndex = 35;
             this.UpdateUser_BTN.Text = "Update User";
             this.UpdateUser_BTN.UseVisualStyleBackColor = true;
@@ -299,7 +300,7 @@
             // ShareFolder_BTN
             // 
             this.ShareFolder_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.ShareFolder_BTN.Location = new System.Drawing.Point(455, 394);
+            this.ShareFolder_BTN.Location = new System.Drawing.Point(455, 392);
             this.ShareFolder_BTN.Name = "ShareFolder_BTN";
             this.ShareFolder_BTN.Size = new System.Drawing.Size(145, 63);
             this.ShareFolder_BTN.TabIndex = 36;
@@ -307,13 +308,28 @@
             this.ShareFolder_BTN.UseVisualStyleBackColor = true;
             this.ShareFolder_BTN.Click += new System.EventHandler(this.ShareFolder_BTN_Click);
             // 
+            // AccountDetails_BTN
+            // 
+            this.AccountDetails_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.AccountDetails_BTN.Image = ((System.Drawing.Image)(resources.GetObject("AccountDetails_BTN.Image")));
+            this.AccountDetails_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AccountDetails_BTN.Location = new System.Drawing.Point(12, 394);
+            this.AccountDetails_BTN.Name = "AccountDetails_BTN";
+            this.AccountDetails_BTN.Size = new System.Drawing.Size(204, 61);
+            this.AccountDetails_BTN.TabIndex = 39;
+            this.AccountDetails_BTN.Text = "بحث عن بيانات بطاقة";
+            this.AccountDetails_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AccountDetails_BTN.UseVisualStyleBackColor = true;
+            this.AccountDetails_BTN.Click += new System.EventHandler(this.AccountDetails_BTN_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(669, 613);
+            this.ClientSize = new System.Drawing.Size(603, 613);
             this.ControlBox = false;
+            this.Controls.Add(this.AccountDetails_BTN);
             this.Controls.Add(this.ShareFolder_BTN);
             this.Controls.Add(this.UpdateUser_BTN);
             this.Controls.Add(this.AddUser_BTN);
@@ -365,5 +381,6 @@
         private System.Windows.Forms.Button AddUser_BTN;
         private System.Windows.Forms.Button UpdateUser_BTN;
         private System.Windows.Forms.Button ShareFolder_BTN;
+        private System.Windows.Forms.Button AccountDetails_BTN;
     }
 }

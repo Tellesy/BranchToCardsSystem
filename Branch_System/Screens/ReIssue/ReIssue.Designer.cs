@@ -54,7 +54,7 @@
             // 
             this.Back_BTN.Location = new System.Drawing.Point(8, 536);
             this.Back_BTN.Name = "Back_BTN";
-            this.Back_BTN.Size = new System.Drawing.Size(363, 33);
+            this.Back_BTN.Size = new System.Drawing.Size(273, 33);
             this.Back_BTN.TabIndex = 39;
             this.Back_BTN.Text = "رجوع";
             this.Back_BTN.UseVisualStyleBackColor = true;
@@ -65,7 +65,7 @@
             this.Submit_BTN.Enabled = false;
             this.Submit_BTN.Location = new System.Drawing.Point(8, 498);
             this.Submit_BTN.Name = "Submit_BTN";
-            this.Submit_BTN.Size = new System.Drawing.Size(363, 32);
+            this.Submit_BTN.Size = new System.Drawing.Size(273, 32);
             this.Submit_BTN.TabIndex = 38;
             this.Submit_BTN.Text = "إضافة";
             this.Submit_BTN.UseVisualStyleBackColor = true;
@@ -74,7 +74,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(98, 127);
+            this.label6.Location = new System.Drawing.Point(5, 134);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(273, 13);
             this.label6.TabIndex = 42;
@@ -83,7 +83,7 @@
             // CardAccount_TXT
             // 
             this.CardAccount_TXT.Enabled = false;
-            this.CardAccount_TXT.Location = new System.Drawing.Point(138, 143);
+            this.CardAccount_TXT.Location = new System.Drawing.Point(45, 150);
             this.CardAccount_TXT.MaxLength = 16;
             this.CardAccount_TXT.Name = "CardAccount_TXT";
             this.CardAccount_TXT.Size = new System.Drawing.Size(233, 20);
@@ -94,7 +94,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(283, 77);
+            this.label1.Location = new System.Drawing.Point(190, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 13);
             this.label1.TabIndex = 41;
@@ -102,7 +102,7 @@
             // 
             // CardNo_TXT
             // 
-            this.CardNo_TXT.Location = new System.Drawing.Point(138, 93);
+            this.CardNo_TXT.Location = new System.Drawing.Point(45, 100);
             this.CardNo_TXT.MaxLength = 16;
             this.CardNo_TXT.Name = "CardNo_TXT";
             this.CardNo_TXT.ReadOnly = true;
@@ -112,10 +112,7 @@
             // Product_CBox
             // 
             this.Product_CBox.FormattingEnabled = true;
-            this.Product_CBox.Items.AddRange(new object[] {
-            "ارباب الاسر 10",
-            "أغراض شخصية 30"});
-            this.Product_CBox.Location = new System.Drawing.Point(162, 34);
+            this.Product_CBox.Location = new System.Drawing.Point(69, 41);
             this.Product_CBox.Name = "Product_CBox";
             this.Product_CBox.Size = new System.Drawing.Size(209, 21);
             this.Product_CBox.TabIndex = 1;
@@ -124,7 +121,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(317, 18);
+            this.label11.Location = new System.Drawing.Point(224, 25);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 13);
             this.label11.TabIndex = 40;
@@ -133,7 +130,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(296, 327);
+            this.label14.Location = new System.Drawing.Point(203, 334);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 54;
@@ -142,7 +139,7 @@
             // Passport
             // 
             this.Passport.Enabled = false;
-            this.Passport.Location = new System.Drawing.Point(138, 343);
+            this.Passport.Location = new System.Drawing.Point(45, 350);
             this.Passport.MaxLength = 8;
             this.Passport.Name = "Passport";
             this.Passport.Size = new System.Drawing.Size(233, 20);
@@ -152,7 +149,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(238, 430);
+            this.label8.Location = new System.Drawing.Point(145, 437);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(131, 13);
             this.label8.TabIndex = 53;
@@ -161,7 +158,7 @@
             // PhoneNo_TXT
             // 
             this.PhoneNo_TXT.Enabled = false;
-            this.PhoneNo_TXT.Location = new System.Drawing.Point(138, 446);
+            this.PhoneNo_TXT.Location = new System.Drawing.Point(45, 453);
             this.PhoneNo_TXT.MaxLength = 10;
             this.PhoneNo_TXT.Name = "PhoneNo_TXT";
             this.PhoneNo_TXT.Size = new System.Drawing.Size(233, 20);
@@ -171,7 +168,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(238, 382);
+            this.label7.Location = new System.Drawing.Point(145, 389);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 13);
             this.label7.TabIndex = 52;
@@ -180,7 +177,7 @@
             // BirthDate_TXT
             // 
             this.BirthDate_TXT.Enabled = false;
-            this.BirthDate_TXT.Location = new System.Drawing.Point(138, 398);
+            this.BirthDate_TXT.Location = new System.Drawing.Point(45, 405);
             this.BirthDate_TXT.MaxLength = 8;
             this.BirthDate_TXT.Name = "BirthDate_TXT";
             this.BirthDate_TXT.Size = new System.Drawing.Size(233, 20);
@@ -190,7 +187,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(279, 177);
+            this.label2.Location = new System.Drawing.Point(186, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 51;
@@ -199,7 +196,7 @@
             // AccountUSD_TXT
             // 
             this.AccountUSD_TXT.Enabled = false;
-            this.AccountUSD_TXT.Location = new System.Drawing.Point(138, 193);
+            this.AccountUSD_TXT.Location = new System.Drawing.Point(45, 200);
             this.AccountUSD_TXT.MaxLength = 15;
             this.AccountUSD_TXT.Name = "AccountUSD_TXT";
             this.AccountUSD_TXT.Size = new System.Drawing.Size(233, 20);
@@ -210,7 +207,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(306, 279);
+            this.label5.Location = new System.Drawing.Point(213, 286);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 50;
@@ -219,7 +216,7 @@
             // NID_TXT
             // 
             this.NID_TXT.Enabled = false;
-            this.NID_TXT.Location = new System.Drawing.Point(138, 295);
+            this.NID_TXT.Location = new System.Drawing.Point(45, 302);
             this.NID_TXT.MaxLength = 12;
             this.NID_TXT.Name = "NID_TXT";
             this.NID_TXT.Size = new System.Drawing.Size(233, 20);
@@ -229,7 +226,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(316, 227);
+            this.label4.Location = new System.Drawing.Point(223, 234);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 49;
@@ -238,7 +235,7 @@
             // CustomerName_TXT
             // 
             this.CustomerName_TXT.Enabled = false;
-            this.CustomerName_TXT.Location = new System.Drawing.Point(138, 243);
+            this.CustomerName_TXT.Location = new System.Drawing.Point(45, 250);
             this.CustomerName_TXT.MaxLength = 25;
             this.CustomerName_TXT.Name = "CustomerName_TXT";
             this.CustomerName_TXT.Size = new System.Drawing.Size(233, 20);
@@ -248,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 578);
+            this.ClientSize = new System.Drawing.Size(287, 578);
             this.ControlBox = false;
             this.Controls.Add(this.label14);
             this.Controls.Add(this.Passport);

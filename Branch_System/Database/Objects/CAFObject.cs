@@ -15,5 +15,7 @@ namespace CTS.Database.Objects
         public string Product { get; set; }
         public int Inputter { get; set; }
         public string Time { get; set; }
+        public bool HONOR { get; set; }
+
     }
 }

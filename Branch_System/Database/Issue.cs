@@ -432,6 +432,118 @@ namespace CTS.Database
 
         }
 
+        public static Status<CardAccount> getCardAccount(string Card_Account)
+        {
+            Status<CardAccount> status = new Status<CardAccount>();
+            status.Object = new CardAccount();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                string query = @"SELECT TOP 1 [Customer_ID],[Product_Code],[Customer_Account] from Card_Accounts Where [Card_Account] = '" + Card_Account +"'";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        if (!reader.HasRows)
+                        {
+                            status.status = false;
+                            return status;
+
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+                                status.Object.Customer_ID = reader[0].ToString();
+                                status.Object.Product = reader[1].ToString();
+                                status.Object.Account = reader[2].ToString();
+                                status.Object.Card_Account = Card_Account;
+                                status.status = true;
+                                //  status.message = "هذا الزبون لديه بطاقة, الرجاء التأكد او الذهاب الى خيار اعادة الاصدار";
+                            }
+                            return status;
+
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        status.status = false;
+                        status.message = Errors.ErrorsString.Error002 + "\n" + e;
+                        return status;
+                    }
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
+
+        public static Status<string> getCardAccountFromCard_Number(string Card_Number)
+        {
+            Status<string> status = new Status<string>();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                string query = @"SELECT TOP 1 [Card_Account] FROM [CTS].[dbo].[Cards] where Card_Number = '" + Card_Number+"'";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        if (!reader.HasRows)
+                        {
+                            status.status = false;
+                            return status;
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+                                status.Object = reader[0].ToString();
+                                status.status = true;
+                                //  status.message = "هذا الزبون لديه بطاقة, الرجاء التأكد او الذهاب الى خيار اعادة الاصدار";
+                            }
+                            return status;
+
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        status.status = false;
+                        status.message = Errors.ErrorsString.Error002 + "\n" + e;
+                        return status;
+                    }
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+        }
+
         public static Status updateSequences(string CardNumber)
         {
             Status status = new Status();
@@ -520,7 +632,7 @@ namespace CTS.Database
             
         }
 
-        public static Status createCard(string Card_Number, string Card_Account)
+        public static Status createCard(string Card_Number, string Card_Account, string Product)
         {
             Status status = new Status();
             status.status = false;
@@ -552,9 +664,12 @@ namespace CTS.Database
                                 conn.Close();
                                 conn.Open();
                                 SqlCommand cmd2 = new SqlCommand("UPDATE Cards SET Active = 0 WHERE Card_Number = @value ", conn);
-                                cmd2.Parameters.AddWithValue("@value", oldNumber);
+                                cmd2.Parameters.AddWithValue("@value", oldNumber); 
                                 cmd2.ExecuteNonQuery();
                                 conn.Close();
+                                // Add to CAF
+                                Database.CAF.addCAF(oldNumber, Card_Account, SheetManager.Account_EXP_Date, Product, false);
+                                
 
                             }
                         }

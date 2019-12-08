@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label11 = new System.Windows.Forms.Label();
             this.Product_CBox = new System.Windows.Forms.ComboBox();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cTSMain = new CTS.CTSMain();
             this.label10 = new System.Windows.Forms.Label();
             this.Application_CBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,6 +53,19 @@
             this.Back_BTN = new System.Windows.Forms.Button();
             this.Submit_BTN = new System.Windows.Forms.Button();
             this.Amount_TXT = new System.Windows.Forms.TextBox();
+            this.cTSDataSet = new CTS.CTSDataSet();
+            this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cTSDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.branch_system1DataSet = new CTS.Branch_system1DataSet();
+            this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productsTableAdapter = new CTS.CTSMainTableAdapters.ProductsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label11
@@ -63,15 +79,23 @@
             // 
             // Product_CBox
             // 
+            this.Product_CBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Code", true));
             this.Product_CBox.FormattingEnabled = true;
-            this.Product_CBox.Items.AddRange(new object[] {
-            "ارباب الاسر 10",
-            "أغراض شخصية 30"});
             this.Product_CBox.Location = new System.Drawing.Point(166, 28);
             this.Product_CBox.Name = "Product_CBox";
             this.Product_CBox.Size = new System.Drawing.Size(209, 21);
             this.Product_CBox.TabIndex = 1;
             this.Product_CBox.SelectedIndexChanged += new System.EventHandler(this.Product_CBox_SelectedIndexChanged);
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "Products";
+            this.productsBindingSource.DataSource = this.cTSMain;
+            // 
+            // cTSMain
+            // 
+            this.cTSMain.DataSetName = "CTSMain";
+            this.cTSMain.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label10
             // 
@@ -265,6 +289,35 @@
             this.Amount_TXT.Size = new System.Drawing.Size(141, 20);
             this.Amount_TXT.TabIndex = 11;
             // 
+            // cTSDataSet
+            // 
+            this.cTSDataSet.DataSetName = "CTSDataSet";
+            this.cTSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cTSDataSetBindingSource
+            // 
+            this.cTSDataSetBindingSource.DataSource = this.cTSDataSet;
+            this.cTSDataSetBindingSource.Position = 0;
+            // 
+            // cTSDataSetBindingSource1
+            // 
+            this.cTSDataSetBindingSource1.DataSource = this.cTSDataSet;
+            this.cTSDataSetBindingSource1.Position = 0;
+            // 
+            // branch_system1DataSet
+            // 
+            this.branch_system1DataSet.DataSetName = "Branch_system1DataSet";
+            this.branch_system1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // branchsystem1DataSetBindingSource
+            // 
+            this.branchsystem1DataSetBindingSource.DataSource = this.branch_system1DataSet;
+            this.branchsystem1DataSetBindingSource.Position = 0;
+            // 
+            // productsTableAdapter
+            // 
+            this.productsTableAdapter.ClearBeforeFill = true;
+            // 
             // Issue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,6 +349,13 @@
             this.Name = "Issue";
             this.Text = "الإصدار";
             this.Load += new System.EventHandler(this.Issue_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +385,13 @@
         private System.Windows.Forms.Button Back_BTN;
         private System.Windows.Forms.Button Submit_BTN;
         private System.Windows.Forms.TextBox Amount_TXT;
+        private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource;
+        private Branch_system1DataSet branch_system1DataSet;
+        private CTSDataSet cTSDataSet;
+        private System.Windows.Forms.BindingSource cTSDataSetBindingSource;
+        private System.Windows.Forms.BindingSource cTSDataSetBindingSource1;
+        private CTSMain cTSMain;
+        private System.Windows.Forms.BindingSource productsBindingSource;
+        private CTSMainTableAdapters.ProductsTableAdapter productsTableAdapter;
     }
 }

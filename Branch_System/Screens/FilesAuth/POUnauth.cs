@@ -17,6 +17,7 @@ namespace CTS.Screens
     {
 
         public List<Database.Objects.PObject> records;
+        private string Selected_Branch;
 
         public POUnauth()
         {
@@ -25,6 +26,10 @@ namespace CTS.Screens
 
         private void POAuth_Load(object sender, EventArgs e)
         {
+            Branch_CBox.SelectedValue = "0";
+            Selected_Branch = "0";
+            // TODO: This line of code loads data into the 'cTSDataSet.Branches' table. You can move, or remove it, as needed.
+            this.branchesTableAdapter.Fill(this.cTSDataSet.Branches);
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -42,8 +47,29 @@ namespace CTS.Screens
 
             if (statusObject.status)
             {
-                records = statusObject.Object;
-                Record_DGView.DataSource = statusObject.Object;
+                if(Selected_Branch != "0")
+                {
+                    List<Database.Objects.PObject> filterdPO = new List<PObject>();
+
+
+                    foreach (Database.Objects.PObject pObject in statusObject.Object)
+                    {
+                        if (Convert.ToInt32(pObject.Branch_Code) == Convert.ToInt32(Selected_Branch))
+                        {
+                            filterdPO.Add(pObject);
+                        }
+                    }
+                    records = filterdPO;
+                    Record_DGView.DataSource = filterdPO;
+                    //
+
+                }
+                else
+                {
+                    records = statusObject.Object;
+                    Record_DGView.DataSource = statusObject.Object;
+                }
+               
                 //Record_DGView.Columns[0].HeaderText = "id";
 
                 if (statusObject.Object == null)
@@ -87,6 +113,26 @@ namespace CTS.Screens
                     authorize.Show();
                 }
             }
+        }
+
+        private void Branch_CBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Selected_Branch = Branch_CBox.SelectedValue.ToString();
+                GetUnAuthRecords();
+            }
+            catch
+            {
+
+            }
+        
+            //  MessageBox.Show(Branch_CBox.SelectedValue.ToString());
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

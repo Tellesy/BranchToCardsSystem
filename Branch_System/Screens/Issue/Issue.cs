@@ -16,6 +16,7 @@ namespace CTS.Screens
         private string Product;
         private string CardNumber;
         private string Customer_ID;
+        private List<Product> Products;
 
         private bool UpdateInfoFlag = false;
 
@@ -32,16 +33,29 @@ namespace CTS.Screens
                 {
                     Database.Issue.unlockSequences(CardNumber);
                 }
+            //Product = Product_CBox.SelectedValue.ToString();
 
-            switch (Product_CBox.SelectedIndex)
+            foreach(Product p in Products)
             {
-                case 0:
-                    Product = "10";
+                if(p.ID == Product_CBox.SelectedIndex)
+                {
+                    Product = p.Code;
                     break;
-                case 1:
-                    Product = "30";
-                    break;
+                }
             }
+           
+            //switch (Product_CBox.SelectedIndex)
+            //{
+            //    case 0:
+            //        Product = "10";
+            //        break;
+            //    case 1:
+            //        Product = "30";
+            //        break;
+            //    case 2:
+            //        Product = "90";
+            //        break;
+            //}
             Application_CBox.SelectedIndex = -1;
             EmptyBoxes();
             Application_CBox.Enabled = true;
@@ -229,7 +243,7 @@ namespace CTS.Screens
                             return;
                         }
 
-                        status = Database.Issue.createCard(CardNumber, "");
+                        status = Database.Issue.createCard(CardNumber, "",Product);
                         if (!status.status)
                         {
                             MessageBox.Show(status.message);
@@ -244,7 +258,7 @@ namespace CTS.Screens
                         }
                        // AddToFile("IR");
 
-                        Database.Status CAFStatus = Database.CAF.addCAF(CardNumber, CardNumber, SheetManager.Account_EXP_Date, Product);
+                        Database.Status CAFStatus = Database.CAF.addCAF(CardNumber, CardNumber, SheetManager.Account_EXP_Date, Product, true);
                         if(!CAFStatus.status)
                         {
                             MessageBox.Show("Error in Adding to CAF table\n" + CAFStatus.message);
@@ -348,7 +362,7 @@ namespace CTS.Screens
                     return;
                 }
 
-                status = Database.Issue.createCard(CardNumber, "");
+                status = Database.Issue.createCard(CardNumber, "",Product);
                 if (!status.status)
                 {
                     MessageBox.Show(status.message);
@@ -357,7 +371,7 @@ namespace CTS.Screens
 
                 //AddToFile("I");
 
-                Database.Status CAFStatus = Database.CAF.addCAF(CardNumber, CardNumber, SheetManager.Account_EXP_Date, Product);
+                Database.Status CAFStatus = Database.CAF.addCAF(CardNumber, CardNumber, SheetManager.Account_EXP_Date, Product, true);
                 if (!CAFStatus.status)
                 {
                     MessageBox.Show("Error in Adding to CAF table\n" + CAFStatus.message);
@@ -544,10 +558,34 @@ namespace CTS.Screens
 
         private void Issue_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cTSMain.Products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.cTSMain.Products);
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
+            //Load Products
+            Status<List<Product>> status = CTS.Database.CAF.getProducts();
+
+            if(status.status)
+            {
+                Products = status.Object;
+                foreach (Product p in Products)
+                {
+                    Product_CBox.Items.Insert(p.ID, p.Name);
+                }
+            }
+            else
+            {
+                MessageBox.Show(status.message);
+                this.Close();
+            }
+
+           
+          
+
+
         }
     }
 }

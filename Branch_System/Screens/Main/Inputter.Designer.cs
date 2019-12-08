@@ -51,6 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.CardENQ_BTN = new System.Windows.Forms.Button();
             this.ShareFolder_BTN = new System.Windows.Forms.Button();
+            this.AccountDetails_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -314,6 +315,20 @@
             this.ShareFolder_BTN.UseVisualStyleBackColor = true;
             this.ShareFolder_BTN.Click += new System.EventHandler(this.ShareFolder_BTN_Click);
             // 
+            // AccountDetails_BTN
+            // 
+            this.AccountDetails_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.AccountDetails_BTN.Image = ((System.Drawing.Image)(resources.GetObject("AccountDetails_BTN.Image")));
+            this.AccountDetails_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AccountDetails_BTN.Location = new System.Drawing.Point(3, 426);
+            this.AccountDetails_BTN.Name = "AccountDetails_BTN";
+            this.AccountDetails_BTN.Size = new System.Drawing.Size(198, 61);
+            this.AccountDetails_BTN.TabIndex = 39;
+            this.AccountDetails_BTN.Text = "بحث عن بيانات بطاقة";
+            this.AccountDetails_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AccountDetails_BTN.UseVisualStyleBackColor = true;
+            this.AccountDetails_BTN.Click += new System.EventHandler(this.AccountDetails_BTN_Click);
+            // 
             // Inputter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,6 +336,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(416, 603);
             this.ControlBox = false;
+            this.Controls.Add(this.AccountDetails_BTN);
             this.Controls.Add(this.ShareFolder_BTN);
             this.Controls.Add(this.CardENQ_BTN);
             this.Controls.Add(this.label6);
@@ -372,5 +388,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button CardENQ_BTN;
         private System.Windows.Forms.Button ShareFolder_BTN;
+        private System.Windows.Forms.Button AccountDetails_BTN;
     }
 }

@@ -23,6 +23,7 @@ namespace CTS.FilesCreator
         public static string ID_Code_s;
         public static string Phone_Number_s;
         public static string Email_s;
+        public static string HONOR;
 
 
         //Files location
@@ -296,24 +297,24 @@ namespace CTS.FilesCreator
 
            else if (CACount >= 10 && CACount < 100)
                                     //0346000000001
-                line = String.Format("03460000000{0}{1}   000CMD01431                " +
+                line = String.Format("03460000000{0}{1}   000CMD0143{7}                " +
                     "0000000{4}0000000000000000000000000000000000000000000000{4}00000000000" +
                     "            {2}" +
                     "                                                                                                                                                                                                       "
                     + "00880020000000000{5}000000000000000000000000000000000000000000000000000ATM             " +
                     "0140000000000000000000000000000000000000000000000000000000000000000000000{6}000000000000100000000000000000000000000        POS             00280010NN0000        " +
                     "00000100400101{3}   1CHECK ACCT                   Z"
-                    , CACount, Card_Number_s, CAFExpDate_s, Card_Account_Number_s, AggregateDailyLimit_s, CashDailyLimit, POSDailyLimit_s);
+                    , CACount, Card_Number_s, CAFExpDate_s, Card_Account_Number_s, AggregateDailyLimit_s, CashDailyLimit, POSDailyLimit_s, HONOR);
             else
             {//                       0346000000001
-                line = String.Format("034600000000{0}{1}   000CMD01431                " +
+                line = String.Format("034600000000{0}{1}   000CMD0143{7}                " +
                 "0000000{4}0000000000000000000000000000000000000000000000{4}00000000000" +
                 "            {2}" +
                 "                                                                                                                                                                                                       "
                 + "00880020000000000{5}000000000000000000000000000000000000000000000000000ATM             " +
                 "0140000000000000000000000000000000000000000000000000000000000000000000000{6}000000000000100000000000000000000000000        POS             00280010NN0000        " +
                 "00000100400101{3}   1CHECK ACCT                   Z"
-                , CACount, Card_Number_s, CAFExpDate_s, Card_Account_Number_s, AggregateDailyLimit_s, CashDailyLimit, POSDailyLimit_s);
+                , CACount, Card_Number_s, CAFExpDate_s, Card_Account_Number_s, AggregateDailyLimit_s, CashDailyLimit, POSDailyLimit_s,HONOR);
             }
 
 

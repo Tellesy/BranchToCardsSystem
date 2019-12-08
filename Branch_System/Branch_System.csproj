@@ -147,12 +147,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectToSharedFolder.cs" />
+    <Compile Include="CTSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTSDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CTSMain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTSMain.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Database\Branch.cs" />
     <Compile Include="Database\CAF.cs" />
     <Compile Include="Database\DataObjects\Recharge.cs" />
     <Compile Include="Database\Issue.cs" />
     <Compile Include="Database\Objects\Branch.cs" />
     <Compile Include="Database\Objects\CAFObject.cs" />
+    <Compile Include="Database\Objects\CardAccount.cs" />
     <Compile Include="Database\Objects\Customer.cs" />
     <Compile Include="Database\Objects\PBFObject.cs" />
     <Compile Include="Database\Objects\PObject.cs" />
@@ -164,6 +175,12 @@
     <Compile Include="Database\CTSystem.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\FilesCreator.cs" />
+    <Compile Include="Screens\Account Details\Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Account Details\Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Application\Application.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +283,12 @@
     <Compile Include="Screens\Main\BranchAdmin.Designer.cs">
       <DependentUpon>BranchAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Main\Printing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\Printing.Designer.cs">
+      <DependentUpon>Printing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PIN\PIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +346,9 @@
     <Compile Include="Screens\Main\Inputter.Designer.cs">
       <DependentUpon>Inputter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Screens\Account Details\Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Application\Application.resx">
       <DependentUpon>Application.cs</DependentUpon>
     </EmbeddedResource>
@@ -390,6 +416,9 @@
     <EmbeddedResource Include="Screens\Main\Inputter.resx">
       <DependentUpon>Inputter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\Printing.resx">
+      <DependentUpon>Printing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\PIN\PIN.resx">
       <DependentUpon>PIN.cs</DependentUpon>
     </EmbeddedResource>
@@ -422,6 +451,28 @@
       <DependentUpon>Branch_system1DataSet.xsd</DependentUpon>
     </None>
     <None Include="Branch_System_TemporaryKey.pfx" />
+    <None Include="CTSDataSet.xsc">
+      <DependentUpon>CTSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CTSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CTSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CTSDataSet.xss">
+      <DependentUpon>CTSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CTSMain.xsc">
+      <DependentUpon>CTSMain.xsd</DependentUpon>
+    </None>
+    <None Include="CTSMain.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CTSMain.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CTSMain.xss">
+      <DependentUpon>CTSMain.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CTS.Database.DataObjects.Recharge.datasource" />
     <None Include="Properties\Settings.settings">
@@ -464,6 +515,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.22.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.22.0\build\net45\Grpc.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

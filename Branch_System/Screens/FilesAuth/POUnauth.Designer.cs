@@ -28,11 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POUnauth));
             this.Exit_BTN = new System.Windows.Forms.Button();
             this.Sync_BTN = new System.Windows.Forms.Button();
             this.Record_DGView = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Branch_CBox = new System.Windows.Forms.ComboBox();
+            this.branchesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cTSDataSet = new CTS.CTSDataSet();
+            this.branchesTableAdapter = new CTS.CTSDataSetTableAdapters.BranchesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // Exit_BTN
@@ -72,12 +80,52 @@
             this.Record_DGView.TabIndex = 5;
             this.Record_DGView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Record_DGView_CellMouseDoubleClick);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(891, 15);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(30, 13);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "الفرع";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // Branch_CBox
+            // 
+            this.Branch_CBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.branchesBindingSource, "Branch", true));
+            this.Branch_CBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.branchesBindingSource, "Branch_code", true));
+            this.Branch_CBox.DataSource = this.cTSDataSet;
+            this.Branch_CBox.DisplayMember = "Branches.Branch";
+            this.Branch_CBox.FormattingEnabled = true;
+            this.Branch_CBox.Location = new System.Drawing.Point(736, 31);
+            this.Branch_CBox.Name = "Branch_CBox";
+            this.Branch_CBox.Size = new System.Drawing.Size(209, 21);
+            this.Branch_CBox.TabIndex = 23;
+            this.Branch_CBox.ValueMember = "Branches.Branch_code";
+            this.Branch_CBox.SelectedIndexChanged += new System.EventHandler(this.Branch_CBox_SelectedIndexChanged);
+            // 
+            // branchesBindingSource
+            // 
+            this.branchesBindingSource.DataMember = "Branches";
+            this.branchesBindingSource.DataSource = this.cTSDataSet;
+            // 
+            // cTSDataSet
+            // 
+            this.cTSDataSet.DataSetName = "CTSDataSet";
+            this.cTSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // branchesTableAdapter
+            // 
+            this.branchesTableAdapter.ClearBeforeFill = true;
+            // 
             // POUnauth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 569);
             this.ControlBox = false;
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.Branch_CBox);
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Sync_BTN);
             this.Controls.Add(this.Record_DGView);
@@ -85,7 +133,10 @@
             this.Text = "POUnauth";
             this.Load += new System.EventHandler(this.POAuth_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,5 +145,10 @@
         private System.Windows.Forms.Button Exit_BTN;
         private System.Windows.Forms.Button Sync_BTN;
         private System.Windows.Forms.DataGridView Record_DGView;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox Branch_CBox;
+        private CTSDataSet cTSDataSet;
+        private System.Windows.Forms.BindingSource branchesBindingSource;
+        private CTSDataSetTableAdapters.BranchesTableAdapter branchesTableAdapter;
     }
 }

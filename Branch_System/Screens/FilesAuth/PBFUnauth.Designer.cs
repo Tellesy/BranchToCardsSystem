@@ -36,10 +36,21 @@
             this.branchsystem1DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.Exit_BTN = new System.Windows.Forms.Button();
             this.Sync_BTN = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Branch_CBox = new System.Windows.Forms.ComboBox();
+            this.cTSDataSet = new CTS.CTSDataSet();
+            this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.branchesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.branchesTableAdapter = new CTS.CTSDataSetTableAdapters.BranchesTableAdapter();
+            this.branchesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // branch_system1DataSet
@@ -94,12 +105,60 @@
             this.Sync_BTN.UseVisualStyleBackColor = true;
             this.Sync_BTN.Click += new System.EventHandler(this.Sync_BTN_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(496, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(30, 13);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "الفرع";
+            // 
+            // Branch_CBox
+            // 
+            this.Branch_CBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.branchesBindingSource, "Branch_code", true));
+            this.Branch_CBox.DataSource = this.branchesBindingSource1;
+            this.Branch_CBox.DisplayMember = "Branch";
+            this.Branch_CBox.FormattingEnabled = true;
+            this.Branch_CBox.Location = new System.Drawing.Point(317, 28);
+            this.Branch_CBox.Name = "Branch_CBox";
+            this.Branch_CBox.Size = new System.Drawing.Size(209, 21);
+            this.Branch_CBox.TabIndex = 25;
+            this.Branch_CBox.ValueMember = "Branch_code";
+            this.Branch_CBox.SelectedIndexChanged += new System.EventHandler(this.Branch_CBox_SelectedIndexChanged);
+            // 
+            // cTSDataSet
+            // 
+            this.cTSDataSet.DataSetName = "CTSDataSet";
+            this.cTSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cTSDataSetBindingSource
+            // 
+            this.cTSDataSetBindingSource.DataSource = this.cTSDataSet;
+            this.cTSDataSetBindingSource.Position = 0;
+            // 
+            // branchesBindingSource
+            // 
+            this.branchesBindingSource.DataMember = "Branches";
+            this.branchesBindingSource.DataSource = this.cTSDataSetBindingSource;
+            // 
+            // branchesTableAdapter
+            // 
+            this.branchesTableAdapter.ClearBeforeFill = true;
+            // 
+            // branchesBindingSource1
+            // 
+            this.branchesBindingSource1.DataMember = "Branches";
+            this.branchesBindingSource1.DataSource = this.cTSDataSetBindingSource;
+            // 
             // PBFUnauth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 657);
             this.ControlBox = false;
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.Branch_CBox);
             this.Controls.Add(this.Record_DGView);
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Sync_BTN);
@@ -110,7 +169,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -122,5 +186,12 @@
         private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource1;
         private System.Windows.Forms.Button Exit_BTN;
         private System.Windows.Forms.Button Sync_BTN;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox Branch_CBox;
+        private System.Windows.Forms.BindingSource cTSDataSetBindingSource;
+        private CTSDataSet cTSDataSet;
+        private System.Windows.Forms.BindingSource branchesBindingSource;
+        private CTSDataSetTableAdapters.BranchesTableAdapter branchesTableAdapter;
+        private System.Windows.Forms.BindingSource branchesBindingSource1;
     }
 }

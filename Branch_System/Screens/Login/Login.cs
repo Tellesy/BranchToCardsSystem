@@ -48,18 +48,18 @@ namespace CTS.Screens
             //We can skip this part 
             //from here 
 
-            //status = CTSystem.GetActiveStatus();
-            //if (!status.status)
-            //{
-            //    MessageBox.Show(status.message);
-            //    this.Close();
-            //}
-            //status = CTSystem.CheckVersion(thisAssemName.Version.ToString());
-            //if (!status.status)
-            //{
-            //    MessageBox.Show(status.message);
-            //    this.Close();
-            //}
+            status = CTSystem.GetActiveStatus();
+            if (!status.status)
+            {
+                MessageBox.Show(status.message);
+                this.Close();
+            }
+            status = CTSystem.CheckVersion(thisAssemName.Version.ToString());
+            if (!status.status)
+            {
+                MessageBox.Show(status.message);
+                this.Close();
+            }
             //To here 
             Version_LBL.Text = Version_LBL.Text + " V" + thisAssemName.Version;
         }

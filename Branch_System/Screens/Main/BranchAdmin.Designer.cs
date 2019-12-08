@@ -48,6 +48,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Card_BTN = new System.Windows.Forms.Button();
             this.ShareFolder_BTN = new System.Windows.Forms.Button();
+            this.AccountDetails_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label7.Location = new System.Drawing.Point(300, 91);
+            this.label7.Location = new System.Drawing.Point(675, 84);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 20);
             this.label7.TabIndex = 22;
@@ -65,7 +66,7 @@
             // 
             this.Branch_LBL.AutoSize = true;
             this.Branch_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Branch_LBL.Location = new System.Drawing.Point(14, 88);
+            this.Branch_LBL.Location = new System.Drawing.Point(389, 81);
             this.Branch_LBL.Name = "Branch_LBL";
             this.Branch_LBL.Size = new System.Drawing.Size(20, 20);
             this.Branch_LBL.TabIndex = 21;
@@ -75,7 +76,7 @@
             // 
             this.Name_LBL.AutoSize = true;
             this.Name_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Name_LBL.Location = new System.Drawing.Point(14, 54);
+            this.Name_LBL.Location = new System.Drawing.Point(389, 47);
             this.Name_LBL.Name = "Name_LBL";
             this.Name_LBL.Size = new System.Drawing.Size(20, 20);
             this.Name_LBL.TabIndex = 19;
@@ -85,7 +86,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label1.Location = new System.Drawing.Point(312, 54);
+            this.label1.Location = new System.Drawing.Point(687, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 24;
@@ -96,7 +97,7 @@
             this.Recharge_BTN.Font = new System.Drawing.Font("Modern No. 20", 15.25F);
             this.Recharge_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Recharge_BTN.Image")));
             this.Recharge_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Recharge_BTN.Location = new System.Drawing.Point(12, 349);
+            this.Recharge_BTN.Location = new System.Drawing.Point(11, 79);
             this.Recharge_BTN.Name = "Recharge_BTN";
             this.Recharge_BTN.Size = new System.Drawing.Size(350, 61);
             this.Recharge_BTN.TabIndex = 25;
@@ -110,7 +111,7 @@
             this.Reports_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(12, 416);
+            this.Reports_BTN.Location = new System.Drawing.Point(11, 146);
             this.Reports_BTN.Name = "Reports_BTN";
             this.Reports_BTN.Size = new System.Drawing.Size(350, 61);
             this.Reports_BTN.TabIndex = 26;
@@ -124,7 +125,7 @@
             this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
             this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Logout_BTN.Location = new System.Drawing.Point(12, 611);
+            this.Logout_BTN.Location = new System.Drawing.Point(11, 420);
             this.Logout_BTN.Name = "Logout_BTN";
             this.Logout_BTN.Size = new System.Drawing.Size(350, 70);
             this.Logout_BTN.TabIndex = 27;
@@ -137,7 +138,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label4.Location = new System.Drawing.Point(108, 702);
+            this.label4.Location = new System.Drawing.Point(305, 521);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(149, 17);
             this.label4.TabIndex = 31;
@@ -151,7 +152,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Status_LBL);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(12, 126);
+            this.panel1.Location = new System.Drawing.Point(387, 119);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(350, 127);
             this.panel1.TabIndex = 32;
@@ -221,7 +222,7 @@
             this.Password_LBL.AutoSize = true;
             this.Password_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Underline);
             this.Password_LBL.ForeColor = System.Drawing.Color.Blue;
-            this.Password_LBL.Location = new System.Drawing.Point(258, 9);
+            this.Password_LBL.Location = new System.Drawing.Point(633, 9);
             this.Password_LBL.Name = "Password_LBL";
             this.Password_LBL.Size = new System.Drawing.Size(104, 20);
             this.Password_LBL.TabIndex = 33;
@@ -233,7 +234,7 @@
             this.button1.Font = new System.Drawing.Font("Modern No. 20", 15.25F);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(13, 483);
+            this.button1.Location = new System.Drawing.Point(12, 213);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(350, 61);
             this.button1.TabIndex = 34;
@@ -247,7 +248,7 @@
             this.Card_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Card_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Card_BTN.Image")));
             this.Card_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Card_BTN.Location = new System.Drawing.Point(13, 285);
+            this.Card_BTN.Location = new System.Drawing.Point(12, 12);
             this.Card_BTN.Name = "Card_BTN";
             this.Card_BTN.Size = new System.Drawing.Size(350, 61);
             this.Card_BTN.TabIndex = 35;
@@ -259,7 +260,7 @@
             // ShareFolder_BTN
             // 
             this.ShareFolder_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.ShareFolder_BTN.Location = new System.Drawing.Point(13, 550);
+            this.ShareFolder_BTN.Location = new System.Drawing.Point(12, 359);
             this.ShareFolder_BTN.Name = "ShareFolder_BTN";
             this.ShareFolder_BTN.Size = new System.Drawing.Size(350, 55);
             this.ShareFolder_BTN.TabIndex = 37;
@@ -267,13 +268,28 @@
             this.ShareFolder_BTN.UseVisualStyleBackColor = true;
             this.ShareFolder_BTN.Click += new System.EventHandler(this.ShareFolder_BTN_Click);
             // 
+            // AccountDetails_BTN
+            // 
+            this.AccountDetails_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.AccountDetails_BTN.Image = ((System.Drawing.Image)(resources.GetObject("AccountDetails_BTN.Image")));
+            this.AccountDetails_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AccountDetails_BTN.Location = new System.Drawing.Point(11, 280);
+            this.AccountDetails_BTN.Name = "AccountDetails_BTN";
+            this.AccountDetails_BTN.Size = new System.Drawing.Size(350, 61);
+            this.AccountDetails_BTN.TabIndex = 38;
+            this.AccountDetails_BTN.Text = "بحث عن بيانات بطاقة";
+            this.AccountDetails_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AccountDetails_BTN.UseVisualStyleBackColor = true;
+            this.AccountDetails_BTN.Click += new System.EventHandler(this.AccountDetails_BTN_Click);
+            // 
             // BranchAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(375, 739);
+            this.ClientSize = new System.Drawing.Size(749, 554);
             this.ControlBox = false;
+            this.Controls.Add(this.AccountDetails_BTN);
             this.Controls.Add(this.ShareFolder_BTN);
             this.Controls.Add(this.Card_BTN);
             this.Controls.Add(this.button1);
@@ -318,5 +334,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Card_BTN;
         private System.Windows.Forms.Button ShareFolder_BTN;
+        private System.Windows.Forms.Button AccountDetails_BTN;
     }
 }

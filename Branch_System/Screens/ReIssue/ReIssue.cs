@@ -17,6 +17,7 @@ namespace CTS.Screens
         private string CardNumber;
         private string Product;
         private string Customer_ID;
+        private List<Product> Products;
         private bool UpdateInfoFlag = false;
 
         public ReIssue()
@@ -42,6 +43,21 @@ namespace CTS.Screens
             PhoneNo_TXT.Enabled = false;
             Passport.Enabled = false;
 
+            if (CardNumber != null)
+                if (CardNumber.Length != 0)
+                {
+                    Database.Issue.unlockSequences(CardNumber);
+                }
+            //Product = Product_CBox.SelectedValue.ToString();
+
+            foreach (Product p in Products)
+            {
+                if (p.ID == Product_CBox.SelectedIndex)
+                {
+                    Product = p.Code;
+                    break;
+                }
+            }
             switch (Product_CBox.SelectedIndex)
             {
                 case 0:
@@ -52,8 +68,8 @@ namespace CTS.Screens
                     }
                     break;
                 case 1:
-                    Product = "30";  
-                    if(!GetNumber())
+                    Product = "30";
+                    if (!GetNumber())
                     {
                         return;
                     }
@@ -76,7 +92,7 @@ namespace CTS.Screens
                     break;
             }
 
-           
+
         }
 
         private void EmptyBoxes()
@@ -199,7 +215,8 @@ namespace CTS.Screens
                 MessageBox.Show(status.message);
                 return;
             }
-            status = Database.Issue.createCard(CardNumber, CardAccount_TXT.Text);
+
+            status = Database.Issue.createCard(CardNumber, CardAccount_TXT.Text, Product);
             if (!status.status)
             {
                 MessageBox.Show(status.message);
@@ -208,7 +225,7 @@ namespace CTS.Screens
 
             AddToFile("ReI");
 
-            Database.Status CAFStatus = Database.CAF.addCAF(CardNumber, CardAccount_TXT.Text, SheetManager.Account_EXP_Date, Product);
+            Database.Status CAFStatus = Database.CAF.addCAF(CardNumber, CardAccount_TXT.Text, SheetManager.Account_EXP_Date, Product, true);
             if (!CAFStatus.status)
             {
                 MessageBox.Show("Error in Adding to CAF table\n" + CAFStatus.message);
@@ -419,6 +436,24 @@ namespace CTS.Screens
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
+            //Load Products
+            Status<List<Product>> status = CTS.Database.CAF.getProducts();
+
+            if (status.status)
+            {
+                Products = status.Object;
+                foreach (Product p in Products)
+                {
+                    Product_CBox.Items.Insert(p.ID, p.Name);
+                }
+            }
+            else
+            {
+                MessageBox.Show(status.message);
+                this.Close();
+            }
+
         }
 
         private void CardAccount_TXT_KeyPress(object sender, KeyPressEventArgs e)

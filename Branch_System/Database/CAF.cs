@@ -10,7 +10,7 @@ namespace CTS.Database
 {
    public static class CAF
     {
-        public static Status addCAF(string Card_Number, string Card_Account, string EXP_Date, string Product)
+        public static Status addCAF(string Card_Number, string Card_Account, string EXP_Date, string Product, bool HONOR)
         {
             Status status = new Status();
             status.status = false;
@@ -24,8 +24,8 @@ namespace CTS.Database
                 try
                 {
                     string query = @"INSERT INTO [CAF]   
-                    ([Card_Number],[Card_Account],[EXP_Date],[Product],[Inputter])
-                     VALUES (@v1, @v2, @v3, @v4, @v5)";
+                    ([Card_Number],[Card_Account],[EXP_Date],[Product],[Inputter],[HONOR])
+                     VALUES (@v1, @v2, @v3, @v4, @v5,@v6)";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -34,6 +34,7 @@ namespace CTS.Database
                     cmd.Parameters.AddWithValue("@v3", EXP_Date);
                     cmd.Parameters.AddWithValue("@v4", Product);
                     cmd.Parameters.AddWithValue("@v5", Database.Login.id);
+                    cmd.Parameters.AddWithValue("@v6", HONOR);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     status.status = true;
@@ -82,6 +83,8 @@ namespace CTS.Database
                         {
                             statusObject.status = false;
                             statusObject.message = "لا يوجد سجلات تحتاج الى تخويل";
+                            conn.Close();
+
                             return statusObject;
 
                         }
@@ -98,6 +101,8 @@ namespace CTS.Database
                             request.Time = reader[6].ToString();
                             statusObject.Object.Add(request);
                         }
+                        conn.Close();
+
                         statusObject.status = true;
                         return statusObject;
                     }
@@ -106,6 +111,8 @@ namespace CTS.Database
                 }
                 catch (Exception e)
                 {
+                    conn.Close();
+
                     statusObject.status = false;
                     statusObject.message = "Get Unauth CAF records \n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return statusObject;
@@ -134,7 +141,7 @@ namespace CTS.Database
             {
                 try
                 {
-                    string query = @"SELECT [ID],[Card_Number],[Card_Account],[EXP_Date],[Product],[Inputter], convert(varchar,[Time], 103) FROM [CAF] WHERE Authorized = 1 AND Processed = 0";
+                    string query = @"SELECT [ID],[Card_Number],[Card_Account],[EXP_Date],[Product],[Inputter], convert(varchar,[Time], 103) , [HONOR] FROM [CAF] WHERE Authorized = 1 AND Processed = 0";
 
 
 
@@ -147,6 +154,8 @@ namespace CTS.Database
                         {
                             statusObject.status = false;
                             statusObject.message = "لا يوجد سجلات تحتاج الى تخويل";
+                            conn.Close();
+
                             return statusObject;
 
                         }
@@ -161,8 +170,10 @@ namespace CTS.Database
                             request.Product = reader[4].ToString();
                             request.Inputter = Convert.ToInt32(reader[5].ToString());
                             request.Time = reader[6].ToString();
+                            request.HONOR = Convert.ToBoolean(reader[7].ToString());
                             statusObject.Object.Add(request);
                         }
+                        conn.Close();
                         statusObject.status = true;
                         return statusObject;
                     }
@@ -310,7 +321,7 @@ namespace CTS.Database
             statusObject.status = false;
 
             SqlConnection conn = DBConnection.Connection();
-
+            conn.Close();
             conn.Open();
             if (conn.State == System.Data.ConnectionState.Open)
             {
@@ -328,6 +339,8 @@ namespace CTS.Database
                         {
                             statusObject.status = false;
                             statusObject.message = "هذا المنتج غير موجود في قاعدة البيانات";
+                            conn.Close();
+
                             return statusObject;
 
                         }
@@ -343,6 +356,8 @@ namespace CTS.Database
                             request.POS_Transactions_Limit = Convert.ToInt32(reader[5].ToString());
                             statusObject.Object = request;
                         }
+                        conn.Close();
+
                         statusObject.status = true;
                         return statusObject;
                     }
@@ -351,8 +366,82 @@ namespace CTS.Database
                 }
                 catch (Exception e)
                 {
+                    conn.Close();
+
                     statusObject.status = false;
                     statusObject.message = "Get Limit for CAF record \n" + Errors.ErrorsString.Error002 + "\n" +e;
+                    return statusObject;
+                }
+            }
+            else
+            {
+                statusObject.status = false;
+                statusObject.message = Errors.ErrorsString.Error001;
+
+                return statusObject;
+            }
+        }
+
+        public static Status<List<Product>> getProducts()
+        {
+            Status<List<Product>> statusObject = new Status<List<Product>>();
+            statusObject.status = false;
+            statusObject.Object = new List<Product>();
+
+            int index = 0;
+
+            SqlConnection conn = DBConnection.Connection();
+            conn.Close();
+            conn.Open();
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string query = @"SELECT [ID],[Code],[Name],[Cash_Limit],[Cash_Transactions_Limit] ,[POS_Limit],[POS_Transactions_Limit] FROM [Products]";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                   
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (!reader.HasRows)
+                        {
+                            statusObject.status = false;
+                            statusObject.message = "هذا المنتج غير موجود في قاعدة البيانات";
+                            conn.Close();
+
+                            return statusObject;
+
+                        }
+
+                        while (reader.Read())
+                        {
+                            Product request = new Product();
+                            request.ID = index;
+                            request.Code = reader[1].ToString();
+                            request.Name = reader[2].ToString();
+                            request.Cash_Limit = Convert.ToInt32(reader[3].ToString());
+                            request.Cash_Transactions_Limit = Convert.ToInt32(reader[4].ToString());
+                            request.POS_Limit = Convert.ToInt32(reader[5].ToString());
+                            request.POS_Transactions_Limit = Convert.ToInt32(reader[6].ToString());
+                            statusObject.Object.Add(request);
+                            index++;
+                        }
+                        conn.Close();
+
+                        statusObject.status = true;
+                        return statusObject;
+                    }
+
+
+                }
+                catch (Exception e)
+                {
+                    conn.Close();
+
+                    statusObject.status = false;
+                    statusObject.message = "Get Limit for CAF record \n" + Errors.ErrorsString.Error002 + "\n" + e;
                     return statusObject;
                 }
             }

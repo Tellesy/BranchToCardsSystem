@@ -15,6 +15,8 @@ namespace CTS.Screens
     public partial class PBFUnauth : Form
     {
         public List<Database.Objects.PBFObject> records;
+        private string Selected_Branch;
+
         public PBFUnauth()
         {
             InitializeComponent();
@@ -22,6 +24,12 @@ namespace CTS.Screens
 
         private void PBFUnauth_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cTSDataSet.Branches' table. You can move, or remove it, as needed.
+            this.branchesTableAdapter.Fill(this.cTSDataSet.Branches);
+
+            Branch_CBox.SelectedValue = "0";
+            Selected_Branch = "0";
+
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -39,8 +47,33 @@ namespace CTS.Screens
 
             if (statusObject.status)
             {
-                records = statusObject.Object;
-                Record_DGView.DataSource = statusObject.Object;
+                if (Selected_Branch != "0")
+                {
+                    List<Database.Objects.PBFObject> filterdPBF = new List<PBFObject>();
+
+
+                    foreach (Database.Objects.PBFObject pObject in statusObject.Object)
+                    {
+                        var x = Convert.ToInt32(pObject.Card_Account.Substring(8, 2));
+                        if(x == Convert.ToInt32(Selected_Branch))
+                        {
+                            Console.WriteLine("FU");
+                        }
+                        if (Convert.ToInt32(pObject.Card_Account.Substring(8,2)) == Convert.ToInt32(Selected_Branch))
+                        {
+                            filterdPBF.Add(pObject);
+                        }
+                    }
+                    records = filterdPBF;
+                    Record_DGView.DataSource = filterdPBF;
+                    //
+
+                }
+                else
+                {
+                    records = statusObject.Object;
+                    Record_DGView.DataSource = statusObject.Object;
+                }
                 //Record_DGView.Columns[0].HeaderText = "id";
 
                 if (statusObject.Object == null)
@@ -84,6 +117,19 @@ namespace CTS.Screens
                     authorize.Closed += (s, args) => { this.GetUnAuthRecords(); this.Show(); };
                     authorize.Show();
                 }
+            }
+        }
+
+        private void Branch_CBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Selected_Branch = Branch_CBox.SelectedValue.ToString();
+                GetUnAuthRecords();
+            }
+            catch
+            {
+
             }
         }
     }

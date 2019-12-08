@@ -15,6 +15,7 @@ using CTS.FilesCreator;
 using CTS.Screens.User;
 using System.Net;
 using System.IO;
+using CTS.Screens.Account_Details;
 
 namespace CTS.Screens
 {
@@ -25,6 +26,7 @@ namespace CTS.Screens
         private PBFUnauth PBFApp;
         private CAFUnauth CAFApp;
         private ChangePassword changePassword;
+        private Search search;
 
         public Admin()
         {
@@ -188,12 +190,18 @@ namespace CTS.Screens
                         //start adding to FileCreator
                         FileExporter.Card_Account_Number_s = record.Card_Account;
                         FileExporter.Card_Number_s = record.Card_Number;
-                        FileExporter.AggregateDailyLimit_s = "5000";
+                        FileExporter.AggregateDailyLimit_s = (p.Cash_Limit + p.POS_Limit).ToString(); //"5000";
                         FileExporter.CashDailyLimit_s = p.Cash_Limit.ToString();
                         FileExporter.POSDailyLimit_s = p.POS_Limit.ToString();
                         FileExporter.CashTransCount_s = p.Cash_Transactions_Limit.ToString();
                         FileExporter.POSTransCount_s = p.POS_Transactions_Limit.ToString();
                         FileExporter.CAFExpDate_s = record.EXP_Date;
+                        if (!record.HONOR)
+                        {
+                            FileExporter.HONOR = "9";
+                        }
+                        else
+                            FileExporter.HONOR = "1";
                         FileExporter.AddToCAFile();
 
                         Processed_IDs.Add(record.ID);
@@ -361,6 +369,20 @@ namespace CTS.Screens
         private void ShareFolder_BTN_Click(object sender, EventArgs e)
         {
             CTS.ConnectToSharedFolder.ShowShareFolder();
+        }
+
+        private void AccountDetails_BTN_Click(object sender, EventArgs e)
+        {
+            if (search == null)
+            {
+                search = new Search();
+                search.Closed += (s, args) => {
+                    search = null; AccountDetails_BTN.Enabled = true;
+                };
+                search.Show();
+                AccountDetails_BTN.Enabled = false;
+            }
+
         }
     }
 }

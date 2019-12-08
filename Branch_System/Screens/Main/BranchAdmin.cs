@@ -14,6 +14,7 @@ using CTS.Screens.User;
 
 using System.Windows.Forms;
 using CTS.Screens.FilesAuth;
+using CTS.Screens.Account_Details;
 
 namespace CTS.Screens
 {
@@ -22,6 +23,8 @@ namespace CTS.Screens
         public AuthRecharge.AuthRecharge authRecharge;
         public ChangePassword changePassword;
         private POBranchUnauth POApp;
+        private Search search;
+
         public BranchAdmin()
         {
             InitializeComponent();
@@ -120,6 +123,20 @@ namespace CTS.Screens
         private void ShareFolder_BTN_Click(object sender, EventArgs e)
         {
             CTS.ConnectToSharedFolder.ShowShareFolder();
+        }
+
+        private void AccountDetails_BTN_Click(object sender, EventArgs e)
+        {
+            if (search == null)
+            {
+                search = new Search();
+                search.Closed += (s, args) => {
+                    search = null; AccountDetails_BTN.Enabled = true;
+                };
+                search.Show();
+                AccountDetails_BTN.Enabled = false;
+            }
+            
         }
     }
 }

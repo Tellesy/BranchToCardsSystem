@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CTS.Database;
+using CTS.Screens.Account_Details;
 using CTS.Screens.User;
 
 namespace CTS.Screens
@@ -19,6 +20,7 @@ namespace CTS.Screens
         private ReIssue reIssueApp;
         private PIN pin;
         public ChangePassword changePassword;
+        private Search search;
 
         public Inputter()
         {
@@ -171,6 +173,19 @@ namespace CTS.Screens
         private void ShareFolder_BTN_Click(object sender, EventArgs e)
         {
             CTS.ConnectToSharedFolder.ShowShareFolder();
+        }
+
+        private void AccountDetails_BTN_Click(object sender, EventArgs e)
+        {
+            if (search == null)
+            {
+                search = new Search();
+                search.Closed += (s, args) => {
+                    search = null; AccountDetails_BTN.Enabled = true;
+                };
+                search.Show();
+                AccountDetails_BTN.Enabled = false;
+            }
         }
     }
 }
