@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon>icon2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>CTS.Program</StartupObject>
@@ -493,6 +493,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icon.ico" />
+    <Content Include="icon2.ico" />
     <Content Include="icon2_ykR_icon.ico" />
     <None Include="Resources\CTSIcon.ico" />
     <None Include="Resources\SystemIcon.ico" />
