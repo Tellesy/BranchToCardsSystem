@@ -55,43 +55,13 @@ namespace CTS.Screens
                 if (p.ID == Product_CBox.SelectedIndex)
                 {
                     Product = p.Code;
+                    if (!GetNumber())
+                    {
+                        return;
+                    }
                     break;
                 }
             }
-            switch (Product_CBox.SelectedIndex)
-            {
-                case 0:
-                    Product = "10";
-                    if (!GetNumber())
-                    {
-                        return;
-                    }
-                    break;
-                case 1:
-                    Product = "30";
-                    if (!GetNumber())
-                    {
-                        return;
-                    }
-                    break;
-                default:
-                    if (CardNumber != null)
-                        if (CardNumber.Length != 0)
-                        {
-                            Database.Issue.unlockSequences(CardNumber);
-                        }
-                    Submit_BTN.Enabled = false;
-                    CardAccount_TXT.Enabled = false;
-                    CustomerName_TXT.Enabled = false;
-                    NID_TXT.Enabled = false;
-                    AccountUSD_TXT.Enabled = false;
-                    BirthDate_TXT.Enabled = false;
-                    PhoneNo_TXT.Enabled = false;
-                    Passport.Enabled = false;
-                    EmptyBoxes();
-                    break;
-            }
-
 
         }
 
