@@ -18,9 +18,10 @@ namespace CTS.Screens
         private Issue issueApp;
         private Recharge recargeApp;
         private ReIssue reIssueApp;
-        private PIN pin;
+        private PIN_Screen pin;
         public ChangePassword changePassword;
         private Search search;
+        private PTS.Issue.PTS_Issue PTS_issue;
 
         public Inputter()
         {
@@ -133,7 +134,7 @@ namespace CTS.Screens
         {
             if (pin == null)
             {
-                pin = new PIN();
+                pin = new PIN_Screen();
                 pin.Closed += (s, args) => {  pin = null; PIN_BTN.Enabled = true; };
                 pin.Show();
                 PIN_BTN.Enabled = false;
@@ -185,6 +186,21 @@ namespace CTS.Screens
                 };
                 search.Show();
                 AccountDetails_BTN.Enabled = false;
+            }
+        }
+
+        private void Issue_PTS_BTN_Click(object sender, EventArgs e)
+        {
+            if(PTS_issue==null)
+            {
+                PTS_issue = new PTS.Issue.PTS_Issue();
+                PTS_issue.Closed += (s, args) => {
+                    PTS_issue = null; Issue_PTS_BTN.Enabled = true;
+                };
+
+                PTS_issue.Show();
+                Issue_PTS_BTN.Enabled = false;
+                //PTS_issue.FormClosed
             }
         }
     }

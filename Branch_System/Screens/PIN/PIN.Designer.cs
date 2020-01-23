@@ -1,6 +1,6 @@
 ﻿namespace CTS.Screens
 {
-    partial class PIN
+    partial class PIN_Screen
     {
         /// <summary>
         /// Required designer variable.

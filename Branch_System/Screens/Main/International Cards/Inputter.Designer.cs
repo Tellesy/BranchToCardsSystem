@@ -52,6 +52,7 @@
             this.CardENQ_BTN = new System.Windows.Forms.Button();
             this.ShareFolder_BTN = new System.Windows.Forms.Button();
             this.AccountDetails_BTN = new System.Windows.Forms.Button();
+            this.Issue_PTS_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -329,13 +330,28 @@
             this.AccountDetails_BTN.UseVisualStyleBackColor = true;
             this.AccountDetails_BTN.Click += new System.EventHandler(this.AccountDetails_BTN_Click);
             // 
+            // Issue_PTS_BTN
+            // 
+            this.Issue_PTS_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
+            this.Issue_PTS_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Issue_PTS_BTN.Image")));
+            this.Issue_PTS_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Issue_PTS_BTN.Location = new System.Drawing.Point(560, 221);
+            this.Issue_PTS_BTN.Name = "Issue_PTS_BTN";
+            this.Issue_PTS_BTN.Size = new System.Drawing.Size(198, 63);
+            this.Issue_PTS_BTN.TabIndex = 40;
+            this.Issue_PTS_BTN.Text = " PTS إصدار ";
+            this.Issue_PTS_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Issue_PTS_BTN.UseVisualStyleBackColor = true;
+            this.Issue_PTS_BTN.Click += new System.EventHandler(this.Issue_PTS_BTN_Click);
+            // 
             // Inputter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(416, 603);
+            this.ClientSize = new System.Drawing.Size(786, 603);
             this.ControlBox = false;
+            this.Controls.Add(this.Issue_PTS_BTN);
             this.Controls.Add(this.AccountDetails_BTN);
             this.Controls.Add(this.ShareFolder_BTN);
             this.Controls.Add(this.CardENQ_BTN);
@@ -389,5 +405,6 @@
         private System.Windows.Forms.Button CardENQ_BTN;
         private System.Windows.Forms.Button ShareFolder_BTN;
         private System.Windows.Forms.Button AccountDetails_BTN;
+        private System.Windows.Forms.Button Issue_PTS_BTN;
     }
 }

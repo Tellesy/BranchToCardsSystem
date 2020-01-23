@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace CTS.Screens
 {
-    public partial class PIN : Form
+    public partial class PIN_Screen : Form
     {
 
         private string Customer_ID;
         private string Product;
-        public PIN()
+        public PIN_Screen()
         {
             InitializeComponent();
         }
