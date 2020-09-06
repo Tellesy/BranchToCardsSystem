@@ -160,6 +160,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CTSMain.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CTS_PTS_Programs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTS_PTS_Programs.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Database\Branch.cs" />
     <Compile Include="Database\CAF.cs" />
     <Compile Include="Database\Countries.cs" />
@@ -496,6 +501,17 @@
     </None>
     <None Include="CTSMain.xss">
       <DependentUpon>CTSMain.xsd</DependentUpon>
+    </None>
+    <None Include="CTS_PTS_Programs.xsc">
+      <DependentUpon>CTS_PTS_Programs.xsd</DependentUpon>
+    </None>
+    <None Include="CTS_PTS_Programs.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CTS_PTS_Programs.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CTS_PTS_Programs.xss">
+      <DependentUpon>CTS_PTS_Programs.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CTS.Database.DataObjects.Recharge.datasource" />
