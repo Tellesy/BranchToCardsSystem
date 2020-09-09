@@ -14,6 +14,9 @@ namespace CTS.Screens.PTS.Issue
 {
     public partial class PTS_Issue : Form
     {
+
+        private bool customerExistInDB;
+
         public PTS_Issue()
         {
             InitializeComponent();

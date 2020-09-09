@@ -173,6 +173,7 @@
     <Compile Include="Database\Objects\Branch.cs" />
     <Compile Include="Database\Objects\CAFObject.cs" />
     <Compile Include="Database\Objects\CardAccount.cs" />
+    <Compile Include="Database\Objects\PTSCustomer.cs" />
     <Compile Include="Database\Objects\Customer.cs" />
     <Compile Include="Database\Objects\PBFObject.cs" />
     <Compile Include="Database\Objects\PObject.cs" />
