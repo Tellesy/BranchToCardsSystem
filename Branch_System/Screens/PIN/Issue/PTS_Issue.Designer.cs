@@ -52,6 +52,8 @@
             this.MainAccount_TXT = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.Program_CBox = new System.Windows.Forms.ComboBox();
+            this.pTSProgramBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cTS_PTS_Programs = new CTS.CTS_PTS_Programs();
             this.label1 = new System.Windows.Forms.Label();
             this.CustomerID_TXT = new System.Windows.Forms.TextBox();
             this.Birthdate = new System.Windows.Forms.DateTimePicker();
@@ -76,7 +78,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Gender_CBOX = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -87,8 +89,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.cTS_PTS_Programs = new CTS.CTS_PTS_Programs();
-            this.pTSProgramBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pTS_ProgramTableAdapter = new CTS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).BeginInit();
@@ -97,8 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTSProgramBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).BeginInit();
             this.SuspendLayout();
             // 
             // productsTableAdapter
@@ -273,6 +273,16 @@
             this.Program_CBox.Size = new System.Drawing.Size(209, 21);
             this.Program_CBox.TabIndex = 1;
             this.Program_CBox.ValueMember = "program_code";
+            // 
+            // pTSProgramBindingSource
+            // 
+            this.pTSProgramBindingSource.DataMember = "PTS_Program";
+            this.pTSProgramBindingSource.DataSource = this.cTS_PTS_Programs;
+            // 
+            // cTS_PTS_Programs
+            // 
+            this.cTS_PTS_Programs.DataSetName = "CTS_PTS_Programs";
+            this.cTS_PTS_Programs.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -490,15 +500,18 @@
             this.label22.TabIndex = 88;
             this.label22.Text = "Gender";
             // 
-            // comboBox1
+            // Gender_CBOX
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Code", true));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 13;
-            this.comboBox1.Location = new System.Drawing.Point(20, 358);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(75, 21);
-            this.comboBox1.TabIndex = 9;
+            this.Gender_CBOX.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Code", true));
+            this.Gender_CBOX.FormattingEnabled = true;
+            this.Gender_CBOX.ItemHeight = 13;
+            this.Gender_CBOX.Items.AddRange(new object[] {
+            "M",
+            "F"});
+            this.Gender_CBOX.Location = new System.Drawing.Point(20, 358);
+            this.Gender_CBOX.Name = "Gender_CBOX";
+            this.Gender_CBOX.Size = new System.Drawing.Size(75, 21);
+            this.Gender_CBOX.TabIndex = 9;
             // 
             // label23
             // 
@@ -594,16 +607,6 @@
             this.label30.Text = "تاريخ انتهاء الصلاحية";
             this.label30.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // cTS_PTS_Programs
-            // 
-            this.cTS_PTS_Programs.DataSetName = "CTS_PTS_Programs";
-            this.cTS_PTS_Programs.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pTSProgramBindingSource
-            // 
-            this.pTSProgramBindingSource.DataMember = "PTS_Program";
-            this.pTSProgramBindingSource.DataSource = this.cTS_PTS_Programs;
-            // 
             // pTS_ProgramTableAdapter
             // 
             this.pTS_ProgramTableAdapter.ClearBeforeFill = true;
@@ -623,7 +626,7 @@
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Gender_CBOX);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
@@ -673,8 +676,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTSProgramBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -729,7 +732,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Gender_CBOX;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label27;
