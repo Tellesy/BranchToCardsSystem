@@ -173,6 +173,7 @@
     <Compile Include="Database\Objects\Branch.cs" />
     <Compile Include="Database\Objects\CAFObject.cs" />
     <Compile Include="Database\Objects\CardAccount.cs" />
+    <Compile Include="Database\Objects\PTSAccount.cs" />
     <Compile Include="Database\Objects\PTSCustomer.cs" />
     <Compile Include="Database\Objects\Customer.cs" />
     <Compile Include="Database\Objects\PBFObject.cs" />
@@ -183,7 +184,8 @@
     <Compile Include="Database\PBF.cs" />
     <Compile Include="Database\PO.cs" />
     <Compile Include="Database\CTSystem.cs" />
-    <Compile Include="Database\PTSCustomer.cs" />
+    <Compile Include="Database\PTSAccountController.cs" />
+    <Compile Include="Database\PTSCustomerController.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\FilesCreator.cs" />
     <Compile Include="Resources\Countries.Designer.cs">

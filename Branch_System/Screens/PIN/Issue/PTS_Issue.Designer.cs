@@ -57,7 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CustomerID_TXT = new System.Windows.Forms.TextBox();
             this.Birthdate = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.PassportExpDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.CountryPhoneCode_CBox = new System.Windows.Forms.ComboBox();
             this.Nationality_CBOX = new System.Windows.Forms.ComboBox();
@@ -82,10 +82,10 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Address_TXT = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.Email_TXT = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -310,13 +310,13 @@
             this.Birthdate.Size = new System.Drawing.Size(114, 20);
             this.Birthdate.TabIndex = 10;
             // 
-            // dateTimePicker1
+            // PassportExpDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(580, 135);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(170, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.PassportExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.PassportExpDate.Location = new System.Drawing.Point(580, 135);
+            this.PassportExpDate.Name = "PassportExpDate";
+            this.PassportExpDate.Size = new System.Drawing.Size(170, 20);
+            this.PassportExpDate.TabIndex = 14;
             // 
             // label2
             // 
@@ -340,6 +340,8 @@
             // 
             this.Nationality_CBOX.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Code", true));
             this.Nationality_CBOX.FormattingEnabled = true;
+            this.Nationality_CBOX.Items.AddRange(new object[] {
+            "434"});
             this.Nationality_CBOX.Location = new System.Drawing.Point(408, 86);
             this.Nationality_CBOX.Name = "Nationality_CBOX";
             this.Nationality_CBOX.Size = new System.Drawing.Size(166, 21);
@@ -543,13 +545,13 @@
             this.label27.TabIndex = 93;
             this.label27.Text = "Address";
             // 
-            // textBox5
+            // Address_TXT
             // 
-            this.textBox5.Location = new System.Drawing.Point(410, 193);
-            this.textBox5.MaxLength = 25;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(340, 20);
-            this.textBox5.TabIndex = 15;
+            this.Address_TXT.Location = new System.Drawing.Point(410, 193);
+            this.Address_TXT.MaxLength = 25;
+            this.Address_TXT.Name = "Address_TXT";
+            this.Address_TXT.Size = new System.Drawing.Size(340, 20);
+            this.Address_TXT.TabIndex = 15;
             // 
             // label28
             // 
@@ -571,13 +573,13 @@
             this.label25.Text = "البريد الإلكتروني";
             this.label25.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // textBox6
+            // Email_TXT
             // 
-            this.textBox6.Location = new System.Drawing.Point(410, 306);
-            this.textBox6.MaxLength = 10;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(221, 20);
-            this.textBox6.TabIndex = 18;
+            this.Email_TXT.Location = new System.Drawing.Point(410, 306);
+            this.Email_TXT.MaxLength = 10;
+            this.Email_TXT.Name = "Email_TXT";
+            this.Email_TXT.Size = new System.Drawing.Size(221, 20);
+            this.Email_TXT.TabIndex = 18;
             // 
             // label26
             // 
@@ -621,10 +623,10 @@
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label25);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.Email_TXT);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.Address_TXT);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.Gender_CBOX);
@@ -648,7 +650,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CountryPhoneCode_CBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.PassportExpDate);
             this.Controls.Add(this.Birthdate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CustomerID_TXT);
@@ -712,7 +714,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox CustomerID_TXT;
         private System.Windows.Forms.DateTimePicker Birthdate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker PassportExpDate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CountryPhoneCode_CBox;
         private System.Windows.Forms.ComboBox Nationality_CBOX;
@@ -737,10 +739,10 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox Address_TXT;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox Email_TXT;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;

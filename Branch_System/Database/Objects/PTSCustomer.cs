@@ -8,7 +8,7 @@ namespace CTS.Database.Objects
 {
    public class PTSCustomer
     {
-        public int CustomerID;
+        public string CustomerID;
         public string FirstName;
         public string FatherName;
         public string LastName;

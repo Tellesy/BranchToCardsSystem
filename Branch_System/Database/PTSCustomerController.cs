@@ -61,6 +61,8 @@ namespace CTS.Database
                                 customer.PhoneISD = reader[11].ToString();
                                 customer.Phone = reader[12].ToString();
                                 customer.Email = reader[13].ToString();
+
+                                customer.CustomerID = ID;
                                 statusObject.status = true;
                                 statusObject.Object = customer;
                                 return statusObject;

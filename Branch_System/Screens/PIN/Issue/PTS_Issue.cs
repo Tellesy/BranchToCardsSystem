@@ -76,12 +76,73 @@ namespace CTS.Screens.PTS.Issue
                     }
 
                     Birthdate.Value = DateTime.Parse(customer.Birthdate);
+                    Nationality_CBOX.Text = customer.Nationality;
+                    NID_TXT.Text = customer.NationalID;
+                    Passport.Text = customer.PassportNumber;
+                    PassportExpDate.Value = DateTime.Parse(customer.PassportExp);
+                    Address_TXT.Text = customer.Address;
+                    CountryPhoneCode_CBox.Text = customer.PhoneISD;
+                    PhoneNo_TXT.Text = customer.Phone;
+                    Email_TXT.Text = customer.Email;
 
-
+                    DisableFields();
+                }
+                else
+                {
+                    EnableAndClearFields();
                 }
       
      
             }
+        }
+
+
+        private void DisableFields()
+        {
+            FirstName_TXT.Enabled = false;
+            FatherName_TXT.Enabled = false;
+            LastName_TXT.Enabled = false;
+            EmbossedName_TXT.Enabled = false;
+            Gender_CBOX.Enabled = false;
+
+
+            Birthdate.Enabled = false;
+            Nationality_CBOX.Enabled = false;
+            NID_TXT.Enabled = false;
+            Passport.Enabled = false;
+            PassportExpDate.Enabled = false;
+            Address_TXT.Enabled = false;
+            CountryPhoneCode_CBox.Enabled = false;
+            PhoneNo_TXT.Enabled = false;
+            Email_TXT.Enabled = false;
+        }
+
+        private void EnableAndClearFields()
+        {
+            FirstName_TXT.Enabled = true;
+            FatherName_TXT.Enabled = true;
+            LastName_TXT.Enabled = true;
+            EmbossedName_TXT.Enabled = true;
+            Gender_CBOX.Enabled = true;
+            Birthdate.Enabled = true;
+            Nationality_CBOX.Enabled = true;
+            NID_TXT.Enabled = true;
+            Passport.Enabled = true;
+            PassportExpDate.Enabled = true;
+            Address_TXT.Enabled = true;
+            CountryPhoneCode_CBox.Enabled = true;
+            PhoneNo_TXT.Enabled = true;
+            Email_TXT.Enabled = true;
+
+            FirstName_TXT.Clear();
+            FatherName_TXT.Clear();
+            LastName_TXT.Clear();
+            EmbossedName_TXT.Clear();
+            NID_TXT.Clear();
+            Passport.Clear();
+            Address_TXT.Clear();
+            PhoneNo_TXT.Clear();
+            Email_TXT.Clear();
         }
     }
 }
