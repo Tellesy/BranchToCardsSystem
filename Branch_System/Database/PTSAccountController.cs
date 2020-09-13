@@ -85,6 +85,72 @@ namespace CTS.Database
             }
         }
 
+        public static Status addAccount(PTSAccount account)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = DBConnection.Connection();
+
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string query = @"INSERT INTO [dbo].[PTS_Account]
+           ([customer_ID]
+           ,[account_number_lyd]
+           ,[account_number_currency]
+           ,[wallet_number]
+           ,[program_code]
+           ,[currency_code])
+            VALUES
+           (@v1
+           ,@v2
+           ,@v3
+           ,@v4
+           ,@v5
+           ,@v6)";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@v1", account.Customer_ID);
+                    cmd.Parameters.AddWithValue("@v2", account.AccountNumberLYD);
+                    cmd.Parameters.AddWithValue("@v3", account.AccountNumberCurrency);
+                    if(String.IsNullOrEmpty(account.WalletNumber))
+                    {
+                        account.WalletNumber = "";
+                    }
+                    cmd.Parameters.AddWithValue("@v4", account.WalletNumber);
+                    cmd.Parameters.AddWithValue("@v5", account.ProgramCode);
+                    cmd.Parameters.AddWithValue("@v6", account.CurrencyCode);
+
+
+
+
+
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch (Exception e)
+                {
+                    status.status = false;
+                    status.status = false;
+                    status.message = "Add to PTS Account\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return status;
+                }
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                return status;
+            }
+        }
 
     }
 }

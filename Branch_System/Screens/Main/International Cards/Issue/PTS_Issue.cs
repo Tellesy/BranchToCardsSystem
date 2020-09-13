@@ -19,6 +19,8 @@ namespace CTS.Screens.PTS.Issue
         private bool customerExistInDB = false;
         private bool customerHasAnAccountUnderTheSameProgram = false;
 
+        private List<PTSProgram> programs;
+
         public PTS_Issue()
         {
             InitializeComponent();
@@ -118,6 +120,7 @@ namespace CTS.Screens.PTS.Issue
 
             if(programStatus.status)
             {
+                programs = programStatus.Object;
                 // foreach(var p in programStatus.Object)
                 Program_CBox.DataSource = programStatus.Object;
                 Program_CBox.DisplayMember = "NameEN";
@@ -175,9 +178,23 @@ namespace CTS.Screens.PTS.Issue
 
         private void Submit_BTN_Click(object sender, EventArgs e)
         {
+
+            //Check if the customer Exist
             if (customerExistInDB)
             {
                 //add onlt to PTS Account and PTS Application Record Table
+
+                if (!customerHasAnAccountUnderTheSameProgram)
+                {
+                   if(AddAccount())
+                    {
+                        MessageBox.Show("Yaay Account");
+                    }
+                   else
+                    {
+                        MessageBox.Show("Naay Account");
+                    }
+                }
             }
             else
             {
@@ -185,6 +202,14 @@ namespace CTS.Screens.PTS.Issue
                 if (AddCustomer())
                 {
                     MessageBox.Show("Yaay");
+                    if (AddAccount())
+                    {
+                        MessageBox.Show("Yaay Account");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Naay Account");
+                    }
                 }
                 else
                 {
@@ -218,6 +243,24 @@ namespace CTS.Screens.PTS.Issue
             Status cstatus = PTSCustomerController.addCustomer(customer);
 
             status = cstatus.status;
+            return status;
+        }
+        public bool AddAccount()
+        {
+            bool status = false;
+
+            PTSAccount account = new PTSAccount();
+            account.ProgramCode = Program_CBox.SelectedValue.ToString();
+            account.AccountNumberLYD = MainAccount_TXT.Text;
+            account.AccountNumberCurrency = ProgramAccount_TXT.Text;
+            account.Customer_ID = CustomerID_TXT.Text;
+            account.CurrencyCode = "840";
+   
+          
+
+            Status astatus = PTSAccountController.addAccount(account);
+
+            status = astatus.status;
             return status;
         }
     }
