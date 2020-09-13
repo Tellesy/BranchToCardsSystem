@@ -29,6 +29,7 @@ namespace CTS.Screens.PTS.Issue
 
         private void PTS_Issue_Load(object sender, EventArgs e)
         {
+            GetPrograms();
             // TODO: This line of code loads data into the 'cTS_PTS_Programs.PTS_Program' table. You can move, or remove it, as needed.
             //this.pTS_ProgramTableAdapter.Fill(this.cTS_PTS_Programs.PTS_Program);
             //Test
@@ -96,7 +97,19 @@ namespace CTS.Screens.PTS.Issue
             }
         }
 
+        private void GetPrograms()
+        {
+           Status<List<PTSProgram>> programStatus = PTSProgramController.getPrograms();
 
+            if(programStatus.status)
+            {
+                // foreach(var p in programStatus.Object)
+                Program_CBox.DataSource = programStatus.Object;
+                Program_CBox.DisplayMember = "NameEN";
+                Program_CBox.ValueMember = "Code";
+                this.Program_CBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
+        }
         private void DisableFields()
         {
             FirstName_TXT.Enabled = false;

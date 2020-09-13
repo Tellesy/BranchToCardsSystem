@@ -179,6 +179,7 @@
     <Compile Include="Database\Objects\PBFObject.cs" />
     <Compile Include="Database\Objects\PObject.cs" />
     <Compile Include="Database\Objects\Product.cs" />
+    <Compile Include="Database\Objects\PTSProgram.cs" />
     <Compile Include="Database\Objects\Recharge.cs" />
     <Compile Include="Database\Objects\Status.cs" />
     <Compile Include="Database\PBF.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Database\CTSystem.cs" />
     <Compile Include="Database\PTSAccountController.cs" />
     <Compile Include="Database\PTSCustomerController.cs" />
+    <Compile Include="Database\PTSProgramController.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\FilesCreator.cs" />
     <Compile Include="Resources\Countries.Designer.cs">
@@ -308,10 +310,10 @@
     <Compile Include="Screens\Main\International Cards\Printing.Designer.cs">
       <DependentUpon>Printing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\PIN\Issue\PTS_Issue.cs">
+    <Compile Include="Screens\Main\International Cards\Issue\PTS_Issue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\PIN\Issue\PTS_Issue.Designer.cs">
+    <Compile Include="Screens\Main\International Cards\Issue\PTS_Issue.Designer.cs">
       <DependentUpon>PTS_Issue.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\PIN\PIN.cs">
@@ -449,7 +451,7 @@
     <EmbeddedResource Include="Screens\Main\International Cards\Printing.resx">
       <DependentUpon>Printing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\PIN\Issue\PTS_Issue.resx">
+    <EmbeddedResource Include="Screens\Main\International Cards\Issue\PTS_Issue.resx">
       <DependentUpon>PTS_Issue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PIN\PIN.resx">
