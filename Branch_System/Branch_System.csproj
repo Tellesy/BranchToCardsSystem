@@ -183,6 +183,7 @@
     <Compile Include="Database\PBF.cs" />
     <Compile Include="Database\PO.cs" />
     <Compile Include="Database\CTSystem.cs" />
+    <Compile Include="Database\PTSCustomer.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\FilesCreator.cs" />
     <Compile Include="Resources\Countries.Designer.cs">

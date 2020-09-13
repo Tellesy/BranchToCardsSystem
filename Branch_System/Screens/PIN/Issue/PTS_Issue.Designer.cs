@@ -65,9 +65,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.FatherName_TXT = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.La = new System.Windows.Forms.TextBox();
+            this.LastName_TXT = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.EmbossedName_TXT = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.ProgramAccount_TXT = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -300,6 +300,7 @@
             this.CustomerID_TXT.Name = "CustomerID_TXT";
             this.CustomerID_TXT.Size = new System.Drawing.Size(93, 20);
             this.CustomerID_TXT.TabIndex = 2;
+            this.CustomerID_TXT.TextChanged += new System.EventHandler(this.CustomerID_TXT_TextChanged);
             // 
             // Birthdate
             // 
@@ -379,13 +380,13 @@
             this.label10.TabIndex = 76;
             this.label10.Text = "Last Name";
             // 
-            // La
+            // LastName_TXT
             // 
-            this.La.Location = new System.Drawing.Point(238, 250);
-            this.La.MaxLength = 25;
-            this.La.Name = "La";
-            this.La.Size = new System.Drawing.Size(106, 20);
-            this.La.TabIndex = 7;
+            this.LastName_TXT.Location = new System.Drawing.Point(238, 250);
+            this.LastName_TXT.MaxLength = 25;
+            this.LastName_TXT.Name = "LastName_TXT";
+            this.LastName_TXT.Size = new System.Drawing.Size(106, 20);
+            this.LastName_TXT.TabIndex = 7;
             // 
             // label12
             // 
@@ -396,13 +397,13 @@
             this.label12.TabIndex = 78;
             this.label12.Text = "Embossed Name";
             // 
-            // textBox3
+            // EmbossedName_TXT
             // 
-            this.textBox3.Location = new System.Drawing.Point(20, 306);
-            this.textBox3.MaxLength = 25;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(203, 20);
-            this.textBox3.TabIndex = 8;
+            this.EmbossedName_TXT.Location = new System.Drawing.Point(20, 306);
+            this.EmbossedName_TXT.MaxLength = 25;
+            this.EmbossedName_TXT.Name = "EmbossedName_TXT";
+            this.EmbossedName_TXT.Size = new System.Drawing.Size(203, 20);
+            this.EmbossedName_TXT.TabIndex = 8;
             // 
             // label13
             // 
@@ -638,9 +639,9 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.ProgramAccount_TXT);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.EmbossedName_TXT);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.La);
+            this.Controls.Add(this.LastName_TXT);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.FatherName_TXT);
             this.Controls.Add(this.Nationality_CBOX);
@@ -719,9 +720,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox FatherName_TXT;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox La;
+        private System.Windows.Forms.TextBox LastName_TXT;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox EmbossedName_TXT;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox ProgramAccount_TXT;
         private System.Windows.Forms.Label label15;
