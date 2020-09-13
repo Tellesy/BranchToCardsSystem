@@ -128,7 +128,7 @@
             // Back_BTN
             // 
             this.Back_BTN.Location = new System.Drawing.Point(774, 827);
-            this.Back_BTN.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Back_BTN.Margin = new System.Windows.Forms.Padding(6);
             this.Back_BTN.Name = "Back_BTN";
             this.Back_BTN.Size = new System.Drawing.Size(726, 63);
             this.Back_BTN.TabIndex = 26;
@@ -137,14 +137,14 @@
             // 
             // Submit_BTN
             // 
-            this.Submit_BTN.Enabled = false;
             this.Submit_BTN.Location = new System.Drawing.Point(774, 754);
-            this.Submit_BTN.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Submit_BTN.Margin = new System.Windows.Forms.Padding(6);
             this.Submit_BTN.Name = "Submit_BTN";
             this.Submit_BTN.Size = new System.Drawing.Size(726, 62);
             this.Submit_BTN.TabIndex = 25;
             this.Submit_BTN.Text = "إضافة";
             this.Submit_BTN.UseVisualStyleBackColor = true;
+            this.Submit_BTN.Click += new System.EventHandler(this.Submit_BTN_Click);
             // 
             // label14
             // 
@@ -159,7 +159,7 @@
             // Passport
             // 
             this.Passport.Location = new System.Drawing.Point(816, 260);
-            this.Passport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Passport.Margin = new System.Windows.Forms.Padding(6);
             this.Passport.MaxLength = 8;
             this.Passport.Name = "Passport";
             this.Passport.Size = new System.Drawing.Size(328, 31);
@@ -178,7 +178,7 @@
             // PhoneNo_TXT
             // 
             this.PhoneNo_TXT.Location = new System.Drawing.Point(988, 479);
-            this.PhoneNo_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PhoneNo_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.PhoneNo_TXT.MaxLength = 10;
             this.PhoneNo_TXT.Name = "PhoneNo_TXT";
             this.PhoneNo_TXT.Size = new System.Drawing.Size(278, 31);
@@ -217,7 +217,7 @@
             // NID_TXT
             // 
             this.NID_TXT.Location = new System.Drawing.Point(1160, 167);
-            this.NID_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.NID_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.NID_TXT.MaxLength = 12;
             this.NID_TXT.Name = "NID_TXT";
             this.NID_TXT.Size = new System.Drawing.Size(336, 31);
@@ -236,7 +236,7 @@
             // FirstName_TXT
             // 
             this.FirstName_TXT.Location = new System.Drawing.Point(40, 481);
-            this.FirstName_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.FirstName_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.FirstName_TXT.MaxLength = 25;
             this.FirstName_TXT.Name = "FirstName_TXT";
             this.FirstName_TXT.Size = new System.Drawing.Size(182, 31);
@@ -260,7 +260,7 @@
             // MainAccount_TXT
             // 
             this.MainAccount_TXT.Location = new System.Drawing.Point(40, 260);
-            this.MainAccount_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MainAccount_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.MainAccount_TXT.MaxLength = 15;
             this.MainAccount_TXT.Name = "MainAccount_TXT";
             this.MainAccount_TXT.Size = new System.Drawing.Size(462, 31);
@@ -281,7 +281,7 @@
             this.Program_CBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pTSProgramBindingSource, "program_code", true));
             this.Program_CBox.FormattingEnabled = true;
             this.Program_CBox.Location = new System.Drawing.Point(40, 90);
-            this.Program_CBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Program_CBox.Margin = new System.Windows.Forms.Padding(6);
             this.Program_CBox.Name = "Program_CBox";
             this.Program_CBox.Size = new System.Drawing.Size(414, 33);
             this.Program_CBox.TabIndex = 1;
@@ -309,7 +309,7 @@
             // CustomerID_TXT
             // 
             this.CustomerID_TXT.Location = new System.Drawing.Point(40, 167);
-            this.CustomerID_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CustomerID_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.CustomerID_TXT.MaxLength = 15;
             this.CustomerID_TXT.Name = "CustomerID_TXT";
             this.CustomerID_TXT.Size = new System.Drawing.Size(182, 31);
@@ -320,7 +320,7 @@
             // 
             this.Birthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.Birthdate.Location = new System.Drawing.Point(40, 785);
-            this.Birthdate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Birthdate.Margin = new System.Windows.Forms.Padding(6);
             this.Birthdate.Name = "Birthdate";
             this.Birthdate.Size = new System.Drawing.Size(224, 31);
             this.Birthdate.TabIndex = 10;
@@ -329,7 +329,7 @@
             // 
             this.PassportExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.PassportExpDate.Location = new System.Drawing.Point(1160, 260);
-            this.PassportExpDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PassportExpDate.Margin = new System.Windows.Forms.Padding(6);
             this.PassportExpDate.Name = "PassportExpDate";
             this.PassportExpDate.Size = new System.Drawing.Size(336, 31);
             this.PassportExpDate.TabIndex = 14;
@@ -349,7 +349,7 @@
             this.CountryPhoneCode_CBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Code", true));
             this.CountryPhoneCode_CBox.FormattingEnabled = true;
             this.CountryPhoneCode_CBox.Location = new System.Drawing.Point(820, 479);
-            this.CountryPhoneCode_CBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CountryPhoneCode_CBox.Margin = new System.Windows.Forms.Padding(6);
             this.CountryPhoneCode_CBox.Name = "CountryPhoneCode_CBox";
             this.CountryPhoneCode_CBox.Size = new System.Drawing.Size(146, 33);
             this.CountryPhoneCode_CBox.TabIndex = 16;
@@ -361,7 +361,7 @@
             this.Nationality_CBOX.Items.AddRange(new object[] {
             "434"});
             this.Nationality_CBOX.Location = new System.Drawing.Point(816, 165);
-            this.Nationality_CBOX.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Nationality_CBOX.Margin = new System.Windows.Forms.Padding(6);
             this.Nationality_CBOX.Name = "Nationality_CBOX";
             this.Nationality_CBOX.Size = new System.Drawing.Size(328, 33);
             this.Nationality_CBOX.TabIndex = 11;
@@ -389,7 +389,7 @@
             // FatherName_TXT
             // 
             this.FatherName_TXT.Location = new System.Drawing.Point(248, 481);
-            this.FatherName_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.FatherName_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.FatherName_TXT.MaxLength = 25;
             this.FatherName_TXT.Name = "FatherName_TXT";
             this.FatherName_TXT.Size = new System.Drawing.Size(194, 31);
@@ -408,7 +408,7 @@
             // LastName_TXT
             // 
             this.LastName_TXT.Location = new System.Drawing.Point(476, 481);
-            this.LastName_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.LastName_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.LastName_TXT.MaxLength = 25;
             this.LastName_TXT.Name = "LastName_TXT";
             this.LastName_TXT.Size = new System.Drawing.Size(208, 31);
@@ -427,7 +427,7 @@
             // EmbossedName_TXT
             // 
             this.EmbossedName_TXT.Location = new System.Drawing.Point(40, 588);
-            this.EmbossedName_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.EmbossedName_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.EmbossedName_TXT.MaxLength = 25;
             this.EmbossedName_TXT.Name = "EmbossedName_TXT";
             this.EmbossedName_TXT.Size = new System.Drawing.Size(402, 31);
@@ -446,7 +446,7 @@
             // ProgramAccount_TXT
             // 
             this.ProgramAccount_TXT.Location = new System.Drawing.Point(40, 371);
-            this.ProgramAccount_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ProgramAccount_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.ProgramAccount_TXT.MaxLength = 15;
             this.ProgramAccount_TXT.Name = "ProgramAccount_TXT";
             this.ProgramAccount_TXT.Size = new System.Drawing.Size(462, 31);
@@ -548,7 +548,7 @@
             "M",
             "F"});
             this.Gender_CBOX.Location = new System.Drawing.Point(40, 688);
-            this.Gender_CBOX.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Gender_CBOX.Margin = new System.Windows.Forms.Padding(6);
             this.Gender_CBOX.Name = "Gender_CBOX";
             this.Gender_CBOX.Size = new System.Drawing.Size(146, 33);
             this.Gender_CBOX.TabIndex = 9;
@@ -588,7 +588,7 @@
             // Address_TXT
             // 
             this.Address_TXT.Location = new System.Drawing.Point(820, 371);
-            this.Address_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Address_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.Address_TXT.MaxLength = 25;
             this.Address_TXT.Name = "Address_TXT";
             this.Address_TXT.Size = new System.Drawing.Size(676, 31);
@@ -619,7 +619,7 @@
             // Email_TXT
             // 
             this.Email_TXT.Location = new System.Drawing.Point(820, 588);
-            this.Email_TXT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Email_TXT.Margin = new System.Windows.Forms.Padding(6);
             this.Email_TXT.MaxLength = 10;
             this.Email_TXT.Name = "Email_TXT";
             this.Email_TXT.Size = new System.Drawing.Size(438, 31);
@@ -716,7 +716,7 @@
             this.Controls.Add(this.MainAccount_TXT);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Program_CBox);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "PTS_Issue";
             this.Text = "PTS_Issue";
             this.Load += new System.EventHandler(this.PTS_Issue_Load);

@@ -90,5 +90,96 @@ namespace CTS.Database
                 return statusObject;
             }
         }
+
+        public static Status addCustomer(PTSCustomer customer)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = DBConnection.Connection();
+
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string query = @"INSERT INTO [dbo].[PTS_Customer]
+           ([customer_ID]
+           ,[first_name]
+           ,[father_name]
+           ,[last_name]
+           ,[gender]
+           ,[nationality]
+           ,[embossed_name]
+           ,[birthdate]
+           ,[national_id]
+           ,[passport_number]
+           ,[passport_exp]
+           ,[address]
+           ,[phone_ISD]
+           ,[phone_number]
+           ,[email])
+     VALUES
+           (@v1
+           ,@v2
+           ,@v3
+           ,@v4
+           ,@v5
+           ,@v6
+           ,@v7
+           ,@v8
+           ,@v9
+           ,@v10
+           ,@v11
+           ,@v12
+           ,@v13
+           ,@v14
+           ,@v15)";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@v1", customer.CustomerID);
+                    cmd.Parameters.AddWithValue("@v2", customer.FirstName);
+                    cmd.Parameters.AddWithValue("@v3", customer.FatherName);
+                    cmd.Parameters.AddWithValue("@v4", customer.LastName);
+                    cmd.Parameters.AddWithValue("@v5", customer.Gender);
+                    cmd.Parameters.AddWithValue("@v6", customer.Nationality);
+                    cmd.Parameters.AddWithValue("@v7", customer.EmbossedName);
+                    cmd.Parameters.AddWithValue("@v8", customer.Birthdate);
+                    cmd.Parameters.AddWithValue("@v9", customer.NationalID);
+                    cmd.Parameters.AddWithValue("@v10", customer.PassportNumber);
+                    cmd.Parameters.AddWithValue("@v11", customer.PassportExp);
+                    cmd.Parameters.AddWithValue("@v12", customer.Address);
+                    cmd.Parameters.AddWithValue("@v13", customer.PhoneISD);
+                    cmd.Parameters.AddWithValue("@v14", customer.Phone);
+                    cmd.Parameters.AddWithValue("@v15", customer.Email);
+
+
+
+
+
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch (Exception e)
+                {
+                    status.status = false;
+                    status.status = false;
+                    status.message = "Add to PTS Customer\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return status;
+                }
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                return status;
+            }
+        }
+
     }
 }

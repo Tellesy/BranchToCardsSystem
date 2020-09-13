@@ -29,7 +29,7 @@ namespace CTS.Database
                 string query = @"
                     SELECT [account_number_lyd],[account_number_currency],[wallet_number],[currency_code]
                     FROM [CTS].[dbo].[PTS_Account]
-                    where program_code =" + programCode + " and customer_ID =" + customerID;
+                    where program_code ='" + programCode + "' and customer_ID =" + customerID;
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -84,6 +84,7 @@ namespace CTS.Database
                 return statusObject;
             }
         }
+
 
     }
 }

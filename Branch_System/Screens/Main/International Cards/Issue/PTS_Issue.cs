@@ -16,7 +16,8 @@ namespace CTS.Screens.PTS.Issue
     public partial class PTS_Issue : Form
     {
 
-        private bool customerExistInDB;
+        private bool customerExistInDB = false;
+        private bool customerHasAnAccountUnderTheSameProgram = false;
 
         public PTS_Issue()
         {
@@ -86,17 +87,31 @@ namespace CTS.Screens.PTS.Issue
                     PhoneNo_TXT.Text = customer.Phone;
                     Email_TXT.Text = customer.Email;
 
+                    CheckAccount(customerID, Program_CBox.SelectedValue.ToString());
                     DisableFields();
                 }
                 else
                 {
                     EnableAndClearFields();
+                    customerExistInDB = false;
                 }
       
      
             }
         }
 
+        //Check if the customer already got an account
+        private void CheckAccount(string customer_id,string program_code)
+        {
+            Status<PTSAccount> account = PTSAccountController.getAccount(customer_id, program_code);
+
+            if(account.status)
+            {
+                //The customer got an account you shouldn't add it
+                MessageBox.Show("عذراً, هذا الزبون لديه بطاقة صادرة مسبقاً لنفس المنتج");
+                customerHasAnAccountUnderTheSameProgram = true;
+            }
+        }
         private void GetPrograms()
         {
            Status<List<PTSProgram>> programStatus = PTSProgramController.getPrograms();
@@ -156,6 +171,54 @@ namespace CTS.Screens.PTS.Issue
             Address_TXT.Clear();
             PhoneNo_TXT.Clear();
             Email_TXT.Clear();
+        }
+
+        private void Submit_BTN_Click(object sender, EventArgs e)
+        {
+            if (customerExistInDB)
+            {
+                //add onlt to PTS Account and PTS Application Record Table
+            }
+            else
+            {
+                //add customer
+                if (AddCustomer())
+                {
+                    MessageBox.Show("Yaay");
+                }
+                else
+                {
+                    MessageBox.Show("Naay");
+
+                }
+            }
+        }
+
+        public bool AddCustomer()
+        {
+            bool status = false;
+
+            PTSCustomer customer = new PTSCustomer();
+            customer.CustomerID = CustomerID_TXT.Text;
+            customer.FirstName = FirstName_TXT.Text;
+            customer.FatherName = FatherName_TXT.Text;
+            customer.LastName = LastName_TXT.Text;
+            customer.Gender = Gender_CBOX.Text;
+            customer.Birthdate = Birthdate.Text;
+            customer.NationalID = NID_TXT.Text;
+            customer.Nationality = Nationality_CBOX.Text;
+            customer.EmbossedName = EmbossedName_TXT.Text;
+            customer.PassportNumber = Passport.Text;
+            customer.PassportExp = PassportExpDate.Text;
+            customer.Address = Address_TXT.Text;
+            customer.PhoneISD = CountryPhoneCode_CBox.Text;
+            customer.Phone = PhoneNo_TXT.Text;
+            customer.Email = Email_TXT.Text;
+
+            Status cstatus = PTSCustomerController.addCustomer(customer);
+
+            status = cstatus.status;
+            return status;
         }
     }
 }
