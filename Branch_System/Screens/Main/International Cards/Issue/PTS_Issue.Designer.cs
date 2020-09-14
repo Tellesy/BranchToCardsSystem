@@ -137,6 +137,7 @@
             // 
             // Submit_BTN
             // 
+            this.Submit_BTN.Enabled = false;
             this.Submit_BTN.Location = new System.Drawing.Point(387, 392);
             this.Submit_BTN.Name = "Submit_BTN";
             this.Submit_BTN.Size = new System.Drawing.Size(363, 32);
@@ -157,7 +158,7 @@
             // Passport
             // 
             this.Passport.Location = new System.Drawing.Point(408, 135);
-            this.Passport.MaxLength = 8;
+            this.Passport.MaxLength = 10;
             this.Passport.Name = "Passport";
             this.Passport.Size = new System.Drawing.Size(166, 20);
             this.Passport.TabIndex = 13;
@@ -174,10 +175,11 @@
             // PhoneNo_TXT
             // 
             this.PhoneNo_TXT.Location = new System.Drawing.Point(494, 249);
-            this.PhoneNo_TXT.MaxLength = 10;
+            this.PhoneNo_TXT.MaxLength = 9;
             this.PhoneNo_TXT.Name = "PhoneNo_TXT";
             this.PhoneNo_TXT.Size = new System.Drawing.Size(141, 20);
             this.PhoneNo_TXT.TabIndex = 17;
+            this.PhoneNo_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_NUMBER_KeyPress);
             // 
             // label7
             // 
@@ -213,6 +215,7 @@
             this.NID_TXT.Name = "NID_TXT";
             this.NID_TXT.Size = new System.Drawing.Size(170, 20);
             this.NID_TXT.TabIndex = 12;
+            this.NID_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_NUMBER_KeyPress);
             // 
             // label4
             // 
@@ -230,6 +233,8 @@
             this.FirstName_TXT.Name = "FirstName_TXT";
             this.FirstName_TXT.Size = new System.Drawing.Size(93, 20);
             this.FirstName_TXT.TabIndex = 5;
+            this.FirstName_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_CHAR_KeyPress);
+            this.FirstName_TXT.Leave += new System.EventHandler(this.TEXTB_Leave);
             // 
             // branchsystem1DataSetBindingSource
             // 
@@ -253,6 +258,8 @@
             this.MainAccount_TXT.Name = "MainAccount_TXT";
             this.MainAccount_TXT.Size = new System.Drawing.Size(233, 20);
             this.MainAccount_TXT.TabIndex = 3;
+            this.MainAccount_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_NUMBER_KeyPress);
+            this.MainAccount_TXT.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // label11
             // 
@@ -294,11 +301,13 @@
             // CustomerID_TXT
             // 
             this.CustomerID_TXT.Location = new System.Drawing.Point(20, 87);
-            this.CustomerID_TXT.MaxLength = 15;
+            this.CustomerID_TXT.MaxLength = 7;
             this.CustomerID_TXT.Name = "CustomerID_TXT";
             this.CustomerID_TXT.Size = new System.Drawing.Size(93, 20);
             this.CustomerID_TXT.TabIndex = 2;
             this.CustomerID_TXT.TextChanged += new System.EventHandler(this.CustomerID_TXT_TextChanged);
+            this.CustomerID_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_NUMBER_KeyPress);
+            this.CustomerID_TXT.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // Birthdate
             // 
@@ -370,6 +379,8 @@
             this.FatherName_TXT.Name = "FatherName_TXT";
             this.FatherName_TXT.Size = new System.Drawing.Size(99, 20);
             this.FatherName_TXT.TabIndex = 6;
+            this.FatherName_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_CHAR_KeyPress);
+            this.FatherName_TXT.Leave += new System.EventHandler(this.TEXTB_Leave);
             // 
             // label10
             // 
@@ -387,6 +398,8 @@
             this.LastName_TXT.Name = "LastName_TXT";
             this.LastName_TXT.Size = new System.Drawing.Size(106, 20);
             this.LastName_TXT.TabIndex = 7;
+            this.LastName_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_CHAR_KeyPress);
+            this.LastName_TXT.Leave += new System.EventHandler(this.TEXTB_Leave);
             // 
             // label12
             // 
@@ -404,6 +417,8 @@
             this.EmbossedName_TXT.Name = "EmbossedName_TXT";
             this.EmbossedName_TXT.Size = new System.Drawing.Size(203, 20);
             this.EmbossedName_TXT.TabIndex = 8;
+            this.EmbossedName_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_CHAR_KeyPress);
+            this.EmbossedName_TXT.Leave += new System.EventHandler(this.TEXTB_Leave);
             // 
             // label13
             // 
@@ -421,6 +436,8 @@
             this.ProgramAccount_TXT.Name = "ProgramAccount_TXT";
             this.ProgramAccount_TXT.Size = new System.Drawing.Size(233, 20);
             this.ProgramAccount_TXT.TabIndex = 4;
+            this.ProgramAccount_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_NUMBER_KeyPress);
+            this.ProgramAccount_TXT.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // label15
             // 
@@ -574,7 +591,7 @@
             // Email_TXT
             // 
             this.Email_TXT.Location = new System.Drawing.Point(410, 306);
-            this.Email_TXT.MaxLength = 10;
+            this.Email_TXT.MaxLength = 50;
             this.Email_TXT.Name = "Email_TXT";
             this.Email_TXT.Size = new System.Drawing.Size(221, 20);
             this.Email_TXT.TabIndex = 18;
@@ -626,7 +643,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 471);
+            this.ClientSize = new System.Drawing.Size(756, 549);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label29);

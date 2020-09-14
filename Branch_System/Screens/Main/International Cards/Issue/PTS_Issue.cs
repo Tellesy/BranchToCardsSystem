@@ -32,7 +32,9 @@ namespace CTS.Screens.PTS.Issue
 
         private void PTS_Issue_Load(object sender, EventArgs e)
         {
+            DisableAllFields();
             GetPrograms();
+
             // TODO: This line of code loads data into the 'cTS_PTS_Programs.PTS_Program' table. You can move, or remove it, as needed.
             //this.pTS_ProgramTableAdapter.Fill(this.cTS_PTS_Programs.PTS_Program);
             //Test
@@ -58,10 +60,22 @@ namespace CTS.Screens.PTS.Issue
             string customerID = CustomerID_TXT.Text;
             if(customerID.Length == 7)
             {
-               Status<PTSCustomer> status = PTSCustomerController.getCustomer(customerID);
+                Submit_BTN.Enabled = true;
+                MainAccount_TXT.Text = CustomerID_TXT.Text;
+                ProgramAccount_TXT.Text = CustomerID_TXT.Text;
+
+                Status<PTSCustomer> status = PTSCustomerController.getCustomer(customerID);
 
                 if(status.status)
                 {
+                  var astatus = CheckAccount(customerID, Program_CBox.SelectedValue.ToString());
+                    if(astatus)
+                    {
+                        EnableAllAndClearFields();
+                        DisableAllFields();
+                        customerExistInDB = false;
+                        return;
+                    }
                     //Tell the system that this customer exist and no need to update the record
                     customerExistInDB = true;
 
@@ -94,7 +108,7 @@ namespace CTS.Screens.PTS.Issue
                 }
                 else
                 {
-                    EnableAndClearFields();
+                    EnableAllAndClearFields();
                     customerExistInDB = false;
                 }
       
@@ -103,16 +117,21 @@ namespace CTS.Screens.PTS.Issue
         }
 
         //Check if the customer already got an account
-        private void CheckAccount(string customer_id,string program_code)
+        private bool CheckAccount(string customer_id,string program_code)
         {
+            bool status = false;
             Status<PTSAccount> account = PTSAccountController.getAccount(customer_id, program_code);
 
             if(account.status)
             {
+                status = true;
                 //The customer got an account you shouldn't add it
                 MessageBox.Show("عذراً, هذا الزبون لديه بطاقة صادرة مسبقاً لنفس المنتج");
+                Submit_BTN.Enabled = false;
                 customerHasAnAccountUnderTheSameProgram = true;
             }
+
+            return status;
         }
         private void GetPrograms()
         {
@@ -148,6 +167,57 @@ namespace CTS.Screens.PTS.Issue
             Email_TXT.Enabled = false;
         }
 
+        private void DisableAllFields()
+        {
+            FirstName_TXT.Enabled = false;
+            FatherName_TXT.Enabled = false;
+            LastName_TXT.Enabled = false;
+            EmbossedName_TXT.Enabled = false;
+            Gender_CBOX.Enabled = false;
+            MainAccount_TXT.Enabled = false;
+            ProgramAccount_TXT.Enabled = false;
+            Birthdate.Enabled = false;
+            Nationality_CBOX.Enabled = false;
+            NID_TXT.Enabled = false;
+            Passport.Enabled = false;
+            PassportExpDate.Enabled = false;
+            Address_TXT.Enabled = false;
+            CountryPhoneCode_CBox.Enabled = false;
+            PhoneNo_TXT.Enabled = false;
+            Email_TXT.Enabled = false;
+        }
+
+        private void EnableAllAndClearFields()
+        {
+            MainAccount_TXT.Enabled = true;
+            ProgramAccount_TXT.Enabled = true;
+            FirstName_TXT.Enabled = true;
+            FatherName_TXT.Enabled = true;
+            LastName_TXT.Enabled = true;
+            EmbossedName_TXT.Enabled = true;
+            Gender_CBOX.Enabled = true;
+            Birthdate.Enabled = true;
+            Nationality_CBOX.Enabled = true;
+            NID_TXT.Enabled = true;
+            Passport.Enabled = true;
+            PassportExpDate.Enabled = true;
+            Address_TXT.Enabled = true;
+            CountryPhoneCode_CBox.Enabled = true;
+            PhoneNo_TXT.Enabled = true;
+            Email_TXT.Enabled = true;
+
+            MainAccount_TXT.Clear();
+            ProgramAccount_TXT.Clear();
+            FirstName_TXT.Clear();
+            FatherName_TXT.Clear();
+            LastName_TXT.Clear();
+            EmbossedName_TXT.Clear();
+            NID_TXT.Clear();
+            Passport.Clear();
+            Address_TXT.Clear();
+            PhoneNo_TXT.Clear();
+            Email_TXT.Clear();
+        }
         private void EnableAndClearFields()
         {
             FirstName_TXT.Enabled = true;
@@ -184,6 +254,7 @@ namespace CTS.Screens.PTS.Issue
                 {
                     if (AddCustomer())
                     {
+                        EnableAndClearFields();
                         return;
                     };
                 }
@@ -349,6 +420,58 @@ namespace CTS.Screens.PTS.Issue
 
             status = true;
             return status;
+        }
+
+        private void TXTB_ONLY_NUMBER_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TXTB_ONLY_CHAR_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //&& !char.IsUpper(e.KeyChar)
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsUpper(e.KeyChar))
+            {
+                e.Handled = true;
+            
+            }
+        
+        }
+
+        private void TEXTB_Leave(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+             textBox.Text = textBox.Text.ToUpper();
+        }
+
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            //Make sure the Text is valid by checking the Max Lenghth
+            if(textBox.Text.Length <textBox.MaxLength)
+            {
+                textBox.Text = "";
+                MessageBox.Show("الرجاء التأكد من صحة البيانات",textBox.Name);
+                return;
+            }
+
+            //Check if Account number is valid
+            if(textBox.Name == MainAccount_TXT.Name || textBox.Name == ProgramAccount_TXT.Name)
+            {
+                if(textBox.Text.Substring(0,7) != CustomerID_TXT.Text)
+                {
+                    textBox.Text = "";
+                    MessageBox.Show("الرجاء التأكد من رقم الحساب", textBox.Name);
+                    return;
+                }
+            }
+
+            
+           
         }
     }
 }

@@ -12,7 +12,6 @@ namespace CTS.Database.Objects
         public string FirstName;
         public string FatherName;
         public string LastName;
-        
         public string Gender;
         public string Nationality;
         public string EmbossedName;
@@ -23,7 +22,6 @@ namespace CTS.Database.Objects
         public string Address;
         public string PhoneISD;
         public string Phone;
-       
         public string Email;
  
     }
