@@ -178,45 +178,29 @@ namespace CTS.Screens.PTS.Issue
 
         private void Submit_BTN_Click(object sender, EventArgs e)
         {
-
-            //Check if the customer Exist
-            if (customerExistInDB)
+            if(validateFields())
             {
-                //add onlt to PTS Account and PTS Application Record Table
-
-                if (!customerHasAnAccountUnderTheSameProgram)
+                if(!customerExistInDB)
                 {
-                   if(AddAccount())
+                    if (AddCustomer())
                     {
-                        MessageBox.Show("Yaay Account");
-                    }
-                   else
-                    {
-                        MessageBox.Show("Naay Account");
-                    }
+                        return;
+                    };
                 }
-            }
-            else
-            {
-                //add customer
-                if (AddCustomer())
+                if (AddAccount())
                 {
-                    MessageBox.Show("Yaay");
-                    if (AddAccount())
-                    {
-                        MessageBox.Show("Yaay Account");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Naay Account");
-                    }
+                    MessageBox.Show("تم الإضافة بنجاح");
+                    //Add to record table here
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Naay");
-
+                    return;
                 }
+
             }
+         
+
         }
 
         public bool AddCustomer()
@@ -261,6 +245,109 @@ namespace CTS.Screens.PTS.Issue
             Status astatus = PTSAccountController.addAccount(account);
 
             status = astatus.status;
+            return status;
+        }
+
+        public bool validateFields()
+        {
+            bool status = false;
+
+            if(String.IsNullOrWhiteSpace(Program_CBox.Text))
+            {
+                MessageBox.Show("الرجاء اختيار المنتج");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(CustomerID_TXT.Text))
+            {
+                MessageBox.Show("الرجاء ادخال رقم الزبون");
+                return status;
+            }
+
+            if (String.IsNullOrWhiteSpace(MainAccount_TXT.Text))
+            {
+                MessageBox.Show("الرجاء ادخال رقم الحساب الاساسي للزبون");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(ProgramAccount_TXT.Text))
+            {
+                MessageBox.Show("الرجاء ادخال رقم الحساب الخاص بالمنتج");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(FirstName_TXT.Text))
+            {
+                MessageBox.Show("الرجاء ادخال الاسم الاول للزبون");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(FatherName_TXT.Text))
+            {
+                MessageBox.Show("الرجاء ادخال اسم الاب");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(LastName_TXT.Text))
+            {
+                MessageBox.Show("الرجاء إدخال اللقب");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(EmbossedName_TXT.Text))
+            {
+                MessageBox.Show("الرجاء ادخال الإسم على البطاقة");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(Gender_CBOX.Text))
+            {
+                MessageBox.Show("الرجاء إختيار الجنس");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(Birthdate.Text))
+            {
+                MessageBox.Show("الرجاء إدخال تاريخ الميلاد");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(Nationality_CBOX.Text))
+            {
+                MessageBox.Show("الرجاء إختيار الجنسية");
+                return status;
+            }
+
+            if (String.IsNullOrWhiteSpace(NID_TXT.Text))
+            {
+                MessageBox.Show("الرجاء إدخال الرقم الوطني");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(Passport.Text))
+            {
+                MessageBox.Show("الرجاء إدخال رقم جواز السفر");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(PassportExpDate.Text))
+            {
+                MessageBox.Show("الرجاء إدخال تاريخ إنتهاء صلاحية جواز السفر");
+                return status;
+            }
+
+            if (String.IsNullOrWhiteSpace(Address_TXT.Text))
+            {
+                MessageBox.Show("الرجاء إدخال العنوان");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(CountryPhoneCode_CBox.Text))
+            {
+                MessageBox.Show("الرجاء إدخال مفتاح الدولة");
+                return status;
+            }
+            if (String.IsNullOrWhiteSpace(PhoneNo_TXT.Text))
+            {
+                MessageBox.Show("الرجاء إدخال رقم الهاتف");
+                return status;
+            }
+
+            if (String.IsNullOrWhiteSpace(Email_TXT.Text))
+            {
+                MessageBox.Show("الرجاء إدخال عنوان البريد الإلكتروني");
+                return status;
+            }
+
+            status = true;
             return status;
         }
     }

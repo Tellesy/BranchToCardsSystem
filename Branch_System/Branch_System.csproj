@@ -286,28 +286,28 @@
     <Compile Include="Screens\FilesAuth\SubForms\AuthorizePO.Designer.cs">
       <DependentUpon>AuthorizePO.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Main\International Cards\Admin.cs">
+    <Compile Include="Screens\Main\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\Main\International Cards\Admin.Designer.cs">
+    <Compile Include="Screens\Main\Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Main\International Cards\Auditor.cs">
+    <Compile Include="Screens\Main\Auditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\Main\International Cards\Auditor.Designer.cs">
+    <Compile Include="Screens\Main\Auditor.Designer.cs">
       <DependentUpon>Auditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Main\International Cards\BranchAdmin.cs">
+    <Compile Include="Screens\Main\BranchAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\Main\International Cards\BranchAdmin.Designer.cs">
+    <Compile Include="Screens\Main\BranchAdmin.Designer.cs">
       <DependentUpon>BranchAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Main\International Cards\Printing.cs">
+    <Compile Include="Screens\Main\Printing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\Main\International Cards\Printing.Designer.cs">
+    <Compile Include="Screens\Main\Printing.Designer.cs">
       <DependentUpon>Printing.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Main\International Cards\Issue\PTS_Issue.cs">
@@ -367,10 +367,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Screens\Main\International Cards\Inputter.cs">
+    <Compile Include="Screens\Main\Inputter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\Main\International Cards\Inputter.Designer.cs">
+    <Compile Include="Screens\Main\Inputter.Designer.cs">
       <DependentUpon>Inputter.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Resources\Countries.resx">
@@ -436,19 +436,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Screens\Main\International Cards\Admin.resx">
+    <EmbeddedResource Include="Screens\Main\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Main\International Cards\Auditor.resx">
+    <EmbeddedResource Include="Screens\Main\Auditor.resx">
       <DependentUpon>Auditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Main\International Cards\BranchAdmin.resx">
+    <EmbeddedResource Include="Screens\Main\BranchAdmin.resx">
       <DependentUpon>BranchAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Main\International Cards\Inputter.resx">
+    <EmbeddedResource Include="Screens\Main\Inputter.resx">
       <DependentUpon>Inputter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Main\International Cards\Printing.resx">
+    <EmbeddedResource Include="Screens\Main\Printing.resx">
       <DependentUpon>Printing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\International Cards\Issue\PTS_Issue.resx">
