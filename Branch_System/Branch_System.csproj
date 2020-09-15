@@ -174,11 +174,13 @@
     <Compile Include="Database\Objects\CAFObject.cs" />
     <Compile Include="Database\Objects\CardAccount.cs" />
     <Compile Include="Database\Objects\PTSAccount.cs" />
+    <Compile Include="Database\Objects\PTSAppRecord.cs" />
     <Compile Include="Database\Objects\PTSCustomer.cs" />
     <Compile Include="Database\Objects\Customer.cs" />
     <Compile Include="Database\Objects\PBFObject.cs" />
     <Compile Include="Database\Objects\PObject.cs" />
     <Compile Include="Database\Objects\Product.cs" />
+    <Compile Include="Database\Objects\PTSDevicePlan.cs" />
     <Compile Include="Database\Objects\PTSProgram.cs" />
     <Compile Include="Database\Objects\Recharge.cs" />
     <Compile Include="Database\Objects\Status.cs" />
@@ -186,7 +188,9 @@
     <Compile Include="Database\PO.cs" />
     <Compile Include="Database\CTSystem.cs" />
     <Compile Include="Database\PTSAccountController.cs" />
+    <Compile Include="Database\PTSAppRecordController.cs" />
     <Compile Include="Database\PTSCustomerController.cs" />
+    <Compile Include="Database\PTSDevicePlanController.cs" />
     <Compile Include="Database\PTSProgramController.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\FilesCreator.cs" />

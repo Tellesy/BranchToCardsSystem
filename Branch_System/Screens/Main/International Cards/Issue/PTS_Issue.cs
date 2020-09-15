@@ -40,17 +40,27 @@ namespace CTS.Screens.PTS.Issue
             //Test
 
             CountriesWithPhoneCode =  CountryInfo.getCountriesWithPhoneCode();
+          
             CountriesWithISOCode = CountryInfo.getCountriesWithISOCode();
 
-            for(int i =0;i< CountriesWithPhoneCode.Count; i++)
-            {
-                CountryPhoneCode_CBox.Items.Insert(i, CountriesWithPhoneCode[i].name + " " + CountriesWithPhoneCode[i].code);
-            }
+            CountryPhoneCode_CBox.DataSource = CountriesWithPhoneCode;
+            CountryPhoneCode_CBox.ValueMember = "code";
+            CountryPhoneCode_CBox.DisplayMember = "name";
 
-            for (int i = 0; i < CountriesWithISOCode.Count; i++)
-            {
-                Nationality_CBOX.Items.Insert(i, CountriesWithISOCode[i].name + " " + CountriesWithISOCode[i].isoCode);
-            }
+            Nationality_CBOX.DataSource = CountriesWithISOCode;
+            Nationality_CBOX.DisplayMember = "name";
+            Nationality_CBOX.ValueMember = "isoCode";
+           
+            //for (int i =0;i< CountriesWithPhoneCode.Count; i++)
+            //{
+               
+            //    CountryPhoneCode_CBox.Items.Insert(i, CountriesWithPhoneCode[i].name + " " + CountriesWithPhoneCode[i].code);
+            //}
+
+            //for (int i = 0; i < CountriesWithISOCode.Count; i++)
+            //{
+            //    Nationality_CBOX.Items.Insert(i, CountriesWithISOCode[i].name + " " + CountriesWithISOCode[i].isoCode);
+            //}
 
 
         }
@@ -109,6 +119,8 @@ namespace CTS.Screens.PTS.Issue
                 else
                 {
                     EnableAllAndClearFields();
+                    MainAccount_TXT.Text = CustomerID_TXT.Text;
+                    ProgramAccount_TXT.Text = CustomerID_TXT.Text;
                     customerExistInDB = false;
                 }
       
@@ -255,19 +267,74 @@ namespace CTS.Screens.PTS.Issue
                     if (AddCustomer())
                     {
                         EnableAndClearFields();
+                        customerExistInDB = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("عذراً, لم يتم اضافة المستخدم");
+                        EnableAllAndClearFields();
+                        customerExistInDB = false;
                         return;
                     };
                 }
-                if (AddAccount())
+             
+               if(CheckAccount(CustomerID_TXT.Text,Program_CBox.SelectedValue.ToString()))
                 {
-                    MessageBox.Show("تم الإضافة بنجاح");
-                    //Add to record table here
-                    
-                }
-                else
-                {
+                    MessageBox.Show("عذراً, هذا الزبون لديه بطاقة صادرة مسبقاً لنفس المنتج");
+                    EnableAllAndClearFields();
+                    DisableAllFields();
                     return;
+
                 }
+                  
+                    //Add to record table here
+
+                    PTSAppRecord appRecord = new PTSAppRecord();
+                    appRecord.CustomerID = CustomerID_TXT.Text;
+                    appRecord.ApplicationType = 'P';
+                    appRecord.ApplicationSubType = 'N';
+                    appRecord.ProgramCode = Program_CBox.SelectedValue.ToString();
+
+                    var devicePlanStatus = PTSDevicePlanController.getDevicePlan(appRecord.ProgramCode);
+                    if(devicePlanStatus.status)
+                    {
+                        appRecord.DevicePlanCode = devicePlanStatus.Object[0].PlanCode;
+                    }
+                    else
+                    {
+                        appRecord.DevicePlanCode = "";
+                    }
+                    appRecord.BranchCode = Database.Login.branch.PadLeft(6, '0');
+                    appRecord.Inputter = Database.Login.id;
+
+                  var appRecordStatus =  PTSAppRecordController.addAppRecord(appRecord);
+                    if(appRecordStatus.status)
+                    {
+                        if (AddAccount())
+                        {
+                              MessageBox.Show("تم الإضافة بنجاح");
+                              EnableAllAndClearFields();
+                              DisableAllFields();
+                              customerExistInDB = false;
+                    }
+                        else
+                        {
+                   //     MessageBox.Show("عذراً, هذا الزبون لديه بطاقة صادرة مسبقاً لنفس المنتج");
+                        EnableAllAndClearFields();
+                        DisableAllFields();
+                        return;
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(appRecordStatus.message);
+                        return;
+                       
+                    }
+                    
+                
+               
 
             }
          
@@ -286,18 +353,19 @@ namespace CTS.Screens.PTS.Issue
             customer.Gender = Gender_CBOX.Text;
             customer.Birthdate = Birthdate.Text;
             customer.NationalID = NID_TXT.Text;
-            customer.Nationality = Nationality_CBOX.Text;
+            customer.Nationality = Nationality_CBOX.SelectedValue.ToString();
             customer.EmbossedName = EmbossedName_TXT.Text;
             customer.PassportNumber = Passport.Text;
             customer.PassportExp = PassportExpDate.Text;
             customer.Address = Address_TXT.Text;
-            customer.PhoneISD = CountryPhoneCode_CBox.Text;
+            customer.PhoneISD = CountryPhoneCode_CBox.SelectedValue.ToString();
             customer.Phone = PhoneNo_TXT.Text;
             customer.Email = Email_TXT.Text;
 
             Status cstatus = PTSCustomerController.addCustomer(customer);
 
             status = cstatus.status;
+            
             return status;
         }
         public bool AddAccount()
