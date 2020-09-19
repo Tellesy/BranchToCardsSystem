@@ -49,6 +49,7 @@
             this.Card_BTN = new System.Windows.Forms.Button();
             this.ShareFolder_BTN = new System.Windows.Forms.Button();
             this.AccountDetails_BTN = new System.Windows.Forms.Button();
+            this.PTSIssueAuth_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,9 +57,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label7.Location = new System.Drawing.Point(675, 84);
+            this.label7.Location = new System.Drawing.Point(1350, 162);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 20);
+            this.label7.Size = new System.Drawing.Size(122, 38);
             this.label7.TabIndex = 22;
             this.label7.Text = "رقم الفرع";
             // 
@@ -66,9 +68,10 @@
             // 
             this.Branch_LBL.AutoSize = true;
             this.Branch_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Branch_LBL.Location = new System.Drawing.Point(389, 81);
+            this.Branch_LBL.Location = new System.Drawing.Point(778, 156);
+            this.Branch_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Branch_LBL.Name = "Branch_LBL";
-            this.Branch_LBL.Size = new System.Drawing.Size(20, 20);
+            this.Branch_LBL.Size = new System.Drawing.Size(39, 38);
             this.Branch_LBL.TabIndex = 21;
             this.Branch_LBL.Text = "X";
             // 
@@ -76,9 +79,10 @@
             // 
             this.Name_LBL.AutoSize = true;
             this.Name_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Name_LBL.Location = new System.Drawing.Point(389, 47);
+            this.Name_LBL.Location = new System.Drawing.Point(778, 90);
+            this.Name_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Name_LBL.Name = "Name_LBL";
-            this.Name_LBL.Size = new System.Drawing.Size(20, 20);
+            this.Name_LBL.Size = new System.Drawing.Size(39, 38);
             this.Name_LBL.TabIndex = 19;
             this.Name_LBL.Text = "X";
             // 
@@ -86,20 +90,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label1.Location = new System.Drawing.Point(687, 47);
+            this.label1.Location = new System.Drawing.Point(1374, 90);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 20);
+            this.label1.Size = new System.Drawing.Size(89, 38);
             this.label1.TabIndex = 24;
             this.label1.Text = "مرحباً ";
             // 
             // Recharge_BTN
             // 
-            this.Recharge_BTN.Font = new System.Drawing.Font("Modern No. 20", 15.25F);
+            this.Recharge_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.Recharge_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Recharge_BTN.Image")));
             this.Recharge_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Recharge_BTN.Location = new System.Drawing.Point(11, 79);
+            this.Recharge_BTN.Location = new System.Drawing.Point(22, 152);
+            this.Recharge_BTN.Margin = new System.Windows.Forms.Padding(6);
             this.Recharge_BTN.Name = "Recharge_BTN";
-            this.Recharge_BTN.Size = new System.Drawing.Size(350, 61);
+            this.Recharge_BTN.Size = new System.Drawing.Size(700, 117);
             this.Recharge_BTN.TabIndex = 25;
             this.Recharge_BTN.Text = "تخويل طلبات الشحن";
             this.Recharge_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -108,12 +114,13 @@
             // 
             // Reports_BTN
             // 
-            this.Reports_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.Reports_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(11, 146);
+            this.Reports_BTN.Location = new System.Drawing.Point(22, 281);
+            this.Reports_BTN.Margin = new System.Windows.Forms.Padding(6);
             this.Reports_BTN.Name = "Reports_BTN";
-            this.Reports_BTN.Size = new System.Drawing.Size(350, 61);
+            this.Reports_BTN.Size = new System.Drawing.Size(700, 117);
             this.Reports_BTN.TabIndex = 26;
             this.Reports_BTN.Text = "تقرير عمليات الشحن";
             this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -122,12 +129,13 @@
             // 
             // Logout_BTN
             // 
-            this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.Logout_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
             this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Logout_BTN.Location = new System.Drawing.Point(11, 420);
+            this.Logout_BTN.Location = new System.Drawing.Point(22, 808);
+            this.Logout_BTN.Margin = new System.Windows.Forms.Padding(6);
             this.Logout_BTN.Name = "Logout_BTN";
-            this.Logout_BTN.Size = new System.Drawing.Size(350, 70);
+            this.Logout_BTN.Size = new System.Drawing.Size(700, 135);
             this.Logout_BTN.TabIndex = 27;
             this.Logout_BTN.Text = "تسجيل الخروج";
             this.Logout_BTN.UseVisualStyleBackColor = true;
@@ -138,9 +146,10 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label4.Location = new System.Drawing.Point(305, 521);
+            this.label4.Location = new System.Drawing.Point(610, 1002);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(149, 17);
+            this.label4.Size = new System.Drawing.Size(299, 32);
             this.label4.TabIndex = 31;
             this.label4.Text = "Mu Tellesy Software ©";
             // 
@@ -152,18 +161,20 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Status_LBL);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(387, 119);
+            this.panel1.Location = new System.Drawing.Point(774, 229);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 127);
+            this.panel1.Size = new System.Drawing.Size(700, 244);
             this.panel1.TabIndex = 32;
             // 
             // Amount_LBL
             // 
             this.Amount_LBL.AutoSize = true;
             this.Amount_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Amount_LBL.Location = new System.Drawing.Point(10, 85);
+            this.Amount_LBL.Location = new System.Drawing.Point(20, 163);
+            this.Amount_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Amount_LBL.Name = "Amount_LBL";
-            this.Amount_LBL.Size = new System.Drawing.Size(20, 20);
+            this.Amount_LBL.Size = new System.Drawing.Size(39, 38);
             this.Amount_LBL.TabIndex = 8;
             this.Amount_LBL.Text = "X";
             // 
@@ -171,9 +182,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label5.Location = new System.Drawing.Point(264, 85);
+            this.label5.Location = new System.Drawing.Point(528, 163);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 20);
+            this.label5.Size = new System.Drawing.Size(152, 38);
             this.label5.TabIndex = 7;
             this.label5.Text = "سقف الشحن";
             // 
@@ -181,9 +193,10 @@
             // 
             this.Year_LBL.AutoSize = true;
             this.Year_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Year_LBL.Location = new System.Drawing.Point(10, 48);
+            this.Year_LBL.Location = new System.Drawing.Point(20, 92);
+            this.Year_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Year_LBL.Name = "Year_LBL";
-            this.Year_LBL.Size = new System.Drawing.Size(20, 20);
+            this.Year_LBL.Size = new System.Drawing.Size(39, 38);
             this.Year_LBL.TabIndex = 6;
             this.Year_LBL.Text = "X";
             // 
@@ -191,9 +204,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label2.Location = new System.Drawing.Point(303, 48);
+            this.label2.Location = new System.Drawing.Point(606, 92);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 20);
+            this.label2.Size = new System.Drawing.Size(73, 38);
             this.label2.TabIndex = 5;
             this.label2.Text = "السنة";
             // 
@@ -201,9 +215,10 @@
             // 
             this.Status_LBL.AutoSize = true;
             this.Status_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Status_LBL.Location = new System.Drawing.Point(10, 11);
+            this.Status_LBL.Location = new System.Drawing.Point(20, 21);
+            this.Status_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Status_LBL.Name = "Status_LBL";
-            this.Status_LBL.Size = new System.Drawing.Size(20, 20);
+            this.Status_LBL.Size = new System.Drawing.Size(39, 38);
             this.Status_LBL.TabIndex = 4;
             this.Status_LBL.Text = "X";
             // 
@@ -211,9 +226,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label3.Location = new System.Drawing.Point(205, 11);
+            this.label3.Location = new System.Drawing.Point(410, 21);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 20);
+            this.label3.Size = new System.Drawing.Size(263, 38);
             this.label3.TabIndex = 3;
             this.label3.Text = "حالة الشحن و الإصدار";
             // 
@@ -222,21 +238,23 @@
             this.Password_LBL.AutoSize = true;
             this.Password_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Underline);
             this.Password_LBL.ForeColor = System.Drawing.Color.Blue;
-            this.Password_LBL.Location = new System.Drawing.Point(633, 9);
+            this.Password_LBL.Location = new System.Drawing.Point(1266, 17);
+            this.Password_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Password_LBL.Name = "Password_LBL";
-            this.Password_LBL.Size = new System.Drawing.Size(104, 20);
+            this.Password_LBL.Size = new System.Drawing.Size(200, 38);
             this.Password_LBL.TabIndex = 33;
             this.Password_LBL.Text = "تغير كلمة المرور";
             this.Password_LBL.Click += new System.EventHandler(this.Password_LBL_Click);
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Modern No. 20", 15.25F);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(12, 213);
+            this.button1.Location = new System.Drawing.Point(24, 410);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(350, 61);
+            this.button1.Size = new System.Drawing.Size(700, 117);
             this.button1.TabIndex = 34;
             this.button1.Text = "اضافة حساب بطاقة";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -245,12 +263,13 @@
             // 
             // Card_BTN
             // 
-            this.Card_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.Card_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.Card_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Card_BTN.Image")));
             this.Card_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Card_BTN.Location = new System.Drawing.Point(12, 12);
+            this.Card_BTN.Location = new System.Drawing.Point(24, 23);
+            this.Card_BTN.Margin = new System.Windows.Forms.Padding(6);
             this.Card_BTN.Name = "Card_BTN";
-            this.Card_BTN.Size = new System.Drawing.Size(350, 61);
+            this.Card_BTN.Size = new System.Drawing.Size(700, 117);
             this.Card_BTN.TabIndex = 35;
             this.Card_BTN.Text = "تخويل طلبات الإصدار";
             this.Card_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -259,10 +278,11 @@
             // 
             // ShareFolder_BTN
             // 
-            this.ShareFolder_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.ShareFolder_BTN.Location = new System.Drawing.Point(12, 359);
+            this.ShareFolder_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.ShareFolder_BTN.Location = new System.Drawing.Point(24, 690);
+            this.ShareFolder_BTN.Margin = new System.Windows.Forms.Padding(6);
             this.ShareFolder_BTN.Name = "ShareFolder_BTN";
-            this.ShareFolder_BTN.Size = new System.Drawing.Size(350, 55);
+            this.ShareFolder_BTN.Size = new System.Drawing.Size(700, 106);
             this.ShareFolder_BTN.TabIndex = 37;
             this.ShareFolder_BTN.Text = "Shared Folder";
             this.ShareFolder_BTN.UseVisualStyleBackColor = true;
@@ -270,25 +290,42 @@
             // 
             // AccountDetails_BTN
             // 
-            this.AccountDetails_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.AccountDetails_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.AccountDetails_BTN.Image = ((System.Drawing.Image)(resources.GetObject("AccountDetails_BTN.Image")));
             this.AccountDetails_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AccountDetails_BTN.Location = new System.Drawing.Point(11, 280);
+            this.AccountDetails_BTN.Location = new System.Drawing.Point(22, 538);
+            this.AccountDetails_BTN.Margin = new System.Windows.Forms.Padding(6);
             this.AccountDetails_BTN.Name = "AccountDetails_BTN";
-            this.AccountDetails_BTN.Size = new System.Drawing.Size(350, 61);
+            this.AccountDetails_BTN.Size = new System.Drawing.Size(700, 117);
             this.AccountDetails_BTN.TabIndex = 38;
             this.AccountDetails_BTN.Text = "بحث عن بيانات بطاقة";
             this.AccountDetails_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AccountDetails_BTN.UseVisualStyleBackColor = true;
             this.AccountDetails_BTN.Click += new System.EventHandler(this.AccountDetails_BTN_Click);
             // 
+            // PTSIssueAuth_BTN
+            // 
+            this.PTSIssueAuth_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.PTSIssueAuth_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PTSIssueAuth_BTN.Image")));
+            this.PTSIssueAuth_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PTSIssueAuth_BTN.Location = new System.Drawing.Point(766, 496);
+            this.PTSIssueAuth_BTN.Margin = new System.Windows.Forms.Padding(6);
+            this.PTSIssueAuth_BTN.Name = "PTSIssueAuth_BTN";
+            this.PTSIssueAuth_BTN.Size = new System.Drawing.Size(700, 117);
+            this.PTSIssueAuth_BTN.TabIndex = 39;
+            this.PTSIssueAuth_BTN.Text = "تخويل طلبات الإصدار";
+            this.PTSIssueAuth_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PTSIssueAuth_BTN.UseVisualStyleBackColor = true;
+            this.PTSIssueAuth_BTN.Click += new System.EventHandler(this.PTSIssueAuthBTN_Click);
+            // 
             // BranchAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(749, 554);
+            this.ClientSize = new System.Drawing.Size(1498, 1065);
             this.ControlBox = false;
+            this.Controls.Add(this.PTSIssueAuth_BTN);
             this.Controls.Add(this.AccountDetails_BTN);
             this.Controls.Add(this.ShareFolder_BTN);
             this.Controls.Add(this.Card_BTN);
@@ -303,6 +340,7 @@
             this.Controls.Add(this.Branch_LBL);
             this.Controls.Add(this.Name_LBL);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "BranchAdmin";
             this.Text = "مخول";
             this.Load += new System.EventHandler(this.BranchAdmin_Load);
@@ -335,5 +373,6 @@
         private System.Windows.Forms.Button Card_BTN;
         private System.Windows.Forms.Button ShareFolder_BTN;
         private System.Windows.Forms.Button AccountDetails_BTN;
+        private System.Windows.Forms.Button PTSIssueAuth_BTN;
     }
 }

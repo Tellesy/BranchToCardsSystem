@@ -15,6 +15,7 @@ using CTS.Screens.User;
 using System.Windows.Forms;
 using CTS.Screens.FilesAuth;
 using CTS.Screens.Account_Details;
+using CTS.Screens.Main.International_Cards.AuthIssue;
 
 namespace CTS.Screens
 {
@@ -24,6 +25,9 @@ namespace CTS.Screens
         public ChangePassword changePassword;
         private POBranchUnauth POApp;
         private Search search;
+
+        //PTSScreens
+        private AuthIssue authIssue;
 
         public BranchAdmin()
         {
@@ -137,6 +141,20 @@ namespace CTS.Screens
                 AccountDetails_BTN.Enabled = false;
             }
             
+        }
+
+        private void PTSIssueAuthBTN_Click(object sender, EventArgs e)
+        {
+
+            if (authIssue == null)
+            {
+                authIssue = new AuthIssue();
+                authIssue.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    authIssue = null; PTSIssueAuth_BTN.Enabled = true;
+                };
+                authIssue.Show();
+                PTSIssueAuth_BTN.Enabled = false;
+            }
         }
     }
 }
