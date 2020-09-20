@@ -88,12 +88,20 @@ namespace CTS.Database
         //If branch flag = true, get only request for the user's branch
         public static Status<List<Objects.PTSAppRecord>> getUnAuthAppRecords(bool branchFlag)
         {
+            string branch_code = "";
             Status<List<Objects.PTSAppRecord>> statusObject = new Status<List<Objects.PTSAppRecord>>();
             statusObject.Object = new List<Objects.PTSAppRecord>();
             statusObject.status = false;
 
 
             SqlConnection conn = DBConnection.Connection();
+
+            if (branchFlag)
+            {
+               branch_code = Database.Login.branch.PadLeft(6, '0');
+               
+
+            }
 
             conn.Open();
             if (conn.State == System.Data.ConnectionState.Open)
@@ -106,7 +114,7 @@ namespace CTS.Database
 
                     if (branchFlag)
                     {
-                        query = @"SELECT [record_id],[customer_id] ,[bank_code] ,[application_type] ,[application_sub_type],[program_code],[device_number] ,[device_plan_code_1],[branch_code],[inputter] ,[input_time] FROM [CTS].[dbo].[PTS_AppRecord] where branch_authorizer is NULL AND HQ_authorizer is NULL AND generated = 0 AND [bank_code] = @value1";
+                        query = @"SELECT [record_id],[customer_id] ,[bank_code] ,[application_type] ,[application_sub_type],[program_code],[device_number] ,[device_plan_code_1],[branch_code],[inputter] ,[input_time] FROM [CTS].[dbo].[PTS_AppRecord] where branch_authorizer is NULL AND HQ_authorizer is NULL AND generated = 0 AND [branch_code] = '" +branch_code+"'";
                     }
                     else
                     {
@@ -116,12 +124,7 @@ namespace CTS.Database
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
-                    if (branchFlag)
-                    {
-                        string branch_code = Database.Login.branch.PadLeft(6, '0');
-                        cmd.Parameters.AddWithValue("@value1", branch_code);
-
-                    }
+   
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
