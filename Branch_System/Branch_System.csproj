@@ -314,6 +314,12 @@
     <Compile Include="Screens\Main\International Cards\AuthIssue\AuthIssue.Designer.cs">
       <DependentUpon>AuthIssue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueBranchAuthScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueBranchAuthScreen.Designer.cs">
+      <DependentUpon>IssueBranchAuthScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Main\Printing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -460,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\International Cards\AuthIssue\AuthIssue.resx">
       <DependentUpon>AuthIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueBranchAuthScreen.resx">
+      <DependentUpon>IssueBranchAuthScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\Printing.resx">
       <DependentUpon>Printing.cs</DependentUpon>

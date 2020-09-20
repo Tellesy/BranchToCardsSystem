@@ -101,12 +101,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1529, 980);
             this.Controls.Add(this.Record_DGView);
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Sync_BTN);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AuthIssue";
-            this.Text = "AuthIssue";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "تخويل طلبات الإصدار";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.AuthIssue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();

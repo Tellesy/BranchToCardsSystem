@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CTS.Database;
 using CTS.Database.Objects;
-
+using CTS.Screens.Main.International_Cards.AuthIssue.SubScreen;
 
 namespace CTS.Screens.Main.International_Cards.AuthIssue
 {
@@ -64,6 +64,8 @@ namespace CTS.Screens.Main.International_Cards.AuthIssue
                         viewList.ApplicationSubType = records[i].ApplicationSubType.ToString();
                         viewList.Branch = records[i].BranchCode;
                         viewList.Inputter = records[i].Inputter;
+                        viewList.InputTime = records[i].InputTime;
+
                         viewLists.Add(viewList);
                     }
 
@@ -77,10 +79,14 @@ namespace CTS.Screens.Main.International_Cards.AuthIssue
 
                 Record_DGView.Columns[0].HeaderText = "id";
                 Record_DGView.Columns[1].HeaderText = "رقم الزبون";
-                Record_DGView.Columns[2].HeaderText = "الرقم الوطني";
-                Record_DGView.Columns[3].HeaderText = "القيمة";
-                Record_DGView.Columns[4].HeaderText = "المنتج";
+                Record_DGView.Columns[2].HeaderText = "المنتج";
+                Record_DGView.Columns[3].HeaderText = "نوع الطلب";
+                Record_DGView.Columns[4].HeaderText = "النوع الثانوي";
                 Record_DGView.Columns[5].HeaderText = "الفرع";
+                Record_DGView.Columns[6].HeaderText = "المدخل";
+                Record_DGView.Columns[7].HeaderText = "وقت الإدخال";
+
+
 
                 if (records == null)
                 {
@@ -110,6 +116,8 @@ namespace CTS.Screens.Main.International_Cards.AuthIssue
             public string ApplicationType { get; set; }
             public string ApplicationSubType { get; set; }
             public string Branch { get; set; }
+            public DateTime InputTime { get; set; }
+
         }
 
         private void Sync_BTN_Click(object sender, EventArgs e)
@@ -127,19 +135,19 @@ namespace CTS.Screens.Main.International_Cards.AuthIssue
         private void Record_DGView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridViewRow r = Record_DGView.SelectedRows[0];
-           //Authorize authorize = new Authorize();
-           // if (records != null)
-           // {
-           //     var q = records.Where(x => x.ID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
+            IssueBranchAuthScreen authorize = new IssueBranchAuthScreen();
+            if (records != null)
+            {
+                var q = records.Where(x => x.RecordID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
 
-           //     if (q.Count() > 0)
-           //     {
-           //         this.Hide();
-           //         authorize.record = q[0];
-           //         authorize.Closed += (s, args) => { this.GetUnAuthRecords(); this.Show(); };
-           //         authorize.Show();
-           //     }
-           // }
+                if (q.Count() > 0)
+                {
+                    this.Hide();
+                    authorize.record = q[0];
+                    authorize.Closed += (s, args) => { this.GetUnAuthRecords(); this.Show(); };
+                    authorize.Show();
+                }
+            }
 
 
         }

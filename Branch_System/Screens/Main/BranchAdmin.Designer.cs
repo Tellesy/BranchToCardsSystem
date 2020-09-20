@@ -322,6 +322,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1498, 1065);
             this.ControlBox = false;
@@ -340,8 +341,12 @@
             this.Controls.Add(this.Branch_LBL);
             this.Controls.Add(this.Name_LBL);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BranchAdmin";
+            this.ShowIcon = false;
             this.Text = "مخول";
             this.Load += new System.EventHandler(this.BranchAdmin_Load);
             this.panel1.ResumeLayout(false);
