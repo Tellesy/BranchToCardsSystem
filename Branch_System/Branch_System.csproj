@@ -308,6 +308,12 @@
     <Compile Include="Screens\Main\BranchAdmin.Designer.cs">
       <DependentUpon>BranchAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Main\HQAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\HQAdmin.Designer.cs">
+      <DependentUpon>HQAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Main\International Cards\AuthIssue\AuthIssue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -460,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\BranchAdmin.resx">
       <DependentUpon>BranchAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\HQAdmin.resx">
+      <DependentUpon>HQAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\Inputter.resx">
       <DependentUpon>Inputter.cs</DependentUpon>

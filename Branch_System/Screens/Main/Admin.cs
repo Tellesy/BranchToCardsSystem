@@ -384,5 +384,10 @@ namespace CTS.Screens
             }
 
         }
+
+        private void UpdateUser_BTN_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

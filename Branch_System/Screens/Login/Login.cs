@@ -97,9 +97,16 @@ namespace CTS.Screens
                     Username_TXT.Text = "";
                     Password_TXT.Text = "";
                     this.Hide();
-                    Admin adminApp = new Admin();
-                    adminApp.Closed += (s, args) => this.Show();
-                    adminApp.Show();
+                    //Old admin page
+                    //Admin adminApp = new Admin();
+                    //adminApp.Closed += (s, args) => this.Show();
+                    //adminApp.Show();
+                    //New Admin Page
+                    HQAdmin hqAdmin = new HQAdmin();
+                    hqAdmin.Closed += (s, args) => this.Show();
+                    hqAdmin.Show();
+
+
                 }
                 else if(Database.Login.role == "3")
                 {

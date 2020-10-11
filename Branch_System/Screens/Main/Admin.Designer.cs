@@ -296,6 +296,7 @@
             this.UpdateUser_BTN.TabIndex = 35;
             this.UpdateUser_BTN.Text = "Update User";
             this.UpdateUser_BTN.UseVisualStyleBackColor = true;
+            this.UpdateUser_BTN.Click += new System.EventHandler(this.UpdateUser_BTN_Click);
             // 
             // ShareFolder_BTN
             // 
@@ -327,7 +328,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(603, 613);
+            this.ClientSize = new System.Drawing.Size(1054, 613);
             this.ControlBox = false;
             this.Controls.Add(this.AccountDetails_BTN);
             this.Controls.Add(this.ShareFolder_BTN);
