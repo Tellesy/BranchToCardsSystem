@@ -119,5 +119,10 @@ namespace CTS.Screens.Main
             }
            
         }
+
+        private void Logout_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

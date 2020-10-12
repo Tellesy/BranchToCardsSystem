@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HQAdmin));
             this.UpdateUser_BTN = new System.Windows.Forms.Button();
             this.AddUser_BTN = new System.Windows.Forms.Button();
             this.AddCardAccount_BTN = new System.Windows.Forms.Button();
@@ -42,6 +43,8 @@
             this.Name_LBL = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.AuthAppRecord_BTN = new System.Windows.Forms.Button();
+            this.Logout_BTN = new System.Windows.Forms.Button();
+            this.GenAppRecord_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -194,6 +197,29 @@
             this.AuthAppRecord_BTN.UseVisualStyleBackColor = true;
             this.AuthAppRecord_BTN.Click += new System.EventHandler(this.AuthAppRecord_BTN_Click);
             // 
+            // Logout_BTN
+            // 
+            this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
+            this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
+            this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Logout_BTN.Location = new System.Drawing.Point(158, 368);
+            this.Logout_BTN.Name = "Logout_BTN";
+            this.Logout_BTN.Size = new System.Drawing.Size(350, 70);
+            this.Logout_BTN.TabIndex = 44;
+            this.Logout_BTN.Text = "تسجيل الخروج";
+            this.Logout_BTN.UseVisualStyleBackColor = true;
+            this.Logout_BTN.Click += new System.EventHandler(this.Logout_BTN_Click);
+            // 
+            // GenAppRecord_BTN
+            // 
+            this.GenAppRecord_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.GenAppRecord_BTN.Location = new System.Drawing.Point(158, 230);
+            this.GenAppRecord_BTN.Name = "GenAppRecord_BTN";
+            this.GenAppRecord_BTN.Size = new System.Drawing.Size(145, 63);
+            this.GenAppRecord_BTN.TabIndex = 45;
+            this.GenAppRecord_BTN.Text = "Generate App Record File";
+            this.GenAppRecord_BTN.UseVisualStyleBackColor = true;
+            // 
             // HQAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,6 +227,8 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(655, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.GenAppRecord_BTN);
+            this.Controls.Add(this.Logout_BTN);
             this.Controls.Add(this.AuthAppRecord_BTN);
             this.Controls.Add(this.UpdateUser_BTN);
             this.Controls.Add(this.AddUser_BTN);
@@ -235,5 +263,7 @@
         private System.Windows.Forms.Label Name_LBL;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AuthAppRecord_BTN;
+        private System.Windows.Forms.Button Logout_BTN;
+        private System.Windows.Forms.Button GenAppRecord_BTN;
     }
 }

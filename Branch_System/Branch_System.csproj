@@ -326,6 +326,12 @@
     <Compile Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueBranchAuthScreen.Designer.cs">
       <DependentUpon>IssueBranchAuthScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Main\International Cards\Generate File\GenAppRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\International Cards\Generate File\GenAppRecord.Designer.cs">
+      <DependentUpon>GenAppRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Main\Printing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -478,6 +484,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueBranchAuthScreen.resx">
       <DependentUpon>IssueBranchAuthScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\International Cards\Generate File\GenAppRecord.resx">
+      <DependentUpon>GenAppRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\Printing.resx">
       <DependentUpon>Printing.cs</DependentUpon>
