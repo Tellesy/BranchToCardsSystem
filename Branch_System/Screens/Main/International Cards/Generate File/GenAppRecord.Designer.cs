@@ -29,30 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenAppRecord));
-            this.GenAppRecord_BTN = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.GenAllAppFiles_BTN = new System.Windows.Forms.Button();
+            this.GenAppFilesBasedOnCode_BTN = new System.Windows.Forms.Button();
             this.Exit_BTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // GenAppRecord_BTN
+            // GenAllAppFiles_BTN
             // 
-            this.GenAppRecord_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.GenAppRecord_BTN.Location = new System.Drawing.Point(12, 23);
-            this.GenAppRecord_BTN.Name = "GenAppRecord_BTN";
-            this.GenAppRecord_BTN.Size = new System.Drawing.Size(145, 63);
-            this.GenAppRecord_BTN.TabIndex = 46;
-            this.GenAppRecord_BTN.Text = "Generate App Record File";
-            this.GenAppRecord_BTN.UseVisualStyleBackColor = true;
+            this.GenAllAppFiles_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.GenAllAppFiles_BTN.Location = new System.Drawing.Point(12, 23);
+            this.GenAllAppFiles_BTN.Name = "GenAllAppFiles_BTN";
+            this.GenAllAppFiles_BTN.Size = new System.Drawing.Size(145, 63);
+            this.GenAllAppFiles_BTN.TabIndex = 46;
+            this.GenAllAppFiles_BTN.Text = "Generate All App Records";
+            this.GenAllAppFiles_BTN.UseVisualStyleBackColor = true;
+            this.GenAllAppFiles_BTN.Click += new System.EventHandler(this.GenAllAppFiles_BTN_Click);
             // 
-            // button1
+            // GenAppFilesBasedOnCode_BTN
             // 
-            this.button1.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.button1.Location = new System.Drawing.Point(163, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 63);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "Generate App Record File";
-            this.button1.UseVisualStyleBackColor = true;
+            this.GenAppFilesBasedOnCode_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.GenAppFilesBasedOnCode_BTN.Location = new System.Drawing.Point(160, 23);
+            this.GenAppFilesBasedOnCode_BTN.Name = "GenAppFilesBasedOnCode_BTN";
+            this.GenAppFilesBasedOnCode_BTN.Size = new System.Drawing.Size(145, 63);
+            this.GenAppFilesBasedOnCode_BTN.TabIndex = 47;
+            this.GenAppFilesBasedOnCode_BTN.Text = "Generate App Record Files Based on Program Code";
+            this.GenAppFilesBasedOnCode_BTN.UseVisualStyleBackColor = true;
             // 
             // Exit_BTN
             // 
@@ -75,8 +76,8 @@
             this.ClientSize = new System.Drawing.Size(319, 390);
             this.ControlBox = false;
             this.Controls.Add(this.Exit_BTN);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.GenAppRecord_BTN);
+            this.Controls.Add(this.GenAppFilesBasedOnCode_BTN);
+            this.Controls.Add(this.GenAllAppFiles_BTN);
             this.Name = "GenAppRecord";
             this.Text = "GenAppRecord";
             this.ResumeLayout(false);
@@ -85,8 +86,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button GenAppRecord_BTN;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button GenAllAppFiles_BTN;
+        private System.Windows.Forms.Button GenAppFilesBasedOnCode_BTN;
         private System.Windows.Forms.Button Exit_BTN;
     }
 }

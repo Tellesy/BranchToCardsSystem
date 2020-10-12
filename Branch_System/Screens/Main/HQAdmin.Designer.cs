@@ -219,6 +219,7 @@
             this.GenAppRecord_BTN.TabIndex = 45;
             this.GenAppRecord_BTN.Text = "Generate App Record File";
             this.GenAppRecord_BTN.UseVisualStyleBackColor = true;
+            this.GenAppRecord_BTN.Click += new System.EventHandler(this.GenAppRecord_BTN_Click);
             // 
             // HQAdmin
             // 

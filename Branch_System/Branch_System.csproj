@@ -193,6 +193,7 @@
     <Compile Include="Database\PTSDevicePlanController.cs" />
     <Compile Include="Database\PTSProgramController.cs" />
     <Compile Include="Database\User.cs" />
+    <Compile Include="FilesCreator\AppRecrodFileCreator.cs" />
     <Compile Include="FilesCreator\FilesCreator.cs" />
     <Compile Include="Resources\Countries.Designer.cs">
       <AutoGen>True</AutoGen>

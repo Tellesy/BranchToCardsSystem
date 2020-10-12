@@ -15,6 +15,7 @@ using CTS.Screens.Account_Details;
 using System;
 using System.Collections.Generic;
 using CTS.Screens.Main.International_Cards.AuthIssue;
+using CTS.Screens.Main.International_Cards.Generate_File;
 
 namespace CTS.Screens.Main
 {
@@ -24,6 +25,7 @@ namespace CTS.Screens.Main
         private ChangePassword changePassword;
         private Search search;
         private AuthIssue authIssue;
+        private GenAppRecord genAppRecord;
         public HQAdmin()
         {
             InitializeComponent();
@@ -123,6 +125,21 @@ namespace CTS.Screens.Main
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void GenAppRecord_BTN_Click(object sender, EventArgs e)
+        {
+            if (genAppRecord == null)
+            {
+                genAppRecord = new GenAppRecord();
+
+
+                genAppRecord.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    genAppRecord = null; GenAppRecord_BTN.Enabled = true;
+                };
+                genAppRecord.Show();
+                GenAppRecord_BTN.Enabled = false;
+            }
         }
     }
 }
