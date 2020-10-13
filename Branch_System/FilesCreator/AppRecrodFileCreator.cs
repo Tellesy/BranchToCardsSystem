@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 
 namespace CTS.FilesCreator
 {
+   
     public static class AppRecrodFileCreator
     {
         private static string bankCode = "020354";
+
+        
 
        public static Status<int> GenerateAppRecordFile(List<PTSAppRecord> records)
         {
@@ -55,41 +58,30 @@ namespace CTS.FilesCreator
 
         public static string extractRecordsString(PTSAppRecord record)
         {
-
+   
             string recordString = "";
 
-            PropertyInfo[] properties = typeof(PTSAppRecord).GetProperties();
-            foreach (PropertyInfo property in properties)
-            {
-                //property.SetValue(record, value);
 
-                Console.WriteLine(property);
-                
-            }
+            //Add Bank code;
+            recordString += bankCode + "|";
+           
 
-            //Console.WriteLine(properties.GetValue());
-            //Object.keys(record).forEach(function(key) {
-            //    if (key == '_bankCode')
-            //    {
-            //        record[key] = bankCode;
-            //    }
+            //Add Form Number
+            recordString += record.FromNumber + "|";
 
-            //    var value = record[key];
+            //Add Application Sub Type
+            recordString += record.ApplicationSubType + "|";
 
-            //    if (!value)
-            //    {
-            //        value = '';
-            //    }
+            //Add Customer Type
+            if (string.IsNullOrWhiteSpace(record.CustomerType))
+                record.CustomerType = "0";
+            recordString += record.CustomerType + "|";
 
-            //    if (recordString == '')
-            //    {
-            //        recordString = value;
-            //    }
-            //    else recordString = recordString + '|' + value;
-            //}); //end the record with '|' 
-            //    //recordString = recordString+'|';
+            //Add Program Code
+            recordString += record.ProgramCode + "|";
 
-            //console.log(recordString);
+
+
             return recordString;
         }
     }

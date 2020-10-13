@@ -25,6 +25,11 @@ namespace CTS.Database.Objects
         public DateTime HQAuthTime;
         public bool Generated;
 
+        //Usually empty fields
+        public string FromNumber;
+        public string CustomerType;
+
+
 
     }
 }
