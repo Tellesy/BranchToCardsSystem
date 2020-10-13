@@ -57,7 +57,7 @@ namespace CTS.Database
                         appRecord.DeviceNumber = "";
                     }
                     cmd.Parameters.AddWithValue("@v6", appRecord.DeviceNumber);
-                    cmd.Parameters.AddWithValue("@v7", appRecord.DevicePlanCode);
+                    cmd.Parameters.AddWithValue("@v7", appRecord.DevicePlanCode1);
                     cmd.Parameters.AddWithValue("@v8", appRecord.BranchCode);
                     cmd.Parameters.AddWithValue("@v9", appRecord.Inputter);
 
@@ -162,7 +162,7 @@ namespace CTS.Database
                                 request.DeviceNumber = reader[6].ToString();
 
                             if (!string.IsNullOrEmpty(reader[7].ToString()))
-                                request.DevicePlanCode = reader[7].ToString();
+                                request.DevicePlanCode1 = reader[7].ToString();
 
                             if (!string.IsNullOrEmpty(reader[8].ToString()))
                                 request.BranchCode = reader[8].ToString();

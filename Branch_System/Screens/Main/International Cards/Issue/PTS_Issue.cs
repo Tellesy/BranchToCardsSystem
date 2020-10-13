@@ -298,11 +298,11 @@ namespace CTS.Screens.PTS.Issue
                     var devicePlanStatus = PTSDevicePlanController.getDevicePlan(appRecord.ProgramCode);
                     if(devicePlanStatus.status)
                     {
-                        appRecord.DevicePlanCode = devicePlanStatus.Object[0].PlanCode;
+                        appRecord.DevicePlanCode1 = devicePlanStatus.Object[0].PlanCode;
                     }
                     else
                     {
-                        appRecord.DevicePlanCode = "";
+                        appRecord.DevicePlanCode1 = "";
                     }
                     appRecord.BranchCode = Database.Login.branch.PadLeft(6, '0');
                     appRecord.Inputter = Database.Login.id;
