@@ -27,9 +27,9 @@ namespace CTS.Screens
 
         private async void Login_Load(object sender, EventArgs e)
         {
-            //Testing Area
+    
             CTS.ConnectToSharedFolder.CreateShortcut();
-            //End of Testing 
+
 
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;

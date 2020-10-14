@@ -75,9 +75,15 @@ namespace CTS.Screens.Main
             System.IO.Directory.CreateDirectory(FileExporter.location);
             string RECEPT = String.Format(FileExporter.location + "RECEPT");
             string REFRESH = String.Format(FileExporter.location + "REFRESH");
+      
+
+
 
             System.IO.Directory.CreateDirectory(RECEPT);
             System.IO.Directory.CreateDirectory(REFRESH);
+
+            //Generate PTS Files
+            AppRecrodFileCreator.CreateFolders();
 
             Status IssueStatus = Database.Recharge.checkYear();
 
