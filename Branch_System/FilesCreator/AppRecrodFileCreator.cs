@@ -507,6 +507,251 @@ namespace CTS.FilesCreator
             //Memo
             recordString += "|";
 
+            //Client Custom Date 1
+            recordString += "|";
+
+            //Client Custom Date 2
+            recordString += "|";
+
+            //Client Custom Date 3
+            recordString += "|";
+
+            //Client Custom Date 4
+            recordString += "|";
+
+            //Client Custom Date 5
+            recordString += "|";
+
+            //Client Custom Data 1
+            recordString += "|";
+
+            //Client Custom Data 2
+            recordString += "|";
+
+            //Client Custom Data 3
+            recordString += "|";
+
+            //Client Custom Data 4
+            recordString += "|";
+
+            //Client Custom Data 5
+            recordString += "|";
+
+            //Client Custom Number 1
+            recordString += "|";
+
+            //Client Custom Number 2
+            recordString += "|";
+
+            //Client Custom Number 3
+            recordString += "|";
+
+            //Client Custom Number 4
+            recordString += "|";
+
+            //Client Custom Number 5
+            recordString += "|";
+
+            //Device Custom Date 1
+            recordString += "|";
+
+            //Device Custom Date 2
+            recordString += "|";
+
+            //Device Custom Date 3
+            recordString += "|";
+
+            //Device Custom Date 4
+            recordString += "|";
+
+            //Device Custom Date 5
+            recordString += "|";
+
+            //Device Custom Data 1
+            recordString += "|";
+
+            //Device Custom Data 2
+            recordString += "|";
+
+            //Device Custom Data 3
+            recordString += "|";
+
+            //Device Custom Data 4
+            recordString += "|";
+
+            //Device Custom Data 5
+            recordString += "|";
+
+            //Device Custom Number 1
+            recordString += "|";
+
+            //Device Custom Number 2
+            recordString += "|";
+
+            //Device Custom Number 3
+            recordString += "|";
+
+            //Device Custom Number 4
+            recordString += "|";
+
+            //Device Custom Number 5
+            recordString += "|";
+
+
+            //Wallet Custom Date 1
+            recordString += "|";
+
+            //Wallet Custom Date 2
+            recordString += "|";
+
+            //Wallet Custom Date 3
+            recordString += "|";
+
+            //Wallet Custom Date 4
+            recordString += "|";
+
+            //Wallet Custom Date 5
+            recordString += "|";
+
+            //Wallet Custom Data 1
+            recordString += record.Account.AccountNumberCurrency + "|";
+
+            //Wallet Custom Data 2
+            recordString += record.Account.AccountNumberLYD + "|";
+
+            //Wallet Custom Data 3
+            recordString += "|";
+
+            //Wallet Custom Data 4
+            recordString += "|";
+
+            //Wallet Custom Data 5
+            recordString += "|";
+
+            //Wallet Custom Number 1
+            recordString += record.Account.AccountNumberCurrency + "|";
+
+            //Wallet Custom Number 2
+            recordString += record.Account.AccountNumberLYD + "|";
+
+            //Wallet Custom Number 3
+            recordString += "|";
+
+            //Wallet Custom Number 4
+            recordString += "|";
+
+            //Wallet Custom Number 5
+            recordString += "|";
+
+            //Employment Number status
+            recordString += "|";
+
+            //Empl ID
+            recordString += "|";
+
+            //Employer Name
+            recordString += "|";
+
+            //Empl Designation
+            recordString += "|";
+
+            //Empl Department
+            recordString += "|";
+
+            //Comp Type
+            recordString += "|";
+
+            //Current Job Tenure
+            recordString += "|";
+
+            //Occupation
+            recordString += "|";
+
+            //Applicant Prof
+            recordString += "|";
+
+            //Employee Joining Date
+            recordString += "|";
+
+            //Travel Type Code
+            recordString += "|";
+
+            //Travel Country
+            recordString += "|";
+
+            //Travel Start Date
+            recordString += "|";
+
+            //Travel End Date
+            recordString += "|";
+
+            //Client ID (Customer ID in CBS)
+            recordString += record.CustomerID + "|";
+
+            //Risk Catagory Value
+            recordString += "|";
+
+            //Cobrand Number
+            recordString += "|";
+
+            //Reuter Reference Number
+            recordString += "|";
+
+            //CBS Reference Number
+            recordString += record.CustomerID + "|";
+
+            //Alternate Name
+            recordString += "|";
+
+            //Future Use Field 1
+            recordString += "|";
+            //Future Use Field 2
+            recordString += "|";
+            //Future Use Field 3
+            recordString += "|";
+            //Future Use Field 4
+            recordString += "|";
+            //Future Use Field 5
+            recordString += "|";
+            //Future Use Field 6
+            recordString += "|";
+            //Future Use Field 7
+            recordString += "|";
+            //Future Use Field 8
+            recordString += "|";
+            //Future Use Field 9
+            recordString += "|";
+            //Future Use Field 10
+            recordString += "|";
+            //Future Use Field 11
+            recordString += "|";
+            //Future Use Field 12
+            recordString += "|";
+            //Future Use Field 13
+            recordString += "|";
+            //Future Use Field 14
+            recordString += "|";
+            //Future Use Field 15
+            recordString += "|";
+            //Future Use Field 16
+            recordString += "|";
+            //Future Use Field 17
+            recordString += "|";
+            //Future Use Field 18
+            recordString += "|";
+            //Future Use Field 19
+            recordString += "|";
+            //Future Use Field 20
+            recordString += "|";
+
+            //Lodging Mode
+            recordString += "|";
+
+            //Permanent Address From
+            recordString += "|";
+
+            //Checksum 
+            recordString += "|";
 
             return recordString;
         }

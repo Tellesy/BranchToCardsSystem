@@ -26,6 +26,7 @@ namespace CTS.Database.Objects
         public DateTime HQAuthTime;
         public bool Generated;
         public PTSCustomer Customer;
+        public PTSAccount Account;
         //public string Title;
 
 
