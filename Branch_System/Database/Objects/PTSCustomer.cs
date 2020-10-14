@@ -9,6 +9,7 @@ namespace CTS.Database.Objects
    public class PTSCustomer
     {
         public string CustomerID;
+        public string Title;
         public string FirstName;
         public string FatherName;
         public string LastName;
@@ -23,6 +24,7 @@ namespace CTS.Database.Objects
         public string PhoneISD;
         public string Phone;
         public string Email;
- 
+
+
     }
 }

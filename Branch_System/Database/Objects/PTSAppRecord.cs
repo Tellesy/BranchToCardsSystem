@@ -25,6 +25,9 @@ namespace CTS.Database.Objects
         public string HQAuthorizer;
         public DateTime HQAuthTime;
         public bool Generated;
+        public PTSCustomer Customer;
+        //public string Title;
+
 
         //Usually empty fields
         public string FromNumber;
@@ -65,6 +68,9 @@ namespace CTS.Database.Objects
         public string DevicePhotoIndicator4;
         public string DevicePhotoIndicator5;
         public string DevicePhotoIndicator6;
+
+        public string CorporateClientCode;
+
 
 
 

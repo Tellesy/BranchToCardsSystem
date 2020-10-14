@@ -164,8 +164,348 @@ namespace CTS.FilesCreator
             recordString += record.DevicePhotoIndicator2 + "|";
 
 
+            //Add Device Type 3
+            if (string.IsNullOrWhiteSpace(record.DeviceType3))
+                record.DeviceType3 = "";
+            recordString += record.DeviceType3 + "|";
+
+            //Add Device Plan Code 3
+            if (string.IsNullOrWhiteSpace(record.DevicePlanCode3))
+                record.DevicePlanCode3 = "";
+            recordString += record.DevicePlanCode3 + "|";
+
+            //Add Device Plan Promo Code 3
+            if (string.IsNullOrWhiteSpace(record.DevicePlanPromoCode3))
+                record.DevicePlanPromoCode3 = "";
+            recordString += record.DevicePlanPromoCode3 + "|";
+
+            //Add Device Photo Indicator  3
+            if (string.IsNullOrWhiteSpace(record.DevicePhotoIndicator3))
+                record.DevicePhotoIndicator3 = "";
+            recordString += record.DevicePhotoIndicator3 + "|";
 
 
+            //Add Device Type 4
+            if (string.IsNullOrWhiteSpace(record.DeviceType4))
+                record.DeviceType4 = "";
+            recordString += record.DeviceType4 + "|";
+
+            //Add Device Plan Code 4
+            if (string.IsNullOrWhiteSpace(record.DevicePlanCode4))
+                record.DevicePlanCode4 = "";
+            recordString += record.DevicePlanCode4 + "|";
+
+            //Add Device Plan Promo Code 4
+            if (string.IsNullOrWhiteSpace(record.DevicePlanPromoCode4))
+                record.DevicePlanPromoCode4 = "";
+            recordString += record.DevicePlanPromoCode4 + "|";
+
+            //Add Device Photo Indicator  4
+            if (string.IsNullOrWhiteSpace(record.DevicePhotoIndicator4))
+                record.DevicePhotoIndicator4 = "";
+            recordString += record.DevicePhotoIndicator4 + "|";
+
+
+
+            //Add Device Type 5
+            if (string.IsNullOrWhiteSpace(record.DeviceType5))
+                record.DeviceType5 = "";
+            recordString += record.DeviceType5 + "|";
+
+            //Add Device Plan Code 5
+            if (string.IsNullOrWhiteSpace(record.DevicePlanCode5))
+                record.DevicePlanCode5 = "";
+            recordString += record.DevicePlanCode5 + "|";
+
+            //Add Device Plan Promo Code 5
+            if (string.IsNullOrWhiteSpace(record.DevicePlanPromoCode5))
+                record.DevicePlanPromoCode5 = "";
+            recordString += record.DevicePlanPromoCode5 + "|";
+
+            //Add Device Photo Indicator  5
+            if (string.IsNullOrWhiteSpace(record.DevicePhotoIndicator5))
+                record.DevicePhotoIndicator5 = "";
+            recordString += record.DevicePhotoIndicator5 + "|";
+
+
+            //Add Device Type 6
+            if (string.IsNullOrWhiteSpace(record.DeviceType6))
+                record.DeviceType6 = "";
+            recordString += record.DeviceType6 + "|";
+
+            //Add Device Plan Code 6
+            if (string.IsNullOrWhiteSpace(record.DevicePlanCode6))
+                record.DevicePlanCode6 = "";
+            recordString += record.DevicePlanCode6 + "|";
+
+            //Add Device Plan Promo Code 6
+            if (string.IsNullOrWhiteSpace(record.DevicePlanPromoCode6))
+                record.DevicePlanPromoCode6 = "";
+            recordString += record.DevicePlanPromoCode6 + "|";
+
+            //Add Device Photo Indicator  6
+            if (string.IsNullOrWhiteSpace(record.DevicePhotoIndicator6))
+                record.DevicePhotoIndicator6 = "";
+            recordString += record.DevicePhotoIndicator6 + "|";
+
+            //Add Branch Code
+            recordString += record.BranchCode.PadLeft(6, '0') + "|";
+
+
+            //Add Corporate Client Code
+            if (string.IsNullOrWhiteSpace(record.CorporateClientCode))
+                record.CorporateClientCode = "";
+            recordString += record.CorporateClientCode + "|";
+
+            //Add Title
+            recordString += record.Customer.Title + "|";
+
+            //Add First Name
+            recordString += record.Customer.FirstName + "|";
+
+            //Middle Name 1 (Father Name)
+            recordString += record.Customer.FatherName + "|";
+
+            //Middle Name 2
+            recordString += "|";
+
+            //Add Last Name
+            recordString += record.Customer.LastName + "|";
+
+            //Add Gender
+            recordString += record.Customer.Gender + "|";
+
+            //Add Maiden Name
+            recordString += "|";
+
+            //Married
+            recordString += "0" + "|";
+
+            //Nationality
+            recordString += record.Customer.Nationality + "|";
+
+            //Birthdate
+            recordString += record.Customer.Birthdate + "|";
+
+            //Birth City 
+            recordString +="|";
+
+            //Birth Country
+            recordString += "|";
+
+            //Education
+            recordString += "|";
+
+            //Birth Country
+            recordString += "|";
+
+            //VIP Flag
+            recordString += "|";
+
+            //Embossed Name
+            recordString += record.Customer.EmbossedName + "|";
+
+            //Encoded Name
+            recordString += "|";
+
+            //KYC Status
+            recordString += "Y" + "|";
+
+            //KYC Remarks
+            recordString += "KYC Compliant" + "|";
+
+            //Travel Purpos
+            recordString += "|";
+
+            //Picture Code
+            recordString += "|";
+
+            //Photo Code
+            recordString += "|";
+
+            //Preferred Mailing Address
+            recordString += "C" + "|";
+
+            //Current Address Line 1
+            recordString += record.Customer.Address + "|";
+
+            //Current Address Line 2
+            recordString += "|";
+
+            //Current Address Line 3
+            recordString += "|";
+
+            //Current Address Line 4
+            recordString += "|";
+
+            //Current City Code
+            recordString += "|";
+
+            //Current State Code
+            recordString += "|";
+
+            //Current Country Code
+            recordString += "434" + "|";
+
+            //Current ZIP Code
+            recordString += "|";
+
+            //Current Phone Number 1
+            recordString += record.Customer.Phone + "|";
+
+            //Current Phone Number 2
+            recordString += "|";
+
+            //Permanent Address Line 1
+            recordString += "|";
+
+            //Permanent Address Line 2
+            recordString += "|";
+
+            //Permanent Address Line 3
+            recordString += "|";
+
+            //Permanent Address Line 4
+            recordString += "|";
+
+            //Permanent City Code
+            recordString += "|";
+
+            //Permanent State Code
+            recordString += "|";
+
+            //Permanent Country Code
+            recordString += "434" + "|";
+
+            //Permanent ZIP Code
+            recordString += "|";
+
+            //Permanent Phone Number 1
+            recordString += "|";
+
+            //Permanent Phone Number 2
+            recordString += "|";
+
+            //Fax Number 
+            recordString += "|";
+
+            //Register for DNCR
+            recordString += "|";
+
+            //SMS Alert
+            recordString += "Y" + "|";
+
+            //Email Alert
+            recordString += "Y" + "|";
+
+            //Statement Preference
+            recordString += "B" + "|";
+
+            //Delivery Mode
+            recordString += "|";
+
+            //Mobile ISD  Code
+            recordString += record.Customer.PhoneISD + "|";
+
+            //Mobile Number
+            recordString += record.Customer.Phone + "|";
+
+            //Email
+            recordString += record.Customer.Email + "|";
+
+            //Language Preference
+            recordString += "ar" + "|";
+
+            //Office Address Line 1
+            recordString += "|";
+
+            //Office Address Line 2
+            recordString += "|";
+
+            //Office Address Line 3
+            recordString += "|";
+
+            //Office Address Line 4
+            recordString += "|";
+
+            //Office City Code
+            recordString += "|";
+
+            //Office State Code
+            recordString += "|";
+
+            //Office Country Code
+            recordString += "434" + "|";
+
+            //Office ZIP Code
+            recordString += "|";
+
+            //Office Phone Number 1
+            recordString += "|";
+
+            //Office Phone Number 2
+            recordString += "|";
+
+            //Office Email
+            recordString += "|";
+
+            //Office ISD
+            recordString += "|";
+
+            //Office Mobile
+            recordString += "|";
+
+            //Legal ID 1 Type (Passport)
+            recordString += "1" + "|";
+
+            //Legal ID 1 (Passport Number)
+            recordString += record.Customer.PassportNumber + "|";
+
+            //Legal ID 1 Expiry Date (Passport Exp Date)
+            recordString += record.Customer.PassportExp + "|";
+
+            //Legal ID 1 Issuance Place (Passport Issuance Place)
+            recordString += "Libya" + "|";
+
+
+            //Legal ID 2 Type (National ID)
+            recordString += "2" + "|";
+
+            //Legal ID 2 (National ID)
+            recordString += record.Customer.NationalID + "|";
+
+            //Legal ID 2 Expiry Date (National ID)
+            recordString +=  "|";
+
+            //Legal ID 2 Issuance Place (National ID)
+            recordString +=  "|";
+
+            //Legal ID 3 Type 
+            recordString += "|";
+
+            //Legal ID 3 
+            recordString += "|";
+
+            //Legal ID 3 Expiry Date
+            recordString += "|";
+
+            //Legal ID 3 Issuance Place
+            recordString += "|";
+
+            //Legal ID 4 Type 
+            recordString += "|";
+
+            //Legal ID 4 
+            recordString += "|";
+
+            //Legal ID 4 Expiry Date
+            recordString += "|";
+
+            //Legal ID 4 Issuance Place
+            recordString += "|";
+
+            //Memo
+            recordString += "|";
 
 
             return recordString;
