@@ -14,7 +14,7 @@ using System.IO;
 using CTS.Screens.Account_Details;
 using System;
 using System.Collections.Generic;
-using CTS.Screens.Main.International_Cards.AuthIssue;
+using CTS.Screens.Main.International_Cards.BranchAuthIssue;
 using CTS.Screens.Main.International_Cards.Generate_File;
 
 namespace CTS.Screens.Main
@@ -24,7 +24,7 @@ namespace CTS.Screens.Main
 
         private ChangePassword changePassword;
         private Search search;
-        private AuthIssue authIssue;
+        private BranchAuthIssue authIssue;
         private GenAppRecord genAppRecord;
         public HQAdmin()
         {
@@ -112,18 +112,18 @@ namespace CTS.Screens.Main
             }
         }
 
-        private void AuthAppRecord_BTN_Click(object sender, EventArgs e)
+        private void unAuthAppRecord_BTN_Click(object sender, EventArgs e)
         {
             if(authIssue == null)
             {
-                authIssue = new AuthIssue();
+                authIssue = new BranchAuthIssue();
                 
 
                 authIssue.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    authIssue = null; AuthAppRecord_BTN.Enabled = true;
+                    authIssue = null; unAuthAppRecord_BTN.Enabled = true;
                 };
                 authIssue.Show();
-                AuthAppRecord_BTN.Enabled = false;
+                unAuthAppRecord_BTN.Enabled = false;
             }
            
         }

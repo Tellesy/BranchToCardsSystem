@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.Main.International_Cards.AuthIssue.SubScreen
+﻿namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
 {
     partial class IssueBranchAuthScreen
     {
@@ -28,65 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IssueBranchAuthScreen));
-            this.ApplicationType_LBL = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.ApplicationSubType_LBL = new System.Windows.Forms.Label();
             this.Exit_BTN = new System.Windows.Forms.Button();
             this.Deny_BTN = new System.Windows.Forms.Button();
             this.Accept_BTN = new System.Windows.Forms.Button();
-            this.Inputter_LBL = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.AccountLocal_LBL = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.AccountProgram_LBL = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Branch_LBL = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.CustomerName_LBL = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CustomerID_LBL = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.Email_TXT = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.Address_TXT = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.Gender_CBOX = new System.Windows.Forms.ComboBox();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cTSMain = new CTS.CTSMain();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ProgramAccount_TXT = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.EmbossedName_TXT = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.LastName_TXT = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.FatherName_TXT = new System.Windows.Forms.TextBox();
+            this.Nationality_CBOX = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.CountryPhoneCode_CBox = new System.Windows.Forms.ComboBox();
+            this.productsTableAdapter = new CTS.CTSMainTableAdapters.ProductsTableAdapter();
+            this.branch_system1DataSet = new CTS.Branch_system1DataSet();
+            this.cTSDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cTSDataSet = new CTS.CTSDataSet();
+            this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pTS_ProgramTableAdapter = new CTS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
+            this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.PassportExpDate = new System.Windows.Forms.DateTimePicker();
+            this.Birthdate = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CustomerID_TXT = new System.Windows.Forms.TextBox();
+            this.Back_BTN = new System.Windows.Forms.Button();
+            this.Submit_BTN = new System.Windows.Forms.Button();
+            this.label32 = new System.Windows.Forms.Label();
+            this.Passport = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.PhoneNo_TXT = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.NID_TXT = new System.Windows.Forms.TextBox();
+            this.cTS_PTS_Programs = new CTS.CTS_PTS_Programs();
+            this.label37 = new System.Windows.Forms.Label();
+            this.FirstName_TXT = new System.Windows.Forms.TextBox();
+            this.pTSProgramBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.MainAccount_TXT = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.Program_CBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.AppType_TXT = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.AppSubType_TXT = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.Inputter_TXT = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pTSProgramBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ApplicationType_LBL
-            // 
-            this.ApplicationType_LBL.AutoSize = true;
-            this.ApplicationType_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.ApplicationType_LBL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ApplicationType_LBL.Location = new System.Drawing.Point(253, 313);
-            this.ApplicationType_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.ApplicationType_LBL.Name = "ApplicationType_LBL";
-            this.ApplicationType_LBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ApplicationType_LBL.Size = new System.Drawing.Size(41, 40);
-            this.ApplicationType_LBL.TabIndex = 96;
-            this.ApplicationType_LBL.Text = "X";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label13.Location = new System.Drawing.Point(467, 313);
-            this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label13.Name = "label13";
-            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label13.Size = new System.Drawing.Size(166, 40);
-            this.label13.TabIndex = 95;
-            this.label13.Text = "نوع الاصدار";
-            // 
-            // ApplicationSubType_LBL
-            // 
-            this.ApplicationSubType_LBL.AutoSize = true;
-            this.ApplicationSubType_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.ApplicationSubType_LBL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ApplicationSubType_LBL.Location = new System.Drawing.Point(101, 313);
-            this.ApplicationSubType_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.ApplicationSubType_LBL.Name = "ApplicationSubType_LBL";
-            this.ApplicationSubType_LBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ApplicationSubType_LBL.Size = new System.Drawing.Size(41, 40);
-            this.ApplicationSubType_LBL.TabIndex = 94;
-            this.ApplicationSubType_LBL.Text = "X";
             // 
             // Exit_BTN
             // 
@@ -95,10 +122,9 @@
             this.Exit_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.Exit_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Exit_BTN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Exit_BTN.Location = new System.Drawing.Point(1511, 902);
-            this.Exit_BTN.Margin = new System.Windows.Forms.Padding(6);
+            this.Exit_BTN.Location = new System.Drawing.Point(756, 469);
             this.Exit_BTN.Name = "Exit_BTN";
-            this.Exit_BTN.Size = new System.Drawing.Size(160, 110);
+            this.Exit_BTN.Size = new System.Drawing.Size(80, 57);
             this.Exit_BTN.TabIndex = 75;
             this.Exit_BTN.UseVisualStyleBackColor = true;
             // 
@@ -108,10 +134,9 @@
             this.Deny_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Deny_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.Deny_BTN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Deny_BTN.Location = new System.Drawing.Point(277, 900);
-            this.Deny_BTN.Margin = new System.Windows.Forms.Padding(6);
+            this.Deny_BTN.Location = new System.Drawing.Point(138, 468);
             this.Deny_BTN.Name = "Deny_BTN";
-            this.Deny_BTN.Size = new System.Drawing.Size(132, 110);
+            this.Deny_BTN.Size = new System.Drawing.Size(66, 57);
             this.Deny_BTN.TabIndex = 78;
             this.Deny_BTN.UseVisualStyleBackColor = true;
             this.Deny_BTN.Click += new System.EventHandler(this.Deny_BTN_Click);
@@ -122,221 +147,797 @@
             this.Accept_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Accept_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.Accept_BTN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Accept_BTN.Location = new System.Drawing.Point(3, 900);
-            this.Accept_BTN.Margin = new System.Windows.Forms.Padding(6);
+            this.Accept_BTN.Location = new System.Drawing.Point(2, 468);
             this.Accept_BTN.Name = "Accept_BTN";
-            this.Accept_BTN.Size = new System.Drawing.Size(132, 110);
+            this.Accept_BTN.Size = new System.Drawing.Size(66, 57);
             this.Accept_BTN.TabIndex = 80;
             this.Accept_BTN.UseVisualStyleBackColor = true;
             this.Accept_BTN.Click += new System.EventHandler(this.Accept_BTN_Click);
             // 
-            // Inputter_LBL
+            // label31
             // 
-            this.Inputter_LBL.AutoSize = true;
-            this.Inputter_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.Inputter_LBL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Inputter_LBL.Location = new System.Drawing.Point(983, 465);
-            this.Inputter_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.Inputter_LBL.Name = "Inputter_LBL";
-            this.Inputter_LBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Inputter_LBL.Size = new System.Drawing.Size(41, 40);
-            this.Inputter_LBL.TabIndex = 88;
-            this.Inputter_LBL.Text = "X";
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(116, 268);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(88, 13);
+            this.label31.TabIndex = 154;
+            this.label31.Text = "الإسم على البطاقة";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label7
+            // label30
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(1479, 465);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(166, 40);
-            this.label7.TabIndex = 87;
-            this.label7.Text = "رقم المدخل :";
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(639, 97);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(103, 13);
+            this.label30.TabIndex = 153;
+            this.label30.Text = "تاريخ انتهاء الصلاحية";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // AccountLocal_LBL
+            // label29
             // 
-            this.AccountLocal_LBL.AutoSize = true;
-            this.AccountLocal_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.AccountLocal_LBL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AccountLocal_LBL.Location = new System.Drawing.Point(149, 188);
-            this.AccountLocal_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.AccountLocal_LBL.Name = "AccountLocal_LBL";
-            this.AccountLocal_LBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AccountLocal_LBL.Size = new System.Drawing.Size(41, 40);
-            this.AccountLocal_LBL.TabIndex = 86;
-            this.AccountLocal_LBL.Text = "X";
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(491, 97);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(75, 13);
+            this.label29.TabIndex = 152;
+            this.label29.Text = "رقم جواز السفر";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label6
+            // label26
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(493, 188);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(178, 40);
-            this.label6.TabIndex = 85;
-            this.label6.Text = "رقم الحساب :";
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(399, 268);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(32, 13);
+            this.label26.TabIndex = 151;
+            this.label26.Text = "Email";
             // 
-            // AccountProgram_LBL
+            // label25
             // 
-            this.AccountProgram_LBL.AutoSize = true;
-            this.AccountProgram_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.AccountProgram_LBL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AccountProgram_LBL.Location = new System.Drawing.Point(1045, 188);
-            this.AccountProgram_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.AccountProgram_LBL.Name = "AccountProgram_LBL";
-            this.AccountProgram_LBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AccountProgram_LBL.Size = new System.Drawing.Size(41, 40);
-            this.AccountProgram_LBL.TabIndex = 84;
-            this.AccountProgram_LBL.Text = "X";
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(545, 268);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(82, 13);
+            this.label25.TabIndex = 150;
+            this.label25.Text = "البريد الإلكتروني";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label5
+            // Email_TXT
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(1497, 188);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(181, 40);
-            this.label5.TabIndex = 83;
-            this.label5.Text = "حساب المنتج:";
+            this.Email_TXT.Enabled = false;
+            this.Email_TXT.Location = new System.Drawing.Point(402, 284);
+            this.Email_TXT.MaxLength = 50;
+            this.Email_TXT.Name = "Email_TXT";
+            this.Email_TXT.Size = new System.Drawing.Size(221, 20);
+            this.Email_TXT.TabIndex = 121;
             // 
-            // Branch_LBL
+            // label28
             // 
-            this.Branch_LBL.AutoSize = true;
-            this.Branch_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.Branch_LBL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Branch_LBL.Location = new System.Drawing.Point(983, 313);
-            this.Branch_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.Branch_LBL.Name = "Branch_LBL";
-            this.Branch_LBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Branch_LBL.Size = new System.Drawing.Size(41, 40);
-            this.Branch_LBL.TabIndex = 82;
-            this.Branch_LBL.Text = "X";
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(703, 155);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(39, 13);
+            this.label28.TabIndex = 149;
+            this.label28.Text = "العنوان";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label4
+            // label27
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(1495, 313);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(150, 40);
-            this.label4.TabIndex = 81;
-            this.label4.Text = "رقم الفرع :";
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(397, 155);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(45, 13);
+            this.label27.TabIndex = 148;
+            this.label27.Text = "Address";
             // 
-            // CustomerName_LBL
+            // Address_TXT
             // 
-            this.CustomerName_LBL.AutoSize = true;
-            this.CustomerName_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.CustomerName_LBL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CustomerName_LBL.Location = new System.Drawing.Point(231, 57);
-            this.CustomerName_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.CustomerName_LBL.Name = "CustomerName_LBL";
-            this.CustomerName_LBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CustomerName_LBL.Size = new System.Drawing.Size(41, 40);
-            this.CustomerName_LBL.TabIndex = 79;
-            this.CustomerName_LBL.Text = "X";
+            this.Address_TXT.Enabled = false;
+            this.Address_TXT.Location = new System.Drawing.Point(402, 171);
+            this.Address_TXT.MaxLength = 25;
+            this.Address_TXT.Name = "Address_TXT";
+            this.Address_TXT.Size = new System.Drawing.Size(340, 20);
+            this.Address_TXT.TabIndex = 118;
             // 
-            // label3
+            // label24
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(715, 57);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(165, 40);
-            this.label3.TabIndex = 77;
-            this.label3.Text = "إسم الزبون :";
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(65, 370);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(62, 13);
+            this.label24.TabIndex = 147;
+            this.label24.Text = "تاريخ الميلاد";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // CustomerID_LBL
+            // label23
             // 
-            this.CustomerID_LBL.AutoSize = true;
-            this.CustomerID_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.CustomerID_LBL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CustomerID_LBL.Location = new System.Drawing.Point(1223, 57);
-            this.CustomerID_LBL.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.CustomerID_LBL.Name = "CustomerID_LBL";
-            this.CustomerID_LBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CustomerID_LBL.Size = new System.Drawing.Size(41, 40);
-            this.CustomerID_LBL.TabIndex = 76;
-            this.CustomerID_LBL.Text = "X";
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(73, 320);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(33, 13);
+            this.label23.TabIndex = 146;
+            this.label23.Text = "الجنس";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Gender_CBOX
+            // 
+            this.Gender_CBOX.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Code", true));
+            this.Gender_CBOX.Enabled = false;
+            this.Gender_CBOX.FormattingEnabled = true;
+            this.Gender_CBOX.ItemHeight = 13;
+            this.Gender_CBOX.Items.AddRange(new object[] {
+            "M",
+            "F"});
+            this.Gender_CBOX.Location = new System.Drawing.Point(12, 336);
+            this.Gender_CBOX.Name = "Gender_CBOX";
+            this.Gender_CBOX.Size = new System.Drawing.Size(75, 21);
+            this.Gender_CBOX.TabIndex = 112;
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "Products";
+            this.productsBindingSource.DataSource = this.cTSMain;
+            // 
+            // cTSMain
+            // 
+            this.cTSMain.DataSetName = "CTSMain";
+            this.cTSMain.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(9, 320);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(42, 13);
+            this.label22.TabIndex = 145;
+            this.label22.Text = "Gender";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(549, 212);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(84, 13);
+            this.label21.TabIndex = 144;
+            this.label21.Text = "رقم الهاتف (نقال)";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(677, 49);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 13);
+            this.label20.TabIndex = 143;
+            this.label20.Text = "الرقم الوطني";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(519, 48);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(42, 13);
+            this.label19.TabIndex = 142;
+            this.label19.Text = "الجنسية";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(194, 155);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(129, 13);
+            this.label18.TabIndex = 141;
+            this.label18.Text = "رقم الحساب الخاص بالمنتج ";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(164, 97);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(159, 13);
+            this.label17.TabIndex = 140;
+            this.label17.Text = "رقم الحساب الأساسي (دينار ليبي)";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(73, 49);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 13);
+            this.label16.TabIndex = 139;
+            this.label16.Text = "رقم الزبون";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(187, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(34, 13);
+            this.label15.TabIndex = 138;
+            this.label15.Text = "المنتج";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 155);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(129, 13);
+            this.label2.TabIndex = 137;
+            this.label2.Text = "Program Account Number";
+            // 
+            // ProgramAccount_TXT
+            // 
+            this.ProgramAccount_TXT.Enabled = false;
+            this.ProgramAccount_TXT.Location = new System.Drawing.Point(12, 171);
+            this.ProgramAccount_TXT.MaxLength = 15;
+            this.ProgramAccount_TXT.Name = "ProgramAccount_TXT";
+            this.ProgramAccount_TXT.Size = new System.Drawing.Size(233, 20);
+            this.ProgramAccount_TXT.TabIndex = 107;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(9, 268);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 13);
+            this.label12.TabIndex = 136;
+            this.label12.Text = "Embossed Name";
+            // 
+            // EmbossedName_TXT
+            // 
+            this.EmbossedName_TXT.Enabled = false;
+            this.EmbossedName_TXT.Location = new System.Drawing.Point(12, 284);
+            this.EmbossedName_TXT.MaxLength = 25;
+            this.EmbossedName_TXT.Name = "EmbossedName_TXT";
+            this.EmbossedName_TXT.Size = new System.Drawing.Size(203, 20);
+            this.EmbossedName_TXT.TabIndex = 111;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(227, 212);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(58, 13);
+            this.label10.TabIndex = 135;
+            this.label10.Text = "Last Name";
+            // 
+            // LastName_TXT
+            // 
+            this.LastName_TXT.Enabled = false;
+            this.LastName_TXT.Location = new System.Drawing.Point(230, 228);
+            this.LastName_TXT.MaxLength = 25;
+            this.LastName_TXT.Name = "LastName_TXT";
+            this.LastName_TXT.Size = new System.Drawing.Size(106, 20);
+            this.LastName_TXT.TabIndex = 110;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(113, 212);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.TabIndex = 134;
+            this.label9.Text = "Father Name";
+            // 
+            // FatherName_TXT
+            // 
+            this.FatherName_TXT.Enabled = false;
+            this.FatherName_TXT.Location = new System.Drawing.Point(116, 228);
+            this.FatherName_TXT.MaxLength = 25;
+            this.FatherName_TXT.Name = "FatherName_TXT";
+            this.FatherName_TXT.Size = new System.Drawing.Size(99, 20);
+            this.FatherName_TXT.TabIndex = 109;
+            // 
+            // Nationality_CBOX
+            // 
+            this.Nationality_CBOX.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Code", true));
+            this.Nationality_CBOX.Enabled = false;
+            this.Nationality_CBOX.FormattingEnabled = true;
+            this.Nationality_CBOX.Items.AddRange(new object[] {
+            "434"});
+            this.Nationality_CBOX.Location = new System.Drawing.Point(400, 64);
+            this.Nationality_CBOX.Name = "Nationality_CBOX";
+            this.Nationality_CBOX.Size = new System.Drawing.Size(166, 21);
+            this.Nationality_CBOX.TabIndex = 114;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(397, 49);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.TabIndex = 133;
+            this.label8.Text = "Nationality";
+            // 
+            // CountryPhoneCode_CBox
+            // 
+            this.CountryPhoneCode_CBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Code", true));
+            this.CountryPhoneCode_CBox.Enabled = false;
+            this.CountryPhoneCode_CBox.FormattingEnabled = true;
+            this.CountryPhoneCode_CBox.Location = new System.Drawing.Point(402, 227);
+            this.CountryPhoneCode_CBox.Name = "CountryPhoneCode_CBox";
+            this.CountryPhoneCode_CBox.Size = new System.Drawing.Size(75, 21);
+            this.CountryPhoneCode_CBox.TabIndex = 119;
+            // 
+            // productsTableAdapter
+            // 
+            this.productsTableAdapter.ClearBeforeFill = true;
+            // 
+            // branch_system1DataSet
+            // 
+            this.branch_system1DataSet.DataSetName = "Branch_system1DataSet";
+            this.branch_system1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cTSDataSetBindingSource1
+            // 
+            this.cTSDataSetBindingSource1.DataSource = this.cTSDataSet;
+            this.cTSDataSetBindingSource1.Position = 0;
+            // 
+            // cTSDataSet
+            // 
+            this.cTSDataSet.DataSetName = "CTSDataSet";
+            this.cTSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cTSDataSetBindingSource
+            // 
+            this.cTSDataSetBindingSource.DataSource = this.cTSDataSet;
+            this.cTSDataSetBindingSource.Position = 0;
+            // 
+            // pTS_ProgramTableAdapter
+            // 
+            this.pTS_ProgramTableAdapter.ClearBeforeFill = true;
+            // 
+            // branchsystem1DataSetBindingSource
+            // 
+            this.branchsystem1DataSetBindingSource.DataSource = this.branch_system1DataSet;
+            this.branchsystem1DataSetBindingSource.Position = 0;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(582, 97);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 13);
+            this.label11.TabIndex = 132;
+            this.label11.Text = "Exp Date";
+            // 
+            // PassportExpDate
+            // 
+            this.PassportExpDate.Enabled = false;
+            this.PassportExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.PassportExpDate.Location = new System.Drawing.Point(572, 113);
+            this.PassportExpDate.Name = "PassportExpDate";
+            this.PassportExpDate.Size = new System.Drawing.Size(170, 20);
+            this.PassportExpDate.TabIndex = 117;
+            // 
+            // Birthdate
+            // 
+            this.Birthdate.Enabled = false;
+            this.Birthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Birthdate.Location = new System.Drawing.Point(12, 386);
+            this.Birthdate.Name = "Birthdate";
+            this.Birthdate.Size = new System.Drawing.Size(114, 20);
+            this.Birthdate.TabIndex = 113;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 97);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(137, 13);
+            this.label14.TabIndex = 131;
+            this.label14.Text = "Main LYD Account Number";
+            // 
+            // CustomerID_TXT
+            // 
+            this.CustomerID_TXT.Enabled = false;
+            this.CustomerID_TXT.Location = new System.Drawing.Point(12, 65);
+            this.CustomerID_TXT.MaxLength = 7;
+            this.CustomerID_TXT.Name = "CustomerID_TXT";
+            this.CustomerID_TXT.Size = new System.Drawing.Size(93, 20);
+            this.CustomerID_TXT.TabIndex = 105;
+            // 
+            // Back_BTN
+            // 
+            this.Back_BTN.Location = new System.Drawing.Point(379, 408);
+            this.Back_BTN.Name = "Back_BTN";
+            this.Back_BTN.Size = new System.Drawing.Size(363, 33);
+            this.Back_BTN.TabIndex = 123;
+            this.Back_BTN.Text = "رجوع";
+            this.Back_BTN.UseVisualStyleBackColor = true;
+            // 
+            // Submit_BTN
+            // 
+            this.Submit_BTN.Enabled = false;
+            this.Submit_BTN.Location = new System.Drawing.Point(379, 370);
+            this.Submit_BTN.Name = "Submit_BTN";
+            this.Submit_BTN.Size = new System.Drawing.Size(363, 32);
+            this.Submit_BTN.TabIndex = 122;
+            this.Submit_BTN.Text = "إضافة";
+            this.Submit_BTN.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(397, 97);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(88, 13);
+            this.label32.TabIndex = 130;
+            this.label32.Text = "Passport Number";
+            // 
+            // Passport
+            // 
+            this.Passport.Enabled = false;
+            this.Passport.Location = new System.Drawing.Point(400, 113);
+            this.Passport.MaxLength = 10;
+            this.Passport.Name = "Passport";
+            this.Passport.Size = new System.Drawing.Size(166, 20);
+            this.Passport.TabIndex = 116;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(399, 212);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(78, 13);
+            this.label33.TabIndex = 129;
+            this.label33.Text = "Phone Number";
+            // 
+            // PhoneNo_TXT
+            // 
+            this.PhoneNo_TXT.Enabled = false;
+            this.PhoneNo_TXT.Location = new System.Drawing.Point(486, 227);
+            this.PhoneNo_TXT.MaxLength = 9;
+            this.PhoneNo_TXT.Name = "PhoneNo_TXT";
+            this.PhoneNo_TXT.Size = new System.Drawing.Size(141, 20);
+            this.PhoneNo_TXT.TabIndex = 120;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(9, 370);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(49, 13);
+            this.label34.TabIndex = 128;
+            this.label34.Text = "Birthdate";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(9, 49);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(65, 13);
+            this.label35.TabIndex = 127;
+            this.label35.Text = "Customer ID";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(567, 49);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(60, 13);
+            this.label36.TabIndex = 126;
+            this.label36.Text = "National ID";
+            // 
+            // NID_TXT
+            // 
+            this.NID_TXT.Enabled = false;
+            this.NID_TXT.Location = new System.Drawing.Point(572, 65);
+            this.NID_TXT.MaxLength = 12;
+            this.NID_TXT.Name = "NID_TXT";
+            this.NID_TXT.Size = new System.Drawing.Size(170, 20);
+            this.NID_TXT.TabIndex = 115;
+            // 
+            // cTS_PTS_Programs
+            // 
+            this.cTS_PTS_Programs.DataSetName = "CTS_PTS_Programs";
+            this.cTS_PTS_Programs.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(9, 212);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(57, 13);
+            this.label37.TabIndex = 125;
+            this.label37.Text = "First Name";
+            // 
+            // FirstName_TXT
+            // 
+            this.FirstName_TXT.Enabled = false;
+            this.FirstName_TXT.Location = new System.Drawing.Point(12, 228);
+            this.FirstName_TXT.MaxLength = 25;
+            this.FirstName_TXT.Name = "FirstName_TXT";
+            this.FirstName_TXT.Size = new System.Drawing.Size(93, 20);
+            this.FirstName_TXT.TabIndex = 108;
+            // 
+            // pTSProgramBindingSource
+            // 
+            this.pTSProgramBindingSource.DataMember = "PTS_Program";
+            this.pTSProgramBindingSource.DataSource = this.cTS_PTS_Programs;
+            // 
+            // MainAccount_TXT
+            // 
+            this.MainAccount_TXT.Enabled = false;
+            this.MainAccount_TXT.Location = new System.Drawing.Point(12, 113);
+            this.MainAccount_TXT.MaxLength = 15;
+            this.MainAccount_TXT.Name = "MainAccount_TXT";
+            this.MainAccount_TXT.Size = new System.Drawing.Size(233, 20);
+            this.MainAccount_TXT.TabIndex = 106;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(9, 9);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(46, 13);
+            this.label38.TabIndex = 124;
+            this.label38.Text = "Program";
+            // 
+            // Program_CBox
+            // 
+            this.Program_CBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pTSProgramBindingSource, "program_code", true));
+            this.Program_CBox.Enabled = false;
+            this.Program_CBox.FormattingEnabled = true;
+            this.Program_CBox.Location = new System.Drawing.Point(12, 25);
+            this.Program_CBox.Name = "Program_CBox";
+            this.Program_CBox.Size = new System.Drawing.Size(209, 21);
+            this.Program_CBox.TabIndex = 104;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(1483, 57);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(874, 49);
             this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(182, 40);
-            this.label1.TabIndex = 74;
-            this.label1.Text = "رقم الزبون :  ";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 157;
+            this.label1.Text = "نوع الإصدار";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // AppType_TXT
+            // 
+            this.AppType_TXT.Enabled = false;
+            this.AppType_TXT.Location = new System.Drawing.Point(938, 33);
+            this.AppType_TXT.MaxLength = 1;
+            this.AppType_TXT.Name = "AppType_TXT";
+            this.AppType_TXT.Size = new System.Drawing.Size(40, 20);
+            this.AppType_TXT.TabIndex = 155;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(846, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.TabIndex = 156;
+            this.label3.Text = "Application Type";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(838, 88);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 13);
+            this.label5.TabIndex = 160;
+            this.label5.Text = "نوع الإصدار الفرعي";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // AppSubType_TXT
+            // 
+            this.AppSubType_TXT.Enabled = false;
+            this.AppSubType_TXT.Location = new System.Drawing.Point(938, 75);
+            this.AppSubType_TXT.MaxLength = 1;
+            this.AppSubType_TXT.Name = "AppSubType_TXT";
+            this.AppSubType_TXT.Size = new System.Drawing.Size(40, 20);
+            this.AppSubType_TXT.TabIndex = 158;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(824, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(108, 13);
+            this.label6.TabIndex = 159;
+            this.label6.Text = "Application Sub Type";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(878, 126);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(56, 13);
+            this.label39.TabIndex = 163;
+            this.label39.Text = "رقم المدخل";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Inputter_TXT
+            // 
+            this.Inputter_TXT.Enabled = false;
+            this.Inputter_TXT.Location = new System.Drawing.Point(938, 110);
+            this.Inputter_TXT.MaxLength = 7;
+            this.Inputter_TXT.Name = "Inputter_TXT";
+            this.Inputter_TXT.Size = new System.Drawing.Size(93, 20);
+            this.Inputter_TXT.TabIndex = 161;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(867, 110);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(57, 13);
+            this.label40.TabIndex = 162;
+            this.label40.Text = "Inputter ID";
             // 
             // IssueBranchAuthScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1675, 1068);
+            this.ClientSize = new System.Drawing.Size(1118, 540);
             this.ControlBox = false;
-            this.Controls.Add(this.ApplicationType_LBL);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.ApplicationSubType_LBL);
+            this.Controls.Add(this.label39);
+            this.Controls.Add(this.Inputter_TXT);
+            this.Controls.Add(this.label40);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.AppSubType_TXT);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AppType_TXT);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.Email_TXT);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.Address_TXT);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.Gender_CBOX);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ProgramAccount_TXT);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.EmbossedName_TXT);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.LastName_TXT);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.FatherName_TXT);
+            this.Controls.Add(this.Nationality_CBOX);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.CountryPhoneCode_CBox);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.PassportExpDate);
+            this.Controls.Add(this.Birthdate);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.CustomerID_TXT);
+            this.Controls.Add(this.Back_BTN);
+            this.Controls.Add(this.Submit_BTN);
+            this.Controls.Add(this.label32);
+            this.Controls.Add(this.Passport);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.PhoneNo_TXT);
+            this.Controls.Add(this.label34);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.NID_TXT);
+            this.Controls.Add(this.label37);
+            this.Controls.Add(this.FirstName_TXT);
+            this.Controls.Add(this.MainAccount_TXT);
+            this.Controls.Add(this.label38);
+            this.Controls.Add(this.Program_CBox);
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Deny_BTN);
             this.Controls.Add(this.Accept_BTN);
-            this.Controls.Add(this.Inputter_LBL);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.AccountLocal_LBL);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.AccountProgram_LBL);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.Branch_LBL);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.CustomerName_LBL);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.CustomerID_LBL);
-            this.Controls.Add(this.label1);
+            this.Enabled = false;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "IssueBranchAuthScreen";
             this.Text = "IssueBranchAuthScreen";
             this.Load += new System.EventHandler(this.IssueBranchAuthScreen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pTSProgramBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label ApplicationType_LBL;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label ApplicationSubType_LBL;
         private System.Windows.Forms.Button Exit_BTN;
         private System.Windows.Forms.Button Deny_BTN;
         private System.Windows.Forms.Button Accept_BTN;
-        private System.Windows.Forms.Label Inputter_LBL;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label AccountLocal_LBL;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label AccountProgram_LBL;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label Branch_LBL;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label CustomerName_LBL;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label CustomerID_LBL;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox Email_TXT;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox Address_TXT;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox Gender_CBOX;
+        private System.Windows.Forms.BindingSource productsBindingSource;
+        private CTSMain cTSMain;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox ProgramAccount_TXT;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox EmbossedName_TXT;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox LastName_TXT;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox FatherName_TXT;
+        private System.Windows.Forms.ComboBox Nationality_CBOX;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox CountryPhoneCode_CBox;
+        private CTSMainTableAdapters.ProductsTableAdapter productsTableAdapter;
+        private Branch_system1DataSet branch_system1DataSet;
+        private System.Windows.Forms.BindingSource cTSDataSetBindingSource1;
+        private CTSDataSet cTSDataSet;
+        private System.Windows.Forms.BindingSource cTSDataSetBindingSource;
+        private CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter pTS_ProgramTableAdapter;
+        private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker PassportExpDate;
+        private System.Windows.Forms.DateTimePicker Birthdate;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox CustomerID_TXT;
+        private System.Windows.Forms.Button Back_BTN;
+        private System.Windows.Forms.Button Submit_BTN;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox Passport;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox PhoneNo_TXT;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox NID_TXT;
+        private CTS_PTS_Programs cTS_PTS_Programs;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox FirstName_TXT;
+        private System.Windows.Forms.BindingSource pTSProgramBindingSource;
+        private System.Windows.Forms.TextBox MainAccount_TXT;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.ComboBox Program_CBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox AppType_TXT;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox AppSubType_TXT;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TextBox Inputter_TXT;
+        private System.Windows.Forms.Label label40;
     }
 }

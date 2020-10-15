@@ -15,7 +15,7 @@ using CTS.Screens.User;
 using System.Windows.Forms;
 using CTS.Screens.FilesAuth;
 using CTS.Screens.Account_Details;
-using CTS.Screens.Main.International_Cards.AuthIssue;
+using CTS.Screens.Main.International_Cards.BranchAuthIssue;
 
 namespace CTS.Screens
 {
@@ -27,7 +27,7 @@ namespace CTS.Screens
         private Search search;
 
         //PTSScreens
-        private AuthIssue authIssue;
+        private BranchAuthIssue authIssue;
 
         public BranchAdmin()
         {
@@ -148,7 +148,7 @@ namespace CTS.Screens
 
             if (authIssue == null)
             {
-                authIssue = new AuthIssue();
+                authIssue = new BranchAuthIssue();
                 authIssue.Closed += (s, args) => { //authRecharge.UnlockRecord();
                     authIssue = null; PTSIssueAuth_BTN.Enabled = true;
                 };

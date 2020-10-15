@@ -42,9 +42,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Name_LBL = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.AuthAppRecord_BTN = new System.Windows.Forms.Button();
+            this.unAuthAppRecord_BTN = new System.Windows.Forms.Button();
             this.Logout_BTN = new System.Windows.Forms.Button();
             this.GenAppRecord_BTN = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,16 +187,16 @@
             this.label1.TabIndex = 38;
             this.label1.Text = "مرحباً ";
             // 
-            // AuthAppRecord_BTN
+            // unAuthAppRecord_BTN
             // 
-            this.AuthAppRecord_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.AuthAppRecord_BTN.Location = new System.Drawing.Point(7, 230);
-            this.AuthAppRecord_BTN.Name = "AuthAppRecord_BTN";
-            this.AuthAppRecord_BTN.Size = new System.Drawing.Size(145, 63);
-            this.AuthAppRecord_BTN.TabIndex = 43;
-            this.AuthAppRecord_BTN.Text = "Authorize App Record";
-            this.AuthAppRecord_BTN.UseVisualStyleBackColor = true;
-            this.AuthAppRecord_BTN.Click += new System.EventHandler(this.AuthAppRecord_BTN_Click);
+            this.unAuthAppRecord_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.unAuthAppRecord_BTN.Location = new System.Drawing.Point(7, 230);
+            this.unAuthAppRecord_BTN.Name = "unAuthAppRecord_BTN";
+            this.unAuthAppRecord_BTN.Size = new System.Drawing.Size(145, 63);
+            this.unAuthAppRecord_BTN.TabIndex = 43;
+            this.unAuthAppRecord_BTN.Text = "Unauthorized App Record";
+            this.unAuthAppRecord_BTN.UseVisualStyleBackColor = true;
+            this.unAuthAppRecord_BTN.Click += new System.EventHandler(this.unAuthAppRecord_BTN_Click);
             // 
             // Logout_BTN
             // 
@@ -213,13 +214,23 @@
             // GenAppRecord_BTN
             // 
             this.GenAppRecord_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.GenAppRecord_BTN.Location = new System.Drawing.Point(158, 230);
+            this.GenAppRecord_BTN.Location = new System.Drawing.Point(309, 230);
             this.GenAppRecord_BTN.Name = "GenAppRecord_BTN";
             this.GenAppRecord_BTN.Size = new System.Drawing.Size(145, 63);
             this.GenAppRecord_BTN.TabIndex = 45;
             this.GenAppRecord_BTN.Text = "Generate App Record File";
             this.GenAppRecord_BTN.UseVisualStyleBackColor = true;
             this.GenAppRecord_BTN.Click += new System.EventHandler(this.GenAppRecord_BTN_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.button1.Location = new System.Drawing.Point(158, 230);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 63);
+            this.button1.TabIndex = 46;
+            this.button1.Text = "Authorize App Record";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // HQAdmin
             // 
@@ -228,9 +239,10 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(655, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.GenAppRecord_BTN);
             this.Controls.Add(this.Logout_BTN);
-            this.Controls.Add(this.AuthAppRecord_BTN);
+            this.Controls.Add(this.unAuthAppRecord_BTN);
             this.Controls.Add(this.UpdateUser_BTN);
             this.Controls.Add(this.AddUser_BTN);
             this.Controls.Add(this.AddCardAccount_BTN);
@@ -263,8 +275,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Name_LBL;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button AuthAppRecord_BTN;
+        private System.Windows.Forms.Button unAuthAppRecord_BTN;
         private System.Windows.Forms.Button Logout_BTN;
         private System.Windows.Forms.Button GenAppRecord_BTN;
+        private System.Windows.Forms.Button button1;
     }
 }

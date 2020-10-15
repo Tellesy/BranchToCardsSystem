@@ -1,45 +1,35 @@
-﻿using System;
+﻿using CTS.Database.Objects;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CTS.Database;
-using CTS.Database.Objects;
-using CTS.Screens.Main.International_Cards.AuthIssue.SubScreen;
+
+using static CTS.Screens.AuthRecharge.AuthRecharge;
 
 namespace CTS.Screens.Main.International_Cards.AuthIssue
 {
-    public partial class AuthIssue : Form
+    public partial class HQAuthIssue : Form
     {
-        private bool isBranchAdmin = true;
+        
         public List<Database.Objects.PTSAppRecord> records;
-        //public bool isEnquire = false;
 
-        public AuthIssue()
+        public HQAuthIssue()
         {
             InitializeComponent();
         }
 
-        private void AuthIssue_Load(object sender, EventArgs e)
+        private void Sync_BTN_Click(object sender, EventArgs e)
         {
-            this.CenterToScreen();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-
-            if (Database.Login.role == "0")
-            {
-                isBranchAdmin = false;
-            }
-            else
-            {
-                isBranchAdmin = true;
-            }
             GetUnAuthRecords();
+        }
+
+        private void HQAuthIssue_Load(object sender, EventArgs e)
+        {
+
         }
 
         public void GetUnAuthRecords()
@@ -47,7 +37,7 @@ namespace CTS.Screens.Main.International_Cards.AuthIssue
             //Get un Auth recharge records
             records = null;
             List<ViewList> viewLists = new List<ViewList>();
-            Status<List<Database.Objects.PTSAppRecord>> statusObject = Database.PTSAppRecordController.getUnAuthAppRecords(isBranchAdmin);
+            Status<List<Database.Objects.PTSAppRecord>> statusObject = Database.PTSAppRecordController.getHQUnAuthAppRecords();
 
             if (statusObject.status)
             {
@@ -117,38 +107,6 @@ namespace CTS.Screens.Main.International_Cards.AuthIssue
             public string ApplicationSubType { get; set; }
             public string Branch { get; set; }
             public DateTime InputTime { get; set; }
-
-        }
-
-        private void Sync_BTN_Click(object sender, EventArgs e)
-        {
-            GetUnAuthRecords();
-
-        }
-
-
-        private void Exit_BTN_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Record_DGView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            DataGridViewRow r = Record_DGView.SelectedRows[0];
-            IssueBranchAuthScreen authorize = new IssueBranchAuthScreen();
-            if (records != null)
-            {
-                var q = records.Where(x => x.RecordID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
-
-                if (q.Count() > 0)
-                {
-                    this.Hide();
-                    authorize.record = q[0];
-                    authorize.Closed += (s, args) => { this.GetUnAuthRecords(); this.Show(); };
-                    authorize.Show();
-                }
-            }
-
 
         }
     }

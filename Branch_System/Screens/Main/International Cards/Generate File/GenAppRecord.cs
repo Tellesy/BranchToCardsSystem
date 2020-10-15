@@ -33,9 +33,10 @@ namespace CTS.Screens.Main.International_Cards.Generate_File
             record.ApplicationType = 'M';
             record.BankCode = "444112";
             record.BranchAuthorizer = "daf";
+           AppRecrodFileCreator.createAppFile("ddd.dat","","",new List<string>());
 
 
-            
+
         }
     }
 }

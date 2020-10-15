@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.Main.International_Cards.AuthIssue.SubScreen
+namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
 {
 
     public partial class IssueBranchAuthScreen : Form
@@ -26,20 +26,33 @@ namespace CTS.Screens.Main.International_Cards.AuthIssue.SubScreen
         private void IssueBranchAuthScreen_Load(object sender, EventArgs e)
         {
             this.Text = record.RecordID.ToString();
-            CustomerID_LBL.Text = record.CustomerID;
-
+            CustomerID_TXT.Text = record.CustomerID;
+            
             //get customer name from here
             var customerObject = PTSCustomerController.getCustomer(record.CustomerID);
-
-            CustomerName_LBL.Text = customerObject.Object.EmbossedName;
-
+            FirstName_TXT.Text = customerObject.Object.FirstName;
+            FatherName_TXT.Text = customerObject.Object.FatherName;
+            LastName_TXT.Text = customerObject.Object.LastName;
+            EmbossedName_TXT.Text = customerObject.Object.EmbossedName;
+            Gender_CBOX.Text = customerObject.Object.Gender;
+            Birthdate.Value = DateTime.Parse(customerObject.Object.Birthdate);
+            Nationality_CBOX.SelectedValue = customerObject.Object.Nationality;
+            NID_TXT.Text = customerObject.Object.NationalID;
+            Passport.Text = customerObject.Object.PassportNumber;
+            PassportExpDate.Value = DateTime.Parse(customerObject.Object.PassportExp);
+            Address_TXT.Text = customerObject.Object.Address;
+            CountryPhoneCode_CBox.Text = customerObject.Object.PhoneISD;
+            PhoneNo_TXT.Text = customerObject.Object.Phone;
+            Email_TXT.Text = customerObject.Object.Email;
             var accountObject = PTSAccountController.getAccount(record.CustomerID, record.ProgramCode);
-            AccountLocal_LBL.Text = accountObject.Object.AccountNumberLYD;
-            AccountProgram_LBL.Text = accountObject.Object.AccountNumberCurrency;
-            Branch_LBL.Text = record.BranchCode;
-            ApplicationType_LBL.Text = record.ApplicationType.ToString();
-            ApplicationSubType_LBL.Text = record.ApplicationSubType.ToString();
-            Inputter_LBL.Text = record.Inputter.ToString();
+
+
+            MainAccount_TXT.Text = accountObject.Object.AccountNumberLYD;
+            ProgramAccount_TXT.Text = accountObject.Object.AccountNumberCurrency;
+
+            AppType_TXT.Text = record.ApplicationType.ToString();
+            AppSubType_TXT.Text = record.ApplicationSubType.ToString();
+            Inputter_TXT.Text = record.Inputter.ToString();
 
         }
         private void Accept_BTN_Click(object sender, EventArgs e)

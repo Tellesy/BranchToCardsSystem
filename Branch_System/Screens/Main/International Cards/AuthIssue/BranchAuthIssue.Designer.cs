@@ -1,6 +1,6 @@
-﻿namespace CTS.Screens.Main.International_Cards.AuthIssue
+﻿namespace CTS.Screens.Main.International_Cards.BranchAuthIssue
 {
-    partial class AuthIssue
+    partial class BranchAuthIssue
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthIssue));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BranchAuthIssue));
             this.branch_system1DataSet = new CTS.Branch_system1DataSet();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Record_DGView = new System.Windows.Forms.DataGridView();
@@ -55,13 +55,12 @@
             // Record_DGView
             // 
             this.Record_DGView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Record_DGView.Location = new System.Drawing.Point(12, 167);
-            this.Record_DGView.Margin = new System.Windows.Forms.Padding(6);
+            this.Record_DGView.Location = new System.Drawing.Point(6, 87);
             this.Record_DGView.MultiSelect = false;
             this.Record_DGView.Name = "Record_DGView";
             this.Record_DGView.ReadOnly = true;
             this.Record_DGView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Record_DGView.Size = new System.Drawing.Size(1432, 644);
+            this.Record_DGView.Size = new System.Drawing.Size(716, 335);
             this.Record_DGView.TabIndex = 5;
             this.Record_DGView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Record_DGView_CellMouseDoubleClick);
             // 
@@ -76,10 +75,9 @@
             this.Exit_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Exit_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Exit_BTN.Location = new System.Drawing.Point(1284, 823);
-            this.Exit_BTN.Margin = new System.Windows.Forms.Padding(6);
+            this.Exit_BTN.Location = new System.Drawing.Point(642, 428);
             this.Exit_BTN.Name = "Exit_BTN";
-            this.Exit_BTN.Size = new System.Drawing.Size(160, 113);
+            this.Exit_BTN.Size = new System.Drawing.Size(80, 59);
             this.Exit_BTN.TabIndex = 7;
             this.Exit_BTN.UseVisualStyleBackColor = true;
             this.Exit_BTN.Click += new System.EventHandler(this.Exit_BTN_Click);
@@ -89,27 +87,27 @@
             this.Sync_BTN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Sync_BTN.BackgroundImage")));
             this.Sync_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Sync_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sync_BTN.Location = new System.Drawing.Point(32, 27);
-            this.Sync_BTN.Margin = new System.Windows.Forms.Padding(6);
+            this.Sync_BTN.Location = new System.Drawing.Point(16, 14);
             this.Sync_BTN.Name = "Sync_BTN";
-            this.Sync_BTN.Size = new System.Drawing.Size(132, 110);
+            this.Sync_BTN.Size = new System.Drawing.Size(66, 57);
             this.Sync_BTN.TabIndex = 6;
             this.Sync_BTN.UseVisualStyleBackColor = true;
             this.Sync_BTN.Click += new System.EventHandler(this.Sync_BTN_Click);
             // 
-            // AuthIssue
+            // BranchAuthIssue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1529, 980);
+            this.ClientSize = new System.Drawing.Size(764, 510);
             this.Controls.Add(this.Record_DGView);
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Sync_BTN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AuthIssue";
+            this.Name = "BranchAuthIssue";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "تخويل طلبات الإصدار";

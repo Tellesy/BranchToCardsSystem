@@ -40,6 +40,12 @@ namespace CTS.FilesCreator
                 recordStrings.Add(extractRecordsString(record));
             }
 
+            string fileName = getFileName();
+            string header = getHeader();
+            string footer = getFooter(recordStrings.Count);
+
+            createAppFile(fileName, header, footer, recordStrings);
+            
             return statusObject;
         }
 
@@ -73,6 +79,34 @@ namespace CTS.FilesCreator
             return footer;
         }
 
+        private static string getFileName()
+        {
+            string name = "APPPR"+bankCode;
+            int seq = 1;
+            var today = DateTime.Today;
+            
+
+            string DD = today.Day.ToString().PadLeft(2,'0');
+            string MM = today.Month.ToString().PadLeft(2, '0');
+            string YY = today.Year.ToString().Substring(2, 2);
+            string hh = today.Hour.ToString().PadLeft(2, '0');
+            string mm = today.Minute.ToString().PadLeft(2, '0');
+            string ss = today.Second.ToString().PadLeft(2, '0');
+
+            name += DD + MM + YY + hh + mm + ss;
+
+            bool exist = true;
+            do
+            {
+                exist = checkFileExist(name + seq.ToString().PadLeft(6, '0')+".dat");
+                seq++;
+
+
+            } while (exist);
+
+            name += seq.ToString().PadLeft(6, '0') + ".dat";
+            return name;
+        }
         private static string extractRecordsString(PTSAppRecord record)
         {
    
@@ -773,27 +807,40 @@ namespace CTS.FilesCreator
             return recordString;
         }
 
-        private static void createAppFile(string fileName, string header, string footer, List<string> recordStrings)
+        private static bool checkFileExist(string fileName)
+        {
+            string file = String.Format(PTSApplicationFiles + @"\" + fileName);
+
+            if (File.Exists(file))
+            {
+                Console.WriteLine("Exist");
+                return true;
+            }
+            return false;
+        }
+        public static void createAppFile(string fileName, string header, string footer, List<string> recordStrings)
         {
             string file = String.Format(PTSApplicationFiles + @"\" + fileName);
 
             try
             {
                 // Check if file already exists. If yes, delete it.     
-                if (File.Exists(file))
-                {
-                    //File.Delete(file);
-                }
+            
 
-                // Create a new file     
-                using (FileStream fs = File.Create(file))
+                // Create a new file 
+                using (StreamWriter fs = File.CreateText(file))
                 {
-                    //fs.
+                    //Write header
+                    fs.WriteLine(header);
+                    foreach (string record in recordStrings)
+                    {
+                        fs.WriteLine(record);
+                    }
                     // Add some text to file    
-                    Byte[] title = new UTF8Encoding(true).GetBytes("New Text File");
-                    fs.Write(title, 0, title.Length);
-                    byte[] author = new UTF8Encoding(true).GetBytes("Mahesh Chand");
-                    fs.Write(author, 0, author.Length);
+                    fs.WriteLine(footer);
+   
+                    
+
                 }
                 //Nothing
             }
@@ -802,5 +849,7 @@ namespace CTS.FilesCreator
                 Console.WriteLine(Ex.ToString());
             }
         }
+
+        
     }
 }
