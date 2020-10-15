@@ -79,7 +79,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.CustomerID_TXT = new System.Windows.Forms.TextBox();
             this.Back_BTN = new System.Windows.Forms.Button();
-            this.Submit_BTN = new System.Windows.Forms.Button();
+            this.Authorize_BTN = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.Passport = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -127,6 +127,7 @@
             this.Exit_BTN.Size = new System.Drawing.Size(80, 57);
             this.Exit_BTN.TabIndex = 75;
             this.Exit_BTN.UseVisualStyleBackColor = true;
+            this.Exit_BTN.Click += new System.EventHandler(this.Exit_BTN_Click);
             // 
             // Deny_BTN
             // 
@@ -147,7 +148,7 @@
             this.Accept_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Accept_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.Accept_BTN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Accept_BTN.Location = new System.Drawing.Point(2, 468);
+            this.Accept_BTN.Location = new System.Drawing.Point(30, 468);
             this.Accept_BTN.Name = "Accept_BTN";
             this.Accept_BTN.Size = new System.Drawing.Size(66, 57);
             this.Accept_BTN.TabIndex = 80;
@@ -553,15 +554,15 @@
             this.Back_BTN.Text = "رجوع";
             this.Back_BTN.UseVisualStyleBackColor = true;
             // 
-            // Submit_BTN
+            // Authorize_BTN
             // 
-            this.Submit_BTN.Enabled = false;
-            this.Submit_BTN.Location = new System.Drawing.Point(379, 370);
-            this.Submit_BTN.Name = "Submit_BTN";
-            this.Submit_BTN.Size = new System.Drawing.Size(363, 32);
-            this.Submit_BTN.TabIndex = 122;
-            this.Submit_BTN.Text = "إضافة";
-            this.Submit_BTN.UseVisualStyleBackColor = true;
+            this.Authorize_BTN.Enabled = false;
+            this.Authorize_BTN.Location = new System.Drawing.Point(379, 370);
+            this.Authorize_BTN.Name = "Authorize_BTN";
+            this.Authorize_BTN.Size = new System.Drawing.Size(363, 32);
+            this.Authorize_BTN.TabIndex = 122;
+            this.Authorize_BTN.Text = "تخويل";
+            this.Authorize_BTN.UseVisualStyleBackColor = true;
             // 
             // label32
             // 
@@ -828,7 +829,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.CustomerID_TXT);
             this.Controls.Add(this.Back_BTN);
-            this.Controls.Add(this.Submit_BTN);
+            this.Controls.Add(this.Authorize_BTN);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.Passport);
             this.Controls.Add(this.label33);
@@ -914,7 +915,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox CustomerID_TXT;
         private System.Windows.Forms.Button Back_BTN;
-        private System.Windows.Forms.Button Submit_BTN;
+        private System.Windows.Forms.Button Authorize_BTN;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox Passport;
         private System.Windows.Forms.Label label33;

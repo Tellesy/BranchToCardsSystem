@@ -105,5 +105,10 @@ namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
             //    //do something else
             //}
         }
+
+        private void Exit_BTN_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
