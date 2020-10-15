@@ -321,11 +321,23 @@
     <Compile Include="Screens\Main\International Cards\AuthIssue\BranchAuthIssue.Designer.cs">
       <DependentUpon>BranchAuthIssue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Main\International Cards\AuthIssue\HQAuthIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\International Cards\AuthIssue\HQAuthIssue.Designer.cs">
+      <DependentUpon>HQAuthIssue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueBranchAuthScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueBranchAuthScreen.Designer.cs">
       <DependentUpon>IssueBranchAuthScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueHQAuthScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueHQAuthScreen.Designer.cs">
+      <DependentUpon>IssueHQAuthScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Main\International Cards\Generate File\GenAppRecord.cs">
       <SubType>Form</SubType>
@@ -482,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\International Cards\AuthIssue\BranchAuthIssue.resx">
       <DependentUpon>BranchAuthIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\International Cards\AuthIssue\HQAuthIssue.resx">
+      <DependentUpon>HQAuthIssue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueBranchAuthScreen.resx">
       <DependentUpon>IssueBranchAuthScreen.cs</DependentUpon>
