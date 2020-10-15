@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IssueBranchAuthScreen));
-            this.Exit_BTN = new System.Windows.Forms.Button();
-            this.Deny_BTN = new System.Windows.Forms.Button();
-            this.Accept_BTN = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -114,46 +110,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTSProgramBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Exit_BTN
-            // 
-            this.Exit_BTN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Exit_BTN.BackgroundImage")));
-            this.Exit_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Exit_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.Exit_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Exit_BTN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Exit_BTN.Location = new System.Drawing.Point(756, 469);
-            this.Exit_BTN.Name = "Exit_BTN";
-            this.Exit_BTN.Size = new System.Drawing.Size(80, 57);
-            this.Exit_BTN.TabIndex = 75;
-            this.Exit_BTN.UseVisualStyleBackColor = true;
-            this.Exit_BTN.Click += new System.EventHandler(this.Exit_BTN_Click);
-            // 
-            // Deny_BTN
-            // 
-            this.Deny_BTN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Deny_BTN.BackgroundImage")));
-            this.Deny_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Deny_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.Deny_BTN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Deny_BTN.Location = new System.Drawing.Point(138, 468);
-            this.Deny_BTN.Name = "Deny_BTN";
-            this.Deny_BTN.Size = new System.Drawing.Size(66, 57);
-            this.Deny_BTN.TabIndex = 78;
-            this.Deny_BTN.UseVisualStyleBackColor = true;
-            this.Deny_BTN.Click += new System.EventHandler(this.Deny_BTN_Click);
-            // 
-            // Accept_BTN
-            // 
-            this.Accept_BTN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Accept_BTN.BackgroundImage")));
-            this.Accept_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Accept_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.Accept_BTN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Accept_BTN.Location = new System.Drawing.Point(30, 468);
-            this.Accept_BTN.Name = "Accept_BTN";
-            this.Accept_BTN.Size = new System.Drawing.Size(66, 57);
-            this.Accept_BTN.TabIndex = 80;
-            this.Accept_BTN.UseVisualStyleBackColor = true;
-            this.Accept_BTN.Click += new System.EventHandler(this.Accept_BTN_Click);
             // 
             // label31
             // 
@@ -547,22 +503,24 @@
             // 
             // Back_BTN
             // 
-            this.Back_BTN.Location = new System.Drawing.Point(379, 408);
+            this.Back_BTN.Location = new System.Drawing.Point(12, 467);
             this.Back_BTN.Name = "Back_BTN";
             this.Back_BTN.Size = new System.Drawing.Size(363, 33);
             this.Back_BTN.TabIndex = 123;
             this.Back_BTN.Text = "رجوع";
             this.Back_BTN.UseVisualStyleBackColor = true;
+            this.Back_BTN.Click += new System.EventHandler(this.Back_BTN_Click);
             // 
             // Authorize_BTN
             // 
             this.Authorize_BTN.Enabled = false;
-            this.Authorize_BTN.Location = new System.Drawing.Point(379, 370);
+            this.Authorize_BTN.Location = new System.Drawing.Point(12, 429);
             this.Authorize_BTN.Name = "Authorize_BTN";
             this.Authorize_BTN.Size = new System.Drawing.Size(363, 32);
             this.Authorize_BTN.TabIndex = 122;
             this.Authorize_BTN.Text = "تخويل";
             this.Authorize_BTN.UseVisualStyleBackColor = true;
+            this.Authorize_BTN.Click += new System.EventHandler(this.Authorize_BTN_Click);
             // 
             // label32
             // 
@@ -695,7 +653,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(874, 49);
+            this.label1.Location = new System.Drawing.Point(472, 353);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 157;
@@ -705,7 +663,7 @@
             // AppType_TXT
             // 
             this.AppType_TXT.Enabled = false;
-            this.AppType_TXT.Location = new System.Drawing.Point(938, 33);
+            this.AppType_TXT.Location = new System.Drawing.Point(536, 337);
             this.AppType_TXT.MaxLength = 1;
             this.AppType_TXT.Name = "AppType_TXT";
             this.AppType_TXT.Size = new System.Drawing.Size(40, 20);
@@ -714,7 +672,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(846, 33);
+            this.label3.Location = new System.Drawing.Point(444, 337);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 156;
@@ -723,7 +681,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(838, 88);
+            this.label5.Location = new System.Drawing.Point(436, 392);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 13);
             this.label5.TabIndex = 160;
@@ -733,7 +691,7 @@
             // AppSubType_TXT
             // 
             this.AppSubType_TXT.Enabled = false;
-            this.AppSubType_TXT.Location = new System.Drawing.Point(938, 75);
+            this.AppSubType_TXT.Location = new System.Drawing.Point(536, 379);
             this.AppSubType_TXT.MaxLength = 1;
             this.AppSubType_TXT.Name = "AppSubType_TXT";
             this.AppSubType_TXT.Size = new System.Drawing.Size(40, 20);
@@ -742,7 +700,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(824, 75);
+            this.label6.Location = new System.Drawing.Point(422, 379);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 13);
             this.label6.TabIndex = 159;
@@ -751,7 +709,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(878, 126);
+            this.label39.Location = new System.Drawing.Point(476, 430);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(56, 13);
             this.label39.TabIndex = 163;
@@ -761,7 +719,7 @@
             // Inputter_TXT
             // 
             this.Inputter_TXT.Enabled = false;
-            this.Inputter_TXT.Location = new System.Drawing.Point(938, 110);
+            this.Inputter_TXT.Location = new System.Drawing.Point(536, 414);
             this.Inputter_TXT.MaxLength = 7;
             this.Inputter_TXT.Name = "Inputter_TXT";
             this.Inputter_TXT.Size = new System.Drawing.Size(93, 20);
@@ -770,7 +728,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(867, 110);
+            this.label40.Location = new System.Drawing.Point(465, 414);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(57, 13);
             this.label40.TabIndex = 162;
@@ -781,7 +739,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1118, 540);
+            this.ClientSize = new System.Drawing.Size(756, 540);
             this.ControlBox = false;
             this.Controls.Add(this.label39);
             this.Controls.Add(this.Inputter_TXT);
@@ -843,11 +801,8 @@
             this.Controls.Add(this.MainAccount_TXT);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.Program_CBox);
-            this.Controls.Add(this.Exit_BTN);
-            this.Controls.Add(this.Deny_BTN);
-            this.Controls.Add(this.Accept_BTN);
             this.Enabled = false;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "IssueBranchAuthScreen";
             this.Text = "IssueBranchAuthScreen";
             this.Load += new System.EventHandler(this.IssueBranchAuthScreen_Load);
@@ -866,9 +821,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button Exit_BTN;
-        private System.Windows.Forms.Button Deny_BTN;
-        private System.Windows.Forms.Button Accept_BTN;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;

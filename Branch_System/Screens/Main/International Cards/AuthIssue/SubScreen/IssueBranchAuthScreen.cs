@@ -25,7 +25,7 @@ namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
 
         private void IssueBranchAuthScreen_Load(object sender, EventArgs e)
         {
-            this.Text = record.RecordID.ToString();
+            this.Text = record.RecordID.ToString() + " " + record.Inputter;
             CustomerID_TXT.Text = record.CustomerID;
             
             //get customer name from here
@@ -44,6 +44,7 @@ namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
             CountryPhoneCode_CBox.Text = customerObject.Object.PhoneISD;
             PhoneNo_TXT.Text = customerObject.Object.Phone;
             Email_TXT.Text = customerObject.Object.Email;
+            Program_CBox.Text = record.ProgramCode;
             var accountObject = PTSAccountController.getAccount(record.CustomerID, record.ProgramCode);
 
 
@@ -55,60 +56,40 @@ namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
             Inputter_TXT.Text = record.Inputter.ToString();
 
         }
-        private void Accept_BTN_Click(object sender, EventArgs e)
+
+
+
+        private void Back_BTN_Click(object sender, EventArgs e)
         {
-        //    DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
-        //    if (dialogResult == DialogResult.Yes)
-        //    {
-
-        //        Database.Status status = Database.PO.authBranchPO(record.ID);
-
-        //        if (status.status)
-        //        {
-        //            //Get Total Amount to be added to PBF
-
-
-        //            MessageBox.Show("تم تخويل العملية بنجاح");
-        //            record = null;
-        //            this.Close();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show(status.message);
-        //        }
-        //    }
-        //    else if (dialogResult == DialogResult.No)
-        //    {
-        //        //do something else
-        //    }
+            this.Close();
         }
 
-        private void Deny_BTN_Click(object sender, EventArgs e)
+        private void Authorize_BTN_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("هل انت متأكد من إلغاء هذه العملية؟", "إلغاء العملية", MessageBoxButtons.YesNo);
-           // if (dialogResult == DialogResult.Yes)
-            //{
-            //    Database.Status status = Database.PO.deletePO(record.CustomerID);
-            //    if (status.status)
-            //    {
-            //        MessageBox.Show("تم إلغاء العملية بنجاح");
-            //        record = null;
-            //        this.Close();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(status.message);
-            //    }
-            //}
-            //else if (dialogResult == DialogResult.No)
-            //{
-            //    //do something else
-            //}
-        }
+               DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
 
-        private void Exit_BTN_Click(object sender, EventArgs e)
-        {
+                Database.Status status = Database.PTSAppRecordController.authBranchAppRecord(record.RecordID);
 
+                if (status.status)
+                {
+                    //Get Total Amount to be added to PBF
+
+
+                    MessageBox.Show("تم تخويل العملية بنجاح");
+                    record = null;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(status.message);
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
     }
 }
