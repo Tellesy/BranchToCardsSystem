@@ -54,6 +54,7 @@
             this.GenAppFilesBasedOnCode_BTN.TabIndex = 47;
             this.GenAppFilesBasedOnCode_BTN.Text = "Generate App Record Files Based on Program Code";
             this.GenAppFilesBasedOnCode_BTN.UseVisualStyleBackColor = true;
+            this.GenAppFilesBasedOnCode_BTN.Click += new System.EventHandler(this.GenAppFilesBasedOnCode_BTN_Click);
             // 
             // Exit_BTN
             // 

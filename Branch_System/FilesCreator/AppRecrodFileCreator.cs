@@ -1,4 +1,5 @@
-﻿using CTS.Database.Objects;
+﻿using CTS.Database;
+using CTS.Database.Objects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,9 +31,10 @@ namespace CTS.FilesCreator
             System.IO.Directory.CreateDirectory(PTSLoadFiles);
         }
 
-        public static bool GenerateAppRecordFile(List<PTSAppRecord> records)
+        public static Status GenerateAppRecordFile(List<PTSAppRecord> records)
         {
-            bool status = false;
+            Status status = new Status();
+            status.status = false;
             List<string> recordStrings = new List<string>();
 
             foreach(PTSAppRecord record in records)
@@ -44,22 +46,22 @@ namespace CTS.FilesCreator
             string header = getHeader();
             string footer = getFooter(recordStrings.Count);
 
-            createAppFile(fileName, header, footer, recordStrings);
+            status = createAppFile(fileName, header, footer, recordStrings);
             
             return status;
         }
 
-        public static Status<int> GenerateAppRecordFilesBasedOnProgramCode(List<PTSAppRecord> records)
-        {
-            Status<int> statusObject = new Status<int>();
+        //public static Status<int> GenerateAppRecordFilesBasedOnProgramCode(List<PTSAppRecord> records)
+        //{
+        //    Status<int> statusObject = new Status<int>();
 
 
-            return statusObject;
-        }
+        //    return statusObject;
+        //}
 
         private static string getHeader()
         {
-            var today = DateTime.Today;
+            var today = DateTime.Now;
             string day = today.Day.ToString().PadLeft(2, '0');
             string month = today.Month.ToString().PadLeft(2, '0');
             string year = today.Year.ToString();
@@ -82,8 +84,8 @@ namespace CTS.FilesCreator
         private static string getFileName()
         {
             string name = "APPPR"+bankCode;
-            int seq = 1;
-            var today = DateTime.Today;
+            int seq = 0;
+            var today = DateTime.Now;
             
 
             string DD = today.Day.ToString().PadLeft(2,'0');
@@ -98,10 +100,8 @@ namespace CTS.FilesCreator
             bool exist = true;
             do
             {
-                exist = checkFileExist(name + seq.ToString().PadLeft(6, '0')+".dat");
                 seq++;
-
-
+                exist = checkFileExist(name + seq.ToString().PadLeft(6, '0')+".dat");
             } while (exist);
 
             name += seq.ToString().PadLeft(6, '0') + ".dat";
@@ -132,28 +132,31 @@ namespace CTS.FilesCreator
             recordString += record.CustomerType + "|";
 
             //Add Program Code
-
             recordString += String.Concat(record.ProgramCode.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
             //Add Existing Device Number
             if (string.IsNullOrWhiteSpace(record.ExistingDeviceNumber))
                 record.ExistingDeviceNumber = "";
+
             recordString += record.ExistingDeviceNumber + "|";
 
             //Add Existing Client Code
             if (string.IsNullOrWhiteSpace(record.ExistingClientCode))
                 record.ExistingClientCode = "";
+
             recordString += record.ExistingClientCode + "|";
 
             //Add Existing Add-on Client Code
             if (string.IsNullOrWhiteSpace(record.ExistingAddonClientCode))
                 record.ExistingAddonClientCode = "";
+
             recordString += record.ExistingAddonClientCode + "|";
 
 
             //Add Relation with Primary Client
             if (string.IsNullOrWhiteSpace(record.RelationwithPrimaryClient))
                 record.RelationwithPrimaryClient = "";
+
             recordString += record.RelationwithPrimaryClient + "|";
 
             //Add Relation with Wallet Plan 1 Promo
@@ -172,11 +175,6 @@ namespace CTS.FilesCreator
             recordString += record.WalletPlan3Promo + "|";
 
 
-            //Add  Wallet Plan 3 Promo
-            if (string.IsNullOrWhiteSpace(record.WalletPlan3Promo))
-                record.WalletPlan3Promo = "";
-            recordString += record.WalletPlan3Promo + "|";
-
             //Add Device Type 1
             if (string.IsNullOrWhiteSpace(record.DeviceType1))
                 record.DeviceType1 = "4";
@@ -185,7 +183,7 @@ namespace CTS.FilesCreator
             //Add Device Plan Code 1
             if (string.IsNullOrWhiteSpace(record.DevicePlanCode1))
                 record.DevicePlanCode1 = "";
-            recordString += record.DevicePlanCode1 + "|";
+            recordString += String.Concat(record.DevicePlanCode1.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
             //Add Device Plan Promo Code 1
             if (string.IsNullOrWhiteSpace(record.DevicePlanPromoCode1))
@@ -194,7 +192,7 @@ namespace CTS.FilesCreator
 
             //Add Device Photo Indicator  1
             if (string.IsNullOrWhiteSpace(record.DevicePhotoIndicator1))
-                record.DevicePhotoIndicator1 = "";
+                record.DevicePhotoIndicator1 = "0";
             recordString += record.DevicePhotoIndicator1 + "|";
 
 
@@ -356,18 +354,15 @@ namespace CTS.FilesCreator
             recordString += record.Customer.Nationality + "|";
 
             //Birthdate
-            recordString += record.Customer.Birthdate + "|";
+            recordString += DateTime.Parse(record.Customer.Birthdate).ToString("ddMMyyyy") + "|";
 
             //Birth City 
             recordString +="|";
 
             //Birth Country
-            recordString += "|";
+            recordString += "434"+"|";
 
             //Education
-            recordString += "|";
-
-            //Birth Country
             recordString += "|";
 
             //VIP Flag
@@ -461,7 +456,7 @@ namespace CTS.FilesCreator
             recordString += "|";
 
             //Register for DNCR
-            recordString += "|";
+            recordString += "Y"+ "|";
 
             //SMS Alert
             recordString += "Y" + "|";
@@ -479,7 +474,7 @@ namespace CTS.FilesCreator
             recordString += record.Customer.PhoneISD + "|";
 
             //Mobile Number
-            recordString += record.Customer.Phone + "|";
+            recordString += String.Concat(record.Customer.Phone.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
             //Email
             recordString += record.Customer.Email + "|";
@@ -527,23 +522,23 @@ namespace CTS.FilesCreator
             recordString += "|";
 
             //Legal ID 1 Type (Passport)
-            recordString += "1" + "|";
+            recordString += "01" + "|";
 
             //Legal ID 1 (Passport Number)
-            recordString += record.Customer.PassportNumber + "|";
+            recordString += String.Concat(record.Customer.PassportNumber.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
             //Legal ID 1 Expiry Date (Passport Exp Date)
-            recordString += record.Customer.PassportExp + "|";
+            recordString += DateTime.Parse(record.Customer.PassportExp).ToString("ddMMyyyy") + "|";
 
             //Legal ID 1 Issuance Place (Passport Issuance Place)
             recordString += "Libya" + "|";
 
 
             //Legal ID 2 Type (National ID)
-            recordString += "2" + "|";
+            recordString += "02" + "|";
 
             //Legal ID 2 (National ID)
-            recordString += record.Customer.NationalID + "|";
+            recordString += String.Concat(record.Customer.NationalID.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
             //Legal ID 2 Expiry Date (National ID)
             recordString +=  "|";
@@ -822,7 +817,7 @@ namespace CTS.FilesCreator
             recordString += "|";
 
             //Checksum 
-            recordString += "|";
+            recordString += "";
 
             return recordString;
         }
@@ -838,8 +833,10 @@ namespace CTS.FilesCreator
             }
             return false;
         }
-        private static void createAppFile(string fileName, string header, string footer, List<string> recordStrings)
+        private static Status createAppFile(string fileName, string header, string footer, List<string> recordStrings)
         {
+            Status status = new Status();
+            status.status = false;
             string file = String.Format(PTSApplicationFiles + @"\" + fileName);
 
             try
@@ -856,17 +853,20 @@ namespace CTS.FilesCreator
                     {
                         fs.WriteLine(record);
                     }
-                    // Add some text to file    
+                  //Write Footer  
                     fs.WriteLine(footer);
-   
-                    
+
+                    status.status = true;
 
                 }
-                //Nothing
+                return status;
             }
             catch (Exception Ex)
             {
                 Console.WriteLine(Ex.ToString());
+                status.status = false;
+                status.message = Ex.Message;
+                return status;
             }
         }
 

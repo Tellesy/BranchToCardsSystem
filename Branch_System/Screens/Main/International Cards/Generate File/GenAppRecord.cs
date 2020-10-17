@@ -67,6 +67,23 @@ namespace CTS.Screens.Main.International_Cards.Generate_File
 
                 var status = AppRecrodFileCreator.GenerateAppRecordFile(records);
 
+                if(status.status)
+                {
+                    foreach(var record in records)
+                    {
+                       var sObject = PTSAppRecordController.genAppRecord(record.RecordID);
+                        if(!sObject.status)
+                        {
+                            MessageBox.Show("The Record has been generated in file but failed to update (generated Var in DB)","Error in Reocrd " + record.RecordID);
+                        }
+                    }
+                    
+                    MessageBox.Show("Done");
+                }
+                else
+                {
+                    MessageBox.Show(status.message);
+                }
                 
             }
             else
@@ -81,6 +98,11 @@ namespace CTS.Screens.Main.International_Cards.Generate_File
 
 
 
+
+        }
+
+        private void GenAppFilesBasedOnCode_BTN_Click(object sender, EventArgs e)
+        {
 
         }
     }

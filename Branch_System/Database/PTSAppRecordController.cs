@@ -316,7 +316,7 @@ namespace CTS.Database
                 try
                 {
                     cmd.Parameters.AddWithValue("@v1", Database.Login.id);
-                    cmd.Parameters.AddWithValue("@v2", DateTime.Today);
+                    cmd.Parameters.AddWithValue("@v2", DateTime.Now);
                     cmd.Parameters.AddWithValue("@v3", recordID);
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -358,7 +358,7 @@ namespace CTS.Database
                 try
                 {
                     cmd.Parameters.AddWithValue("@v1", Database.Login.id);
-                    cmd.Parameters.AddWithValue("@v2", DateTime.Today);
+                    cmd.Parameters.AddWithValue("@v2", DateTime.Now);
                     cmd.Parameters.AddWithValue("@v3", recordID);
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -500,7 +500,7 @@ namespace CTS.Database
                 try
                 {
                     cmd.Parameters.AddWithValue("@v1", 1);
-                    cmd.Parameters.AddWithValue("@v2", DateTime.Today);
+                    cmd.Parameters.AddWithValue("@v2", DateTime.Now);
                     cmd.Parameters.AddWithValue("@v3", recordID);
                     cmd.ExecuteNonQuery();
                     conn.Close();
