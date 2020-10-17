@@ -117,29 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Logout_BTN.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAP2SURBVHhe7ZvN
-        TxNBGIebkFCIN403P1DjyaiJN6IHD1CkBhJbi9BSugWqBoIfCR8pdpuKBJJuwcSretGbV08eiFSMmpgY
-        +BP8GyAmlsD4zspOtssb2x1mdtm6hyd5mYX2+f1gtkA6AULIPpTCYpuill4rOW0jlSv+jk892739YJaE
-        lXHSGR91g63O+MhaRzyzHEqOnsGcedm3oORLyZSqbSqqRjAGJudIb+YxJukUmx2JTMbqzUvVB+lC8QqE
-        rFhDYySzCyQyNk26kvcwSemIKqHqAwi2bg1aC9gipO9hzo3tsSliO7AhnV04jgW0w8DkU0e3B70nmMPw
-        wIahfKkbC8UD2x6DsrfHyJo5DA9sAPF+a5CDQrdHTO722DKH4YENICy8ADOR8RkswIEx/HlhA0hKLYDS
-        90gloUQGDcKL4c8LG0BQegEU0T8Jhj8vbAA5RwpITM+jQXgx/HlhA8g5UgDlxtB9NAwPhj8vbAAxxwro
-        vSvudwXDnxc2gJhfgFVUFn4BfgF+AWgYHgx/XtgAYt4v4GPrCbLScrpqrQZsADFvF/C59RQpByvADim3
-        DLP1GrABxLxdAP3O6+GDBNittwQ2gJj3twANrYevvwQ2gFhj3ARtlsAGEGuMAig2SmADiDldQAWY6xrI
-        XIjFYk1mKSHUWQIbQMzRAkKJTLdZRAp1lMAGEHOsgMjY1Hcm8SFwhKw23yKfmvulsBp8v1cAWoIrBUQn
-        sm+YRLn5q0nQCbbJl0Cr8fz/YwE75t8WpRQAAUn7zaj+D1DsesNvgfZwVH+Juh4dRK/rN8GBkR6ziBTc
-        ugm2hyPsdRq7vvcyuB1KjM435MtgnQUIwfCvos7wFDaAWGMUYCM8hQ0g5v0CbIansAHEvF3AWstZCH04
-        /hy+1ntHl7vaE0OvSymgHDz/N/ih+IdIkYRTYyQ+PYdck7kFoISV4LmqtRqwAcQEFvBvpN4EbcIGEPML
-        sIrKwi/AL8AvAA3Dg+HPCxtAzC/AKioLvwC/AL8ANAwPhj8vbAAxLxbgnbfKmhFXgMg3S+eLMUxWBqIK
-        EPp2+fSTpZOYrAwEFSD2wAQlrWo/MGHRiChAypGZlFrKY8KiOWAB8g5NTUy8CKZU7S0mLRKOApw7NkdR
-        1NIsiO5axQXSjz2vG6CLFEVdvphSiy9B9pdFXgSHvwCDkcLyUSWnzYD0T0sIbugBLey53ABdxIjF3jUp
-        uVIEAqxaA9mFHtHDnsMN0MVaDBW0S/BT8QrC8GyPdewx3QJdrJeh7MIxm9ujQo/nYo/lFuiiXej2SOWL
-        USWvlZHQOvqB7HwpiX29m6CLB2FYXboMgZ8D3/TQOW1DP4pfWGzDPt9dSOAP/gO8YaomkfgAAAAASUVO
-        RK5CYII=
-</value>
-  </data>
 </root>

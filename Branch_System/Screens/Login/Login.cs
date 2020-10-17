@@ -18,7 +18,7 @@ using CTS.Screens.Main;
 
 namespace CTS.Screens
 {
-    public partial class Login : Form
+    public partial class Login : MaterialSkin.Controls.MaterialForm
     {
         public Login()
         {
@@ -27,7 +27,13 @@ namespace CTS.Screens
 
         private async void Login_Load(object sender, EventArgs e)
         {
-    
+            //Test Skin
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
+            skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Green900, MaterialSkin.Primary.BlueGrey900, MaterialSkin.Primary.Blue500, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
+            
+            //End Test
             CTS.ConnectToSharedFolder.CreateShortcut();
 
 
@@ -66,6 +72,7 @@ namespace CTS.Screens
 
         private void Login_BTN_Click(object sender, EventArgs e)
         {
+     
             string username = Username_TXT.Text;
             string password = Password_TXT.Text;
 

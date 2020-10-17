@@ -20,7 +20,7 @@ using CTS.Screens.International_Cards.AuthIssue;
 
 namespace CTS.Screens.Main
 {
-    public partial class HQAdmin : Form
+    public partial class HQAdmin : MaterialSkin.Controls.MaterialForm
     {
 
         private ChangePassword changePassword;
@@ -34,18 +34,18 @@ namespace CTS.Screens.Main
             InitializeComponent();
         }
 
-        private void Password_LBL_Click(object sender, EventArgs e)
+        private void Password_BTN_Click(object sender, EventArgs e)
         {
             if (changePassword == null)
             {
                 changePassword = new ChangePassword();
                 changePassword.Closed += (s, args) => {
                     //authRecharge.UnlockRecord();
-                    Password_LBL.Enabled = true;
+                    Password_BTN.Enabled = true;
                     changePassword = null; //PBF_Auth_BTN.Enabled = true;
                 };
                 changePassword.Show();
-                Password_LBL.Enabled = false;
+                Password_BTN.Enabled = false;
             }
         }
 
@@ -68,6 +68,9 @@ namespace CTS.Screens.Main
 
         private void HQAdmin_Load(object sender, EventArgs e)
         {
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
+
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -105,12 +108,12 @@ namespace CTS.Screens.Main
             if (Database.Recharge.active != "True")
             {
                 MessageBox.Show("عذراً, الشحن و الإصدار غير متاح");
-                Status_LBL.Text = "غير متاح";
+                Status_LBL.Text = "Not Available";
                 Status_LBL.ForeColor = Color.Red;
             }
             else
             {
-                Status_LBL.Text = "متاح";
+                Status_LBL.Text = "Available";
                 Status_LBL.ForeColor = Color.Green;
             }
         }

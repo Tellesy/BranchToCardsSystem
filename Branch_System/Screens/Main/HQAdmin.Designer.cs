@@ -28,231 +28,309 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HQAdmin));
-            this.UpdateUser_BTN = new System.Windows.Forms.Button();
-            this.AddUser_BTN = new System.Windows.Forms.Button();
-            this.AddCardAccount_BTN = new System.Windows.Forms.Button();
-            this.Password_LBL = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Amount_LBL = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Year_LBL = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Status_LBL = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Name_LBL = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.unAuthAppRecord_BTN = new System.Windows.Forms.Button();
-            this.Logout_BTN = new System.Windows.Forms.Button();
-            this.GenFiles_BTN = new System.Windows.Forms.Button();
-            this.HQAuthAppRecord_BTN = new System.Windows.Forms.Button();
+            this.Name_LBL = new MaterialSkin.Controls.MaterialLabel();
+            this.Welcome_LBL = new MaterialSkin.Controls.MaterialLabel();
+            this.Password_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.Status_LBL = new MaterialSkin.Controls.MaterialLabel();
+            this.Year_LBL = new MaterialSkin.Controls.MaterialLabel();
+            this.Year = new MaterialSkin.Controls.MaterialLabel();
+            this.Amount_LBL = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.UpdateUser_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.AddUser_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.unAuthAppRecord_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.HQAuthAppRecord_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.GenFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Logout_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.UnauthBrasnchLoad_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.AuthLoadRequests_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.materialLabel2);
+            this.panel1.Controls.Add(this.Amount_LBL);
+            this.panel1.Controls.Add(this.Year);
+            this.panel1.Controls.Add(this.Year_LBL);
+            this.panel1.Controls.Add(this.Status_LBL);
+            this.panel1.Controls.Add(this.materialLabel1);
+            this.panel1.Location = new System.Drawing.Point(12, 131);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(350, 132);
+            this.panel1.TabIndex = 37;
+            // 
+            // Name_LBL
+            // 
+            this.Name_LBL.AutoSize = true;
+            this.Name_LBL.Depth = 0;
+            this.Name_LBL.Font = new System.Drawing.Font("Roboto", 11F);
+            this.Name_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Name_LBL.Location = new System.Drawing.Point(199, 83);
+            this.Name_LBL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Name_LBL.Name = "Name_LBL";
+            this.Name_LBL.Size = new System.Drawing.Size(18, 19);
+            this.Name_LBL.TabIndex = 47;
+            this.Name_LBL.Text = "X";
+            // 
+            // Welcome_LBL
+            // 
+            this.Welcome_LBL.AutoSize = true;
+            this.Welcome_LBL.Depth = 0;
+            this.Welcome_LBL.Font = new System.Drawing.Font("Roboto", 11F);
+            this.Welcome_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Welcome_LBL.Location = new System.Drawing.Point(88, 83);
+            this.Welcome_LBL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Welcome_LBL.Name = "Welcome_LBL";
+            this.Welcome_LBL.Size = new System.Drawing.Size(76, 19);
+            this.Welcome_LBL.TabIndex = 48;
+            this.Welcome_LBL.Text = "Welcome:";
+            // 
+            // Password_BTN
+            // 
+            this.Password_BTN.AutoSize = true;
+            this.Password_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Password_BTN.Depth = 0;
+            this.Password_BTN.Location = new System.Drawing.Point(367, 75);
+            this.Password_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Password_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Password_BTN.Name = "Password_BTN";
+            this.Password_BTN.Primary = false;
+            this.Password_BTN.Size = new System.Drawing.Size(144, 36);
+            this.Password_BTN.TabIndex = 49;
+            this.Password_BTN.Text = "Change Password";
+            this.Password_BTN.UseVisualStyleBackColor = true;
+            this.Password_BTN.Click += new System.EventHandler(this.Password_BTN_Click);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(10, 21);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(56, 19);
+            this.materialLabel1.TabIndex = 50;
+            this.materialLabel1.Text = "Status:";
+            // 
+            // Status_LBL
+            // 
+            this.Status_LBL.AutoSize = true;
+            this.Status_LBL.Depth = 0;
+            this.Status_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Status_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Status_LBL.Location = new System.Drawing.Point(243, 22);
+            this.Status_LBL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Status_LBL.Name = "Status_LBL";
+            this.Status_LBL.Size = new System.Drawing.Size(18, 18);
+            this.Status_LBL.TabIndex = 50;
+            this.Status_LBL.Text = "X";
+            // 
+            // Year_LBL
+            // 
+            this.Year_LBL.AutoSize = true;
+            this.Year_LBL.Depth = 0;
+            this.Year_LBL.Font = new System.Drawing.Font("Roboto", 11F);
+            this.Year_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Year_LBL.Location = new System.Drawing.Point(243, 54);
+            this.Year_LBL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Year_LBL.Name = "Year_LBL";
+            this.Year_LBL.Size = new System.Drawing.Size(18, 19);
+            this.Year_LBL.TabIndex = 51;
+            this.Year_LBL.Text = "X";
+            // 
+            // Year
+            // 
+            this.Year.AutoSize = true;
+            this.Year.Depth = 0;
+            this.Year.Font = new System.Drawing.Font("Roboto", 11F);
+            this.Year.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Year.Location = new System.Drawing.Point(10, 54);
+            this.Year.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Year.Name = "Year";
+            this.Year.Size = new System.Drawing.Size(43, 19);
+            this.Year.TabIndex = 52;
+            this.Year.Text = "Year:";
+            // 
+            // Amount_LBL
+            // 
+            this.Amount_LBL.AutoSize = true;
+            this.Amount_LBL.Depth = 0;
+            this.Amount_LBL.Font = new System.Drawing.Font("Roboto", 11F);
+            this.Amount_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Amount_LBL.Location = new System.Drawing.Point(242, 90);
+            this.Amount_LBL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Amount_LBL.Name = "Amount_LBL";
+            this.Amount_LBL.Size = new System.Drawing.Size(18, 19);
+            this.Amount_LBL.TabIndex = 53;
+            this.Amount_LBL.Text = "X";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(10, 90);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(135, 19);
+            this.materialLabel2.TabIndex = 54;
+            this.materialLabel2.Text = "Max Load Amount:";
+            // 
             // UpdateUser_BTN
             // 
-            this.UpdateUser_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.UpdateUser_BTN.Location = new System.Drawing.Point(514, 68);
+            this.UpdateUser_BTN.AutoSize = true;
+            this.UpdateUser_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UpdateUser_BTN.Depth = 0;
+            this.UpdateUser_BTN.Location = new System.Drawing.Point(367, 193);
+            this.UpdateUser_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.UpdateUser_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.UpdateUser_BTN.Name = "UpdateUser_BTN";
-            this.UpdateUser_BTN.Size = new System.Drawing.Size(129, 63);
-            this.UpdateUser_BTN.TabIndex = 42;
-            this.UpdateUser_BTN.Text = "Update User";
+            this.UpdateUser_BTN.Primary = false;
+            this.UpdateUser_BTN.Size = new System.Drawing.Size(104, 36);
+            this.UpdateUser_BTN.TabIndex = 50;
+            this.UpdateUser_BTN.Text = "Update  User";
             this.UpdateUser_BTN.UseVisualStyleBackColor = true;
             this.UpdateUser_BTN.Click += new System.EventHandler(this.UpdateUser_BTN_Click);
             // 
             // AddUser_BTN
             // 
-            this.AddUser_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.AddUser_BTN.Location = new System.Drawing.Point(363, 68);
+            this.AddUser_BTN.AutoSize = true;
+            this.AddUser_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AddUser_BTN.Depth = 0;
+            this.AddUser_BTN.Location = new System.Drawing.Point(367, 153);
+            this.AddUser_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AddUser_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddUser_BTN.Name = "AddUser_BTN";
-            this.AddUser_BTN.Size = new System.Drawing.Size(145, 63);
-            this.AddUser_BTN.TabIndex = 41;
+            this.AddUser_BTN.Primary = false;
+            this.AddUser_BTN.Size = new System.Drawing.Size(109, 36);
+            this.AddUser_BTN.TabIndex = 52;
             this.AddUser_BTN.Text = "Add New User";
             this.AddUser_BTN.UseVisualStyleBackColor = true;
             this.AddUser_BTN.Click += new System.EventHandler(this.AddUser_BTN_Click);
             // 
-            // AddCardAccount_BTN
-            // 
-            this.AddCardAccount_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.AddCardAccount_BTN.Location = new System.Drawing.Point(363, 137);
-            this.AddCardAccount_BTN.Name = "AddCardAccount_BTN";
-            this.AddCardAccount_BTN.Size = new System.Drawing.Size(145, 63);
-            this.AddCardAccount_BTN.TabIndex = 40;
-            this.AddCardAccount_BTN.Text = "Add Card Account";
-            this.AddCardAccount_BTN.UseVisualStyleBackColor = true;
-            this.AddCardAccount_BTN.Click += new System.EventHandler(this.AddCardAccount_BTN_Click);
-            // 
-            // Password_LBL
-            // 
-            this.Password_LBL.AutoSize = true;
-            this.Password_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Underline);
-            this.Password_LBL.ForeColor = System.Drawing.Color.Blue;
-            this.Password_LBL.Location = new System.Drawing.Point(491, 9);
-            this.Password_LBL.Name = "Password_LBL";
-            this.Password_LBL.Size = new System.Drawing.Size(104, 20);
-            this.Password_LBL.TabIndex = 39;
-            this.Password_LBL.Text = "تغير كلمة المرور";
-            this.Password_LBL.Click += new System.EventHandler(this.Password_LBL_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.Amount_LBL);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.Year_LBL);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.Status_LBL);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(7, 68);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 132);
-            this.panel1.TabIndex = 37;
-            // 
-            // Amount_LBL
-            // 
-            this.Amount_LBL.AutoSize = true;
-            this.Amount_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Amount_LBL.Location = new System.Drawing.Point(10, 85);
-            this.Amount_LBL.Name = "Amount_LBL";
-            this.Amount_LBL.Size = new System.Drawing.Size(20, 20);
-            this.Amount_LBL.TabIndex = 8;
-            this.Amount_LBL.Text = "X";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label5.Location = new System.Drawing.Point(272, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 20);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "سقف الشحن";
-            // 
-            // Year_LBL
-            // 
-            this.Year_LBL.AutoSize = true;
-            this.Year_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Year_LBL.Location = new System.Drawing.Point(10, 48);
-            this.Year_LBL.Name = "Year_LBL";
-            this.Year_LBL.Size = new System.Drawing.Size(20, 20);
-            this.Year_LBL.TabIndex = 6;
-            this.Year_LBL.Text = "X";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label2.Location = new System.Drawing.Point(311, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "السنة";
-            // 
-            // Status_LBL
-            // 
-            this.Status_LBL.AutoSize = true;
-            this.Status_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Status_LBL.Location = new System.Drawing.Point(10, 11);
-            this.Status_LBL.Name = "Status_LBL";
-            this.Status_LBL.Size = new System.Drawing.Size(20, 20);
-            this.Status_LBL.TabIndex = 4;
-            this.Status_LBL.Text = "X";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label3.Location = new System.Drawing.Point(213, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "حالة الشحن و الإصدار";
-            // 
-            // Name_LBL
-            // 
-            this.Name_LBL.AutoSize = true;
-            this.Name_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.Name_LBL.Location = new System.Drawing.Point(9, 9);
-            this.Name_LBL.Name = "Name_LBL";
-            this.Name_LBL.Size = new System.Drawing.Size(20, 20);
-            this.Name_LBL.TabIndex = 36;
-            this.Name_LBL.Text = "X";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label1.Location = new System.Drawing.Point(308, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 20);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "مرحباً ";
-            // 
             // unAuthAppRecord_BTN
             // 
-            this.unAuthAppRecord_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.unAuthAppRecord_BTN.Location = new System.Drawing.Point(7, 230);
+            this.unAuthAppRecord_BTN.AutoSize = true;
+            this.unAuthAppRecord_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.unAuthAppRecord_BTN.Depth = 0;
+            this.unAuthAppRecord_BTN.Location = new System.Drawing.Point(12, 293);
+            this.unAuthAppRecord_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.unAuthAppRecord_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.unAuthAppRecord_BTN.Name = "unAuthAppRecord_BTN";
-            this.unAuthAppRecord_BTN.Size = new System.Drawing.Size(145, 63);
-            this.unAuthAppRecord_BTN.TabIndex = 43;
+            this.unAuthAppRecord_BTN.Primary = false;
+            this.unAuthAppRecord_BTN.Size = new System.Drawing.Size(200, 36);
+            this.unAuthAppRecord_BTN.TabIndex = 53;
             this.unAuthAppRecord_BTN.Text = "Unauthorized App Record";
             this.unAuthAppRecord_BTN.UseVisualStyleBackColor = true;
             this.unAuthAppRecord_BTN.Click += new System.EventHandler(this.unAuthAppRecord_BTN_Click);
             // 
-            // Logout_BTN
+            // HQAuthAppRecord_BTN
             // 
-            this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
-            this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Logout_BTN.Location = new System.Drawing.Point(158, 368);
-            this.Logout_BTN.Name = "Logout_BTN";
-            this.Logout_BTN.Size = new System.Drawing.Size(350, 70);
-            this.Logout_BTN.TabIndex = 44;
-            this.Logout_BTN.Text = "تسجيل الخروج";
-            this.Logout_BTN.UseVisualStyleBackColor = true;
-            this.Logout_BTN.Click += new System.EventHandler(this.Logout_BTN_Click);
+            this.HQAuthAppRecord_BTN.AutoSize = true;
+            this.HQAuthAppRecord_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.HQAuthAppRecord_BTN.Depth = 0;
+            this.HQAuthAppRecord_BTN.Location = new System.Drawing.Point(13, 341);
+            this.HQAuthAppRecord_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.HQAuthAppRecord_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.HQAuthAppRecord_BTN.Name = "HQAuthAppRecord_BTN";
+            this.HQAuthAppRecord_BTN.Primary = false;
+            this.HQAuthAppRecord_BTN.Size = new System.Drawing.Size(172, 36);
+            this.HQAuthAppRecord_BTN.TabIndex = 54;
+            this.HQAuthAppRecord_BTN.Text = "Authorize App Record";
+            this.HQAuthAppRecord_BTN.UseVisualStyleBackColor = true;
+            this.HQAuthAppRecord_BTN.Click += new System.EventHandler(this.HQAuthAppRecord_BTN_Click);
             // 
-            // GenFile_BTN
+            // GenFiles_BTN
             // 
-            this.GenFiles_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.GenFiles_BTN.Location = new System.Drawing.Point(309, 230);
-            this.GenFiles_BTN.Name = "GenFile_BTN";
-            this.GenFiles_BTN.Size = new System.Drawing.Size(145, 63);
-            this.GenFiles_BTN.TabIndex = 45;
+            this.GenFiles_BTN.AutoSize = true;
+            this.GenFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GenFiles_BTN.Depth = 0;
+            this.GenFiles_BTN.Location = new System.Drawing.Point(12, 507);
+            this.GenFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.GenFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.GenFiles_BTN.Name = "GenFiles_BTN";
+            this.GenFiles_BTN.Primary = false;
+            this.GenFiles_BTN.Size = new System.Drawing.Size(119, 36);
+            this.GenFiles_BTN.TabIndex = 55;
             this.GenFiles_BTN.Text = "Generate Files";
             this.GenFiles_BTN.UseVisualStyleBackColor = true;
             this.GenFiles_BTN.Click += new System.EventHandler(this.GenFiles_BTN_Click);
             // 
-            // HQAuthAppRecord_BTN
+            // Logout_BTN
             // 
-            this.HQAuthAppRecord_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.HQAuthAppRecord_BTN.Location = new System.Drawing.Point(158, 230);
-            this.HQAuthAppRecord_BTN.Name = "HQAuthAppRecord_BTN";
-            this.HQAuthAppRecord_BTN.Size = new System.Drawing.Size(145, 63);
-            this.HQAuthAppRecord_BTN.TabIndex = 46;
-            this.HQAuthAppRecord_BTN.Text = "Authorize App Record";
-            this.HQAuthAppRecord_BTN.UseVisualStyleBackColor = true;
-            this.HQAuthAppRecord_BTN.Click += new System.EventHandler(this.HQAuthAppRecord_BTN_Click);
+            this.Logout_BTN.AutoSize = true;
+            this.Logout_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Logout_BTN.Depth = 0;
+            this.Logout_BTN.Location = new System.Drawing.Point(11, 555);
+            this.Logout_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Logout_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Logout_BTN.Name = "Logout_BTN";
+            this.Logout_BTN.Primary = false;
+            this.Logout_BTN.Size = new System.Drawing.Size(65, 36);
+            this.Logout_BTN.TabIndex = 56;
+            this.Logout_BTN.Text = "Logout";
+            this.Logout_BTN.UseVisualStyleBackColor = true;
+            this.Logout_BTN.Click += new System.EventHandler(this.Logout_BTN_Click);
+            // 
+            // UnauthBrasnchLoad_BTN
+            // 
+            this.UnauthBrasnchLoad_BTN.AutoSize = true;
+            this.UnauthBrasnchLoad_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UnauthBrasnchLoad_BTN.Depth = 0;
+            this.UnauthBrasnchLoad_BTN.Enabled = false;
+            this.UnauthBrasnchLoad_BTN.Location = new System.Drawing.Point(13, 389);
+            this.UnauthBrasnchLoad_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.UnauthBrasnchLoad_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.UnauthBrasnchLoad_BTN.Name = "UnauthBrasnchLoad_BTN";
+            this.UnauthBrasnchLoad_BTN.Primary = false;
+            this.UnauthBrasnchLoad_BTN.Size = new System.Drawing.Size(210, 36);
+            this.UnauthBrasnchLoad_BTN.TabIndex = 57;
+            this.UnauthBrasnchLoad_BTN.Text = "Unauthorized Branch Load";
+            this.UnauthBrasnchLoad_BTN.UseVisualStyleBackColor = true;
+            // 
+            // AuthLoadRequests_BTN
+            // 
+            this.AuthLoadRequests_BTN.AutoSize = true;
+            this.AuthLoadRequests_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AuthLoadRequests_BTN.Depth = 0;
+            this.AuthLoadRequests_BTN.Enabled = false;
+            this.AuthLoadRequests_BTN.Location = new System.Drawing.Point(13, 437);
+            this.AuthLoadRequests_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AuthLoadRequests_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AuthLoadRequests_BTN.Name = "AuthLoadRequests_BTN";
+            this.AuthLoadRequests_BTN.Primary = false;
+            this.AuthLoadRequests_BTN.Size = new System.Drawing.Size(204, 36);
+            this.AuthLoadRequests_BTN.TabIndex = 58;
+            this.AuthLoadRequests_BTN.Text = "Authorized Load Requests";
+            this.AuthLoadRequests_BTN.UseVisualStyleBackColor = true;
             // 
             // HQAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(655, 450);
+            this.ClientSize = new System.Drawing.Size(517, 664);
             this.ControlBox = false;
-            this.Controls.Add(this.HQAuthAppRecord_BTN);
-            this.Controls.Add(this.GenFiles_BTN);
+            this.Controls.Add(this.AuthLoadRequests_BTN);
+            this.Controls.Add(this.UnauthBrasnchLoad_BTN);
             this.Controls.Add(this.Logout_BTN);
+            this.Controls.Add(this.GenFiles_BTN);
+            this.Controls.Add(this.HQAuthAppRecord_BTN);
             this.Controls.Add(this.unAuthAppRecord_BTN);
-            this.Controls.Add(this.UpdateUser_BTN);
             this.Controls.Add(this.AddUser_BTN);
-            this.Controls.Add(this.AddCardAccount_BTN);
-            this.Controls.Add(this.Password_LBL);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.UpdateUser_BTN);
+            this.Controls.Add(this.Password_BTN);
+            this.Controls.Add(this.Welcome_LBL);
             this.Controls.Add(this.Name_LBL);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Name = "HQAdmin";
-            this.Text = "HQAdmin";
+            this.Text = "HQ Admin Page";
             this.Load += new System.EventHandler(this.HQAdmin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -262,23 +340,23 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button UpdateUser_BTN;
-        private System.Windows.Forms.Button AddUser_BTN;
-        private System.Windows.Forms.Button AddCardAccount_BTN;
-        private System.Windows.Forms.Label Password_LBL;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label Amount_LBL;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label Year_LBL;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label Status_LBL;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label Name_LBL;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button unAuthAppRecord_BTN;
-        private System.Windows.Forms.Button Logout_BTN;
-        private System.Windows.Forms.Button GenFiles_BTN;
-        private System.Windows.Forms.Button HQAuthAppRecord_BTN;
+        private MaterialSkin.Controls.MaterialLabel Name_LBL;
+        private MaterialSkin.Controls.MaterialLabel Welcome_LBL;
+        private MaterialSkin.Controls.MaterialFlatButton Password_BTN;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel Amount_LBL;
+        private MaterialSkin.Controls.MaterialLabel Year;
+        private MaterialSkin.Controls.MaterialLabel Year_LBL;
+        private MaterialSkin.Controls.MaterialLabel Status_LBL;
+        private MaterialSkin.Controls.MaterialFlatButton UpdateUser_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton AddUser_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton unAuthAppRecord_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton HQAuthAppRecord_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton GenFiles_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton Logout_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton UnauthBrasnchLoad_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton AuthLoadRequests_BTN;
     }
 }
