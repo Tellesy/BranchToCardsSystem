@@ -63,7 +63,7 @@
             this.Recharge_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.Recharge_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Recharge_BTN.Image")));
             this.Recharge_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Recharge_BTN.Location = new System.Drawing.Point(13, 311);
+            this.Recharge_BTN.Location = new System.Drawing.Point(13, 318);
             this.Recharge_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Recharge_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Recharge_BTN.Name = "Recharge_BTN";
@@ -83,7 +83,7 @@
             this.Reports_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(13, 485);
+            this.Reports_BTN.Location = new System.Drawing.Point(11, 558);
             this.Reports_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Reports_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Reports_BTN.Name = "Reports_BTN";
@@ -103,7 +103,7 @@
             this.Logout_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
             this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Logout_BTN.Location = new System.Drawing.Point(14, 563);
+            this.Logout_BTN.Location = new System.Drawing.Point(13, 653);
             this.Logout_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Logout_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Logout_BTN.Name = "Logout_BTN";
@@ -119,7 +119,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label4.Location = new System.Drawing.Point(178, 614);
+            this.label4.Location = new System.Drawing.Point(202, 678);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 17);
             this.label4.TabIndex = 31;
@@ -134,7 +134,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(13, 343);
+            this.button1.Location = new System.Drawing.Point(13, 366);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button1.MouseState = MaterialSkin.MouseState.HOVER;
             this.button1.Name = "button1";
@@ -154,7 +154,7 @@
             this.Card_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.Card_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Card_BTN.Image")));
             this.Card_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Card_BTN.Location = new System.Drawing.Point(13, 280);
+            this.Card_BTN.Location = new System.Drawing.Point(13, 270);
             this.Card_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Card_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Card_BTN.Name = "Card_BTN";
@@ -172,7 +172,7 @@
             this.ShareFolder_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ShareFolder_BTN.Depth = 0;
             this.ShareFolder_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.ShareFolder_BTN.Location = new System.Drawing.Point(13, 515);
+            this.ShareFolder_BTN.Location = new System.Drawing.Point(11, 606);
             this.ShareFolder_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ShareFolder_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.ShareFolder_BTN.Name = "ShareFolder_BTN";
@@ -191,7 +191,7 @@
             this.AccountDetails_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.AccountDetails_BTN.Image = ((System.Drawing.Image)(resources.GetObject("AccountDetails_BTN.Image")));
             this.AccountDetails_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AccountDetails_BTN.Location = new System.Drawing.Point(13, 373);
+            this.AccountDetails_BTN.Location = new System.Drawing.Point(11, 414);
             this.AccountDetails_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AccountDetails_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.AccountDetails_BTN.Name = "AccountDetails_BTN";
@@ -211,7 +211,7 @@
             this.PTSIssueAuth_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.PTSIssueAuth_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PTSIssueAuth_BTN.Image")));
             this.PTSIssueAuth_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PTSIssueAuth_BTN.Location = new System.Drawing.Point(14, 410);
+            this.PTSIssueAuth_BTN.Location = new System.Drawing.Point(13, 462);
             this.PTSIssueAuth_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PTSIssueAuth_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.PTSIssueAuth_BTN.Name = "PTSIssueAuth_BTN";
@@ -232,7 +232,7 @@
             this.PTSLoadAuth_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.PTSLoadAuth_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PTSLoadAuth_BTN.Image")));
             this.PTSLoadAuth_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PTSLoadAuth_BTN.Location = new System.Drawing.Point(13, 437);
+            this.PTSLoadAuth_BTN.Location = new System.Drawing.Point(13, 510);
             this.PTSLoadAuth_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PTSLoadAuth_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.PTSLoadAuth_BTN.Name = "PTSLoadAuth_BTN";
@@ -408,7 +408,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(524, 640);
+            this.ClientSize = new System.Drawing.Size(520, 704);
             this.ControlBox = false;
             this.Controls.Add(this.Branch_LBL);
             this.Controls.Add(this.materialLabel3);

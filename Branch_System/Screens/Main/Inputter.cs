@@ -13,7 +13,7 @@ using MPBS.Screens.User;
 
 namespace MPBS.Screens
 {
-    public partial class Inputter : Form
+    public partial class Inputter : MaterialSkin.Controls.MaterialForm
     {
         private Issue issueApp;
         private Recharge recargeApp;
@@ -30,6 +30,8 @@ namespace MPBS.Screens
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -62,10 +64,10 @@ namespace MPBS.Screens
             {
                 Status_LBL.Text = "متاح";
                 Status_LBL.ForeColor = Color.Green;
-                Issue_BTN.Enabled = true;
-                Recharge_BTN.Enabled = true;
-                PIN_BTN.Enabled = true;
-                Reissue_BTN.Enabled = true;
+                //Issue_BTN.Enabled = true;
+                //Recharge_BTN.Enabled = true;
+                //PIN_BTN.Enabled = true;
+                //Reissue_BTN.Enabled = true;
             }
         }
 
@@ -152,11 +154,11 @@ namespace MPBS.Screens
                 changePassword = new ChangePassword();
                 changePassword.Closed += (s, args) => {
                     //authRecharge.UnlockRecord();
-                    Password_LBL.Enabled = true;
+                    Password_BTN.Enabled = true;
                     changePassword = null; //PBF_Auth_BTN.Enabled = true;
                 };
                 changePassword.Show();
-                Password_LBL.Enabled = false;
+                Password_BTN.Enabled = false;
             }
         }
 
