@@ -19,7 +19,7 @@ using MPBS.Screens.International_Cards.BranchAuthIssue;
 
 namespace MPBS.Screens
 {
-    public partial class BranchAdmin : Form
+    public partial class BranchAdmin : MaterialSkin.Controls.MaterialForm
     {
         public AuthRecharge.AuthRecharge authRecharge;
         public ChangePassword changePassword;
@@ -39,17 +39,20 @@ namespace MPBS.Screens
             if (Database.Recharge.active != "True")
             {
                 MessageBox.Show("عذراً, الشحن و الإصدار غير متاح");
-                Status_LBL.Text = "غير متاح";
+                Status_LBL.Text = "Not Available";
                 Status_LBL.ForeColor = Color.Red;
             }
             else
             {
-                Status_LBL.Text = "متاح";
+                Status_LBL.Text = "Available";
                 Status_LBL.ForeColor = Color.Green;
             }
         }
         private void BranchAdmin_Load(object sender, EventArgs e)
         {
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
+
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -91,11 +94,11 @@ namespace MPBS.Screens
                 changePassword = new ChangePassword();
                 changePassword.Closed += (s, args) => {
                     //authRecharge.UnlockRecord();
-                    Password_LBL.Enabled = true;
+                    Password_BTN.Enabled = true;
                     changePassword = null; //PBF_Auth_BTN.Enabled = true;
                 };
                 changePassword.Show();
-                Password_LBL.Enabled = false;
+                Password_BTN.Enabled = false;
             }
         }
 
@@ -154,6 +157,21 @@ namespace MPBS.Screens
                 };
                 authIssue.Show();
                 PTSIssueAuth_BTN.Enabled = false;
+            }
+        }
+
+        private void Password_BTN_Click(object sender, EventArgs e)
+        {
+            if (changePassword == null)
+            {
+                changePassword = new ChangePassword();
+                changePassword.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    Password_BTN.Enabled = true;
+                    changePassword = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                changePassword.Show();
+                Password_BTN.Enabled = false;
             }
         }
     }
