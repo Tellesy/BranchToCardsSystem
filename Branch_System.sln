@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Branch_System", "Branch_System\Branch_System.csproj", "{2B579CB9-DB3B-4A1A-8591-7F0386761CE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPBS", "Branch_System\MPBS.csproj", "{2B579CB9-DB3B-4A1A-8591-7F0386761CE4}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CTS.Installer", "CTS.Installer\CTS.Installer.vdproj", "{E63991CF-905B-4E26-8094-54D04616B75B}"
 EndProject

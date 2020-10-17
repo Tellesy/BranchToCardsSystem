@@ -1,4 +1,4 @@
-﻿using CTS.Database.Objects;
+﻿using MPBS.Database.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.Account_Details
+namespace MPBS.Screens.Account_Details
 {
     public partial class Search : Form
     {
@@ -21,14 +21,14 @@ namespace CTS.Screens.Account_Details
         private void Search_BTN_Click(object sender, EventArgs e)
         {
             string Card_Number = Card_Number_TXT.Text;
-            Status<CardAccount> status = CTS.Database.Issue.getCardAccount(Card_Number);
+            Status<CardAccount> status = MPBS.Database.Issue.getCardAccount(Card_Number);
             if(status.status)
             {
                 Account_TXT.Text = status.Object.Account;
                 Customer_ID_TXT.Text = status.Object.Customer_ID;
                 Product.Text = status.Object.Product;
 
-                Status<Customer> Customer = CTS.Database.Issue.getCustomer(status.Object.Customer_ID);
+                Status<Customer> Customer = MPBS.Database.Issue.getCustomer(status.Object.Customer_ID);
                 if(Customer.status)
                 {
                     Name_TXT.Text = Customer.Object.Name;
@@ -36,17 +36,17 @@ namespace CTS.Screens.Account_Details
             }
             else
             {
-               Status<string> Card_Account = CTS.Database.Issue.getCardAccountFromCard_Number(Card_Number);
+               Status<string> Card_Account = MPBS.Database.Issue.getCardAccountFromCard_Number(Card_Number);
                 if(Card_Account.status)
                 {
-                     status = CTS.Database.Issue.getCardAccount(Card_Account.Object);
+                     status = MPBS.Database.Issue.getCardAccount(Card_Account.Object);
                     if(status.status)
                     {
                         Account_TXT.Text = status.Object.Account;
                         Customer_ID_TXT.Text = status.Object.Customer_ID;
                         Product.Text = status.Object.Product;
 
-                        Status<Customer> Customer = CTS.Database.Issue.getCustomer(status.Object.Customer_ID);
+                        Status<Customer> Customer = MPBS.Database.Issue.getCustomer(status.Object.Customer_ID);
                         if (Customer.status)
                         {
                             Name_TXT.Text = Customer.Object.Name;

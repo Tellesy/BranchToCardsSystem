@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CTS
+namespace MPBS
 {
     public static class CardsValidation
     {

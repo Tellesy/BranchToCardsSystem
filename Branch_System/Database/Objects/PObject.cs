@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CTS.Database.Objects
+namespace MPBS.Database.Objects
 {
     public class PObject
     {

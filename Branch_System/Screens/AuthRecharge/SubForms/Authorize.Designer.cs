@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.AuthRecharge
+﻿namespace MPBS.Screens.AuthRecharge
 {
     partial class Authorize
     {

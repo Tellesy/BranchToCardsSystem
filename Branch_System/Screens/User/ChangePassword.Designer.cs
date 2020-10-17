@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.User
+﻿namespace MPBS.Screens.User
 {
     partial class ChangePassword
     {

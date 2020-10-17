@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.International_Cards.BranchAuthIssue.SubScreen
+﻿namespace MPBS.Screens.International_Cards.BranchAuthIssue.SubScreen
 {
     partial class IssueBranchAuthScreen
     {
@@ -42,7 +42,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.Gender_CBOX = new System.Windows.Forms.ComboBox();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTSMain = new CTS.CTSMain();
+            this.cTSMain = new MPBS.CTSMain();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -62,12 +62,12 @@
             this.Nationality_CBOX = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.CountryPhoneCode_CBox = new System.Windows.Forms.ComboBox();
-            this.productsTableAdapter = new CTS.CTSMainTableAdapters.ProductsTableAdapter();
-            this.branch_system1DataSet = new CTS.Branch_system1DataSet();
+            this.productsTableAdapter = new MPBS.CTSMainTableAdapters.ProductsTableAdapter();
+            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
             this.cTSDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.cTSDataSet = new CTS.CTSDataSet();
+            this.cTSDataSet = new MPBS.CTSDataSet();
             this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pTS_ProgramTableAdapter = new CTS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
+            this.pTS_ProgramTableAdapter = new MPBS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.PassportExpDate = new System.Windows.Forms.DateTimePicker();
@@ -84,7 +84,7 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.NID_TXT = new System.Windows.Forms.TextBox();
-            this.cTS_PTS_Programs = new CTS.CTS_PTS_Programs();
+            this.cTS_PTS_Programs = new MPBS.CTS_PTS_Programs();
             this.label37 = new System.Windows.Forms.Label();
             this.FirstName_TXT = new System.Windows.Forms.TextBox();
             this.pTSProgramBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -852,7 +852,7 @@
         private System.Windows.Forms.ComboBox Nationality_CBOX;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox CountryPhoneCode_CBox;
-        private CTSMainTableAdapters.ProductsTableAdapter productsTableAdapter;
+        private MPBS.CTSMainTableAdapters.ProductsTableAdapter productsTableAdapter;
         private Branch_system1DataSet branch_system1DataSet;
         private System.Windows.Forms.BindingSource cTSDataSetBindingSource1;
         private CTSDataSet cTSDataSet;

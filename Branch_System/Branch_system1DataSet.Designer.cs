@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace CTS {
+namespace MPBS {
     
     
     /// <summary>
@@ -2846,7 +2846,7 @@ namespace CTS {
         }
     }
 }
-namespace CTS.Branch_system1DataSetTableAdapters {
+namespace MPBS.Branch_system1DataSetTableAdapters {
     
     
     /// <summary>
@@ -2991,7 +2991,7 @@ namespace CTS.Branch_system1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::CTS.Properties.Settings.Default.Branch_system1ConnectionString;
+            this._connection.ConnectionString = global::MPBS.Properties.Settings.Default.Branch_system1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3243,7 +3243,7 @@ namespace CTS.Branch_system1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::CTS.Properties.Settings.Default.Branch_system1ConnectionString;
+            this._connection.ConnectionString = global::MPBS.Properties.Settings.Default.Branch_system1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3522,7 +3522,7 @@ namespace CTS.Branch_system1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::CTS.Properties.Settings.Default.Branch_system1ConnectionString;
+            this._connection.ConnectionString = global::MPBS.Properties.Settings.Default.Branch_system1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3905,7 +3905,7 @@ namespace CTS.Branch_system1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::CTS.Properties.Settings.Default.Branch_system1ConnectionString;
+            this._connection.ConnectionString = global::MPBS.Properties.Settings.Default.Branch_system1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4177,7 +4177,7 @@ namespace CTS.Branch_system1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::CTS.Properties.Settings.Default.Branch_system1ConnectionString;
+            this._connection.ConnectionString = global::MPBS.Properties.Settings.Default.Branch_system1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

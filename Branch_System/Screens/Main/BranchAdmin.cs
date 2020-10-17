@@ -6,18 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CTS.Database;
-using CTS.Screens;
-using CTS.Screens.AuthRecharge;
-using CTS.Screens.User;
+using MPBS.Database;
+using MPBS.Screens;
+using MPBS.Screens.AuthRecharge;
+using MPBS.Screens.User;
 
 
 using System.Windows.Forms;
-using CTS.Screens.FilesAuth;
-using CTS.Screens.Account_Details;
-using CTS.Screens.International_Cards.BranchAuthIssue;
+using MPBS.Screens.FilesAuth;
+using MPBS.Screens.Account_Details;
+using MPBS.Screens.International_Cards.BranchAuthIssue;
 
-namespace CTS.Screens
+namespace MPBS.Screens
 {
     public partial class BranchAdmin : Form
     {
@@ -101,13 +101,13 @@ namespace CTS.Screens
 
         private void Reports_BTN_Click(object sender, EventArgs e)
         {
-            CTS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
+            MPBS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
             rechargeReport.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CTS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
+            MPBS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
             cardAccount.Show();
         }
 
@@ -126,7 +126,7 @@ namespace CTS.Screens
 
         private void ShareFolder_BTN_Click(object sender, EventArgs e)
         {
-            CTS.ConnectToSharedFolder.ShowShareFolder();
+            MPBS.ConnectToSharedFolder.ShowShareFolder();
         }
 
         private void AccountDetails_BTN_Click(object sender, EventArgs e)

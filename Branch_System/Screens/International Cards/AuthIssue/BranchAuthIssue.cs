@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CTS.Database;
-using CTS.Database.Objects;
-using CTS.Screens.International_Cards.BranchAuthIssue.SubScreen;
+using MPBS.Database;
+using MPBS.Database.Objects;
+using MPBS.Screens.International_Cards.BranchAuthIssue.SubScreen;
 
-namespace CTS.Screens.International_Cards.BranchAuthIssue
+namespace MPBS.Screens.International_Cards.BranchAuthIssue
 {
     public partial class BranchAuthIssue : Form
     {

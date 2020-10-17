@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CTS.Resources {
+namespace MPBS.Resources {
     using System;
     
     

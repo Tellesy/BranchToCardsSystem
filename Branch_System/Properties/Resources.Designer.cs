@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CTS.Properties {
+namespace MPBS.Properties {
     using System;
     
     

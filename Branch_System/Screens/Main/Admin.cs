@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CTS.Database;
-using CTS.Database.Objects;
-using CTS.Screens;
-using CTS.Screens.AuthRecharge;
-using CTS.FilesCreator;
-using CTS.Screens.User;
+using MPBS.Database;
+using MPBS.Database.Objects;
+using MPBS.Screens;
+using MPBS.Screens.AuthRecharge;
+using MPBS.FilesCreator;
+using MPBS.Screens.User;
 using System.Net;
 using System.IO;
-using CTS.Screens.Account_Details;
+using MPBS.Screens.Account_Details;
 
-namespace CTS.Screens
+namespace MPBS.Screens
 {
     public partial class Admin : Form
     {
@@ -346,19 +346,19 @@ namespace CTS.Screens
 
         private void Reports_BTN_Click(object sender, EventArgs e)
         {
-            CTS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
+            MPBS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
             rechargeReport.Show();
         }
 
         private void AddCardAccount_BTN_Click(object sender, EventArgs e)
         {
-            CTS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
+            MPBS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
             cardAccount.Show();
         }
 
         private void AddUser_BTN_Click(object sender, EventArgs e)
         {
-            CTS.Screens.User.Add_User adduser = new CTS.Screens.User.Add_User();
+            MPBS.Screens.User.Add_User adduser = new MPBS.Screens.User.Add_User();
             adduser.Show();
         }
 
@@ -368,7 +368,7 @@ namespace CTS.Screens
 
         private void ShareFolder_BTN_Click(object sender, EventArgs e)
         {
-            CTS.ConnectToSharedFolder.ShowShareFolder();
+            MPBS.ConnectToSharedFolder.ShowShareFolder();
         }
 
         private void AccountDetails_BTN_Click(object sender, EventArgs e)

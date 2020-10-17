@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 
-namespace CTS
+namespace MPBS
 {
     public static class BranchSystem
     {

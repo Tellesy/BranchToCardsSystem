@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CTS.Database;
-using CTS.Database.Objects;
-using CTS.Screens.AuthRecharge;
+using MPBS.Database;
+using MPBS.Database.Objects;
+using MPBS.Screens.AuthRecharge;
 
-namespace CTS.Screens.AuthRecharge
+namespace MPBS.Screens.AuthRecharge
 {
     public partial class AuthRecharge : Form
     {

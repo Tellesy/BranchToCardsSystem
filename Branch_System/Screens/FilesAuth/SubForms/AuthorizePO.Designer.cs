@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.FilesAuth
+﻿namespace MPBS.Screens.FilesAuth
 {
     partial class AuthorizePO
     {

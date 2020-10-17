@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.User
+namespace MPBS.Screens.User
 {
     public partial class Add_User : Form
     {

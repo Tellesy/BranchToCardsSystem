@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens
+﻿namespace MPBS.Screens
 {
     partial class POUnauth
     {
@@ -36,8 +36,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.Branch_CBox = new System.Windows.Forms.ComboBox();
             this.branchesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTSDataSet = new CTS.CTSDataSet();
-            this.branchesTableAdapter = new CTS.CTSDataSetTableAdapters.BranchesTableAdapter();
+            this.cTSDataSet = new MPBS.CTSDataSet();
+            this.branchesTableAdapter = new MPBS.CTSDataSetTableAdapters.BranchesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();

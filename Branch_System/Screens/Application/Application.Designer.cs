@@ -1,4 +1,4 @@
-﻿namespace CTS
+﻿namespace MPBS
 {
     partial class Application
     {

@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.Reports
+﻿namespace MPBS.Screens.Reports
 {
     partial class RechargeReports
     {
@@ -199,7 +199,7 @@
             // 
             // RechargeBindingSource
             // 
-            this.RechargeBindingSource.DataSource = typeof(CTS.Database.DataObjects.Recharge);
+            this.RechargeBindingSource.DataSource = typeof(MPBS.Database.DataObjects.Recharge);
             // 
             // RechargeReports
             // 

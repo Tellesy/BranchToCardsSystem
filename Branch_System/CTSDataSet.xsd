@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CTSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CTSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CTS.Properties.Settings.GlobalReference.Default.CTSConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CTSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CTSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MPBS.Properties.Settings.GlobalReference.Default.CTSConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BranchesTableAdapter" GeneratorDataComponentClassName="BranchesTableAdapter" Name="Branches" UserDataComponentName="BranchesTableAdapter">
@@ -41,7 +41,7 @@
   <xs:element name="CTSDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CTSDataSet" msprop:Generator_UserDSName="CTSDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Branches" msprop:Generator_TableClassName="BranchesDataTable" msprop:Generator_TableVarName="tableBranches" msprop:Generator_TablePropName="Branches" msprop:Generator_RowDeletingName="BranchesRowDeleting" msprop:Generator_RowChangingName="BranchesRowChanging" msprop:Generator_RowEvHandlerName="BranchesRowChangeEventHandler" msprop:Generator_RowDeletedName="BranchesRowDeleted" msprop:Generator_UserTableName="Branches" msprop:Generator_RowChangedName="BranchesRowChanged" msprop:Generator_RowEvArgName="BranchesRowChangeEvent" msprop:Generator_RowClassName="BranchesRow">
+        <xs:element name="Branches" msprop:Generator_TableClassName="BranchesDataTable" msprop:Generator_TableVarName="tableBranches" msprop:Generator_RowChangedName="BranchesRowChanged" msprop:Generator_TablePropName="Branches" msprop:Generator_RowDeletingName="BranchesRowDeleting" msprop:Generator_RowChangingName="BranchesRowChanging" msprop:Generator_RowEvHandlerName="BranchesRowChangeEventHandler" msprop:Generator_RowDeletedName="BranchesRowDeleted" msprop:Generator_RowClassName="BranchesRow" msprop:Generator_UserTableName="Branches" msprop:Generator_RowEvArgName="BranchesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Branch_code" msprop:Generator_ColumnVarNameInTable="columnBranch_code" msprop:Generator_ColumnPropNameInRow="Branch_code" msprop:Generator_ColumnPropNameInTable="Branch_codeColumn" msprop:Generator_UserColumnName="Branch_code" type="xs:int" minOccurs="0" />

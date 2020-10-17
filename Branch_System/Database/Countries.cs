@@ -10,7 +10,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 
 
-namespace CTS.Database
+namespace MPBS.Database
 {
     public class Country
     {
@@ -57,7 +57,7 @@ namespace CTS.Database
         public static List<Country> getCountriesWithPhoneCode()
         {
             List<Country> countries = new List<Country>();
-            XDocument doc = XDocument.Parse(CTS.Resources.Countries.countries);
+            XDocument doc = XDocument.Parse(MPBS.Resources.Countries.countries);
             IEnumerable<Countries> result = from rec in doc.Descendants("countries")
                                          
                                           select new Countries()

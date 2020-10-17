@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.Card_Enquire
+namespace MPBS.Screens.Card_Enquire
 {
     public partial class CardENQ : Form
     {

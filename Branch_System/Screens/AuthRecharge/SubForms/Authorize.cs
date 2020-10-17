@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.AuthRecharge
+namespace MPBS.Screens.AuthRecharge
 {
     public partial class Authorize : Form
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.Main
+namespace MPBS.Screens.Main
 {
     public partial class Printing : Form
     {

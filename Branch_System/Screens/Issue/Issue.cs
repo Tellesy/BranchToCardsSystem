@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CTS.Database.Objects;
+using MPBS.Database.Objects;
 
-namespace CTS.Screens
+namespace MPBS.Screens
 {
     public partial class Issue : Form
     {
@@ -566,7 +566,7 @@ namespace CTS.Screens
             this.MinimizeBox = false;
 
             //Load Products
-            Status<List<Product>> status = CTS.Database.CAF.getProducts();
+            Status<List<Product>> status = MPBS.Database.CAF.getProducts();
 
             if(status.status)
             {

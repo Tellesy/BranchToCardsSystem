@@ -3,22 +3,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CTS.Database;
-using CTS.Database.Objects;
-using CTS.Screens;
-using CTS.Screens.AuthRecharge;
-using CTS.FilesCreator;
-using CTS.Screens.User;
+using MPBS.Database;
+using MPBS.Database.Objects;
+using MPBS.Screens;
+using MPBS.Screens.AuthRecharge;
+using MPBS.FilesCreator;
+using MPBS.Screens.User;
 using System.Net;
 using System.IO;
-using CTS.Screens.Account_Details;
+using MPBS.Screens.Account_Details;
 using System;
 using System.Collections.Generic;
-using CTS.Screens.International_Cards.BranchAuthIssue;
-using CTS.Screens.International_Cards.Generate_File;
-using CTS.Screens.International_Cards.AuthIssue;
+using MPBS.Screens.International_Cards.BranchAuthIssue;
+using MPBS.Screens.International_Cards.Generate_File;
+using MPBS.Screens.International_Cards.AuthIssue;
 
-namespace CTS.Screens.Main
+namespace MPBS.Screens.Main
 {
     public partial class HQAdmin : MaterialSkin.Controls.MaterialForm
     {
@@ -56,13 +56,13 @@ namespace CTS.Screens.Main
 
         private void AddUser_BTN_Click(object sender, EventArgs e)
         {
-            CTS.Screens.User.Add_User adduser = new CTS.Screens.User.Add_User();
+            MPBS.Screens.User.Add_User adduser = new MPBS.Screens.User.Add_User();
             adduser.Show();
         }
 
         private void AddCardAccount_BTN_Click(object sender, EventArgs e)
         {
-            CTS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
+            MPBS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
             cardAccount.Show();
         }
 

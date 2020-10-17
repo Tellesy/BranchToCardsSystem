@@ -8,7 +8,7 @@ using Google.Cloud.Firestore;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 
-namespace CTS.Database
+namespace MPBS.Database
 {
     public static class CTSystem
     {

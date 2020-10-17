@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.Card_Enquire
+﻿namespace MPBS.Screens.Card_Enquire
 {
     partial class CardENQ
     {

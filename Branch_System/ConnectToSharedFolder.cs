@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IWshRuntimeLibrary;
 
-namespace CTS
+namespace MPBS
 {
     public static class ConnectToSharedFolder
     {

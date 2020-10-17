@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.Account_Details
+﻿namespace MPBS.Screens.Account_Details
 {
     partial class Search
     {

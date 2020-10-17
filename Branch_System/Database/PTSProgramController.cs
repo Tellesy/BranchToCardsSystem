@@ -1,4 +1,4 @@
-﻿using CTS.Database.Objects;
+﻿using MPBS.Database.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace CTS.Database
+namespace MPBS.Database
 {
     public static class PTSProgramController
     {

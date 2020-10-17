@@ -1,5 +1,5 @@
-﻿using CTS.Database;
-using CTS.Database.Objects;
+﻿using MPBS.Database;
+using MPBS.Database.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.International_Cards.BranchAuthIssue.SubScreen
+namespace MPBS.Screens.International_Cards.BranchAuthIssue.SubScreen
 {
 
     public partial class IssueBranchAuthScreen : Form

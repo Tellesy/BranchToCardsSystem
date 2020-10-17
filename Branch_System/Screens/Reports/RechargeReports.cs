@@ -8,10 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CTS.Database;
-using CTS.Database.DataObjects;
+using MPBS.Database;
+using MPBS.Database.DataObjects;
 
-namespace CTS.Screens.Reports
+namespace MPBS.Screens.Reports
 {
     public partial class RechargeReports : Form
     {

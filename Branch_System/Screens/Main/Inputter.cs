@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CTS.Database;
-using CTS.Screens.Account_Details;
-using CTS.Screens.User;
+using MPBS.Database;
+using MPBS.Screens.Account_Details;
+using MPBS.Screens.User;
 
-namespace CTS.Screens
+namespace MPBS.Screens
 {
     public partial class Inputter : Form
     {
@@ -162,7 +162,7 @@ namespace CTS.Screens
 
         private void Reports_BTN_Click(object sender, EventArgs e)
         {
-            CTS.Screens.Reports.RechargeReports rechargeReports = new Reports.RechargeReports();
+            MPBS.Screens.Reports.RechargeReports rechargeReports = new Reports.RechargeReports();
             rechargeReports.Show();
         }
 
@@ -173,7 +173,7 @@ namespace CTS.Screens
 
         private void ShareFolder_BTN_Click(object sender, EventArgs e)
         {
-            CTS.ConnectToSharedFolder.ShowShareFolder();
+            MPBS.ConnectToSharedFolder.ShowShareFolder();
         }
 
         private void AccountDetails_BTN_Click(object sender, EventArgs e)

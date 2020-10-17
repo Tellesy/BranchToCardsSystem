@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.FilesAuth.SubForms
+﻿namespace MPBS.Screens.FilesAuth.SubForms
 {
     partial class AuthorizeBranchPO
     {

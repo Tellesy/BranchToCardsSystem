@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CTS.Database.Objects;
+using MPBS.Database.Objects;
 
-namespace CTS.Screens.FilesAuth
+namespace MPBS.Screens.FilesAuth
 {
     public partial class AuthorizePBF : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.International_Cards.AuthIssue.SubScreen
+﻿namespace MPBS.Screens.International_Cards.AuthIssue.SubScreen
 {
     partial class IssueHQAuthScreen
     {
@@ -32,11 +32,11 @@
             this.label39 = new System.Windows.Forms.Label();
             this.Inputter_TXT = new System.Windows.Forms.TextBox();
             this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTSDataSet = new CTS.CTSDataSet();
-            this.pTS_ProgramTableAdapter = new CTS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
+            this.cTSDataSet = new MPBS.CTSDataSet();
+            this.pTS_ProgramTableAdapter = new MPBS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.branch_system1DataSet = new CTS.Branch_system1DataSet();
-            this.cTS_PTS_Programs = new CTS.CTS_PTS_Programs();
+            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
+            this.cTS_PTS_Programs = new MPBS.CTS_PTS_Programs();
             this.pTSProgramBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label40 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@
             this.Program_CBox = new System.Windows.Forms.ComboBox();
             this.cTSDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTSMain = new CTS.CTSMain();
+            this.cTSMain = new MPBS.CTSMain();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.productsTableAdapter = new CTS.CTSMainTableAdapters.ProductsTableAdapter();
+            this.productsTableAdapter = new MPBS.CTSMainTableAdapters.ProductsTableAdapter();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();

@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.Main
+﻿namespace MPBS.Screens.Main
 {
     partial class Auditor
     {

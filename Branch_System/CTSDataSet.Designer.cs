@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace CTS {
+namespace MPBS {
     
     
     /// <summary>
@@ -640,7 +640,7 @@ namespace CTS {
         }
     }
 }
-namespace CTS.CTSDataSetTableAdapters {
+namespace MPBS.CTSDataSetTableAdapters {
     
     
     /// <summary>
@@ -780,7 +780,7 @@ namespace CTS.CTSDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CTS.Properties.Settings.Default.CTSConnectionString;
+            this._connection.ConnectionString = global::MPBS.Properties.Settings.Default.CTSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

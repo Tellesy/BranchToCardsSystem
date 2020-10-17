@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens
+﻿namespace MPBS.Screens
 {
     partial class Issue
     {
@@ -32,7 +32,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.Product_CBox = new System.Windows.Forms.ComboBox();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTSMain = new CTS.CTSMain();
+            this.cTSMain = new MPBS.CTSMain();
             this.label10 = new System.Windows.Forms.Label();
             this.Application_CBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,12 +53,12 @@
             this.Back_BTN = new System.Windows.Forms.Button();
             this.Submit_BTN = new System.Windows.Forms.Button();
             this.Amount_TXT = new System.Windows.Forms.TextBox();
-            this.cTSDataSet = new CTS.CTSDataSet();
+            this.cTSDataSet = new MPBS.CTSDataSet();
             this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cTSDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.branch_system1DataSet = new CTS.Branch_system1DataSet();
+            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productsTableAdapter = new CTS.CTSMainTableAdapters.ProductsTableAdapter();
+            this.productsTableAdapter = new MPBS.CTSMainTableAdapters.ProductsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();

@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens
+﻿namespace MPBS.Screens
 {
     partial class Login
     {

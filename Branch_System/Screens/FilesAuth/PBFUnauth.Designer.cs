@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens
+﻿namespace MPBS.Screens
 {
     partial class PBFUnauth
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PBFUnauth));
-            this.branch_system1DataSet = new CTS.Branch_system1DataSet();
+            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Record_DGView = new System.Windows.Forms.DataGridView();
             this.branchsystem1DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -38,10 +38,10 @@
             this.Sync_BTN = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.Branch_CBox = new System.Windows.Forms.ComboBox();
-            this.cTSDataSet = new CTS.CTSDataSet();
+            this.cTSDataSet = new MPBS.CTSDataSet();
             this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.branchesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.branchesTableAdapter = new CTS.CTSDataSetTableAdapters.BranchesTableAdapter();
+            this.branchesTableAdapter = new MPBS.CTSDataSetTableAdapters.BranchesTableAdapter();
             this.branchesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();

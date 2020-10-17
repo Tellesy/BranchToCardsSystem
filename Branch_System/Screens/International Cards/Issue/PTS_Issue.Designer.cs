@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.PTS.Issue
+﻿namespace MPBS.Screens.PTS.Issue
 {
     partial class PTS_Issue
     {
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.productsTableAdapter = new CTS.CTSMainTableAdapters.ProductsTableAdapter();
-            this.branch_system1DataSet = new CTS.Branch_system1DataSet();
+            this.productsTableAdapter = new MPBS.CTSMainTableAdapters.ProductsTableAdapter();
+            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
             this.cTSDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.cTSDataSet = new CTS.CTSDataSet();
+            this.cTSDataSet = new MPBS.CTSDataSet();
             this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Back_BTN = new System.Windows.Forms.Button();
             this.Submit_BTN = new System.Windows.Forms.Button();
@@ -47,13 +47,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.FirstName_TXT = new System.Windows.Forms.TextBox();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTSMain = new CTS.CTSMain();
+            this.cTSMain = new MPBS.CTSMain();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MainAccount_TXT = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.Program_CBox = new System.Windows.Forms.ComboBox();
             this.pTSProgramBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cTS_PTS_Programs = new CTS.CTS_PTS_Programs();
+            this.cTS_PTS_Programs = new MPBS.CTS_PTS_Programs();
             this.label1 = new System.Windows.Forms.Label();
             this.CustomerID_TXT = new System.Windows.Forms.TextBox();
             this.Birthdate = new System.Windows.Forms.DateTimePicker();
@@ -89,7 +89,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.pTS_ProgramTableAdapter = new CTS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
+            this.pTS_ProgramTableAdapter = new MPBS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
             this.label31 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).BeginInit();

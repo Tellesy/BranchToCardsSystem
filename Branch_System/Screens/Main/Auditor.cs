@@ -1,5 +1,5 @@
-﻿using CTS.Database;
-using CTS.Screens.User;
+﻿using MPBS.Database;
+using MPBS.Screens.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.Main
+namespace MPBS.Screens.Main
 {
     public partial class Auditor : Form
     {
@@ -22,7 +22,7 @@ namespace CTS.Screens.Main
 
         private void Reports_BTN_Click(object sender, EventArgs e)
         {
-            CTS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
+            MPBS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
             rechargeReport.Show();
         }
 

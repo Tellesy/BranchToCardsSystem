@@ -1,5 +1,5 @@
-﻿using CTS.Database.Objects;
-using CTS.Screens.FilesAuth.SubForms;
+﻿using MPBS.Database.Objects;
+using MPBS.Screens.FilesAuth.SubForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.FilesAuth
+namespace MPBS.Screens.FilesAuth
 {
     public partial class POBranchUnauth : Form
     {

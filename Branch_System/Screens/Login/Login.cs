@@ -12,11 +12,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using CTS.Database;
+using MPBS.Database;
 using System.Reflection;
-using CTS.Screens.Main;
+using MPBS.Screens.Main;
 
-namespace CTS.Screens
+namespace MPBS.Screens
 {
     public partial class Login : MaterialSkin.Controls.MaterialForm
     {
@@ -34,7 +34,7 @@ namespace CTS.Screens
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Green900, MaterialSkin.Primary.BlueGrey900, MaterialSkin.Primary.Blue500, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
             
             //End Test
-            CTS.ConnectToSharedFolder.CreateShortcut();
+            MPBS.ConnectToSharedFolder.CreateShortcut();
 
 
             this.CenterToScreen();

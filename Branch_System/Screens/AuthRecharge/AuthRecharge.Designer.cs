@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.AuthRecharge
+﻿namespace MPBS.Screens.AuthRecharge
 {
     partial class AuthRecharge
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthRecharge));
-            this.branch_system1DataSet = new CTS.Branch_system1DataSet();
+            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Record_DGView = new System.Windows.Forms.DataGridView();
             this.branchsystem1DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);

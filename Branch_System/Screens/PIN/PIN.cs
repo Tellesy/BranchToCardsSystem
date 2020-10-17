@@ -1,4 +1,4 @@
-﻿using CTS.Database.Objects;
+﻿using MPBS.Database.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens
+namespace MPBS.Screens
 {
     public partial class PIN_Screen : Form
     {
