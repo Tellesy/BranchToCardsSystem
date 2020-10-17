@@ -15,7 +15,7 @@ using CTS.Screens.User;
 using System.Windows.Forms;
 using CTS.Screens.FilesAuth;
 using CTS.Screens.Account_Details;
-using CTS.Screens.Main.International_Cards.BranchAuthIssue;
+using CTS.Screens.International_Cards.BranchAuthIssue;
 
 namespace CTS.Screens
 {

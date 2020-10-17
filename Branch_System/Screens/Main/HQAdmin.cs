@@ -14,9 +14,9 @@ using System.IO;
 using CTS.Screens.Account_Details;
 using System;
 using System.Collections.Generic;
-using CTS.Screens.Main.International_Cards.BranchAuthIssue;
-using CTS.Screens.Main.International_Cards.Generate_File;
-using CTS.Screens.Main.International_Cards.AuthIssue;
+using CTS.Screens.International_Cards.BranchAuthIssue;
+using CTS.Screens.International_Cards.Generate_File;
+using CTS.Screens.International_Cards.AuthIssue;
 
 namespace CTS.Screens.Main
 {
@@ -136,7 +136,7 @@ namespace CTS.Screens.Main
             this.Close();
         }
 
-        private void GenAppRecord_BTN_Click(object sender, EventArgs e)
+        private void GenFiles_BTN_Click(object sender, EventArgs e)
         {
             if (genAppRecord == null)
             {
@@ -144,10 +144,10 @@ namespace CTS.Screens.Main
 
 
                 genAppRecord.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    genAppRecord = null; GenAppRecord_BTN.Enabled = true;
+                    genAppRecord = null; GenFiles_BTN.Enabled = true;
                 };
                 genAppRecord.Show();
-                GenAppRecord_BTN.Enabled = false;
+                GenFiles_BTN.Enabled = false;
             }
         }
 

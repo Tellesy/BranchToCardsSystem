@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using CTS.FilesCreator;
 using CTS.Database;
 
-namespace CTS.Screens.Main.International_Cards.Generate_File
+namespace CTS.Screens.International_Cards.Generate_File
 {
     public partial class GenAppRecord : Form
     {
@@ -102,6 +102,11 @@ namespace CTS.Screens.Main.International_Cards.Generate_File
         }
 
         private void GenAppFilesBasedOnCode_BTN_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GenAppRecord_Load(object sender, EventArgs e)
         {
 
         }

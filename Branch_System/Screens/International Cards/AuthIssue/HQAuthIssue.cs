@@ -1,5 +1,5 @@
 ﻿using CTS.Database.Objects;
-using CTS.Screens.Main.International_Cards.AuthIssue.SubScreen;
+using CTS.Screens.International_Cards.AuthIssue.SubScreen;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 using static CTS.Screens.AuthRecharge.AuthRecharge;
 
-namespace CTS.Screens.Main.International_Cards.AuthIssue
+namespace CTS.Screens.International_Cards.AuthIssue
 {
     public partial class HQAuthIssue : Form
     {

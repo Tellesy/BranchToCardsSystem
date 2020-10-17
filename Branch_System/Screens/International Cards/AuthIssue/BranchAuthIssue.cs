@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CTS.Database;
 using CTS.Database.Objects;
-using CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen;
+using CTS.Screens.International_Cards.BranchAuthIssue.SubScreen;
 
-namespace CTS.Screens.Main.International_Cards.BranchAuthIssue
+namespace CTS.Screens.International_Cards.BranchAuthIssue
 {
     public partial class BranchAuthIssue : Form
     {

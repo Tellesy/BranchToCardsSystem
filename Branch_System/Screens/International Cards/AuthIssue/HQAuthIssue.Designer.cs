@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.Main.International_Cards.AuthIssue
+﻿namespace CTS.Screens.International_Cards.AuthIssue
 {
     partial class HQAuthIssue
     {

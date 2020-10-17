@@ -44,7 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.unAuthAppRecord_BTN = new System.Windows.Forms.Button();
             this.Logout_BTN = new System.Windows.Forms.Button();
-            this.GenAppRecord_BTN = new System.Windows.Forms.Button();
+            this.GenFiles_BTN = new System.Windows.Forms.Button();
             this.HQAuthAppRecord_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -211,16 +211,16 @@
             this.Logout_BTN.UseVisualStyleBackColor = true;
             this.Logout_BTN.Click += new System.EventHandler(this.Logout_BTN_Click);
             // 
-            // GenAppRecord_BTN
+            // GenFile_BTN
             // 
-            this.GenAppRecord_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.GenAppRecord_BTN.Location = new System.Drawing.Point(309, 230);
-            this.GenAppRecord_BTN.Name = "GenAppRecord_BTN";
-            this.GenAppRecord_BTN.Size = new System.Drawing.Size(145, 63);
-            this.GenAppRecord_BTN.TabIndex = 45;
-            this.GenAppRecord_BTN.Text = "Generate App Record File";
-            this.GenAppRecord_BTN.UseVisualStyleBackColor = true;
-            this.GenAppRecord_BTN.Click += new System.EventHandler(this.GenAppRecord_BTN_Click);
+            this.GenFiles_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.GenFiles_BTN.Location = new System.Drawing.Point(309, 230);
+            this.GenFiles_BTN.Name = "GenFile_BTN";
+            this.GenFiles_BTN.Size = new System.Drawing.Size(145, 63);
+            this.GenFiles_BTN.TabIndex = 45;
+            this.GenFiles_BTN.Text = "Generate Files";
+            this.GenFiles_BTN.UseVisualStyleBackColor = true;
+            this.GenFiles_BTN.Click += new System.EventHandler(this.GenFiles_BTN_Click);
             // 
             // HQAuthAppRecord_BTN
             // 
@@ -241,7 +241,7 @@
             this.ClientSize = new System.Drawing.Size(655, 450);
             this.ControlBox = false;
             this.Controls.Add(this.HQAuthAppRecord_BTN);
-            this.Controls.Add(this.GenAppRecord_BTN);
+            this.Controls.Add(this.GenFiles_BTN);
             this.Controls.Add(this.Logout_BTN);
             this.Controls.Add(this.unAuthAppRecord_BTN);
             this.Controls.Add(this.UpdateUser_BTN);
@@ -278,7 +278,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button unAuthAppRecord_BTN;
         private System.Windows.Forms.Button Logout_BTN;
-        private System.Windows.Forms.Button GenAppRecord_BTN;
+        private System.Windows.Forms.Button GenFiles_BTN;
         private System.Windows.Forms.Button HQAuthAppRecord_BTN;
     }
 }

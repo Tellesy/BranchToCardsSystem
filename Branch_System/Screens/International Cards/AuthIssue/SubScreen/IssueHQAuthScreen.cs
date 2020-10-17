@@ -10,25 +10,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
+namespace CTS.Screens.International_Cards.AuthIssue.SubScreen
 {
-
-    public partial class IssueBranchAuthScreen : Form
+    public partial class IssueHQAuthScreen : Form
     {
-
         public PTSAppRecord record;
 
-        public IssueBranchAuthScreen()
+        public IssueHQAuthScreen()
         {
             InitializeComponent();
         }
 
-        private void IssueBranchAuthScreen_Load(object sender, EventArgs e)
+        private void Back_BTN_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
+        }
+
+        private void IssueHQAuthScreen_Load(object sender, EventArgs e)
+        {
             this.Text = record.RecordID.ToString() + " " + record.Inputter;
             CustomerID_TXT.Text = record.CustomerID;
-            
+
             //get customer name from here
             var customerObject = PTSCustomerController.getCustomer(record.CustomerID);
             FirstName_TXT.Text = customerObject.Object.FirstName;
@@ -45,7 +47,7 @@ namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
             CountryPhoneCode_CBox.Text = customerObject.Object.PhoneISD;
             PhoneNo_TXT.Text = customerObject.Object.Phone;
             Email_TXT.Text = customerObject.Object.Email;
-           var programsObject = PTSProgramController.getPrograms();
+            var programsObject = PTSProgramController.getPrograms();
 
             string programCode = record.ProgramCode;
             if (programsObject.status)
@@ -62,23 +64,15 @@ namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
             AppType_TXT.Text = record.ApplicationType.ToString();
             AppSubType_TXT.Text = record.ApplicationSubType.ToString();
             Inputter_TXT.Text = record.Inputter.ToString();
-
-        }
-
-
-
-        private void Back_BTN_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void Authorize_BTN_Click(object sender, EventArgs e)
         {
-               DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
 
-                Database.Status status = Database.PTSAppRecordController.authBranchAppRecord(record.RecordID);
+                Database.Status status = Database.PTSAppRecordController.authHQAppRecord(record.RecordID);
 
                 if (status.status)
                 {
@@ -100,4 +94,5 @@ namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
             }
         }
     }
-}
+    }
+

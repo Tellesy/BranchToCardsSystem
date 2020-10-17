@@ -1,4 +1,4 @@
-﻿namespace CTS.Screens.Main.International_Cards.BranchAuthIssue
+﻿namespace CTS.Screens.International_Cards.BranchAuthIssue
 {
     partial class BranchAuthIssue
     {
