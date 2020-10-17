@@ -513,7 +513,6 @@
             // 
             // Authorize_BTN
             // 
-            this.Authorize_BTN.Enabled = false;
             this.Authorize_BTN.Location = new System.Drawing.Point(12, 429);
             this.Authorize_BTN.Name = "Authorize_BTN";
             this.Authorize_BTN.Size = new System.Drawing.Size(363, 32);
@@ -801,7 +800,6 @@
             this.Controls.Add(this.MainAccount_TXT);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.Program_CBox);
-            this.Enabled = false;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "IssueBranchAuthScreen";
             this.Text = "IssueBranchAuthScreen";

@@ -134,6 +134,7 @@
             this.Back_BTN.TabIndex = 26;
             this.Back_BTN.Text = "رجوع";
             this.Back_BTN.UseVisualStyleBackColor = true;
+            this.Back_BTN.Click += new System.EventHandler(this.Back_BTN_Click);
             // 
             // Submit_BTN
             // 

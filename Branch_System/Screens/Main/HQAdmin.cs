@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using CTS.Screens.Main.International_Cards.BranchAuthIssue;
 using CTS.Screens.Main.International_Cards.Generate_File;
+using CTS.Screens.Main.International_Cards.AuthIssue;
 
 namespace CTS.Screens.Main
 {
@@ -24,7 +25,9 @@ namespace CTS.Screens.Main
 
         private ChangePassword changePassword;
         private Search search;
-        private BranchAuthIssue authIssue;
+        private BranchAuthIssue branchAuthIssue;
+        private HQAuthIssue hQAuthIssue;
+
         private GenAppRecord genAppRecord;
         public HQAdmin()
         {
@@ -114,15 +117,15 @@ namespace CTS.Screens.Main
 
         private void unAuthAppRecord_BTN_Click(object sender, EventArgs e)
         {
-            if(authIssue == null)
+            if(branchAuthIssue == null)
             {
-                authIssue = new BranchAuthIssue();
+                branchAuthIssue = new BranchAuthIssue();
                 
 
-                authIssue.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    authIssue = null; unAuthAppRecord_BTN.Enabled = true;
+                branchAuthIssue.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    branchAuthIssue = null; unAuthAppRecord_BTN.Enabled = true;
                 };
-                authIssue.Show();
+                branchAuthIssue.Show();
                 unAuthAppRecord_BTN.Enabled = false;
             }
            
@@ -145,6 +148,21 @@ namespace CTS.Screens.Main
                 };
                 genAppRecord.Show();
                 GenAppRecord_BTN.Enabled = false;
+            }
+        }
+
+        private void HQAuthAppRecord_BTN_Click(object sender, EventArgs e)
+        {
+            if (hQAuthIssue == null)
+            {
+                hQAuthIssue = new HQAuthIssue();
+
+
+                hQAuthIssue.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    hQAuthIssue = null; HQAuthAppRecord_BTN.Enabled = true;
+                };
+                hQAuthIssue.Show();
+                HQAuthAppRecord_BTN.Enabled = false;
             }
         }
     }

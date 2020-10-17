@@ -45,7 +45,7 @@
             this.unAuthAppRecord_BTN = new System.Windows.Forms.Button();
             this.Logout_BTN = new System.Windows.Forms.Button();
             this.GenAppRecord_BTN = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.HQAuthAppRecord_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -222,15 +222,16 @@
             this.GenAppRecord_BTN.UseVisualStyleBackColor = true;
             this.GenAppRecord_BTN.Click += new System.EventHandler(this.GenAppRecord_BTN_Click);
             // 
-            // button1
+            // HQAuthAppRecord_BTN
             // 
-            this.button1.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.button1.Location = new System.Drawing.Point(158, 230);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 63);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "Authorize App Record";
-            this.button1.UseVisualStyleBackColor = true;
+            this.HQAuthAppRecord_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
+            this.HQAuthAppRecord_BTN.Location = new System.Drawing.Point(158, 230);
+            this.HQAuthAppRecord_BTN.Name = "HQAuthAppRecord_BTN";
+            this.HQAuthAppRecord_BTN.Size = new System.Drawing.Size(145, 63);
+            this.HQAuthAppRecord_BTN.TabIndex = 46;
+            this.HQAuthAppRecord_BTN.Text = "Authorize App Record";
+            this.HQAuthAppRecord_BTN.UseVisualStyleBackColor = true;
+            this.HQAuthAppRecord_BTN.Click += new System.EventHandler(this.HQAuthAppRecord_BTN_Click);
             // 
             // HQAdmin
             // 
@@ -239,7 +240,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(655, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.HQAuthAppRecord_BTN);
             this.Controls.Add(this.GenAppRecord_BTN);
             this.Controls.Add(this.Logout_BTN);
             this.Controls.Add(this.unAuthAppRecord_BTN);
@@ -278,6 +279,6 @@
         private System.Windows.Forms.Button unAuthAppRecord_BTN;
         private System.Windows.Forms.Button Logout_BTN;
         private System.Windows.Forms.Button GenAppRecord_BTN;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button HQAuthAppRecord_BTN;
     }
 }

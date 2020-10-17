@@ -384,6 +384,106 @@ namespace CTS.Database
 
         }
 
+        public static Status<List<Objects.PTSAppRecord>> getFullyAuthorizedAppRecords()
+        {
+          
+            Status<List<Objects.PTSAppRecord>> statusObject = new Status<List<Objects.PTSAppRecord>>();
+            statusObject.Object = new List<Objects.PTSAppRecord>();
+            statusObject.status = false;
+
+
+            SqlConnection conn = DBConnection.Connection();
+
+
+
+            conn.Open();
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+
+                try
+                {
+
+                    string query = @"SELECT [record_id],[customer_id] ,[bank_code] ,[application_type] ,[application_sub_type],[program_code],[device_number] ,[device_plan_code_1],[branch_code],[inputter] ,[input_time] FROM [CTS].[dbo].[PTS_AppRecord] where branch_authorizer is not NULL AND HQ_authorizer is not NULL AND generated = 0";
+
+
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (!reader.HasRows)
+                        {
+                            statusObject.status = false;
+                            statusObject.message = "لا يوجد سجلات تحتاج الى تخويل";
+                            return statusObject;
+
+                        }
+
+                        while (reader.Read())
+                        {
+                            Objects.PTSAppRecord request = new Objects.PTSAppRecord();
+                            if (!string.IsNullOrEmpty(reader[0].ToString()))
+                                request.RecordID = int.Parse(reader[0].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[1].ToString()))
+                                request.CustomerID = reader[1].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[2].ToString()))
+                                request.BankCode = reader[2].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[3].ToString()))
+                                request.ApplicationType = reader[3].ToString().ToCharArray()[0];
+
+                            if (!string.IsNullOrEmpty(reader[4].ToString()))
+                                request.ApplicationSubType = reader[4].ToString().ToCharArray()[0];
+
+                            if (!string.IsNullOrEmpty(reader[5].ToString()))
+                                request.ProgramCode = reader[5].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[6].ToString()))
+                                request.DeviceNumber = reader[6].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[7].ToString()))
+                                request.DevicePlanCode1 = reader[7].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[8].ToString()))
+                                request.BranchCode = reader[8].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[9].ToString()))
+                                request.Inputter = reader[9].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[10].ToString()))
+                                request.InputTime = DateTime.Parse(reader[10].ToString());
+
+                            statusObject.Object.Add(request);
+                        }
+                        conn.Close();
+                        statusObject.status = true;
+                        return statusObject;
+                    }
+
+
+                }
+                catch (Exception e)
+                {
+                    conn.Close();
+                    statusObject.status = false;
+                    statusObject.message = "Get Unauth Recharge requests \n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return statusObject;
+                }
+            }
+            else
+            {
+                statusObject.status = false;
+                statusObject.message = Errors.ErrorsString.Error001;
+
+                return statusObject;
+            }
+        }
         public static Status genAppRecord(int recordID)
         {
             Status status = new Status();

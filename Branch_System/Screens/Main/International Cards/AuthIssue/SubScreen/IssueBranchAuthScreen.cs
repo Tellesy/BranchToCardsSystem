@@ -25,6 +25,7 @@ namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
 
         private void IssueBranchAuthScreen_Load(object sender, EventArgs e)
         {
+            
             this.Text = record.RecordID.ToString() + " " + record.Inputter;
             CustomerID_TXT.Text = record.CustomerID;
             
@@ -44,7 +45,14 @@ namespace CTS.Screens.Main.International_Cards.BranchAuthIssue.SubScreen
             CountryPhoneCode_CBox.Text = customerObject.Object.PhoneISD;
             PhoneNo_TXT.Text = customerObject.Object.Phone;
             Email_TXT.Text = customerObject.Object.Email;
-            Program_CBox.Text = record.ProgramCode;
+           var programsObject = PTSProgramController.getPrograms();
+
+            string programCode = record.ProgramCode;
+            if (programsObject.status)
+            {
+                programCode = programsObject.Object.First(i => i.Code == record.ProgramCode).NameEN;
+            }
+            Program_CBox.Text = programCode;
             var accountObject = PTSAccountController.getAccount(record.CustomerID, record.ProgramCode);
 
 

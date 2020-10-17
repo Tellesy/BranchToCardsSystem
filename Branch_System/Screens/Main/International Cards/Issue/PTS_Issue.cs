@@ -35,6 +35,7 @@ namespace CTS.Screens.PTS.Issue
             DisableAllFields();
             GetPrograms();
 
+            
             // TODO: This line of code loads data into the 'cTS_PTS_Programs.PTS_Program' table. You can move, or remove it, as needed.
             //this.pTS_ProgramTableAdapter.Fill(this.cTS_PTS_Programs.PTS_Program);
             //Test
@@ -46,14 +47,16 @@ namespace CTS.Screens.PTS.Issue
             CountryPhoneCode_CBox.DataSource = CountriesWithPhoneCode;
             CountryPhoneCode_CBox.ValueMember = "code";
             CountryPhoneCode_CBox.DisplayMember = "name";
+            CountryPhoneCode_CBox.SelectedValue = "+218";
 
             Nationality_CBOX.DataSource = CountriesWithISOCode;
             Nationality_CBOX.DisplayMember = "name";
             Nationality_CBOX.ValueMember = "isoCode";
-           
+            
+
             //for (int i =0;i< CountriesWithPhoneCode.Count; i++)
             //{
-               
+
             //    CountryPhoneCode_CBox.Items.Insert(i, CountriesWithPhoneCode[i].name + " " + CountriesWithPhoneCode[i].code);
             //}
 
@@ -358,7 +361,7 @@ namespace CTS.Screens.PTS.Issue
             customer.PassportNumber = Passport.Text;
             customer.PassportExp = PassportExpDate.Text;
             customer.Address = Address_TXT.Text;
-            customer.PhoneISD = CountryPhoneCode_CBox.SelectedValue.ToString();
+            customer.PhoneISD = String.Concat(CountryPhoneCode_CBox.SelectedValue.ToString().Where(c => !char.IsWhiteSpace(c))); 
             customer.Phone = PhoneNo_TXT.Text;
             customer.Email = Email_TXT.Text;
 
@@ -501,7 +504,7 @@ namespace CTS.Screens.PTS.Issue
         private void TXTB_ONLY_CHAR_KeyPress(object sender, KeyPressEventArgs e)
         {
             //&& !char.IsUpper(e.KeyChar)
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsUpper(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsUpper(e.KeyChar) &&!char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
             
@@ -540,6 +543,11 @@ namespace CTS.Screens.PTS.Issue
 
             
            
+        }
+
+        private void Back_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -62,6 +62,7 @@
             this.Record_DGView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Record_DGView.Size = new System.Drawing.Size(716, 335);
             this.Record_DGView.TabIndex = 8;
+            this.Record_DGView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Record_DGView_CellMouseDoubleClick);
             // 
             // branchsystem1DataSetBindingSource1
             // 
@@ -79,6 +80,7 @@
             this.Exit_BTN.Size = new System.Drawing.Size(80, 59);
             this.Exit_BTN.TabIndex = 10;
             this.Exit_BTN.UseVisualStyleBackColor = true;
+            this.Exit_BTN.Click += new System.EventHandler(this.Exit_BTN_Click);
             // 
             // Sync_BTN
             // 

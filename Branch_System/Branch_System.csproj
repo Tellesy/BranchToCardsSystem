@@ -501,6 +501,9 @@
     <EmbeddedResource Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueBranchAuthScreen.resx">
       <DependentUpon>IssueBranchAuthScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\International Cards\AuthIssue\SubScreen\IssueHQAuthScreen.resx">
+      <DependentUpon>IssueHQAuthScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\International Cards\Generate File\GenAppRecord.resx">
       <DependentUpon>GenAppRecord.cs</DependentUpon>
     </EmbeddedResource>

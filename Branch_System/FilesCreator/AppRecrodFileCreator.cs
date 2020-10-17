@@ -30,9 +30,9 @@ namespace CTS.FilesCreator
             System.IO.Directory.CreateDirectory(PTSLoadFiles);
         }
 
-        public static Status<int> GenerateAppRecordFile(List<PTSAppRecord> records)
+        public static bool GenerateAppRecordFile(List<PTSAppRecord> records)
         {
-            Status<int> statusObject = new Status<int>();
+            bool status = false;
             List<string> recordStrings = new List<string>();
 
             foreach(PTSAppRecord record in records)
@@ -46,7 +46,7 @@ namespace CTS.FilesCreator
 
             createAppFile(fileName, header, footer, recordStrings);
             
-            return statusObject;
+            return status;
         }
 
         public static Status<int> GenerateAppRecordFilesBasedOnProgramCode(List<PTSAppRecord> records)
@@ -309,6 +309,22 @@ namespace CTS.FilesCreator
             recordString += record.CorporateClientCode + "|";
 
             //Add Title
+            if (string.IsNullOrWhiteSpace(record.Customer.Title))
+            {
+                switch(record.Customer.Gender)
+                {
+                 
+                    case "F":
+                        record.Customer.Title = "2";
+                        break;
+                    case "M":
+                    default:
+                        record.Customer.Title = "1";
+                        break;
+
+                }
+            }
+                
             recordString += record.Customer.Title + "|";
 
             //Add First Name
@@ -818,7 +834,7 @@ namespace CTS.FilesCreator
             }
             return false;
         }
-        public static void createAppFile(string fileName, string header, string footer, List<string> recordStrings)
+        private static void createAppFile(string fileName, string header, string footer, List<string> recordStrings)
         {
             string file = String.Format(PTSApplicationFiles + @"\" + fileName);
 
