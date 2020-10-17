@@ -63,9 +63,9 @@ namespace MPBS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        public static System.Drawing.Icon CTSIcon {
+        public static System.Drawing.Icon icon {
             get {
-                object obj = ResourceManager.GetObject("CTSIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
