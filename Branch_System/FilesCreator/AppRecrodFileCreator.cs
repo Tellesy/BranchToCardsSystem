@@ -120,6 +120,9 @@ namespace CTS.FilesCreator
             //Add Form Number
             recordString += record.FromNumber + "|";
 
+            //Add Application Type
+            recordString += record.ApplicationType + "|";
+
             //Add Application Sub Type
             recordString += record.ApplicationSubType + "|";
 
@@ -129,7 +132,8 @@ namespace CTS.FilesCreator
             recordString += record.CustomerType + "|";
 
             //Add Program Code
-            recordString += record.ProgramCode + "|";
+
+            recordString += String.Concat(record.ProgramCode.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
             //Add Existing Device Number
             if (string.IsNullOrWhiteSpace(record.ExistingDeviceNumber))
@@ -155,7 +159,7 @@ namespace CTS.FilesCreator
             //Add Relation with Wallet Plan 1 Promo
             if (string.IsNullOrWhiteSpace(record.WalletPlan1Promo))
                 record.WalletPlan1Promo = "";
-            recordString += record.WalletPlan1Promo + "|";
+            recordString += String.Concat(record.WalletPlan1Promo.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
             //Add  Wallet Plan 2 Promo
             if (string.IsNullOrWhiteSpace(record.WalletPlan2Promo))
