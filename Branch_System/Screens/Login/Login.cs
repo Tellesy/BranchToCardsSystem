@@ -43,7 +43,7 @@ namespace MPBS.Screens
             this.MinimizeBox = false;
             SheetManager.CreateFile();
 
-         await CTSystem.CheckIfSystemActiveAsync();
+         await MPBSystem.CheckIfSystemActiveAsync();
 
             Assembly thisAssem = typeof(Login).Assembly;
             AssemblyName thisAssemName = thisAssem.GetName();
@@ -54,13 +54,13 @@ namespace MPBS.Screens
             //We can skip this part 
             //from here 
 
-            status = CTSystem.GetActiveStatus();
+            status = MPBSystem.GetActiveStatus();
             if (!status.status)
             {
                 MessageBox.Show(status.message);
                 this.Close();
             }
-            status = CTSystem.CheckVersion(thisAssemName.Version.ToString());
+            status = MPBSystem.CheckVersion(thisAssemName.Version.ToString());
             if (!status.status)
             {
                 MessageBox.Show(status.message);

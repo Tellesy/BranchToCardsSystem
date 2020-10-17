@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MPBS.Database
 {
-    public static class CTSystem
+    public static class MPBSystem
     {
 
         public static async Task CheckIfSystemActiveAsync()

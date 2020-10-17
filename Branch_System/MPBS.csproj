@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2B579CB9-DB3B-4A1A-8591-7F0386761CE4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CTS</RootNamespace>
-    <AssemblyName>CTS</AssemblyName>
+    <RootNamespace>MPBS</RootNamespace>
+    <AssemblyName>MPBS</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,11 +51,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon2.ico</ApplicationIcon>
+    <ApplicationIcon>Muee%27sSoftware Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>MPBS.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
@@ -130,7 +131,9 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.Immutable.1.4.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
     </Reference>
@@ -189,7 +192,7 @@
     <Compile Include="Database\Objects\Status.cs" />
     <Compile Include="Database\PBF.cs" />
     <Compile Include="Database\PO.cs" />
-    <Compile Include="Database\CTSystem.cs" />
+    <Compile Include="Database\MPBSystem.cs" />
     <Compile Include="Database\PTSAccountController.cs" />
     <Compile Include="Database\PTSAppRecordController.cs" />
     <Compile Include="Database\PTSCustomerController.cs" />
@@ -603,6 +606,7 @@
     <Content Include="icon.ico" />
     <Content Include="icon2.ico" />
     <Content Include="icon2_ykR_icon.ico" />
+    <Content Include="Muee%27sSoftware Logo.ico" />
     <EmbeddedResource Include="Resources\countries.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

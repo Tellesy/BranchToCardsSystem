@@ -86,9 +86,9 @@
             this.Version_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.Version_LBL.Location = new System.Drawing.Point(77, 449);
             this.Version_LBL.Name = "Version_LBL";
-            this.Version_LBL.Size = new System.Drawing.Size(149, 17);
+            this.Version_LBL.Size = new System.Drawing.Size(129, 17);
             this.Version_LBL.TabIndex = 1;
-            this.Version_LBL.Text = "Mu Tellesy Software ©";
+            this.Version_LBL.Text = "Muiee\'s Software ©";
             // 
             // Username_TXT
             // 
