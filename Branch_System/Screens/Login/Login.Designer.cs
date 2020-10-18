@@ -74,7 +74,7 @@
             this.Login_BTN.Name = "Login_BTN";
             this.Login_BTN.Primary = false;
             this.Login_BTN.Size = new System.Drawing.Size(52, 36);
-            this.Login_BTN.TabIndex = 8;
+            this.Login_BTN.TabIndex = 11;
             this.Login_BTN.Text = "Login";
             this.Login_BTN.UseVisualStyleBackColor = false;
             this.Login_BTN.Click += new System.EventHandler(this.Login_BTN_Click);

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPBS", "Branch_System\MPBS.csproj", "{2B579CB9-DB3B-4A1A-8591-7F0386761CE4}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CTS.Installer", "CTS.Installer\CTS.Installer.vdproj", "{E63991CF-905B-4E26-8094-54D04616B75B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MPBS Installer", "MPBS Installer\MPBS Installer.vdproj", "{5E9AFB8A-15E5-4D2E-9305-C7DE45B239A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,8 @@ Global
 		{2B579CB9-DB3B-4A1A-8591-7F0386761CE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E63991CF-905B-4E26-8094-54D04616B75B}.Debug|Any CPU.ActiveCfg = Debug
 		{E63991CF-905B-4E26-8094-54D04616B75B}.Release|Any CPU.ActiveCfg = Release
+		{5E9AFB8A-15E5-4D2E-9305-C7DE45B239A8}.Debug|Any CPU.ActiveCfg = Debug
+		{5E9AFB8A-15E5-4D2E-9305-C7DE45B239A8}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
