@@ -27,13 +27,18 @@ namespace MPBS.Screens
 
         private async void Login_Load(object sender, EventArgs e)
         {
-            //Test Skin
+
+            //Test Forms here
+            UploadFile.UploadFile x = new UploadFile.UploadFile();
+            x.Show();
+            //
+            
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Green900, MaterialSkin.Primary.BlueGrey900, MaterialSkin.Primary.Blue500, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
             
-            //End Test
+            
             MPBS.ConnectToSharedFolder.CreateShortcut();
 
 

@@ -34,8 +34,8 @@
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Record_DGView = new System.Windows.Forms.DataGridView();
             this.branchsystem1DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.Exit_BTN = new System.Windows.Forms.Button();
-            this.Sync_BTN = new System.Windows.Forms.Button();
+            this.Exit_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Sync_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).BeginInit();
@@ -55,7 +55,7 @@
             // Record_DGView
             // 
             this.Record_DGView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Record_DGView.Location = new System.Drawing.Point(6, 87);
+            this.Record_DGView.Location = new System.Drawing.Point(12, 118);
             this.Record_DGView.MultiSelect = false;
             this.Record_DGView.Name = "Record_DGView";
             this.Record_DGView.ReadOnly = true;
@@ -71,26 +71,40 @@
             // 
             // Exit_BTN
             // 
+            this.Exit_BTN.AutoSize = true;
+            this.Exit_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Exit_BTN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Exit_BTN.BackgroundImage")));
             this.Exit_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Exit_BTN.Depth = 0;
             this.Exit_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Exit_BTN.Location = new System.Drawing.Point(642, 428);
+            this.Exit_BTN.Location = new System.Drawing.Point(13, 462);
+            this.Exit_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Exit_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Exit_BTN.Name = "Exit_BTN";
-            this.Exit_BTN.Size = new System.Drawing.Size(80, 59);
+            this.Exit_BTN.Primary = false;
+            this.Exit_BTN.Size = new System.Drawing.Size(41, 36);
             this.Exit_BTN.TabIndex = 7;
+            this.Exit_BTN.Text = "Exit";
             this.Exit_BTN.UseVisualStyleBackColor = true;
             this.Exit_BTN.Click += new System.EventHandler(this.Exit_BTN_Click);
             // 
             // Sync_BTN
             // 
+            this.Sync_BTN.AutoSize = true;
+            this.Sync_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Sync_BTN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Sync_BTN.BackgroundImage")));
             this.Sync_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Sync_BTN.Depth = 0;
             this.Sync_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sync_BTN.Location = new System.Drawing.Point(16, 14);
+            this.Sync_BTN.Location = new System.Drawing.Point(12, 73);
+            this.Sync_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Sync_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Sync_BTN.Name = "Sync_BTN";
-            this.Sync_BTN.Size = new System.Drawing.Size(66, 57);
+            this.Sync_BTN.Primary = false;
+            this.Sync_BTN.Size = new System.Drawing.Size(70, 36);
             this.Sync_BTN.TabIndex = 6;
+            this.Sync_BTN.Text = "Refresh";
             this.Sync_BTN.UseVisualStyleBackColor = true;
             this.Sync_BTN.Click += new System.EventHandler(this.Sync_BTN_Click);
             // 
@@ -99,18 +113,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(764, 510);
+            this.ClientSize = new System.Drawing.Size(731, 510);
+            this.ControlBox = false;
             this.Controls.Add(this.Record_DGView);
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Sync_BTN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BranchAuthIssue";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "تخويل طلبات الإصدار";
+            this.Text = "Authorize Issue Requests";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.AuthIssue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
@@ -118,6 +133,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -127,7 +143,7 @@
         private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource;
         private System.Windows.Forms.DataGridView Record_DGView;
         private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource1;
-        private System.Windows.Forms.Button Exit_BTN;
-        private System.Windows.Forms.Button Sync_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton Exit_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton Sync_BTN;
     }
 }

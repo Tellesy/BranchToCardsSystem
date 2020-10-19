@@ -13,7 +13,7 @@ using static MPBS.Screens.AuthRecharge.AuthRecharge;
 
 namespace MPBS.Screens.International_Cards.AuthIssue
 {
-    public partial class HQAuthIssue : Form
+    public partial class HQAuthIssue : MaterialSkin.Controls.MaterialForm
     {
         
         public List<Database.Objects.PTSAppRecord> records;
@@ -30,6 +30,8 @@ namespace MPBS.Screens.International_Cards.AuthIssue
 
         private void HQAuthIssue_Load(object sender, EventArgs e)
         {
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

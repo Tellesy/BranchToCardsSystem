@@ -13,7 +13,7 @@ using MPBS.Screens.International_Cards.BranchAuthIssue.SubScreen;
 
 namespace MPBS.Screens.International_Cards.BranchAuthIssue
 {
-    public partial class BranchAuthIssue : Form
+    public partial class BranchAuthIssue : MaterialSkin.Controls.MaterialForm
     {
         private bool isBranchAdmin = true;
         public List<Database.Objects.PTSAppRecord> records;
@@ -26,6 +26,8 @@ namespace MPBS.Screens.International_Cards.BranchAuthIssue
 
         private void AuthIssue_Load(object sender, EventArgs e)
         {
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
             this.CenterToScreen();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
