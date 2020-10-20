@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.Amount_LBL = new MaterialSkin.Controls.MaterialLabel();
+            this.Year = new MaterialSkin.Controls.MaterialLabel();
+            this.Year_LBL = new MaterialSkin.Controls.MaterialLabel();
+            this.Status_LBL = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.Name_LBL = new MaterialSkin.Controls.MaterialLabel();
             this.Welcome_LBL = new MaterialSkin.Controls.MaterialLabel();
             this.Password_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.Status_LBL = new MaterialSkin.Controls.MaterialLabel();
-            this.Year_LBL = new MaterialSkin.Controls.MaterialLabel();
-            this.Year = new MaterialSkin.Controls.MaterialLabel();
-            this.Amount_LBL = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.UpdateUser_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.AddUser_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.unAuthAppRecord_BTN = new MaterialSkin.Controls.MaterialFlatButton();
@@ -46,6 +46,7 @@
             this.Logout_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.UnauthBrasnchLoad_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.AuthLoadRequests_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.GenerateT24_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,84 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(350, 132);
             this.panel1.TabIndex = 37;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(10, 90);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(135, 19);
+            this.materialLabel2.TabIndex = 54;
+            this.materialLabel2.Text = "Max Load Amount:";
+            // 
+            // Amount_LBL
+            // 
+            this.Amount_LBL.AutoSize = true;
+            this.Amount_LBL.Depth = 0;
+            this.Amount_LBL.Font = new System.Drawing.Font("Roboto", 11F);
+            this.Amount_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Amount_LBL.Location = new System.Drawing.Point(242, 90);
+            this.Amount_LBL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Amount_LBL.Name = "Amount_LBL";
+            this.Amount_LBL.Size = new System.Drawing.Size(18, 19);
+            this.Amount_LBL.TabIndex = 53;
+            this.Amount_LBL.Text = "X";
+            // 
+            // Year
+            // 
+            this.Year.AutoSize = true;
+            this.Year.Depth = 0;
+            this.Year.Font = new System.Drawing.Font("Roboto", 11F);
+            this.Year.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Year.Location = new System.Drawing.Point(10, 54);
+            this.Year.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Year.Name = "Year";
+            this.Year.Size = new System.Drawing.Size(43, 19);
+            this.Year.TabIndex = 52;
+            this.Year.Text = "Year:";
+            // 
+            // Year_LBL
+            // 
+            this.Year_LBL.AutoSize = true;
+            this.Year_LBL.Depth = 0;
+            this.Year_LBL.Font = new System.Drawing.Font("Roboto", 11F);
+            this.Year_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Year_LBL.Location = new System.Drawing.Point(243, 54);
+            this.Year_LBL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Year_LBL.Name = "Year_LBL";
+            this.Year_LBL.Size = new System.Drawing.Size(18, 19);
+            this.Year_LBL.TabIndex = 51;
+            this.Year_LBL.Text = "X";
+            // 
+            // Status_LBL
+            // 
+            this.Status_LBL.AutoSize = true;
+            this.Status_LBL.Depth = 0;
+            this.Status_LBL.Font = new System.Drawing.Font("Roboto", 11F);
+            this.Status_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Status_LBL.Location = new System.Drawing.Point(243, 22);
+            this.Status_LBL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Status_LBL.Name = "Status_LBL";
+            this.Status_LBL.Size = new System.Drawing.Size(18, 19);
+            this.Status_LBL.TabIndex = 50;
+            this.Status_LBL.Text = "X";
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(10, 21);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(56, 19);
+            this.materialLabel1.TabIndex = 50;
+            this.materialLabel1.Text = "Status:";
             // 
             // Name_LBL
             // 
@@ -103,84 +182,6 @@
             this.Password_BTN.Text = "Change Password";
             this.Password_BTN.UseVisualStyleBackColor = true;
             this.Password_BTN.Click += new System.EventHandler(this.Password_BTN_Click);
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(10, 21);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(56, 19);
-            this.materialLabel1.TabIndex = 50;
-            this.materialLabel1.Text = "Status:";
-            // 
-            // Status_LBL
-            // 
-            this.Status_LBL.AutoSize = true;
-            this.Status_LBL.Depth = 0;
-            this.Status_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Status_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Status_LBL.Location = new System.Drawing.Point(243, 22);
-            this.Status_LBL.MouseState = MaterialSkin.MouseState.HOVER;
-            this.Status_LBL.Name = "Status_LBL";
-            this.Status_LBL.Size = new System.Drawing.Size(18, 18);
-            this.Status_LBL.TabIndex = 50;
-            this.Status_LBL.Text = "X";
-            // 
-            // Year_LBL
-            // 
-            this.Year_LBL.AutoSize = true;
-            this.Year_LBL.Depth = 0;
-            this.Year_LBL.Font = new System.Drawing.Font("Roboto", 11F);
-            this.Year_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Year_LBL.Location = new System.Drawing.Point(243, 54);
-            this.Year_LBL.MouseState = MaterialSkin.MouseState.HOVER;
-            this.Year_LBL.Name = "Year_LBL";
-            this.Year_LBL.Size = new System.Drawing.Size(18, 19);
-            this.Year_LBL.TabIndex = 51;
-            this.Year_LBL.Text = "X";
-            // 
-            // Year
-            // 
-            this.Year.AutoSize = true;
-            this.Year.Depth = 0;
-            this.Year.Font = new System.Drawing.Font("Roboto", 11F);
-            this.Year.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Year.Location = new System.Drawing.Point(10, 54);
-            this.Year.MouseState = MaterialSkin.MouseState.HOVER;
-            this.Year.Name = "Year";
-            this.Year.Size = new System.Drawing.Size(43, 19);
-            this.Year.TabIndex = 52;
-            this.Year.Text = "Year:";
-            // 
-            // Amount_LBL
-            // 
-            this.Amount_LBL.AutoSize = true;
-            this.Amount_LBL.Depth = 0;
-            this.Amount_LBL.Font = new System.Drawing.Font("Roboto", 11F);
-            this.Amount_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Amount_LBL.Location = new System.Drawing.Point(242, 90);
-            this.Amount_LBL.MouseState = MaterialSkin.MouseState.HOVER;
-            this.Amount_LBL.Name = "Amount_LBL";
-            this.Amount_LBL.Size = new System.Drawing.Size(18, 19);
-            this.Amount_LBL.TabIndex = 53;
-            this.Amount_LBL.Text = "X";
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(10, 90);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(135, 19);
-            this.materialLabel2.TabIndex = 54;
-            this.materialLabel2.Text = "Max Load Amount:";
             // 
             // UpdateUser_BTN
             // 
@@ -251,7 +252,7 @@
             this.GenFiles_BTN.AutoSize = true;
             this.GenFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenFiles_BTN.Depth = 0;
-            this.GenFiles_BTN.Location = new System.Drawing.Point(12, 507);
+            this.GenFiles_BTN.Location = new System.Drawing.Point(12, 544);
             this.GenFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenFiles_BTN.Name = "GenFiles_BTN";
@@ -267,7 +268,7 @@
             this.Logout_BTN.AutoSize = true;
             this.Logout_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Logout_BTN.Depth = 0;
-            this.Logout_BTN.Location = new System.Drawing.Point(11, 555);
+            this.Logout_BTN.Location = new System.Drawing.Point(11, 592);
             this.Logout_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Logout_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Logout_BTN.Name = "Logout_BTN";
@@ -310,6 +311,22 @@
             this.AuthLoadRequests_BTN.Text = "Authorized Load Requests";
             this.AuthLoadRequests_BTN.UseVisualStyleBackColor = true;
             // 
+            // GenerateT24_BTN
+            // 
+            this.GenerateT24_BTN.AutoSize = true;
+            this.GenerateT24_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GenerateT24_BTN.Depth = 0;
+            this.GenerateT24_BTN.Location = new System.Drawing.Point(13, 485);
+            this.GenerateT24_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.GenerateT24_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.GenerateT24_BTN.Name = "GenerateT24_BTN";
+            this.GenerateT24_BTN.Primary = false;
+            this.GenerateT24_BTN.Size = new System.Drawing.Size(234, 36);
+            this.GenerateT24_BTN.TabIndex = 59;
+            this.GenerateT24_BTN.Text = "Upload and Generate T24 Files";
+            this.GenerateT24_BTN.UseVisualStyleBackColor = true;
+            this.GenerateT24_BTN.Click += new System.EventHandler(this.GenerateT24_BTN_Click);
+            // 
             // HQAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,6 +334,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(517, 664);
             this.ControlBox = false;
+            this.Controls.Add(this.GenerateT24_BTN);
             this.Controls.Add(this.AuthLoadRequests_BTN);
             this.Controls.Add(this.UnauthBrasnchLoad_BTN);
             this.Controls.Add(this.Logout_BTN);
@@ -358,5 +376,6 @@
         private MaterialSkin.Controls.MaterialFlatButton Logout_BTN;
         private MaterialSkin.Controls.MaterialFlatButton UnauthBrasnchLoad_BTN;
         private MaterialSkin.Controls.MaterialFlatButton AuthLoadRequests_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton GenerateT24_BTN;
     }
 }

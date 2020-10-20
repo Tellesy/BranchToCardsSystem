@@ -14,5 +14,16 @@ namespace MPBS.SpreadSheet.Structure
         public float Amount { get; set; }
         public string Type { get; set; }
         public string Description { get; set; }
+        public string Branch { get; set; }
+
+        //public TransactionSettlements(string accountNumber, string cardNumber, float amount, string type, string description, string branch)
+        //{
+        //    this.AccountNumber = accountNumber;
+        //    this.CardNumber = cardNumber;
+        //    this.Amount = amount;
+        //    this.Type = type;
+        //    this.Description = description;
+        //    this.Branch = branch;
+        //}
     }
 }

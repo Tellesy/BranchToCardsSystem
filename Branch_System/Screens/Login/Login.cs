@@ -29,8 +29,7 @@ namespace MPBS.Screens
         {
 
             //Test Forms here
-            UploadFile.UploadFile x = new UploadFile.UploadFile();
-            x.Show();
+           
             //
             
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;

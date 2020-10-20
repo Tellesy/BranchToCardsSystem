@@ -394,11 +394,11 @@
     <Compile Include="Screens\Reports\RechargeReports.Designer.cs">
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\UploadFile\UploadFile.cs">
+    <Compile Include="Screens\UploadFile\GenerateFiles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\UploadFile\UploadFile.Designer.cs">
-      <DependentUpon>UploadFile.cs</DependentUpon>
+    <Compile Include="Screens\UploadFile\GenerateFiles.Designer.cs">
+      <DependentUpon>GenerateFiles.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\User\Add User.cs">
       <SubType>Form</SubType>
@@ -548,8 +548,8 @@
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Reports\AlrafiqRechargReport.rdlc" />
-    <EmbeddedResource Include="Screens\UploadFile\UploadFile.resx">
-      <DependentUpon>UploadFile.cs</DependentUpon>
+    <EmbeddedResource Include="Screens\UploadFile\GenerateFiles.resx">
+      <DependentUpon>GenerateFiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\User\Add User.resx">
       <DependentUpon>Add User.cs</DependentUpon>
