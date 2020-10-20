@@ -14,10 +14,18 @@ namespace MPBS.SpreadSheet
         private static Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
         private static Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
         private static Microsoft.Office.Interop.Excel.Range range;
-        private static string AmountCellName = "AMOUNT USD";
-        private static string DescriptionCellName = "LOCALITY";
-        private static string TypeCellName = "TYPE";
-        private static string CardNumberCellName = "CARDHOLDER";
+
+        //SMT Transaction File Table Headers
+        private static string SMTAmountCellName = "AMOUNT USD";
+        private static string SMTDescriptionCellName = "LOCALITY";
+        private static string SMTTypeCellName = "TYPE";
+        private static string STMCardNumberCellName = "CARDHOLDER";
+
+        //T24 Transaction Settlements File Headers
+        private static string T24AccountNumber = "Account";
+        private static string T24DescriptionCellName = "Description";
+        private static string T24TypeCellName = "TYPE";
+        private static string T24AmountCellName = "Amount";
 
 
 
@@ -54,19 +62,19 @@ namespace MPBS.SpreadSheet
                     for (colCounter = 1; colCounter <= cl; colCounter++)
                     {
 
-                        if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == AmountCellName)
+                        if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == SMTAmountCellName)
                         {
                             amountColNo = colCounter;
                         }
-                        else if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == DescriptionCellName)
+                        else if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == SMTDescriptionCellName)
                         {
                             descriptionColNo = colCounter;
                         }
-                        else if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == TypeCellName)
+                        else if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == SMTTypeCellName)
                         {
                             typeColNo = colCounter;
                         }
-                        else if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == CardNumberCellName)
+                        else if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == STMCardNumberCellName)
                         {
                             cardNumberColNo = colCounter;
                         }
@@ -91,6 +99,68 @@ namespace MPBS.SpreadSheet
             status.Object = tsFiles;
             status.status = true;
             return status;
+        }
+        public static Status<int> TransactionsSettelmentsFileCreator(List<TransactionSettlements> transactions)
+        {
+            Status<int> status = new Status<int>();
+
+            try
+            {
+                xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+                if (xlApp == null)
+                {
+                    status.message = "Excel is not properly installed!";
+                    status.Object = 0;
+                    status.status = false;
+                }
+
+                object misValue = System.Reflection.Missing.Value;
+
+                xlWorkBook = xlApp.Workbooks.Add(misValue);
+                //xlWorkBook = xlApp.Workbooks.Add("Transactions");
+
+                xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                int rows = transactions.Count;
+
+                xlWorkSheet.Cells[1, 1] = T24AccountNumber;
+                xlWorkSheet.Cells[1, 2] = T24DescriptionCellName;
+                xlWorkSheet.Cells[1, 3] = T24TypeCellName;
+                xlWorkSheet.Cells[1, 4] = T24AmountCellName;
+
+                range = xlWorkSheet.get_Range("A1").EntireColumn;
+                range.NumberFormat = "@";
+
+                for (int i = 0; i < transactions.Count; i++)
+                {
+                    xlWorkSheet.Cells[i + 2, 1] = transactions[i].AccountNumber.ToString();
+                    xlWorkSheet.Cells[i + 2, 2] = transactions[i].Description;
+                    xlWorkSheet.Cells[i + 2, 3] = transactions[i].Type;
+                    xlWorkSheet.Cells[i + 2, 4] = transactions[i].Amount.ToString();
+
+                }
+
+                string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                //xlWorkBook.SaveAs(location+ @"\transactionFile.xls");
+                string fileName = DateTime.Parse(DateTime.Now.ToString()).ToString("ddMMyyyyhhmmss");
+
+                xlWorkBook.SaveAs(location+@"\"+ fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook.Close(true, misValue, misValue);
+                xlApp.Quit();
+
+                status.status = true;
+                status.Object = transactions.Count;
+                return status;
+            }
+            catch(Exception e)
+            {
+                status.status = false;
+                status.Object = 0;
+                status.message = e.Message;
+                return status;
+            }
+          
         }
     }
 }

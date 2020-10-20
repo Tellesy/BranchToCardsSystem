@@ -15,7 +15,7 @@ namespace MPBS.FilesCreator
     public static class AppRecrodFileCreator
     {
         private static string bankCode = "020354";
-        public static string rootLocation = @"C:\Users\Public\CTS\";
+        public static string rootLocation = @"C:\Users\Public\MPBS\";
         public static string PTSLocation = String.Format(rootLocation + @"PTS\");
 
 

@@ -46,12 +46,38 @@ namespace MPBS.Screens.UploadFile
 
                   
                var status = FileReader.SMT_TransactionsFileReader(deviceDialog.FileName);
+                var transactionsWithAccountNumber = new List<TransactionSettlements>();
                 foreach(var ts in status.Object)
                 {
-                    MessageBox.Show(ts.CardNumber);
+                    //Look For card account here
+                   var cardAccountObj = Database.Issue.getCardAccountFromCardNumber(ts.CardNumber);
+                    if(cardAccountObj.status && !String.IsNullOrWhiteSpace(cardAccountObj.Object))
+                    {
+                        //From card account get account number
+                       var customerAccountObj = Database.Issue.getAccountNumberFromCardAccount(cardAccountObj.Object);
+                        if (customerAccountObj.status)
+                        {
+                            var transaction = new TransactionSettlements();
+                            transaction.AccountNumber = customerAccountObj.Object;
+                            transaction.Description = ts.Description;
+                            transaction.Type = ts.Type;
+                            transaction.Amount = ts.Amount;
+                            transaction.CardNumber = ts.CardNumber;
+
+                            transactionsWithAccountNumber.Add(transaction);
+                            //Create Excel
+
+                            // MessageBox.Show(customerAccountObj.Object);
+                        }
+                    }
+                   
                 }
 
-                
+                var so =  FileReader.TransactionsSettelmentsFileCreator(transactionsWithAccountNumber);
+                MessageBox.Show(so.status.ToString());
+
+
+
             }
 
 

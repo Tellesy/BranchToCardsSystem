@@ -36,7 +36,7 @@ namespace MPBS.Screens.Account_Details
             }
             else
             {
-               Status<string> Card_Account = MPBS.Database.Issue.getCardAccountFromCard_Number(Card_Number);
+               Status<string> Card_Account = MPBS.Database.Issue.getCardAccountFromCardNumber(Card_Number);
                 if(Card_Account.status)
                 {
                      status = MPBS.Database.Issue.getCardAccount(Card_Account.Object);

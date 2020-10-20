@@ -491,7 +491,7 @@ namespace MPBS.Database
 
         }
 
-        public static Status<string> getCardAccountFromCard_Number(string Card_Number)
+        public static Status<string> getCardAccountFromCardNumber(string Card_Number)
         {
             Status<string> status = new Status<string>();
             status.status = false;
@@ -709,6 +709,58 @@ namespace MPBS.Database
             }
         }
 
+        public static Status<string> getAccountNumberFromCardAccount(string Card_Account)
+        {
+            Status<string> status = new Status<string>();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                string query = @"SELECT TOP 1 [Customer_Account] FROM [CTS].[dbo].[Card_Accounts] where [Card_Account] = '" + Card_Account + "'";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        if (!reader.HasRows)
+                        {
+                            status.status = false;
+                            return status;
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+                                status.Object = reader[0].ToString();
+                                status.status = true;
+                                //  status.message = "هذا الزبون لديه بطاقة, الرجاء التأكد او الذهاب الى خيار اعادة الاصدار";
+                            }
+                            return status;
+
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        status.status = false;
+                        status.message = Errors.ErrorsString.Error002 + "\n" + e;
+                        return status;
+                    }
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+        }
 
     }
 }
