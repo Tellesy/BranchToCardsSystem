@@ -10,11 +10,13 @@ namespace MPBS.SpreadSheet.Structure
     {
         public string AccountNumber { get; set; }
         public string CardNumber { get; set; }
+        
 
         public float Amount { get; set; }
         public string Type { get; set; }
         public string Description { get; set; }
         public string Branch { get; set; }
+        public string CompanyCode { get; set; }
 
         //public TransactionSettlements(string accountNumber, string cardNumber, float amount, string type, string description, string branch)
         //{

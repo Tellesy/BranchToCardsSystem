@@ -370,28 +370,28 @@
     <Compile Include="Screens\International Cards\Issue\PTS_Issue.Designer.cs">
       <DependentUpon>PTS_Issue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\PIN\PIN.cs">
+    <Compile Include="Screens\SMT\PIN\PIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\PIN\PIN.Designer.cs">
+    <Compile Include="Screens\SMT\PIN\PIN.Designer.cs">
       <DependentUpon>PIN.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Recharge\Recharge.cs">
+    <Compile Include="Screens\SMT\Recharge\Recharge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\Recharge\Recharge.Designer.cs">
+    <Compile Include="Screens\SMT\Recharge\Recharge.Designer.cs">
       <DependentUpon>Recharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\ReIssue\ReIssue.cs">
+    <Compile Include="Screens\SMT\ReIssue\ReIssue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\ReIssue\ReIssue.Designer.cs">
+    <Compile Include="Screens\SMT\ReIssue\ReIssue.Designer.cs">
       <DependentUpon>ReIssue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Reports\RechargeReports.cs">
+    <Compile Include="Screens\SMT\Reports\RechargeReports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\Reports\RechargeReports.Designer.cs">
+    <Compile Include="Screens\SMT\Reports\RechargeReports.Designer.cs">
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\UploadFile\GenerateFiles.cs">
@@ -534,20 +534,20 @@
     <EmbeddedResource Include="Screens\International Cards\Issue\PTS_Issue.resx">
       <DependentUpon>PTS_Issue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\PIN\PIN.resx">
+    <EmbeddedResource Include="Screens\SMT\PIN\PIN.resx">
       <DependentUpon>PIN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Recharge\Recharge.resx">
+    <EmbeddedResource Include="Screens\SMT\Recharge\Recharge.resx">
       <DependentUpon>Recharge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\ReIssue\ReIssue.resx">
+    <EmbeddedResource Include="Screens\SMT\ReIssue\ReIssue.resx">
       <DependentUpon>ReIssue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Reports\MyFamilyRechargReport.rdlc" />
-    <EmbeddedResource Include="Screens\Reports\RechargeReports.resx">
+    <EmbeddedResource Include="Screens\SMT\Reports\MyFamilyRechargReport.rdlc" />
+    <EmbeddedResource Include="Screens\SMT\Reports\RechargeReports.resx">
       <DependentUpon>RechargeReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Reports\AlrafiqRechargReport.rdlc" />
+    <EmbeddedResource Include="Screens\SMT\Reports\AlrafiqRechargReport.rdlc" />
     <EmbeddedResource Include="Screens\UploadFile\GenerateFiles.resx">
       <DependentUpon>GenerateFiles.cs</DependentUpon>
     </EmbeddedResource>

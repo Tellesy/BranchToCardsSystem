@@ -22,10 +22,29 @@ namespace MPBS.SpreadSheet
         private static string STMCardNumberCellName = "CARDHOLDER";
 
         //T24 Transaction Settlements File Headers
-        private static string T24AccountNumber = "Account";
+        private static string T24DebitAccountNumberCellName = "DEBIT.ACCOUNT";
+        private static string T24DebitCurrencyCellName = "USD";
+ 
+
+        private static string T24AmountCellName = "DEBIT.AMOUNT";
+        private static string T24ValueDateCellName = "DEBIT.VALUE.DATE";
+        private static string T24DebitTheirRefCellName = "DEBIT.THEIR.REF";
+        private static string T24CreditTheirRefCellName = "CREDIT.THEIR.REF";
+        private static string T24CreditAccountNumberCellName = "CREDIT.ACCT";
+        private static string T24CreditCurrencyCellName = "EUR";
+        private static string T24CreditAmountCellName = "CREDIT.ACCOUNT";
+        private static string T24CreditValueDateCellName = "CREDIT.VALUE.DATE";
+        
+
+        private static string T24TreasuryRateCellName = "TREASURY.RATE";
         private static string T24DescriptionCellName = "Description";
         private static string T24TypeCellName = "TYPE";
-        private static string T24AmountCellName = "Amount";
+        private static string T24CompanyCodeCellName = "COMPANY.CODE";
+        private static string T24OredringCustomerCellName = "ORDERING.CUSTOMER";
+        private static string T24OrderingBankCellName = "ORDERING.BANK";
+
+
+
 
 
 
@@ -124,21 +143,52 @@ namespace MPBS.SpreadSheet
 
                 int rows = transactions.Count;
 
-                xlWorkSheet.Cells[1, 1] = T24AccountNumber;
-                xlWorkSheet.Cells[1, 2] = T24DescriptionCellName;
-                xlWorkSheet.Cells[1, 3] = T24TypeCellName;
+                xlWorkSheet.Cells[1, 1] = T24CompanyCodeCellName;
+                xlWorkSheet.Cells[1, 2] = T24DebitAccountNumberCellName;
+                xlWorkSheet.Cells[1, 3] = T24DebitCurrencyCellName;
                 xlWorkSheet.Cells[1, 4] = T24AmountCellName;
+                xlWorkSheet.Cells[1, 5] = T24ValueDateCellName;
+                xlWorkSheet.Cells[1, 6] = T24DebitTheirRefCellName;
+                xlWorkSheet.Cells[1, 7] = T24CreditTheirRefCellName;
+                xlWorkSheet.Cells[1, 8] = T24CreditAccountNumberCellName;
+                xlWorkSheet.Cells[1, 9] = T24CreditCurrencyCellName;
+                xlWorkSheet.Cells[1, 10] = T24CreditAmountCellName;
+                xlWorkSheet.Cells[1, 11] = T24CreditValueDateCellName;
+                xlWorkSheet.Cells[1, 12] = T24TreasuryRateCellName;
+                xlWorkSheet.Cells[1, 13] = T24OredringCustomerCellName;
+                xlWorkSheet.Cells[1, 14] = T24OrderingBankCellName;
+
+
+
+                //xlWorkSheet.Cells[1, 3] = T24TypeCellName;
+                //xlWorkSheet.Cells[1, 4] = T24AmountCellName;
 
                 range = xlWorkSheet.get_Range("A1").EntireColumn;
                 range.NumberFormat = "@";
 
                 for (int i = 0; i < transactions.Count; i++)
                 {
+
+                    xlWorkSheet.Cells[1, 1] = transactions[i].CompanyCode.ToString();
+                    xlWorkSheet.Cells[1, 2] = "";
+                    xlWorkSheet.Cells[1, 3] = transactions[i].AccountNumber.ToString();
+                    xlWorkSheet.Cells[1, 4] = "USD";
+                    xlWorkSheet.Cells[1, 5] = transactions[i].Amount.ToString();
+                    xlWorkSheet.Cells[1, 5] = T24ValueDateCellName;
+                    xlWorkSheet.Cells[1, 6] = T24DebitTheirRefCellName;
+                    xlWorkSheet.Cells[1, 7] = T24CreditTheirRefCellName;
+                    xlWorkSheet.Cells[1, 8] = T24CreditAccountNumberCellName;
+                    xlWorkSheet.Cells[1, 9] = T24CreditCurrencyCellName;
+                    xlWorkSheet.Cells[1, 10] = T24CreditAmountCellName;
+                    xlWorkSheet.Cells[1, 11] = T24CreditValueDateCellName;
+                    xlWorkSheet.Cells[1, 12] = T24TreasuryRateCellName;
+                    xlWorkSheet.Cells[1, 13] = T24OredringCustomerCellName;
+                    xlWorkSheet.Cells[1, 14] = T24OrderingBankCellName;
+
                     xlWorkSheet.Cells[i + 2, 1] = transactions[i].AccountNumber.ToString();
                     xlWorkSheet.Cells[i + 2, 2] = transactions[i].Description;
                     xlWorkSheet.Cells[i + 2, 3] = transactions[i].Type;
                     xlWorkSheet.Cells[i + 2, 4] = transactions[i].Amount.ToString();
-
                 }
 
                 string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
