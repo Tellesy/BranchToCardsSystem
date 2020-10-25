@@ -17,6 +17,7 @@ namespace MPBS.SpreadSheet.Structure
         public string Description { get; set; }
         public string Branch { get; set; }
         public string CompanyCode { get; set; }
+        
 
         //public TransactionSettlements(string accountNumber, string cardNumber, float amount, string type, string description, string branch)
         //{

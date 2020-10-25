@@ -66,8 +66,8 @@ namespace MPBS.Database
                             Login.name = reader.GetValue(1).ToString();
                             active = reader.GetValue(2).ToString();
                             Login.id = reader[3].ToString();
-                            role = reader[4].ToString();
-                            branch = reader[5].ToString();
+                            Login.role = reader[4].ToString();
+                            Login.branch = reader[5].ToString();
                             
                         }
 

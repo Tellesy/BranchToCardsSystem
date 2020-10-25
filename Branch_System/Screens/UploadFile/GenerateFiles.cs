@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 using MPBS.SpreadSheet;
 using MPBS.SpreadSheet.Structure;
 
@@ -16,6 +17,8 @@ namespace MPBS.Screens.UploadFile
 {
     public partial class GenerateT24Files : MaterialSkin.Controls.MaterialForm
     {
+        private double Rate;
+        private string ValueDate;
         public GenerateT24Files()
         {
             InitializeComponent();
@@ -28,7 +31,27 @@ namespace MPBS.Screens.UploadFile
 
         private void UploadSMTTransactionReport_BTN_Click(object sender, EventArgs e)
         {
+            //Enter Treasury Rate
+            if(!EnterTreasuryRate())
+            {
+                return;
+            }
+            else
+            {
+                FileReader.TreasuryRate = this.Rate;
+            }
 
+            //Enter Value Date
+            if (!EnterValueDate())
+            {
+                return;
+            }
+            else
+            {
+                FileReader.ValueDate = this.ValueDate;
+            }
+
+            //
             OpenFileDialog deviceDialog = new OpenFileDialog();
             deviceDialog.InitialDirectory = @"C:\";
             deviceDialog.RestoreDirectory = true;
@@ -185,6 +208,50 @@ namespace MPBS.Screens.UploadFile
             FileReader.GenerateTemplateSpreadsheet(fileName, dataTable);
         }
 
+        private bool EnterTreasuryRate()
+        {
+            string rateString = Interaction.InputBox("Please Enter Treasury Rate?", "Treasury Rate", "0.0");
+            if (!string.IsNullOrWhiteSpace(rateString))
+            {
+               double rate = double.Parse(rateString);
+
+                if(rate > 0)
+                {
+                    Rate = rate;
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Rate should be grater than Zero");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error in Entering Rate");
+                return false;
+            }
+        }
+
+        private bool EnterValueDate()
+        {
+            var today = DateTime.Today;
+            string defaultValueDate = today.Year.ToString() + today.Month.ToString().PadLeft(2,'0') + today.Day.ToString().PadLeft(2,'0') ;
+
+            string valueDate = Interaction.InputBox("Please Enter Value Date?", "Value Date", defaultValueDate);
+            if (!string.IsNullOrWhiteSpace(valueDate))
+            {
+
+                    ValueDate = valueDate;
+                return true;
+
+            }
+            else
+            {
+                MessageBox.Show("Error in Entering Rate");
+                return false;
+            }
+        }
         private void Back_BTN_Click(object sender, EventArgs e)
         {
             this.Close();

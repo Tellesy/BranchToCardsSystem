@@ -37,7 +37,7 @@
             this.UploadSMTTransactionReport_BTN.AutoSize = true;
             this.UploadSMTTransactionReport_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.UploadSMTTransactionReport_BTN.Depth = 0;
-            this.UploadSMTTransactionReport_BTN.Location = new System.Drawing.Point(13, 78);
+            this.UploadSMTTransactionReport_BTN.Location = new System.Drawing.Point(13, 74);
             this.UploadSMTTransactionReport_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.UploadSMTTransactionReport_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.UploadSMTTransactionReport_BTN.Name = "UploadSMTTransactionReport_BTN";
@@ -64,16 +64,16 @@
             this.Back_BTN.UseVisualStyleBackColor = true;
             this.Back_BTN.Click += new System.EventHandler(this.Back_BTN_Click);
             // 
-            // GenerateFiles
+            // GenerateT24Files
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(320, 282);
+            this.ClientSize = new System.Drawing.Size(352, 282);
             this.ControlBox = false;
             this.Controls.Add(this.Back_BTN);
             this.Controls.Add(this.UploadSMTTransactionReport_BTN);
-            this.Name = "GenerateFiles";
+            this.Name = "GenerateT24Files";
             this.ShowIcon = false;
             this.Text = "Generate T24 Files";
             this.Load += new System.EventHandler(this.UploadFile_Load);
