@@ -221,7 +221,7 @@ namespace MPBS.SpreadSheet
           
         }
 
-        public static void GenerateTemplateSpreadsheet(string fileName,List<List<string>> dataTable )
+        public static async void GenerateTemplateSpreadsheet(string fileName,List<List<string>> dataTable )
         {
             
             xlApp = new Microsoft.Office.Interop.Excel.Application();

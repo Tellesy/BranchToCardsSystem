@@ -29,11 +29,13 @@ namespace MPBS.Screens.UploadFile
 
         }
 
-        private void UploadSMTTransactionReport_BTN_Click(object sender, EventArgs e)
+        private async void UploadSMTTransactionReport_BTN_Click(object sender, EventArgs e)
         {
+            UploadSMTTransactionReport_BTN.Enabled = false;
             //Enter Treasury Rate
             if(!EnterTreasuryRate())
             {
+                UploadSMTTransactionReport_BTN.Enabled = true;
                 return;
             }
             else
@@ -44,6 +46,7 @@ namespace MPBS.Screens.UploadFile
             //Enter Value Date
             if (!EnterValueDate())
             {
+                UploadSMTTransactionReport_BTN.Enabled = true;
                 return;
             }
             else
@@ -83,6 +86,8 @@ namespace MPBS.Screens.UploadFile
 
 
 
+            MessageBox.Show("All Done");
+            UploadSMTTransactionReport_BTN.Enabled = true;
         }
 
         private List<TransactionSettlements> ReadSMTTransactionSpreadSheet(string fileName)
@@ -156,7 +161,7 @@ namespace MPBS.Screens.UploadFile
             return result;
         }
 
-        private void GenerateSettlementsSpreadSheets(List<TransactionSettlements> transactions)
+        private async void GenerateSettlementsSpreadSheets(List<TransactionSettlements> transactions)
         {
 
             var groupedByBranch = transactions.GroupBy(t => t.Branch,
@@ -185,7 +190,7 @@ namespace MPBS.Screens.UploadFile
             }
         }
 
-        private void GenerateTransactionsErrorReport(List<TransactionSettlements> transactions,string ErrorType,string ErrorMessage)
+        private async void GenerateTransactionsErrorReport(List<TransactionSettlements> transactions,string ErrorType,string ErrorMessage)
         {
             List<List<string>> dataTable = new List<List<string>>();
 
@@ -200,7 +205,7 @@ namespace MPBS.Screens.UploadFile
             {
                 List<string> cell = new List<string>();
                 cell.Add(ts.CardNumber);
-                cell.Add(ErrorType);
+                cell.Add(ErrorMessage);
                 dataTable.Add(cell);
             }
 
