@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using MPBS.FilesCreator;
 using MPBS.Database;
 
-namespace MPBS.Screens.International_Cards.Generate_File
+namespace MPBS.Screens.PTS.Generate_File
 {
     public partial class GenAppRecord : Form
     {

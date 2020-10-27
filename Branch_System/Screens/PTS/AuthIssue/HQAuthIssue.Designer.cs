@@ -1,6 +1,6 @@
-﻿namespace MPBS.Screens.International_Cards.BranchAuthIssue
+﻿namespace MPBS.Screens.PTS.AuthIssue
 {
-    partial class BranchAuthIssue
+    partial class HQAuthIssue
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BranchAuthIssue));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HQAuthIssue));
             this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Record_DGView = new System.Windows.Forms.DataGridView();
@@ -55,13 +55,13 @@
             // Record_DGView
             // 
             this.Record_DGView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Record_DGView.Location = new System.Drawing.Point(12, 118);
+            this.Record_DGView.Location = new System.Drawing.Point(22, 133);
             this.Record_DGView.MultiSelect = false;
             this.Record_DGView.Name = "Record_DGView";
             this.Record_DGView.ReadOnly = true;
             this.Record_DGView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Record_DGView.Size = new System.Drawing.Size(716, 335);
-            this.Record_DGView.TabIndex = 5;
+            this.Record_DGView.TabIndex = 8;
             this.Record_DGView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Record_DGView_CellMouseDoubleClick);
             // 
             // branchsystem1DataSetBindingSource1
@@ -78,13 +78,13 @@
             this.Exit_BTN.Depth = 0;
             this.Exit_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Exit_BTN.Location = new System.Drawing.Point(13, 462);
+            this.Exit_BTN.Location = new System.Drawing.Point(22, 508);
             this.Exit_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Exit_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Exit_BTN.Name = "Exit_BTN";
             this.Exit_BTN.Primary = false;
             this.Exit_BTN.Size = new System.Drawing.Size(41, 36);
-            this.Exit_BTN.TabIndex = 7;
+            this.Exit_BTN.TabIndex = 10;
             this.Exit_BTN.Text = "Exit";
             this.Exit_BTN.UseVisualStyleBackColor = true;
             this.Exit_BTN.Click += new System.EventHandler(this.Exit_BTN_Click);
@@ -97,37 +97,30 @@
             this.Sync_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Sync_BTN.Depth = 0;
             this.Sync_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sync_BTN.Location = new System.Drawing.Point(12, 73);
+            this.Sync_BTN.Location = new System.Drawing.Point(22, 88);
             this.Sync_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Sync_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Sync_BTN.Name = "Sync_BTN";
             this.Sync_BTN.Primary = false;
             this.Sync_BTN.Size = new System.Drawing.Size(70, 36);
-            this.Sync_BTN.TabIndex = 6;
+            this.Sync_BTN.TabIndex = 9;
             this.Sync_BTN.Text = "Refresh";
             this.Sync_BTN.UseVisualStyleBackColor = true;
             this.Sync_BTN.Click += new System.EventHandler(this.Sync_BTN_Click);
             // 
-            // BranchAuthIssue
+            // HQAuthIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(731, 510);
+            this.ClientSize = new System.Drawing.Size(740, 589);
             this.ControlBox = false;
             this.Controls.Add(this.Record_DGView);
             this.Controls.Add(this.Exit_BTN);
             this.Controls.Add(this.Sync_BTN);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "BranchAuthIssue";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.Text = "Authorize Issue Requests";
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.AuthIssue_Load);
+            this.Name = "HQAuthIssue";
+            this.Text = "HQ: Authorize Issue Requests";
+            this.Load += new System.EventHandler(this.HQAuthIssue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).EndInit();

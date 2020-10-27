@@ -1,4 +1,4 @@
-﻿namespace MPBS.Screens.International_Cards.Generate_File
+﻿namespace MPBS.Screens.PTS.Generate_File
 {
     partial class GenAppRecord
     {

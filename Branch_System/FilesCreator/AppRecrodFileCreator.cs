@@ -141,8 +141,12 @@ namespace MPBS.FilesCreator
             recordString += record.ExistingDeviceNumber + "|";
 
             //Add Existing Client Code
+            if(string.IsNullOrWhiteSpace(record.Customer.ClientCode))
+            {
+                record.Customer.ClientCode = "";
+            }
             if (string.IsNullOrWhiteSpace(record.ExistingClientCode))
-                record.ExistingClientCode = "";
+                record.ExistingClientCode = record.Customer.ClientCode;
 
             recordString += record.ExistingClientCode + "|";
 

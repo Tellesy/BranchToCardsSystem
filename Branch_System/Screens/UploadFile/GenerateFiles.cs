@@ -40,7 +40,7 @@ namespace MPBS.Screens.UploadFile
             }
             else
             {
-                FileReader.TreasuryRate = this.Rate;
+                SettlementsFiles.TreasuryRate = this.Rate;
             }
 
             //Enter Value Date
@@ -51,7 +51,7 @@ namespace MPBS.Screens.UploadFile
             }
             else
             {
-                FileReader.ValueDate = this.ValueDate;
+                SettlementsFiles.ValueDate = this.ValueDate;
             }
 
             //
@@ -92,7 +92,7 @@ namespace MPBS.Screens.UploadFile
 
         private List<TransactionSettlements> ReadSMTTransactionSpreadSheet(string fileName)
         {
-            var statusObj = FileReader.SMT_TransactionsFileReader(fileName);
+            var statusObj = SettlementsFiles.SMT_TransactionsFileReader(fileName);
             if(statusObj.status)
             {
                 return statusObj.Object;
@@ -175,7 +175,7 @@ namespace MPBS.Screens.UploadFile
                 Console.WriteLine("\nAge group: " + result.Branch);
 
                 Console.WriteLine(result.Transactions[0].AccountNumber);
-                var so = FileReader.TransactionsSettelmentsFileCreator(result.Transactions, result.Branch);
+                var so = SettlementsFiles.TransactionsSettelmentsFileCreator(result.Transactions, result.Branch);
                 if(so.status)
                 {
                     MessageBox.Show("File Generated Successfully for Branch: " + result.Branch.ToString(), so.status.ToString());
@@ -210,7 +210,7 @@ namespace MPBS.Screens.UploadFile
             }
 
             string fileName = ErrorType + "Report" + DateTime.Parse(DateTime.Now.ToString()).ToString("ddMMyyyyhhmmss");
-            FileReader.GenerateTemplateSpreadsheet(fileName, dataTable);
+            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
         }
 
         private bool EnterTreasuryRate()

@@ -8,7 +8,7 @@ using MPBS.SpreadSheet.Structure;
 
 namespace MPBS.SpreadSheet
 {
-    public static class FileReader
+    public static class SettlementsFiles
     {
         //Set Public values
 

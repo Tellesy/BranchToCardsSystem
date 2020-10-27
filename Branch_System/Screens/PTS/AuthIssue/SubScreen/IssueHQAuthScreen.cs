@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPBS.Screens.International_Cards.AuthIssue.SubScreen
+namespace MPBS.Screens.PTS.AuthIssue.SubScreen
 {
     public partial class IssueHQAuthScreen : Form
     {

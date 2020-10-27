@@ -17,6 +17,13 @@ namespace MPBS.Database
 
         public static Status login(string username, string password)
         {
+            //Login.role = null;
+            //Login.branch = null;
+            //Login.id = null;
+            //Login.username = null;
+            //Login.name = null;
+
+
             Status status = new Status();
             status.status = false;
             string active = "False";

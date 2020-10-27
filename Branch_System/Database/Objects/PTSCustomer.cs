@@ -24,6 +24,7 @@ namespace MPBS.Database.Objects
         public string PhoneISD;
         public string Phone;
         public string Email;
+        public string ClientCode;
 
 
     }

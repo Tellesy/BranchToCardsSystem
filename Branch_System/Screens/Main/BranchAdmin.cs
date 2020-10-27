@@ -15,7 +15,7 @@ using MPBS.Screens.User;
 using System.Windows.Forms;
 using MPBS.Screens.FilesAuth;
 using MPBS.Screens.Account_Details;
-using MPBS.Screens.International_Cards.BranchAuthIssue;
+using MPBS.Screens.PTS.BranchAuthIssue;
 
 namespace MPBS.Screens
 {

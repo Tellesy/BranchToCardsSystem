@@ -1,4 +1,4 @@
-﻿namespace MPBS.Screens.International_Cards.AuthIssue.SubScreen
+﻿namespace MPBS.Screens.PTS.AuthIssue.SubScreen
 {
     partial class IssueHQAuthScreen
     {

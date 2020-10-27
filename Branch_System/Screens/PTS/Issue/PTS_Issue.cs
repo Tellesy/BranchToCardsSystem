@@ -18,6 +18,7 @@ namespace MPBS.Screens.PTS.Issue
 
         private bool customerExistInDB = false;
         private bool customerHasAnAccountUnderTheSameProgram = false;
+       
 
         private List<PTSProgram> programs;
 
@@ -89,6 +90,7 @@ namespace MPBS.Screens.PTS.Issue
                         customerExistInDB = false;
                         return;
                     }
+
                     //Tell the system that this customer exist and no need to update the record
                     customerExistInDB = true;
 
@@ -141,9 +143,14 @@ namespace MPBS.Screens.PTS.Issue
             {
                 status = true;
                 //The customer got an account you shouldn't add it
-                MessageBox.Show("عذراً, هذا الزبون لديه بطاقة صادرة مسبقاً لنفس المنتج");
+                MessageBox.Show("Sorry! This customer already have a Card under this Program.");
                 Submit_BTN.Enabled = false;
                 customerHasAnAccountUnderTheSameProgram = true;
+            }
+            else
+            {
+                DisableSomeFildsAndEnableAccountFieldsForNewProduct();
+                customerHasAnAccountUnderTheSameProgram = false;
             }
 
             return status;
@@ -261,6 +268,32 @@ namespace MPBS.Screens.PTS.Issue
             Email_TXT.Clear();
         }
 
+        /// <summary>
+        /// Use this if the custoemr exist but want to issue a new card under new program
+        /// </summary>
+        private void DisableSomeFildsAndEnableAccountFieldsForNewProduct()
+        {
+            FirstName_TXT.Enabled = false;
+            FatherName_TXT.Enabled = false;
+            LastName_TXT.Enabled = false;
+            EmbossedName_TXT.Enabled = false;
+            Gender_CBOX.Enabled = false;
+            Birthdate.Enabled = false;
+            Nationality_CBOX.Enabled = false;
+            NID_TXT.Enabled = false;
+            Passport.Enabled = false;
+            PassportExpDate.Enabled = false;
+            Address_TXT.Enabled = false;
+            CountryPhoneCode_CBox.Enabled = false;
+            PhoneNo_TXT.Enabled = false;
+            Email_TXT.Enabled = false;
+
+            MainAccount_TXT.Enabled = true;
+            ProgramAccount_TXT.Enabled = true;
+
+        }
+
+
         private void Submit_BTN_Click(object sender, EventArgs e)
         {
             if(validateFields())
@@ -294,9 +327,21 @@ namespace MPBS.Screens.PTS.Issue
 
                     PTSAppRecord appRecord = new PTSAppRecord();
                     appRecord.CustomerID = CustomerID_TXT.Text;
+
+                   
                     appRecord.ApplicationType = 'P';
+
+                if (customerExistInDB)
+                {
+                    appRecord.ApplicationSubType = 'E';
+                }
+                else
+                {
                     appRecord.ApplicationSubType = 'N';
-                    appRecord.ProgramCode = Program_CBox.SelectedValue.ToString();
+                }
+
+
+                appRecord.ProgramCode = Program_CBox.SelectedValue.ToString();
 
                     var devicePlanStatus = PTSDevicePlanController.getDevicePlan(appRecord.ProgramCode);
                     if(devicePlanStatus.status)

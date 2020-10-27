@@ -14,9 +14,9 @@ using System.IO;
 using MPBS.Screens.Account_Details;
 using System;
 using System.Collections.Generic;
-using MPBS.Screens.International_Cards.BranchAuthIssue;
-using MPBS.Screens.International_Cards.Generate_File;
-using MPBS.Screens.International_Cards.AuthIssue;
+using MPBS.Screens.PTS.BranchAuthIssue;
+using MPBS.Screens.PTS.Generate_File;
+using MPBS.Screens.PTS.AuthIssue;
 using MPBS.Screens.UploadFile;
 
 namespace MPBS.Screens.Main

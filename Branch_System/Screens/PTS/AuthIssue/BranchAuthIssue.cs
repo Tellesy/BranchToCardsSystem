@@ -1,34 +1,30 @@
-﻿using MPBS.Database.Objects;
-using MPBS.Screens.International_Cards.AuthIssue.SubScreen;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MPBS.Database;
+using MPBS.Database.Objects;
+using MPBS.Screens.PTS.BranchAuthIssue.SubScreen;
 
-using static MPBS.Screens.AuthRecharge.AuthRecharge;
-
-namespace MPBS.Screens.International_Cards.AuthIssue
+namespace MPBS.Screens.PTS.BranchAuthIssue
 {
-    public partial class HQAuthIssue : MaterialSkin.Controls.MaterialForm
+    public partial class BranchAuthIssue : MaterialSkin.Controls.MaterialForm
     {
-        
+        private bool isBranchAdmin = true;
         public List<Database.Objects.PTSAppRecord> records;
+        //public bool isEnquire = false;
 
-        public HQAuthIssue()
+        public BranchAuthIssue()
         {
             InitializeComponent();
         }
 
-        private void Sync_BTN_Click(object sender, EventArgs e)
-        {
-            GetUnAuthRecords();
-        }
-
-        private void HQAuthIssue_Load(object sender, EventArgs e)
+        private void AuthIssue_Load(object sender, EventArgs e)
         {
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
@@ -37,6 +33,14 @@ namespace MPBS.Screens.International_Cards.AuthIssue
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
+            if (Database.Login.role == "0")
+            {
+                isBranchAdmin = false;
+            }
+            else
+            {
+                isBranchAdmin = true;
+            }
             GetUnAuthRecords();
         }
 
@@ -45,7 +49,7 @@ namespace MPBS.Screens.International_Cards.AuthIssue
             //Get un Auth recharge records
             records = null;
             List<ViewList> viewLists = new List<ViewList>();
-            Status<List<Database.Objects.PTSAppRecord>> statusObject = Database.PTSAppRecordController.getHQUnAuthAppRecords();
+            Status<List<Database.Objects.PTSAppRecord>> statusObject = Database.PTSAppRecordController.getBranchUnAuthAppRecords(isBranchAdmin);
 
             if (statusObject.status)
             {
@@ -118,6 +122,13 @@ namespace MPBS.Screens.International_Cards.AuthIssue
 
         }
 
+        private void Sync_BTN_Click(object sender, EventArgs e)
+        {
+            GetUnAuthRecords();
+
+        }
+
+
         private void Exit_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -125,9 +136,10 @@ namespace MPBS.Screens.International_Cards.AuthIssue
 
         private void Record_DGView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+            if(isBranchAdmin)
+            {
                 DataGridViewRow r = Record_DGView.SelectedRows[0];
-                IssueHQAuthScreen authorize = new IssueHQAuthScreen();
+                IssueBranchAuthScreen authorize = new IssueBranchAuthScreen();
                 if (records != null)
                 {
                     var q = records.Where(x => x.RecordID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
@@ -140,8 +152,8 @@ namespace MPBS.Screens.International_Cards.AuthIssue
                         authorize.Show();
                     }
                 }
-            
-
+            }
+          
 
 
         }

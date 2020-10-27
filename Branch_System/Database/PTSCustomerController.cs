@@ -27,7 +27,7 @@ namespace MPBS.Database
 
                 string query = @"SELECT [first_name] ,[father_name],[last_name] ,[gender] ,[nationality] ,
                                 [embossed_name] ,[birthdate] ,[national_id] ,[passport_number] ,[passport_exp] ,[address]
-                                ,[phone_ISD]  ,[phone_number]  ,[email] FROM [CTS].[dbo].[PTS_Customer] where customer_ID = "+ ID;
+                                ,[phone_ISD]  ,[phone_number]  ,[email] ,client_code FROM [CTS].[dbo].[PTS_Customer] where customer_ID = " + ID;
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -61,6 +61,7 @@ namespace MPBS.Database
                                 customer.PhoneISD = reader[11].ToString();
                                 customer.Phone = reader[12].ToString();
                                 customer.Email = reader[13].ToString();
+                                customer.ClientCode = reader[14].ToString();
 
                                 customer.CustomerID = ID;
                                 statusObject.status = true;
@@ -177,6 +178,46 @@ namespace MPBS.Database
             {
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
+                return status;
+            }
+        }
+
+        public static Status AddClientCode(string customerID, string clientCode)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "UPDATE [dbo].[PTS_Customer] SET [client_code] = @v1 WHERE [customer_ID] = @v2";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@v1", clientCode);
+                    cmd.Parameters.AddWithValue("@v2", customerID);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    conn.Close();
+                    status.status = false;
+                    status.message = "Customer Table (Update with Client Code)\n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
                 return status;
             }
         }
