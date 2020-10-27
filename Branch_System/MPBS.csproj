@@ -434,7 +434,8 @@
     <Compile Include="Screens\Main\Inputter.Designer.cs">
       <DependentUpon>Inputter.cs</DependentUpon>
     </Compile>
-    <Compile Include="SpreadSheet\FileReader.cs" />
+    <Compile Include="SpreadSheet\PTSReports.cs" />
+    <Compile Include="SpreadSheet\SettlementsFiles.cs" />
     <Compile Include="SpreadSheet\Structure\TransactionSettlements.cs" />
     <EmbeddedResource Include="Resources\Countries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
