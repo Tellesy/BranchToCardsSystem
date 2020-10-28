@@ -31,6 +31,10 @@
             this.UploadSMTTransactionReport_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Back_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.UploadPTSApplicationApproveReport_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Programs_CBOX = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // UploadSMTTransactionReport_BTN
@@ -54,7 +58,7 @@
             this.Back_BTN.AutoSize = true;
             this.Back_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Back_BTN.Depth = 0;
-            this.Back_BTN.Location = new System.Drawing.Point(13, 231);
+            this.Back_BTN.Location = new System.Drawing.Point(13, 461);
             this.Back_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Back_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Back_BTN.Name = "Back_BTN";
@@ -69,8 +73,9 @@
             // 
             this.UploadPTSApplicationApproveReport_BTN.AutoSize = true;
             this.UploadPTSApplicationApproveReport_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UploadPTSApplicationApproveReport_BTN.BackColor = System.Drawing.SystemColors.Control;
             this.UploadPTSApplicationApproveReport_BTN.Depth = 0;
-            this.UploadPTSApplicationApproveReport_BTN.Location = new System.Drawing.Point(13, 122);
+            this.UploadPTSApplicationApproveReport_BTN.Location = new System.Drawing.Point(6, 72);
             this.UploadPTSApplicationApproveReport_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.UploadPTSApplicationApproveReport_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.UploadPTSApplicationApproveReport_BTN.Name = "UploadPTSApplicationApproveReport_BTN";
@@ -78,23 +83,55 @@
             this.UploadPTSApplicationApproveReport_BTN.Size = new System.Drawing.Size(300, 36);
             this.UploadPTSApplicationApproveReport_BTN.TabIndex = 2;
             this.UploadPTSApplicationApproveReport_BTN.Text = "Upload PTS Applicaton Approve Report";
-            this.UploadPTSApplicationApproveReport_BTN.UseVisualStyleBackColor = true;
+            this.UploadPTSApplicationApproveReport_BTN.UseVisualStyleBackColor = false;
             this.UploadPTSApplicationApproveReport_BTN.Click += new System.EventHandler(this.UploadPTSApplicationApproveReport_BTN_Click);
+            // 
+            // Programs_CBOX
+            // 
+            this.Programs_CBOX.FormattingEnabled = true;
+            this.Programs_CBOX.Location = new System.Drawing.Point(6, 42);
+            this.Programs_CBOX.Name = "Programs_CBOX";
+            this.Programs_CBOX.Size = new System.Drawing.Size(121, 21);
+            this.Programs_CBOX.TabIndex = 3;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.UploadPTSApplicationApproveReport_BTN);
+            this.groupBox1.Controls.Add(this.Programs_CBOX);
+            this.groupBox1.Location = new System.Drawing.Point(13, 128);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(354, 117);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Application Approve Report";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Program";
             // 
             // GenerateT24Files
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(352, 282);
+            this.ClientSize = new System.Drawing.Size(379, 512);
             this.ControlBox = false;
-            this.Controls.Add(this.UploadPTSApplicationApproveReport_BTN);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Back_BTN);
             this.Controls.Add(this.UploadSMTTransactionReport_BTN);
             this.Name = "GenerateT24Files";
             this.ShowIcon = false;
             this.Text = "Generate T24 Files";
             this.Load += new System.EventHandler(this.UploadFile_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +142,8 @@
         private MaterialSkin.Controls.MaterialFlatButton UploadSMTTransactionReport_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Back_BTN;
         private MaterialSkin.Controls.MaterialFlatButton UploadPTSApplicationApproveReport_BTN;
+        private System.Windows.Forms.ComboBox Programs_CBOX;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

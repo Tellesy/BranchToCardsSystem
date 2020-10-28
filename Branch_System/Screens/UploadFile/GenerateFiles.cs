@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using MPBS.SpreadSheet;
 using MPBS.SpreadSheet.Structure;
+using MPBS.Database;
 
 
 
@@ -26,7 +27,16 @@ namespace MPBS.Screens.UploadFile
 
         private void UploadFile_Load(object sender, EventArgs e)
         {
+           var pstatus = PTSProgramController.getPrograms();   
 
+            if(pstatus.status)
+            {
+                // foreach(var p in programStatus.Object)
+                Programs_CBOX.DataSource = pstatus.Object;
+                Programs_CBOX.DisplayMember = "NameEN";
+                Programs_CBOX.ValueMember = "Code";
+                this.Programs_CBOX.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
         }
 
         private OpenFileDialog OpenFileDialog()
@@ -264,15 +274,38 @@ namespace MPBS.Screens.UploadFile
 
         private void UploadPTSApplicationApproveReport_BTN_Click(object sender, EventArgs e)
         {
-            var deviceDialog = OpenFileDialog();
-            DialogResult dr = deviceDialog.ShowDialog();
-
-            if (dr == System.Windows.Forms.DialogResult.OK)
+            try
             {
-              
+                var deviceDialog = OpenFileDialog();
+                DialogResult dr = deviceDialog.ShowDialog();
 
-                var transactionsWithAccountNumber = new List<TransactionSettlements>();
+                if (dr == System.Windows.Forms.DialogResult.OK)
+                {
+
+
+                    var applications = new List<ApplicationApproveReport>();
+                    var rstatus = PTSReports.PTS_ApplicationApproveReportUpload(deviceDialog.FileName);
+
+                    if (rstatus.status)
+                    {
+                        foreach (var app in rstatus.Object)
+                        {
+                            if (app.DevicePackID.Contains(Programs_CBOX.SelectedValue.ToString()))
+                            {
+                                Console.WriteLine(app.DevicePackID);
+                            }
+                        }
+                    }
+
+
+
+                }
             }
+            catch(Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+          
         }
 
         private void Back_BTN_Click(object sender, EventArgs e)
