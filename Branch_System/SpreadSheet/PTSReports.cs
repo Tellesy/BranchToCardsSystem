@@ -85,8 +85,8 @@ namespace MPBS.SpreadSheet
                     aar.ClientCode = (range.Cells[rowCounter, clientCodeColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     aar.CBSCustomerID = (range.Cells[rowCounter, customerIDColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     aar.WalletNumber = (range.Cells[rowCounter, walletNumberColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
-                    aar.DeviceNumber = float.Parse((range.Cells[rowCounter, deviceNumberColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
-                    aar.DevicePackID = float.Parse((range.Cells[rowCounter, devicePackIDColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
+                    aar.DeviceNumber = (range.Cells[rowCounter, deviceNumberColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
+                    aar.DevicePackID = (range.Cells[rowCounter, devicePackIDColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
 
                     arFiles.Add(aar);
 

@@ -290,9 +290,13 @@ namespace MPBS.Screens.UploadFile
                     {
                         foreach (var app in rstatus.Object)
                         {
-                            if (app.DevicePackID.Contains(Programs_CBOX.SelectedValue.ToString()))
+                            var st = Programs_CBOX.SelectedValue.ToString();
+                            Console.WriteLine(st.Replace(" ", String.Empty));
+                            //st.
+                            if (app.DevicePackID.Contains(Programs_CBOX.SelectedValue.ToString().Replace(" ", String.Empty)))
                             {
                                 Console.WriteLine(app.DevicePackID);
+                                MessageBox.Show(app.DevicePackID);
                             }
                         }
                     }
