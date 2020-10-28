@@ -194,6 +194,7 @@
     <Compile Include="Database\Objects\PBFObject.cs" />
     <Compile Include="Database\Objects\PObject.cs" />
     <Compile Include="Database\Objects\Product.cs" />
+    <Compile Include="Database\Objects\PTSDevice.cs" />
     <Compile Include="Database\Objects\PTSDevicePlan.cs" />
     <Compile Include="Database\Objects\PTSProgram.cs" />
     <Compile Include="Database\Objects\Recharge.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="Database\PTSAccountController.cs" />
     <Compile Include="Database\PTSAppRecordController.cs" />
     <Compile Include="Database\PTSCustomerController.cs" />
+    <Compile Include="Database\PTSDeviceController.cs" />
     <Compile Include="Database\PTSDevicePlanController.cs" />
     <Compile Include="Database\PTSProgramController.cs" />
     <Compile Include="Database\User.cs" />

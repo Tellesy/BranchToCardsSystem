@@ -11,8 +11,7 @@ using Microsoft.VisualBasic;
 using MPBS.SpreadSheet;
 using MPBS.SpreadSheet.Structure;
 using MPBS.Database;
-
-
+using MPBS.Database.Objects;
 
 namespace MPBS.Screens.UploadFile
 {
@@ -290,11 +289,39 @@ namespace MPBS.Screens.UploadFile
                     {
                         foreach (var app in rstatus.Object)
                         {
-                            var st = Programs_CBOX.SelectedValue.ToString();
-                            Console.WriteLine(st.Replace(" ", String.Empty));
-                            //st.
-                            if (app.DevicePackID.Contains(Programs_CBOX.SelectedValue.ToString().Replace(" ", String.Empty)))
+
+                            //First Add Client Code to Customer
+                          var cStatus =  PTSCustomerController.AddClientCode(app.CBSCustomerID, app.ClientCode);
+                            if(!cStatus.status)
                             {
+                                MessageBox.Show("Error in adding Client Code to " + app.CBSCustomerID, cStatus.message + " " + app.CBSCustomerID);
+                            }
+
+                            var program = Programs_CBOX.SelectedValue.ToString().Replace(" ", String.Empty);
+                            
+                            //st.
+                            if (app.DevicePackID.Contains(program))
+                            {
+
+                                //Add Wallet Number to PTS Account table
+                                var aStatus = PTSAccountController.addWalletNumber(app.CBSCustomerID, program, app.WalletNumber);
+                                if (!aStatus.status)
+                                {
+                                    MessageBox.Show("Error in adding Wallet Number to " + app.CBSCustomerID, aStatus.message + " " + app.CBSCustomerID);
+                                }
+
+                                PTSDevice device = new PTSDevice();
+                                device.Active = true;
+                                device.CardPackID = app.DevicePackID;
+                                device.DeviceNumber = app.DeviceNumber;
+                                device.WalletNumber = app.WalletNumber;
+
+                                var dStatus = PTSDeviceController.addDevice(device);
+                                if (!dStatus.status)
+                                {
+                                    MessageBox.Show("Error in adding new Device for " + app.CBSCustomerID, dStatus.message + " " + app.DeviceNumber);
+                                }
+
                                 Console.WriteLine(app.DevicePackID);
                                 MessageBox.Show(app.DevicePackID);
                             }

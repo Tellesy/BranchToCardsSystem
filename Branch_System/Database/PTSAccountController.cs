@@ -152,5 +152,47 @@ namespace MPBS.Database
             }
         }
 
+
+        public static Status addWalletNumber(string customerID, string programCode, string walletNumber)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "UPDATE [CTS].[dbo].[PTS_Account] SET [wallet_number] = @v1 WHERE [customer_ID] = @v2 AND [program_code] = @v3";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@v1", walletNumber);
+                    cmd.Parameters.AddWithValue("@v2", customerID);
+                    cmd.Parameters.AddWithValue("@v3", programCode);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    conn.Close();
+                    status.status = false;
+                    status.message = "PTS Account (Add wallet Number)\n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
     }
 }
