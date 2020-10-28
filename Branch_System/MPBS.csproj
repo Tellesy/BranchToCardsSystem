@@ -436,6 +436,7 @@
     </Compile>
     <Compile Include="SpreadSheet\PTSReports.cs" />
     <Compile Include="SpreadSheet\SettlementsFiles.cs" />
+    <Compile Include="SpreadSheet\Structure\ApplicationApproveReport.cs" />
     <Compile Include="SpreadSheet\Structure\TransactionSettlements.cs" />
     <EmbeddedResource Include="Resources\Countries.resx">
       <Generator>ResXFileCodeGenerator</Generator>

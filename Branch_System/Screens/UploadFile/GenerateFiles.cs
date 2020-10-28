@@ -29,6 +29,18 @@ namespace MPBS.Screens.UploadFile
 
         }
 
+        private OpenFileDialog OpenFileDialog()
+        {
+            OpenFileDialog deviceDialog = new OpenFileDialog();
+            deviceDialog.InitialDirectory = @"C:\";
+            deviceDialog.RestoreDirectory = true;
+            deviceDialog.DefaultExt = "xlsx";
+            deviceDialog.Filter = "xlsx files (*.xlsx)|*.xlsx";
+            deviceDialog.AddExtension = true;
+           // DialogResult dr = deviceDialog.ShowDialog();
+
+            return deviceDialog;
+        }
         private async void UploadSMTTransactionReport_BTN_Click(object sender, EventArgs e)
         {
             UploadSMTTransactionReport_BTN.Enabled = false;
@@ -54,21 +66,12 @@ namespace MPBS.Screens.UploadFile
                 SettlementsFiles.ValueDate = this.ValueDate;
             }
 
-            //
-            OpenFileDialog deviceDialog = new OpenFileDialog();
-            deviceDialog.InitialDirectory = @"C:\";
-            deviceDialog.RestoreDirectory = true;
-            deviceDialog.DefaultExt = "xlsx";
-            deviceDialog.Filter = "xlsx files (*.xlsx)|*.xlsx";
-            deviceDialog.AddExtension = true;
 
+            var deviceDialog = OpenFileDialog();
             DialogResult dr = deviceDialog.ShowDialog();
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                dr.ToString();
-                Console.WriteLine(deviceDialog.FileName);
-
 
                var SMTTransactions = this.ReadSMTTransactionSpreadSheet(deviceDialog.FileName);
 
@@ -257,6 +260,21 @@ namespace MPBS.Screens.UploadFile
                 return false;
             }
         }
+       
+
+        private void UploadPTSApplicationApproveReport_BTN_Click(object sender, EventArgs e)
+        {
+            var deviceDialog = OpenFileDialog();
+            DialogResult dr = deviceDialog.ShowDialog();
+
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+              
+
+                var transactionsWithAccountNumber = new List<TransactionSettlements>();
+            }
+        }
+
         private void Back_BTN_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -30,6 +30,7 @@
         {
             this.UploadSMTTransactionReport_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Back_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.UploadPTSApplicationApproveReport_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // UploadSMTTransactionReport_BTN
@@ -64,6 +65,22 @@
             this.Back_BTN.UseVisualStyleBackColor = true;
             this.Back_BTN.Click += new System.EventHandler(this.Back_BTN_Click);
             // 
+            // UploadPTSApplicationApproveReport_BTN
+            // 
+            this.UploadPTSApplicationApproveReport_BTN.AutoSize = true;
+            this.UploadPTSApplicationApproveReport_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UploadPTSApplicationApproveReport_BTN.Depth = 0;
+            this.UploadPTSApplicationApproveReport_BTN.Location = new System.Drawing.Point(13, 122);
+            this.UploadPTSApplicationApproveReport_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.UploadPTSApplicationApproveReport_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.UploadPTSApplicationApproveReport_BTN.Name = "UploadPTSApplicationApproveReport_BTN";
+            this.UploadPTSApplicationApproveReport_BTN.Primary = false;
+            this.UploadPTSApplicationApproveReport_BTN.Size = new System.Drawing.Size(300, 36);
+            this.UploadPTSApplicationApproveReport_BTN.TabIndex = 2;
+            this.UploadPTSApplicationApproveReport_BTN.Text = "Upload PTS Applicaton Approve Report";
+            this.UploadPTSApplicationApproveReport_BTN.UseVisualStyleBackColor = true;
+            this.UploadPTSApplicationApproveReport_BTN.Click += new System.EventHandler(this.UploadPTSApplicationApproveReport_BTN_Click);
+            // 
             // GenerateT24Files
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -71,6 +88,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(352, 282);
             this.ControlBox = false;
+            this.Controls.Add(this.UploadPTSApplicationApproveReport_BTN);
             this.Controls.Add(this.Back_BTN);
             this.Controls.Add(this.UploadSMTTransactionReport_BTN);
             this.Name = "GenerateT24Files";
@@ -86,5 +104,6 @@
 
         private MaterialSkin.Controls.MaterialFlatButton UploadSMTTransactionReport_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Back_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton UploadPTSApplicationApproveReport_BTN;
     }
 }
