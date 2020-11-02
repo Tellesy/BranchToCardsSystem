@@ -53,7 +53,7 @@ namespace MPBS.Screens.PTS.Issue
             Nationality_CBOX.DataSource = CountriesWithISOCode;
             Nationality_CBOX.DisplayMember = "name";
             Nationality_CBOX.ValueMember = "isoCode";
-            
+            Nationality_CBOX.SelectedValue = "434";
 
             //for (int i =0;i< CountriesWithPhoneCode.Count; i++)
             //{
@@ -401,6 +401,10 @@ namespace MPBS.Screens.PTS.Issue
             customer.Gender = Gender_CBOX.Text;
             customer.Birthdate = Birthdate.Text;
             customer.NationalID = NID_TXT.Text;
+            if(string.IsNullOrWhiteSpace(Nationality_CBOX.SelectedValue.ToString()))
+            {
+                Nationality_CBOX.SelectedValue = "434";
+            }
             customer.Nationality = Nationality_CBOX.SelectedValue.ToString();
             customer.EmbossedName = EmbossedName_TXT.Text;
             customer.PassportNumber = Passport.Text;
