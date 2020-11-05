@@ -98,9 +98,16 @@ namespace MPBS.Database
 
             if (branchFlag)
             {
-               branch_code = Database.Login.branch.PadLeft(6, '0');
-               
-
+               var bstatus = PTSBranchController.getBranche(int.Parse(Database.Login.branch));
+                if(bstatus.status)
+                {
+                    branch_code = bstatus.Object.Code;
+                }else
+                {
+                    branch_code = "0003";
+                    branchFlag = false;
+                }
+              
             }
 
             conn.Open();

@@ -504,13 +504,14 @@ namespace MPBS.Database
                 string query = @"SELECT TOP 1 [Card_Account] FROM [CTS].[dbo].[Cards] where Card_Number = '" + Card_Number+"'";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-
+               
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     try
                     {
                         if (!reader.HasRows)
                         {
+                            conn.Close();
                             status.status = false;
                             return status;
                         }
@@ -522,12 +523,14 @@ namespace MPBS.Database
                                 status.status = true;
                                 //  status.message = "هذا الزبون لديه بطاقة, الرجاء التأكد او الذهاب الى خيار اعادة الاصدار";
                             }
+                            conn.Close();
                             return status;
 
                         }
                     }
                     catch (Exception e)
                     {
+                        conn.Close();
                         status.status = false;
                         status.message = Errors.ErrorsString.Error002 + "\n" + e;
                         return status;
@@ -537,6 +540,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
 
@@ -715,6 +719,7 @@ namespace MPBS.Database
             status.status = false;
 
             SqlConnection conn = Database.DBConnection.Connection();
+            conn.Close();
             conn.Open();
 
             if (conn.State == System.Data.ConnectionState.Open)
@@ -730,6 +735,7 @@ namespace MPBS.Database
                         if (!reader.HasRows)
                         {
                             status.status = false;
+                            conn.Close();
                             return status;
                         }
                         else
@@ -740,6 +746,7 @@ namespace MPBS.Database
                                 status.status = true;
                                 //  status.message = "هذا الزبون لديه بطاقة, الرجاء التأكد او الذهاب الى خيار اعادة الاصدار";
                             }
+                            conn.Close();
                             return status;
 
                         }
@@ -748,13 +755,16 @@ namespace MPBS.Database
                     {
                         status.status = false;
                         status.message = Errors.ErrorsString.Error002 + "\n" + e;
+                        conn.Close();
                         return status;
+                        
                     }
                 }
 
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
 

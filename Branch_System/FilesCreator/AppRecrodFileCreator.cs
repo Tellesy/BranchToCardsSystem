@@ -306,7 +306,7 @@ namespace MPBS.FilesCreator
             recordString += record.DevicePhotoIndicator6 + "|";
 
             //Add Branch Code
-            recordString += record.BranchCode.PadLeft(6, '0') + "|";
+            recordString += String.Concat(record.BranchCode.Where(c => !Char.IsWhiteSpace(c)))+ "|";
 
 
             //Add Corporate Client Code

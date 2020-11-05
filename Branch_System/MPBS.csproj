@@ -184,6 +184,7 @@
     <Compile Include="Database\Countries.cs" />
     <Compile Include="Database\DataObjects\Recharge.cs" />
     <Compile Include="Database\Issue.cs" />
+    <Compile Include="Database\Objects\PTSBranch.cs" />
     <Compile Include="Database\Objects\Branch.cs" />
     <Compile Include="Database\Objects\CAFObject.cs" />
     <Compile Include="Database\Objects\CardAccount.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Database\PTSCustomerController.cs" />
     <Compile Include="Database\PTSDeviceController.cs" />
     <Compile Include="Database\PTSDevicePlanController.cs" />
+    <Compile Include="Database\PTSBranchController.cs" />
     <Compile Include="Database\PTSProgramController.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\AppRecrodFileCreator.cs" />

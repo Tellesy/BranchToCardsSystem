@@ -50,7 +50,7 @@ namespace MPBS.Screens.UploadFile
 
             return deviceDialog;
         }
-        private async void UploadSMTTransactionReport_BTN_Click(object sender, EventArgs e)
+        private void UploadSMTTransactionReport_BTN_Click(object sender, EventArgs e)
         {
             UploadSMTTransactionReport_BTN.Enabled = false;
             //Enter Treasury Rate
@@ -173,7 +173,7 @@ namespace MPBS.Screens.UploadFile
             return result;
         }
 
-        private async void GenerateSettlementsSpreadSheets(List<TransactionSettlements> transactions)
+        private  void GenerateSettlementsSpreadSheets(List<TransactionSettlements> transactions)
         {
 
             var groupedByBranch = transactions.GroupBy(t => t.Branch,
@@ -202,7 +202,7 @@ namespace MPBS.Screens.UploadFile
             }
         }
 
-        private async void GenerateTransactionsErrorReport(List<TransactionSettlements> transactions,string ErrorType,string ErrorMessage)
+        private  void GenerateTransactionsErrorReport(List<TransactionSettlements> transactions,string ErrorType,string ErrorMessage)
         {
             List<List<string>> dataTable = new List<List<string>>();
 

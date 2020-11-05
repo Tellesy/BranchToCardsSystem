@@ -352,8 +352,18 @@ namespace MPBS.Screens.PTS.Issue
                     {
                         appRecord.DevicePlanCode1 = "";
                     }
-                    appRecord.BranchCode = Database.Login.branch.PadLeft(6, '0');
-                    appRecord.Inputter = Database.Login.id;
+                //appRecord.BranchCode = Database.Login.branch.PadLeft(6, '0');
+                 var bstatus = PTSBranchController.getBranche(int.Parse(Database.Login.branch));
+
+                if (bstatus.status)
+                {
+                    appRecord.BranchCode = bstatus.Object.Code;
+                }else
+                {
+                    appRecord.BranchCode = "0003";
+                }
+
+                appRecord.Inputter = Database.Login.id;
 
                   var appRecordStatus =  PTSAppRecordController.addAppRecord(appRecord);
                     if(appRecordStatus.status)
