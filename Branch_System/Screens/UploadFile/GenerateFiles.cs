@@ -343,5 +343,49 @@ namespace MPBS.Screens.UploadFile
         {
             this.Close();
         }
+
+        private void UploadSMTCardsAccounts_BTN_Click(object sender, EventArgs e)
+        {
+
+            var deviceDialog = OpenFileDialog();
+            DialogResult dr = deviceDialog.ShowDialog();
+
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                GenericSpreadsheetReader gReader = new GenericSpreadsheetReader();
+
+                List<SpreadSheetHeader> headers = new List<SpreadSheetHeader>();
+                SpreadSheetHeader cardNumber = new SpreadSheetHeader();
+                cardNumber.Index = 1;
+                cardNumber.Name = "Card_Number";
+                headers.Add(cardNumber);
+                SpreadSheetHeader customerAccount = new SpreadSheetHeader();
+                customerAccount.Index = 2;
+                customerAccount.Name = "Customer_Account";
+                headers.Add(customerAccount);
+
+                gReader.setHeaders(headers);
+
+
+                var content = gReader.readSpreadSheetFile(deviceDialog.FileName);
+                int RowsCount = content.Count;
+               
+                for(int row = 0; row<RowsCount; row++)
+                {
+                   var cardNumberColumn = content.Where(c => c.Row == (row + 2)).First(c => c.Index == cardNumber.Index);
+                    var aStatus = Database.Issue.getCardAccountFromCardNumber(cardNumberColumn.Content);
+                    if(aStatus.status)
+                    {
+                        var customerAccountColumn = content.Where(c => c.Row == (row + 2)).First(c => c.Index == customerAccount.Index);
+                       var cStatus =  Database.Issue.updateCustomerAccountForCardAccount(aStatus.Object, customerAccountColumn.Content);
+                        Console.WriteLine("Row:" + row + " CRow:" + cardNumberColumn.Row);
+                        Console.WriteLine(cardNumberColumn.Content);
+                        Console.WriteLine(customerAccountColumn.Content + " Status:" + cStatus.status.ToString());
+                        Console.WriteLine("------------------------------------------------------------");
+                    }
+
+                }
+            }
+        }
     }
 }

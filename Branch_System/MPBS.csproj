@@ -213,6 +213,8 @@
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\AppRecrodFileCreator.cs" />
     <Compile Include="FilesCreator\FilesCreator.cs" />
+    <Compile Include="FilesCreator\PTSTransactionUploadFileCreator.cs" />
+    <Compile Include="MPBSConfig.cs" />
     <Compile Include="Resources\Countries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -438,9 +440,12 @@
     <Compile Include="Screens\Main\Inputter.Designer.cs">
       <DependentUpon>Inputter.cs</DependentUpon>
     </Compile>
+    <Compile Include="SpreadSheet\GenericSpreadsheetReader.cs" />
     <Compile Include="SpreadSheet\PTSReports.cs" />
     <Compile Include="SpreadSheet\SettlementsFiles.cs" />
     <Compile Include="SpreadSheet\Structure\ApplicationApproveReport.cs" />
+    <Compile Include="SpreadSheet\Structure\SpreadSheetColumn.cs" />
+    <Compile Include="SpreadSheet\Structure\SpreadSheetHeader.cs" />
     <Compile Include="SpreadSheet\Structure\TransactionSettlements.cs" />
     <EmbeddedResource Include="Resources\Countries.resx">
       <Generator>ResXFileCodeGenerator</Generator>

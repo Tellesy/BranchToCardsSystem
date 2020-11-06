@@ -11,25 +11,11 @@ using System.Threading.Tasks;
 
 namespace MPBS.FilesCreator
 {
-   
-    public static class AppRecrodFileCreator
+
+    public static class PTSTransactionUploadFileCreator
     {
-        //private static string bankCode = "020354";
-        //public static string rootLocation = @"C:\Users\Public\MPBS\";
-        //public static string PTSLocation = String.Format(rootLocation + @"PTS\");
-
-
-        //public static string PTSApplicationFiles = String.Format(PTSLocation + "PTSApplication");
-        //public static string PTSLoadFiles = String.Format(PTSLocation + "PTSLoad");
-
-        //public static void CreateFolders()
-        //{
-        //    System.IO.Directory.CreateDirectory(rootLocation);
-        //    System.IO.Directory.CreateDirectory(PTSLocation);
-
-        //    System.IO.Directory.CreateDirectory(PTSApplicationFiles);
-        //    System.IO.Directory.CreateDirectory(PTSLoadFiles);
-        //}
+        
+      
 
         public static Status GenerateAppRecordFile(List<PTSAppRecord> records)
         {
@@ -37,7 +23,7 @@ namespace MPBS.FilesCreator
             status.status = false;
             List<string> recordStrings = new List<string>();
 
-            foreach(PTSAppRecord record in records)
+            foreach (PTSAppRecord record in records)
             {
                 recordStrings.Add(extractRecordsString(record));
             }
@@ -47,7 +33,7 @@ namespace MPBS.FilesCreator
             string footer = getFooter(recordStrings.Count);
 
             status = createAppFile(fileName, header, footer, recordStrings);
-            
+
             return status;
         }
 
@@ -69,7 +55,7 @@ namespace MPBS.FilesCreator
             string hour = today.Hour.ToString().PadLeft(2, '0');
             string minutes = today.Minute.ToString().PadLeft(2, '0');
             string seconds = today.Second.ToString().PadLeft(2, '0');
-            string header = "HD" + "|" + MPBSConfig.PTSBankCode + "|" + day + month + year + hour + minutes + seconds + "|" + "2.0"; 
+            string header = "HD" + "|" + MPBSConfig.PTSBankCode + "|" + day + month + year + hour + minutes + seconds + "|" + "2.0";
 
             return header;
         }
@@ -83,12 +69,12 @@ namespace MPBS.FilesCreator
 
         private static string getFileName()
         {
-            string name = "APPPR"+MPBSConfig.PTSBankCode;
+            string name = "TXU" + MPBSConfig.PTSBankCode;
             int seq = 0;
             var today = DateTime.Now;
-            
 
-            string DD = today.Day.ToString().PadLeft(2,'0');
+
+            string DD = today.Day.ToString().PadLeft(2, '0');
             string MM = today.Month.ToString().PadLeft(2, '0');
             string YY = today.Year.ToString().Substring(2, 2);
             string hh = today.Hour.ToString().PadLeft(2, '0');
@@ -101,7 +87,7 @@ namespace MPBS.FilesCreator
             do
             {
                 seq++;
-                exist = checkFileExist(name + seq.ToString().PadLeft(6, '0')+".dat");
+                exist = checkFileExist(name + seq.ToString().PadLeft(6, '0') + ".dat");
             } while (exist);
 
             name += seq.ToString().PadLeft(6, '0') + ".dat";
@@ -109,13 +95,13 @@ namespace MPBS.FilesCreator
         }
         private static string extractRecordsString(PTSAppRecord record)
         {
-   
+
             string recordString = "";
 
 
             //Add Bank code;
             recordString += MPBSConfig.PTSBankCode + "|";
-           
+
 
             //Add Form Number
             recordString += record.FromNumber + "|";
@@ -141,7 +127,7 @@ namespace MPBS.FilesCreator
             recordString += record.ExistingDeviceNumber + "|";
 
             //Add Existing Client Code
-            if(string.IsNullOrWhiteSpace(record.Customer.ClientCode))
+            if (string.IsNullOrWhiteSpace(record.Customer.ClientCode))
             {
                 record.Customer.ClientCode = "";
             }
@@ -306,7 +292,7 @@ namespace MPBS.FilesCreator
             recordString += record.DevicePhotoIndicator6 + "|";
 
             //Add Branch Code
-            recordString += String.Concat(record.BranchCode.Where(c => !Char.IsWhiteSpace(c)))+ "|";
+            recordString += String.Concat(record.BranchCode.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
 
             //Add Corporate Client Code
@@ -317,9 +303,9 @@ namespace MPBS.FilesCreator
             //Add Title
             if (string.IsNullOrWhiteSpace(record.Customer.Title))
             {
-                switch(record.Customer.Gender)
+                switch (record.Customer.Gender)
                 {
-                 
+
                     case "F":
                         record.Customer.Title = "2";
                         break;
@@ -330,7 +316,7 @@ namespace MPBS.FilesCreator
 
                 }
             }
-                
+
             recordString += record.Customer.Title + "|";
 
             //Add First Name
@@ -361,10 +347,10 @@ namespace MPBS.FilesCreator
             recordString += DateTime.Parse(record.Customer.Birthdate).ToString("ddMMyyyy") + "|";
 
             //Birth City 
-            recordString +="|";
+            recordString += "|";
 
             //Birth Country
-            recordString += "434"+"|";
+            recordString += "434" + "|";
 
             //Education
             recordString += "|";
@@ -460,7 +446,7 @@ namespace MPBS.FilesCreator
             recordString += "|";
 
             //Register for DNCR
-            recordString += "Y"+ "|";
+            recordString += "Y" + "|";
 
             //SMS Alert
             recordString += "Y" + "|";
@@ -479,7 +465,7 @@ namespace MPBS.FilesCreator
 
             //Mobile Number
             recordString += String.Concat(record.Customer.Phone.Where(c => !Char.IsWhiteSpace(c))) + "|";
-            
+
             //Email
             recordString += record.Customer.Email + "|";
 
@@ -545,10 +531,10 @@ namespace MPBS.FilesCreator
             recordString += String.Concat(record.Customer.NationalID.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
             //Legal ID 2 Expiry Date (National ID)
-            recordString +=  "|";
+            recordString += "|";
 
             //Legal ID 2 Issuance Place (National ID)
-            recordString +=  "|";
+            recordString += "|";
 
             //Legal ID 3 Type 
             recordString += "|";
@@ -846,7 +832,7 @@ namespace MPBS.FilesCreator
             try
             {
                 // Check if file already exists. If yes, delete it.     
-            
+
 
                 // Create a new file 
                 using (StreamWriter fs = File.CreateText(file))
@@ -857,7 +843,7 @@ namespace MPBS.FilesCreator
                     {
                         fs.WriteLine(record);
                     }
-                  //Write Footer  
+                    //Write Footer  
                     fs.WriteLine(footer);
 
                     status.status = true;
@@ -874,6 +860,6 @@ namespace MPBS.FilesCreator
             }
         }
 
-        
+
     }
 }

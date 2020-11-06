@@ -586,6 +586,44 @@ namespace MPBS.Database
 
         }
 
+        public static Status updateCustomerAccountForCardAccount(string cardAccount, string customerAccount)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = @"UPDATE [dbo].[Card_Accounts] SET [Customer_Account] = '"+customerAccount+"' WHERE Card_Account = '"+cardAccount+"'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch (Exception e)
+                {
+                    status.status = false;
+                    status.message = "Card Account Update\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
+
         public static Status createCardAccount(string Card_Account, string Customer_Account, string Customer_ID, string NID, string Product)
         {
             Status status = new Status();

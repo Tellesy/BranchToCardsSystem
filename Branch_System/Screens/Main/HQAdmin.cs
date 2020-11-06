@@ -91,7 +91,7 @@ namespace MPBS.Screens.Main
             System.IO.Directory.CreateDirectory(REFRESH);
 
             //Generate PTS Files
-            AppRecrodFileCreator.CreateFolders();
+            MPBSConfig.CreateFolders();
 
             Status IssueStatus = Database.Recharge.checkYear();
 

@@ -34,6 +34,7 @@
             this.Programs_CBOX = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.UploadSMTCardsAccounts_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,6 +117,22 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Program";
             // 
+            // UploadSMTCardsAccounts_BTN
+            // 
+            this.UploadSMTCardsAccounts_BTN.AutoSize = true;
+            this.UploadSMTCardsAccounts_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UploadSMTCardsAccounts_BTN.Depth = 0;
+            this.UploadSMTCardsAccounts_BTN.Location = new System.Drawing.Point(13, 254);
+            this.UploadSMTCardsAccounts_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.UploadSMTCardsAccounts_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.UploadSMTCardsAccounts_BTN.Name = "UploadSMTCardsAccounts_BTN";
+            this.UploadSMTCardsAccounts_BTN.Primary = false;
+            this.UploadSMTCardsAccounts_BTN.Size = new System.Drawing.Size(219, 36);
+            this.UploadSMTCardsAccounts_BTN.TabIndex = 5;
+            this.UploadSMTCardsAccounts_BTN.Text = "Upload SMT Cards Accounts";
+            this.UploadSMTCardsAccounts_BTN.UseVisualStyleBackColor = true;
+            this.UploadSMTCardsAccounts_BTN.Click += new System.EventHandler(this.UploadSMTCardsAccounts_BTN_Click);
+            // 
             // GenerateT24Files
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +140,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(379, 512);
             this.ControlBox = false;
+            this.Controls.Add(this.UploadSMTCardsAccounts_BTN);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Back_BTN);
             this.Controls.Add(this.UploadSMTTransactionReport_BTN);
@@ -145,5 +163,6 @@
         private System.Windows.Forms.ComboBox Programs_CBOX;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
+        private MaterialSkin.Controls.MaterialFlatButton UploadSMTCardsAccounts_BTN;
     }
 }

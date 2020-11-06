@@ -153,18 +153,20 @@ namespace MPBS.SpreadSheet
 
                 xlWorkSheet.Cells[1, 1] = T24CompanyCodeCellName;
                 xlWorkSheet.Cells[1, 2] = T24DebitAccountNumberCellName;
-                xlWorkSheet.Cells[1, 3] = T24DebitCurrencyCellName;
-                xlWorkSheet.Cells[1, 4] = T24AmountCellName;
-                xlWorkSheet.Cells[1, 5] = T24ValueDateCellName;
-                xlWorkSheet.Cells[1, 6] = T24DebitTheirRefCellName;
-                xlWorkSheet.Cells[1, 7] = T24CreditTheirRefCellName;
-                xlWorkSheet.Cells[1, 8] = T24CreditAccountNumberCellName;
-                xlWorkSheet.Cells[1, 9] = T24CreditCurrencyCellName;
-                xlWorkSheet.Cells[1, 10] = T24CreditAmountCellName;
-                xlWorkSheet.Cells[1, 11] = T24CreditValueDateCellName;
-                xlWorkSheet.Cells[1, 12] = T24TreasuryRateCellName;
-                xlWorkSheet.Cells[1, 13] = T24OredringCustomerCellName;
-                xlWorkSheet.Cells[1, 14] = T24OrderingBankCellName;
+                xlWorkSheet.Cells[1, 3] = "Card Number";
+
+                xlWorkSheet.Cells[1, 4] = T24DebitCurrencyCellName;
+                xlWorkSheet.Cells[1, 5] = T24AmountCellName;
+                xlWorkSheet.Cells[1, 6] = T24ValueDateCellName;
+                xlWorkSheet.Cells[1, 7] = T24DebitTheirRefCellName;
+                xlWorkSheet.Cells[1, 8] = T24CreditTheirRefCellName;
+                xlWorkSheet.Cells[1, 9] = T24CreditAccountNumberCellName;
+                xlWorkSheet.Cells[1, 10] = T24CreditCurrencyCellName;
+                xlWorkSheet.Cells[1, 11] = T24CreditAmountCellName;
+                xlWorkSheet.Cells[1, 12] = T24CreditValueDateCellName;
+                xlWorkSheet.Cells[1, 13] = T24TreasuryRateCellName;
+                xlWorkSheet.Cells[1, 14] = T24OredringCustomerCellName;
+                xlWorkSheet.Cells[1, 15] = T24OrderingBankCellName;
 
 
 
@@ -178,19 +180,21 @@ namespace MPBS.SpreadSheet
 
                     xlWorkSheet.Cells[i + 2, 1] = "LY0010001";
                     xlWorkSheet.Cells[i + 2, 2] = transactions[i].AccountNumber.ToString();
-                    xlWorkSheet.Cells[i + 2, 3] = "USD";
-                    xlWorkSheet.Cells[i + 2, 4] = transactions[i].Amount.ToString();
-                    xlWorkSheet.Cells[i + 2, 5] = ValueDate;
-                    xlWorkSheet.Cells[i + 2, 6] = "Account Transfer";
-                    xlWorkSheet.Cells[i + 2, 7] = "Account Transfer";
-                    xlWorkSheet.Cells[i + 2, 8] = "EUR1755300010001";
-                    xlWorkSheet.Cells[i + 2, 9] = "EUR";
-                    xlWorkSheet.Cells[i + 2, 10] = "";
+                    xlWorkSheet.Cells[i + 2, 3] = transactions[i].CardNumber.ToString();
 
-                    xlWorkSheet.Cells[i + 2, 11] = ValueDate;
-                    xlWorkSheet.Cells[i + 2, 12] = TreasuryRate.ToString();
-                    xlWorkSheet.Cells[i + 2, 13] = "";
-                    xlWorkSheet.Cells[i + 2, 14] = "LIB.BANK";
+                    xlWorkSheet.Cells[i + 2, 4] = "USD";
+                    xlWorkSheet.Cells[i + 2, 5] = transactions[i].Amount.ToString();
+                    xlWorkSheet.Cells[i + 2, 6] = ValueDate;
+                    xlWorkSheet.Cells[i + 2, 7] = "Account Transfer";
+                    xlWorkSheet.Cells[i + 2, 8] = "Account Transfer";
+                    xlWorkSheet.Cells[i + 2, 9] = "EUR1755300010001";
+                    xlWorkSheet.Cells[i + 2, 10] = "EUR";
+                    xlWorkSheet.Cells[i + 2, 11] = "";
+
+                    xlWorkSheet.Cells[i + 2, 12] = ValueDate;
+                    xlWorkSheet.Cells[i + 2, 13] = TreasuryRate.ToString();
+                    xlWorkSheet.Cells[i + 2, 14] = "";
+                    xlWorkSheet.Cells[i + 2, 15] = "LIB.BANK";
 
                     //xlWorkSheet.Cells[i + 2, 1] = transactions[i].AccountNumber.ToString();
                     //xlWorkSheet.Cells[i + 2, 2] = transactions[i].Description;
