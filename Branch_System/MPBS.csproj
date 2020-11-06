@@ -198,6 +198,7 @@
     <Compile Include="Database\Objects\PTSDevice.cs" />
     <Compile Include="Database\Objects\PTSDevicePlan.cs" />
     <Compile Include="Database\Objects\PTSProgram.cs" />
+    <Compile Include="Database\Objects\PTSTransactionRecord.cs" />
     <Compile Include="Database\Objects\Recharge.cs" />
     <Compile Include="Database\Objects\Status.cs" />
     <Compile Include="Database\PBF.cs" />
