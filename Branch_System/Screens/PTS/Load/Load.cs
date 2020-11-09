@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MPBS.Database;
+using MPBS.Database.Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +12,58 @@ using System.Windows.Forms;
 
 namespace MPBS.Screens.PTS.Load
 {
-    public partial class Load : Form
+    public partial class Load : MaterialSkin.Controls.MaterialForm
     {
+
+        private List<PTSProgram> programs;
         public Load()
         {
             InitializeComponent();
         }
+
+        private void Load_Load(object sender, EventArgs e)
+        {
+
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
+            this.CenterToScreen();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
+            ConfirmAmount_TXT.te
+            GetPrograms();
+        }
+
+
+        private void TXTB_ONLY_NUMBER_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void GetPrograms()
+        {
+            Status<List<PTSProgram>> programStatus = PTSProgramController.getPrograms();
+
+            if (programStatus.status)
+            {
+                programs = programStatus.Object;
+                // foreach(var p in programStatus.Object)
+                Program_CBox.DataSource = programStatus.Object;
+                Program_CBox.DisplayMember = "NameEN";
+                Program_CBox.ValueMember = "Code";
+                this.Program_CBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
+        }
+
+        private void Back_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
+
+
 }
