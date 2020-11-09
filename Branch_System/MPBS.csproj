@@ -378,6 +378,12 @@
     <Compile Include="Screens\PTS\Issue\PTS_Issue.Designer.cs">
       <DependentUpon>PTS_Issue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\PTS\Load\Load.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Load\Load.Designer.cs">
+      <DependentUpon>Load.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\SMT\PIN\PIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -547,6 +553,9 @@
     <EmbeddedResource Include="Screens\PTS\Issue\PTS_Issue.resx">
       <DependentUpon>PTS_Issue.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Load\Load.resx">
+      <DependentUpon>Load.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\SMT\PIN\PIN.resx">
       <DependentUpon>PIN.cs</DependentUpon>
     </EmbeddedResource>
@@ -695,7 +704,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Screens\PTS\Load\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.22.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.22.0\build\net45\Grpc.Core.targets')" />

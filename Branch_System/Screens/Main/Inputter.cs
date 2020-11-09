@@ -205,5 +205,10 @@ namespace MPBS.Screens
                 //PTS_issue.FormClosed
             }
         }
+
+        private void PTSLoadWallet_BTN_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -466,6 +466,7 @@
             this.PTSLoadWallet_BTN.Text = "Load Wallet (PTS)";
             this.PTSLoadWallet_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.PTSLoadWallet_BTN.UseVisualStyleBackColor = true;
+            this.PTSLoadWallet_BTN.Click += new System.EventHandler(this.PTSLoadWallet_BTN_Click);
             // 
             // Inputter
             // 
