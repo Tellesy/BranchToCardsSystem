@@ -31,7 +31,7 @@ namespace MPBS.Screens.PTS.Load
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            ConfirmAmount_TXT.te
+            //ConfirmAmount_TXT.te
             GetPrograms();
         }
 
@@ -62,6 +62,24 @@ namespace MPBS.Screens.PTS.Load
         private void Back_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Sumbit_BTN_Click(object sender, EventArgs e)
+        {
+
+            var selectedProgram = Program_CBox.SelectedValue;
+
+            var prg = programs.First(p => p.Code == selectedProgram);
+            int amount = int.Parse(Amount_TXT.Text);
+            int confirmAmount = int.Parse(ConfirmAmount_TXT.Text);
+
+            if(amount!=confirmAmount)
+            {
+                MessageBox.Show("Amount and Confrim Amount values are not equal");
+                return;
+            }
+
+            //if(amount > )
         }
     }
 

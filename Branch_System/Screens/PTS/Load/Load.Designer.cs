@@ -170,6 +170,7 @@
             this.Sumbit_BTN.TabIndex = 93;
             this.Sumbit_BTN.Text = "Submit";
             this.Sumbit_BTN.UseVisualStyleBackColor = true;
+            this.Sumbit_BTN.Click += new System.EventHandler(this.Sumbit_BTN_Click);
             // 
             // Back_BTN
             // 

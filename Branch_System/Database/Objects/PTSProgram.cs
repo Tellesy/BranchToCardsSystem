@@ -12,5 +12,8 @@ namespace MPBS.Database.Objects
         public string NameAR { get; set; }
         public string NameEN { get; set; }
         public string CBSCatagory { get; set; }
+
+        public bool Active { get; set; }
+        public int YearlyLimit { get; set; }
     }
 }

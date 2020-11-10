@@ -25,7 +25,7 @@ namespace MPBS.Database
             {
 
                 string query = @"
-                   SELECT [program_code],[name_ar],[name_en],[CBS_catagory] FROM [CTS].[dbo].[PTS_Program]";
+                   SELECT [program_code],[name_ar],[name_en],[CBS_catagory],Active, Yearly_Limit FROM [CTS].[dbo].[PTS_Program]";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -51,6 +51,9 @@ namespace MPBS.Database
                                 p.NameAR = reader[1].ToString();
                                 p.NameEN = reader[2].ToString();
                                 p.CBSCatagory = reader[3].ToString();
+                                p.Active = bool.Parse(reader[4].ToString());
+                                p.YearlyLimit = int.Parse(reader[5].ToString());
+
 
                                 programs.Add(p);
 
