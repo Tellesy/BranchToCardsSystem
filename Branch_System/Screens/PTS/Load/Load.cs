@@ -66,10 +66,16 @@ namespace MPBS.Screens.PTS.Load
 
         private void Sumbit_BTN_Click(object sender, EventArgs e)
         {
+           var sCustomer = PTSCustomerController.getCustomer(CustomerID_TXT.Text);
+            if(!sCustomer.status)
+            {
+                MessageBox.Show("Customer Info Does not exist in Database");
+                return;
+            }
 
-            var selectedProgram = Program_CBox.SelectedValue;
+            string selectedProgramCode = String.Concat(Program_CBox.SelectedValue.ToString().Where(c => !Char.IsWhiteSpace(c)));
 
-            var prg = programs.First(p => p.Code == selectedProgram);
+            var prg = programs.First(p => p.Code == selectedProgramCode);
             int amount = int.Parse(Amount_TXT.Text);
             int confirmAmount = int.Parse(ConfirmAmount_TXT.Text);
 
@@ -84,11 +90,72 @@ namespace MPBS.Screens.PTS.Load
                 MessageBox.Show("Load Amount is more than the yearly limit");
                 return;
             }
-            
+
             //Check if there is unauth recharge amount for the customer under the same program
+
+            var sLoad = PTSLoadController.getBranchUnAuthLoad(CustomerID_TXT.Text, selectedProgramCode);
+            //if(!sLoad.status)
+            //{
+            //    MessageBox.Show("There is an issue related to Unauthorized load records for this customer");
+            //    return;
+            //}
             
+            if(sLoad.Object.Count > 0)
+            {
+                MessageBox.Show("There is unauthorized load records for this customer");
+                return;
+            }
+
+            //Get Wallet Number 
+           var sAccount = PTSAccountController.getAccount(CustomerID_TXT.Text, selectedProgramCode);
+            if(!sAccount.status)
+            {
+                MessageBox.Show("There is an issue related to getting Account Info for this Customer");
+                return;
+            }
+            //if(string.IsNullOrWhiteSpace(sAccount.Object.WalletNumber))
+            //{
+            //    MessageBox.Show("Please ");
+            //    return;
+            //}
+
+            var sBranch = PTSBranchController.getBranche(int.Parse(Database.Login.branch));
+            if (!sBranch.status)
+            {
+                MessageBox.Show("There is an issue related to getting Branch Code");
+                return;
+            }
+
+            
+            PTSLoad load = new PTSLoad();
+            load.Year = Database.Recharge.year;
+            load.CustomerID = CustomerID_TXT.Text;
+            load.ProgramCode = selectedProgramCode;
+            load.BranchCode = sBranch.Object.Code;
+            load.Inputter = Database.Login.id;
+            //load.WalletNumber = sAccount.Object.WalletNumber;
+            load.Amount = amount;
+
+            //Display Customer info for validation
+            DialogResult dialogResult = MessageBox.Show("Customer ID" + CustomerID_TXT.Text + @"\n" + "Name" + sCustomer.Object.EmbossedName + @"\n" + "Account Number:" + sAccount.Object.AccountNumberCurrency + @"\n" + "Amount:" + Amount_TXT.Text + @"\n", "Confirm Load for Customer Wallet", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Add Load Record
+                Status status = PTSLoadController.addLoadRecord(load);
+
+              if(!status.status)
+                {
+                    MessageBox.Show("Error in adding Load Record" + status.message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
 
+                MessageBox.Show("Done!");
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
     }
 

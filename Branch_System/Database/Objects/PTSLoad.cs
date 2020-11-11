@@ -12,7 +12,7 @@ namespace MPBS.Database.Objects
         public string CustomerID  { get; set; }
 
         public string ProgramCode { get; set; }
-        public string WalletNumber { get; set; }
+        //public string WalletNumber { get; set; }
         public string BranchCode { get; set; }
         public string Year { get; set; }
         public int Amount { get; set; }

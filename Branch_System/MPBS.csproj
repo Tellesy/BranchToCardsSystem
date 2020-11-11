@@ -197,6 +197,7 @@
     <Compile Include="Database\Objects\Product.cs" />
     <Compile Include="Database\Objects\PTSDevice.cs" />
     <Compile Include="Database\Objects\PTSDevicePlan.cs" />
+    <Compile Include="Database\Objects\PTSLoad.cs" />
     <Compile Include="Database\Objects\PTSProgram.cs" />
     <Compile Include="Database\Objects\PTSTransactionRecord.cs" />
     <Compile Include="Database\Objects\Recharge.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Database\PTSDeviceController.cs" />
     <Compile Include="Database\PTSDevicePlanController.cs" />
     <Compile Include="Database\PTSBranchController.cs" />
+    <Compile Include="Database\PTSLoadController.cs" />
     <Compile Include="Database\PTSProgramController.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\AppRecrodFileCreator.cs" />

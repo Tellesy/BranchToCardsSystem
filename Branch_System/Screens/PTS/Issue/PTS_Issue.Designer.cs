@@ -1,6 +1,6 @@
 ﻿namespace MPBS.Screens.PTS.Issue
 {
-    partial class PTS_Issue
+    partial class Issue
     {
         /// <summary>
         /// Required designer variable.

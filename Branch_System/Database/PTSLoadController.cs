@@ -50,7 +50,7 @@ namespace MPBS.Database
                         query = @"SELECT [ID]
                                           ,[customer_ID]
                                           ,[program_code]
-                                          ,[wallet_number]
+                                          
                                           ,[branch_code]
                                           ,[year]
                                           ,[amount]
@@ -69,7 +69,7 @@ namespace MPBS.Database
                         query = @"SELECT [ID]
                                           ,[customer_ID]
                                           ,[program_code]
-                                          ,[wallet_number]
+                                          
                                           ,[branch_code]
                                           ,[year]
                                           ,[amount]
@@ -112,41 +112,40 @@ namespace MPBS.Database
                             if (!string.IsNullOrEmpty(reader[2].ToString()))
                                 request.ProgramCode = reader[2].ToString();
 
+                         
+
                             if (!string.IsNullOrEmpty(reader[3].ToString()))
-                                request.WalletNumber = reader[3].ToString();
+                                request.BranchCode = reader[3].ToString();
 
                             if (!string.IsNullOrEmpty(reader[4].ToString()))
-                                request.BranchCode = reader[4].ToString();
+                                request.Year = reader[4].ToString();
 
                             if (!string.IsNullOrEmpty(reader[5].ToString()))
-                                request.Year = reader[5].ToString();
+                                request.Amount = int.Parse(reader[5].ToString());
 
                             if (!string.IsNullOrEmpty(reader[6].ToString()))
-                                request.Amount = int.Parse(reader[6].ToString());
+                                request.Inputter = reader[6].ToString();
 
                             if (!string.IsNullOrEmpty(reader[7].ToString()))
-                                request.Inputter = reader[7].ToString();
+                                request.InputTime = DateTime.Parse(reader[7].ToString());
 
                             if (!string.IsNullOrEmpty(reader[8].ToString()))
-                                request.InputTime = DateTime.Parse(reader[8].ToString());
+                                request.BranchAuthorizer = reader[8].ToString();
 
                             if (!string.IsNullOrEmpty(reader[9].ToString()))
-                                request.BranchAuthorizer = reader[9].ToString();
+                                request.BranchAuthorizeTime = DateTime.Parse(reader[9].ToString());
 
                             if (!string.IsNullOrEmpty(reader[10].ToString()))
-                                request.BranchAuthorizeTime = DateTime.Parse(reader[10].ToString());
+                                request.HQAuthorizer = reader[10].ToString();
 
                             if (!string.IsNullOrEmpty(reader[11].ToString()))
-                                request.HQAuthorizer = reader[11].ToString();
+                                request.HQAuthorizeTime = DateTime.Parse(reader[11].ToString());
 
                             if (!string.IsNullOrEmpty(reader[12].ToString()))
-                                request.HQAuthorizeTime = DateTime.Parse(reader[12].ToString());
+                                request.Generated = Boolean.Parse(reader[12].ToString());
 
                             if (!string.IsNullOrEmpty(reader[13].ToString()))
-                                request.Generated = Boolean.Parse(reader[13].ToString());
-
-                            if (!string.IsNullOrEmpty(reader[14].ToString()))
-                                request.GenTime = DateTime.Parse(reader[14].ToString());
+                                request.GenTime = DateTime.Parse(reader[13].ToString());
 
                             statusObject.Object.Add(request);
                         }
@@ -193,14 +192,12 @@ namespace MPBS.Database
 
                 try
                 {
-                    string query = "";
+                 
 
-                  
-                    
-                    query = @"SELECT [ID]
+                    string query = @"SELECT [ID]
                                         ,[customer_ID]
                                         ,[program_code]
-                                        ,[wallet_number]
+                            
                                         ,[branch_code]
                                         ,[year]
                                         ,[amount]
@@ -212,7 +209,7 @@ namespace MPBS.Database
                                         ,[HQ_auth_time]
                                         ,[generated]
                                         ,[gen_time]
-                                    FROM [CTS].[dbo].[PTS_Load] where branch_authorizer is NULL AND HQ_authorizer is NULL AND generated = 0 AND [customer_ID] = '"+customerID+ "' AND [program_code] ='"+programCode+"'";
+                                    FROM [CTS].[dbo].[PTS_Load] where branch_authorizer is NULL AND HQ_authorizer is NULL AND generated = 0  AND [customer_ID] = '"+customerID+ "' AND [program_code] ='"+programCode+"'";
                     
 
 
@@ -243,41 +240,40 @@ namespace MPBS.Database
                             if (!string.IsNullOrEmpty(reader[2].ToString()))
                                 request.ProgramCode = reader[2].ToString();
 
+                           
+
                             if (!string.IsNullOrEmpty(reader[3].ToString()))
-                                request.WalletNumber = reader[3].ToString();
+                                request.BranchCode = reader[3].ToString();
 
                             if (!string.IsNullOrEmpty(reader[4].ToString()))
-                                request.BranchCode = reader[4].ToString();
+                                request.Year = reader[4].ToString();
 
                             if (!string.IsNullOrEmpty(reader[5].ToString()))
-                                request.Year = reader[5].ToString();
+                                request.Amount = int.Parse(reader[5].ToString());
 
                             if (!string.IsNullOrEmpty(reader[6].ToString()))
-                                request.Amount = int.Parse(reader[6].ToString());
+                                request.Inputter = reader[6].ToString();
 
                             if (!string.IsNullOrEmpty(reader[7].ToString()))
-                                request.Inputter = reader[7].ToString();
+                                request.InputTime = DateTime.Parse(reader[7].ToString());
 
                             if (!string.IsNullOrEmpty(reader[8].ToString()))
-                                request.InputTime = DateTime.Parse(reader[8].ToString());
+                                request.BranchAuthorizer = reader[8].ToString();
 
                             if (!string.IsNullOrEmpty(reader[9].ToString()))
-                                request.BranchAuthorizer = reader[9].ToString();
+                                request.BranchAuthorizeTime = DateTime.Parse(reader[9].ToString());
 
                             if (!string.IsNullOrEmpty(reader[10].ToString()))
-                                request.BranchAuthorizeTime = DateTime.Parse(reader[10].ToString());
+                                request.HQAuthorizer = reader[10].ToString();
 
                             if (!string.IsNullOrEmpty(reader[11].ToString()))
-                                request.HQAuthorizer = reader[11].ToString();
+                                request.HQAuthorizeTime = DateTime.Parse(reader[11].ToString());
 
                             if (!string.IsNullOrEmpty(reader[12].ToString()))
-                                request.HQAuthorizeTime = DateTime.Parse(reader[12].ToString());
+                                request.Generated = Boolean.Parse(reader[12].ToString());
 
                             if (!string.IsNullOrEmpty(reader[13].ToString()))
-                                request.Generated = Boolean.Parse(reader[13].ToString());
-
-                            if (!string.IsNullOrEmpty(reader[14].ToString()))
-                                request.GenTime = DateTime.Parse(reader[14].ToString());
+                                request.GenTime = DateTime.Parse(reader[13].ToString());
 
                             statusObject.Object.Add(request);
                         }
@@ -302,6 +298,70 @@ namespace MPBS.Database
                 statusObject.message = Errors.ErrorsString.Error001;
 
                 return statusObject;
+            }
+        }
+
+        public static Status addLoadRecord(PTSLoad loadRecord)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = DBConnection.Connection();
+
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string query = @"INSERT INTO [dbo].[PTS_Load]
+                               ([customer_ID]
+                               ,[program_code]
+           
+                               ,[branch_code]
+                               ,[year]
+                               ,[amount]
+                               ,[inputter])
+                    VALUES
+                   (@v1
+                   ,@v2
+
+                   ,@v4
+                   ,@v5
+                   ,@v6
+                   ,@v7)";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@v1", loadRecord.CustomerID);
+                    cmd.Parameters.AddWithValue("@v2", loadRecord.ProgramCode);
+
+                    cmd.Parameters.AddWithValue("@v4", loadRecord.BranchCode);
+                    cmd.Parameters.AddWithValue("@v5", loadRecord.Year);
+               
+                    cmd.Parameters.AddWithValue("@v6", loadRecord.Amount);
+                    cmd.Parameters.AddWithValue("@v7", loadRecord.Inputter);
+
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch (Exception e)
+                {
+                    conn.Close();
+                    status.status = false;
+                    status.status = false;
+                    status.message = "Add to PTS Load\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return status;
+                }
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                return status;
             }
         }
 

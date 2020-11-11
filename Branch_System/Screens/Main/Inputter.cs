@@ -21,7 +21,9 @@ namespace MPBS.Screens
         private PIN_Screen pin;
         public ChangePassword changePassword;
         private Search search;
-        private PTS.Issue.PTS_Issue PTS_issue;
+        private PTS.Issue.Issue PTS_issue;
+        private PTS.Load.Load PTS_load;
+
 
         public Inputter()
         {
@@ -195,7 +197,7 @@ namespace MPBS.Screens
         {
             if(PTS_issue==null)
             {
-                PTS_issue = new PTS.Issue.PTS_Issue();
+                PTS_issue = new PTS.Issue.Issue();
                 PTS_issue.Closed += (s, args) => {
                     PTS_issue = null; Issue_PTS_BTN.Enabled = true;
                 };
@@ -208,7 +210,17 @@ namespace MPBS.Screens
 
         private void PTSLoadWallet_BTN_Click(object sender, EventArgs e)
         {
+            if (PTS_load == null)
+            {
+                PTS_load = new PTS.Load.Load();
+                PTS_load.Closed += (s, args) => {
+                    PTS_load = null; PTSLoadWallet_BTN.Enabled = true;
+                };
 
+                PTS_load.Show();
+                PTSLoadWallet_BTN.Enabled = false;
+                //PTS_issue.FormClosed
+            }
         }
     }
 }

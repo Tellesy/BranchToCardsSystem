@@ -13,7 +13,7 @@ using MPBS.Database.Objects;
 
 namespace MPBS.Screens.PTS.Issue
 {
-    public partial class PTS_Issue : Form
+    public partial class Issue : Form
     {
 
         private bool customerExistInDB = false;
@@ -22,7 +22,7 @@ namespace MPBS.Screens.PTS.Issue
 
         private List<PTSProgram> programs;
 
-        public PTS_Issue()
+        public Issue()
         {
             InitializeComponent();
         }

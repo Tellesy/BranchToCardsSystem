@@ -501,6 +501,7 @@
             this.Name = "Inputter";
             this.Text = "Inputter";
             this.Load += new System.EventHandler(this.Menu_Load);
+            // this.PTS_load += new System.EventHandler(this.Menu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

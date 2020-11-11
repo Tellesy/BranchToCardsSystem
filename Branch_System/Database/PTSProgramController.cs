@@ -47,7 +47,7 @@ namespace MPBS.Database
                             {
                                 PTSProgram p = new PTSProgram();
                                 
-                                p.Code = reader[0].ToString();
+                                p.Code = string.Concat(reader[0].ToString().Where(c => !Char.IsWhiteSpace(c)));
                                 p.NameAR = reader[1].ToString();
                                 p.NameEN = reader[2].ToString();
                                 p.CBSCatagory = reader[3].ToString();
