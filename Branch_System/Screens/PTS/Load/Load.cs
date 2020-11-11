@@ -79,7 +79,16 @@ namespace MPBS.Screens.PTS.Load
                 return;
             }
 
-            //if(amount > )
+            if(amount > prg.YearlyLimit)
+            {
+                MessageBox.Show("Load Amount is more than the yearly limit");
+                return;
+            }
+            
+            //Check if there is unauth recharge amount for the customer under the same program
+            
+
+
         }
     }
 

@@ -75,7 +75,8 @@ namespace MPBS.Database.Objects
         /// For example: 
         /// Value of file: 000000000100333 Currency: USD Exponent value:
         /// as per ISO standard for USD is 2 Calculated value is:
-        /// 000000000100333/100 : 1003.33        /// </summary>
+        /// 000000000100333/100 : 1003.33 
+        /// </summary>
         public string BillingAmount { get; set; }
         /// <summary>
         /// Mandatory Field 
