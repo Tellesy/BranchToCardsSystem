@@ -15,7 +15,7 @@ namespace MPBS.Screens.PTS.Load.SubScreen
     public partial class LoadHQAuthScreen : Form
     {
         public PTSLoad record;
-
+        private PTSAccount accountObject;
         public LoadHQAuthScreen()
         {
             InitializeComponent();
@@ -58,11 +58,11 @@ namespace MPBS.Screens.PTS.Load.SubScreen
                 programCode = programsObject.Object.First(i => i.Code == record.ProgramCode).NameEN;
             }
             Program_CBox.Text = programCode;
-            var accountObject = PTSAccountController.getAccount(record.CustomerID, record.ProgramCode);
+            var accountStatusObject = PTSAccountController.getAccount(record.CustomerID, record.ProgramCode);
+            accountObject = accountStatusObject.Object;
 
-
-            MainAccount_TXT.Text = accountObject.Object.AccountNumberLYD;
-            ProgramAccount_TXT.Text = accountObject.Object.AccountNumberCurrency;
+            MainAccount_TXT.Text = accountStatusObject.Object.AccountNumberLYD;
+            ProgramAccount_TXT.Text = accountStatusObject.Object.AccountNumberCurrency;
 
             Amount_TXT.Text = record.Amount.ToString();
             var sTotal = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(record.CustomerID, record.ProgramCode, Database.Recharge.year);
@@ -78,7 +78,13 @@ namespace MPBS.Screens.PTS.Load.SubScreen
 
         private void Authorize_BTN_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
+
+            if (string.IsNullOrWhiteSpace(accountObject.WalletNumber))
+            {
+                MessageBox.Show("Error! This card doesn't have wallet number in Database");
+            }
+
+             DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
 
