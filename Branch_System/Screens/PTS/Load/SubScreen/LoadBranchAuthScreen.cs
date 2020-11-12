@@ -10,23 +10,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
+namespace MPBS.Screens.PTS.Load.SubScreen
 {
 
     public partial class LoadBranchAuthScreen : Form
     {
 
-        public PTSAppRecord record;
+        public PTSLoad record;
 
         public LoadBranchAuthScreen()
         {
             InitializeComponent();
         }
 
-        private void IssueBranchAuthScreen_Load(object sender, EventArgs e)
+        private void LoadBranchAuthScreen_Load(object sender, EventArgs e)
         {
-            
-            this.Text = record.RecordID.ToString() + " " + record.Inputter;
+            Year_LBL.Text = Database.Recharge.year;
+            this.Text = record.ID.ToString() + " " + record.Inputter;
+
+
             CustomerID_TXT.Text = record.CustomerID;
             
             //get customer name from here
@@ -59,8 +61,15 @@ namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
             MainAccount_TXT.Text = accountObject.Object.AccountNumberLYD;
             ProgramAccount_TXT.Text = accountObject.Object.AccountNumberCurrency;
 
-            AppType_TXT.Text = record.ApplicationType.ToString();
-            AppSubType_TXT.Text = record.ApplicationSubType.ToString();
+            Amount_TXT.Text = record.Amount.ToString();
+            var sTotal = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(record.CustomerID, record.ProgramCode, Database.Recharge.year);
+            if(sTotal.status)
+            {
+                TotalAmount_TXT.Text = sTotal.Object.Sum(t => t.Amount).ToString();
+            }
+
+            //AppType_TXT.Text = record.ApplicationType.ToString();
+            //AppSubType_TXT.Text = record.ApplicationSubType.ToString();
             Inputter_TXT.Text = record.Inputter.ToString();
 
         }
@@ -78,11 +87,11 @@ namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
             if (dialogResult == DialogResult.Yes)
             {
 
-                Database.Status status = Database.PTSAppRecordController.authBranchAppRecord(record.RecordID);
+                Database.Status status = Database.PTSLoadController.authBranchLoadRequest(record.ID);
 
                 if (status.status)
                 {
-                    //Get Total Amount to be added to PBF
+                    
 
 
                     MessageBox.Show("تم تخويل العملية بنجاح");

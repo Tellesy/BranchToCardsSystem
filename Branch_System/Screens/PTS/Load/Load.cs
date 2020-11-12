@@ -75,7 +75,7 @@ namespace MPBS.Screens.PTS.Load
 
             string selectedProgramCode = String.Concat(Program_CBox.SelectedValue.ToString().Where(c => !Char.IsWhiteSpace(c)));
 
-            var prg = programs.First(p => p.Code == selectedProgramCode);
+            var selectedProgramObject = programs.First(p => p.Code == selectedProgramCode);
             int amount = int.Parse(Amount_TXT.Text);
             int confirmAmount = int.Parse(ConfirmAmount_TXT.Text);
 
@@ -85,7 +85,7 @@ namespace MPBS.Screens.PTS.Load
                 return;
             }
 
-            if(amount > prg.YearlyLimit)
+            if(amount > selectedProgramObject.YearlyLimit)
             {
                 MessageBox.Show("Load Amount is more than the yearly limit");
                 return;
@@ -126,7 +126,26 @@ namespace MPBS.Screens.PTS.Load
                 return;
             }
 
+            //Check if the total Load requests doesn't exceed the yearyl limit
+            var sBalance = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(CustomerID_TXT.Text, selectedProgramCode, Database.Recharge.year);
+
+            if(!sBalance.status)
+            {
+
+                MessageBox.Show("There is an issue related to getting the customer yearly balance");
+                return;
+            }
+
+            int total = sBalance.Object.Sum(i => i.Amount);
+
+            if((total + amount) >= selectedProgramObject.YearlyLimit)
+            {
+                MessageBox.Show("Sorry, The total Load Request for this customer exceeds the yearly limit for this program");
+                return;
+            }
+             
             
+            //if ())
             PTSLoad load = new PTSLoad();
             load.Year = Database.Recharge.year;
             load.CustomerID = CustomerID_TXT.Text;

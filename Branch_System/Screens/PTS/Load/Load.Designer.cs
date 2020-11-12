@@ -50,7 +50,7 @@
             this.Program_CBox.Location = new System.Drawing.Point(10, 116);
             this.Program_CBox.Name = "Program_CBox";
             this.Program_CBox.Size = new System.Drawing.Size(209, 21);
-            this.Program_CBox.TabIndex = 82;
+            this.Program_CBox.TabIndex = 1;
             // 
             // materialLabel1
             // 
@@ -167,7 +167,7 @@
             this.Sumbit_BTN.Name = "Sumbit_BTN";
             this.Sumbit_BTN.Primary = false;
             this.Sumbit_BTN.Size = new System.Drawing.Size(62, 36);
-            this.Sumbit_BTN.TabIndex = 93;
+            this.Sumbit_BTN.TabIndex = 5;
             this.Sumbit_BTN.Text = "Submit";
             this.Sumbit_BTN.UseVisualStyleBackColor = true;
             this.Sumbit_BTN.Click += new System.EventHandler(this.Sumbit_BTN_Click);
@@ -183,7 +183,7 @@
             this.Back_BTN.Name = "Back_BTN";
             this.Back_BTN.Primary = false;
             this.Back_BTN.Size = new System.Drawing.Size(47, 36);
-            this.Back_BTN.TabIndex = 94;
+            this.Back_BTN.TabIndex = 6;
             this.Back_BTN.Text = "Back";
             this.Back_BTN.UseVisualStyleBackColor = true;
             this.Back_BTN.Click += new System.EventHandler(this.Back_BTN_Click);
@@ -194,7 +194,7 @@
             this.Amount_TXT.MaxLength = 6;
             this.Amount_TXT.Name = "Amount_TXT";
             this.Amount_TXT.Size = new System.Drawing.Size(93, 20);
-            this.Amount_TXT.TabIndex = 95;
+            this.Amount_TXT.TabIndex = 3;
             this.Amount_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_NUMBER_KeyPress);
             // 
             // ConfirmAmount_TXT
@@ -203,7 +203,7 @@
             this.ConfirmAmount_TXT.MaxLength = 6;
             this.ConfirmAmount_TXT.Name = "ConfirmAmount_TXT";
             this.ConfirmAmount_TXT.Size = new System.Drawing.Size(93, 20);
-            this.ConfirmAmount_TXT.TabIndex = 96;
+            this.ConfirmAmount_TXT.TabIndex = 4;
             this.ConfirmAmount_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_NUMBER_KeyPress);
             // 
             // CustomerID_TXT
@@ -212,7 +212,7 @@
             this.CustomerID_TXT.MaxLength = 7;
             this.CustomerID_TXT.Name = "CustomerID_TXT";
             this.CustomerID_TXT.Size = new System.Drawing.Size(93, 20);
-            this.CustomerID_TXT.TabIndex = 97;
+            this.CustomerID_TXT.TabIndex = 2;
             // 
             // Load
             // 

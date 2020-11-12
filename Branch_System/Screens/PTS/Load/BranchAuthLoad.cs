@@ -11,15 +11,15 @@ using MPBS.Database;
 using MPBS.Database.Objects;
 using MPBS.Screens.PTS.BranchAuthIssue.SubScreen;
 
-namespace MPBS.Screens.PTS.BranchAuthIssue
+namespace MPBS.Screens.PTS.Load
 {
-    public partial class BranchAuthIssue : MaterialSkin.Controls.MaterialForm
+    public partial class BranchAuthLoad : MaterialSkin.Controls.MaterialForm
     {
         private bool isBranchAdmin = true;
-        public List<Database.Objects.PTSAppRecord> records;
+        public List<Database.Objects.PTSLoad> records;
         //public bool isEnquire = false;
 
-        public BranchAuthIssue()
+        public BranchAuthLoad()
         {
             InitializeComponent();
         }
@@ -49,7 +49,7 @@ namespace MPBS.Screens.PTS.BranchAuthIssue
             //Get un Auth recharge records
             records = null;
             List<ViewList> viewLists = new List<ViewList>();
-            Status<List<Database.Objects.PTSAppRecord>> statusObject = Database.PTSAppRecordController.getBranchUnAuthAppRecords(isBranchAdmin);
+            Status<List<Database.Objects.PTSLoad>> statusObject = Database.PTSLoadController.getBranchUnAuthLoad(isBranchAdmin);
 
             if (statusObject.status)
             {
@@ -59,11 +59,11 @@ namespace MPBS.Screens.PTS.BranchAuthIssue
                     for (int i = 0; i < records.Count; i++)
                     {
                         ViewList viewList = new ViewList();
-                        viewList.id = records[i].RecordID;
+                        viewList.id = records[i].ID;
                         viewList.Customer_ID = records[i].CustomerID;
                         viewList.ProgramCode = records[i].ProgramCode;
-                        viewList.ApplicationType = records[i].ApplicationType.ToString();
-                        viewList.ApplicationSubType = records[i].ApplicationSubType.ToString();
+                        viewList.Amount = records[i].Amount.ToString();
+                        viewList.Year = records[i].Year.ToString();
                         viewList.Branch = records[i].BranchCode;
                         viewList.Inputter = records[i].Inputter;
                         viewList.InputTime = records[i].InputTime;
@@ -115,8 +115,8 @@ namespace MPBS.Screens.PTS.BranchAuthIssue
             public string Customer_ID { get; set; }
             public string ProgramCode { get; set; }
             public string Inputter { get; set; }
-            public string ApplicationType { get; set; }
-            public string ApplicationSubType { get; set; }
+            public string Amount { get; set; }
+            public string Year { get; set; }
             public string Branch { get; set; }
             public DateTime InputTime { get; set; }
 
@@ -142,7 +142,7 @@ namespace MPBS.Screens.PTS.BranchAuthIssue
                 LoadBranchAuthScreen authorize = new LoadBranchAuthScreen();
                 if (records != null)
                 {
-                    var q = records.Where(x => x.RecordID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
+                    var q = records.Where(x => x.ID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
 
                     if (q.Count() > 0)
                     {

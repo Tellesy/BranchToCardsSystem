@@ -10,25 +10,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
+namespace MPBS.Screens.PTS.Load.SubScreen
 {
-
-    public partial class LoadBranchAuthScreen : Form
+    public partial class LoadHQAuthScreen : Form
     {
+        public PTSLoad record;
 
-        public PTSAppRecord record;
-
-        public LoadBranchAuthScreen()
+        public LoadHQAuthScreen()
         {
             InitializeComponent();
         }
 
-        private void IssueBranchAuthScreen_Load(object sender, EventArgs e)
+        private void Back_BTN_Click(object sender, EventArgs e)
         {
-            
-            this.Text = record.RecordID.ToString() + " " + record.Inputter;
+            this.Close();
+        }
+
+        private void IssueHQAuthScreen_Load(object sender, EventArgs e)
+        {
+            Year_LBL.Text = Database.Recharge.year;
+            this.Text = record.ID.ToString() + " " + record.Inputter;
+
+
             CustomerID_TXT.Text = record.CustomerID;
-            
+
             //get customer name from here
             var customerObject = PTSCustomerController.getCustomer(record.CustomerID);
             FirstName_TXT.Text = customerObject.Object.FirstName;
@@ -45,7 +50,7 @@ namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
             CountryPhoneCode_CBox.Text = customerObject.Object.PhoneISD;
             PhoneNo_TXT.Text = customerObject.Object.Phone;
             Email_TXT.Text = customerObject.Object.Email;
-           var programsObject = PTSProgramController.getPrograms();
+            var programsObject = PTSProgramController.getPrograms();
 
             string programCode = record.ProgramCode;
             if (programsObject.status)
@@ -59,26 +64,25 @@ namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
             MainAccount_TXT.Text = accountObject.Object.AccountNumberLYD;
             ProgramAccount_TXT.Text = accountObject.Object.AccountNumberCurrency;
 
-            AppType_TXT.Text = record.ApplicationType.ToString();
-            AppSubType_TXT.Text = record.ApplicationSubType.ToString();
+            Amount_TXT.Text = record.Amount.ToString();
+            var sTotal = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(record.CustomerID, record.ProgramCode, Database.Recharge.year);
+            if (sTotal.status)
+            {
+                TotalAmount_TXT.Text = sTotal.Object.Sum(t => t.Amount).ToString();
+            }
+
+            //AppType_TXT.Text = record.ApplicationType.ToString();
+            //AppSubType_TXT.Text = record.ApplicationSubType.ToString();
             Inputter_TXT.Text = record.Inputter.ToString();
-
-        }
-
-
-
-        private void Back_BTN_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void Authorize_BTN_Click(object sender, EventArgs e)
         {
-               DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
 
-                Database.Status status = Database.PTSAppRecordController.authBranchAppRecord(record.RecordID);
+                Database.Status status = Database.PTSLoadController.authHQLoadRequest(record.ID);
 
                 if (status.status)
                 {
@@ -100,4 +104,5 @@ namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
             }
         }
     }
-}
+    }
+

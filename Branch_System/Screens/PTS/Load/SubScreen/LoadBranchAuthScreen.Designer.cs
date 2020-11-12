@@ -1,4 +1,4 @@
-﻿namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
+﻿namespace MPBS.Screens.PTS.Load.SubScreen
 {
     partial class LoadBranchAuthScreen
     {
@@ -91,15 +91,19 @@
             this.MainAccount_TXT = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.Program_CBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.AppType_TXT = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.AppSubType_TXT = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.Inputter_TXT = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Year_LBL = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TotalAmount_TXT = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Amount_TXT = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
@@ -109,12 +113,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTSProgramBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(116, 268);
+            this.label31.Location = new System.Drawing.Point(127, 268);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(88, 13);
             this.label31.TabIndex = 154;
@@ -503,9 +508,9 @@
             // 
             // Back_BTN
             // 
-            this.Back_BTN.Location = new System.Drawing.Point(12, 467);
+            this.Back_BTN.Location = new System.Drawing.Point(13, 449);
             this.Back_BTN.Name = "Back_BTN";
-            this.Back_BTN.Size = new System.Drawing.Size(363, 33);
+            this.Back_BTN.Size = new System.Drawing.Size(267, 33);
             this.Back_BTN.TabIndex = 123;
             this.Back_BTN.Text = "رجوع";
             this.Back_BTN.UseVisualStyleBackColor = true;
@@ -513,9 +518,9 @@
             // 
             // Authorize_BTN
             // 
-            this.Authorize_BTN.Location = new System.Drawing.Point(12, 429);
+            this.Authorize_BTN.Location = new System.Drawing.Point(13, 411);
             this.Authorize_BTN.Name = "Authorize_BTN";
-            this.Authorize_BTN.Size = new System.Drawing.Size(363, 32);
+            this.Authorize_BTN.Size = new System.Drawing.Size(267, 32);
             this.Authorize_BTN.TabIndex = 122;
             this.Authorize_BTN.Text = "تخويل";
             this.Authorize_BTN.UseVisualStyleBackColor = true;
@@ -649,66 +654,10 @@
             this.Program_CBox.Size = new System.Drawing.Size(209, 21);
             this.Program_CBox.TabIndex = 104;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(472, 353);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 157;
-            this.label1.Text = "نوع الإصدار";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // AppType_TXT
-            // 
-            this.AppType_TXT.Enabled = false;
-            this.AppType_TXT.Location = new System.Drawing.Point(536, 337);
-            this.AppType_TXT.MaxLength = 1;
-            this.AppType_TXT.Name = "AppType_TXT";
-            this.AppType_TXT.Size = new System.Drawing.Size(40, 20);
-            this.AppType_TXT.TabIndex = 155;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(444, 337);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
-            this.label3.TabIndex = 156;
-            this.label3.Text = "Application Type";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(436, 392);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
-            this.label5.TabIndex = 160;
-            this.label5.Text = "نوع الإصدار الفرعي";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // AppSubType_TXT
-            // 
-            this.AppSubType_TXT.Enabled = false;
-            this.AppSubType_TXT.Location = new System.Drawing.Point(536, 379);
-            this.AppSubType_TXT.MaxLength = 1;
-            this.AppSubType_TXT.Name = "AppSubType_TXT";
-            this.AppSubType_TXT.Size = new System.Drawing.Size(40, 20);
-            this.AppSubType_TXT.TabIndex = 158;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(422, 379);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 13);
-            this.label6.TabIndex = 159;
-            this.label6.Text = "Application Sub Type";
-            // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(476, 430);
+            this.label39.Location = new System.Drawing.Point(19, 272);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(56, 13);
             this.label39.TabIndex = 163;
@@ -718,7 +667,7 @@
             // Inputter_TXT
             // 
             this.Inputter_TXT.Enabled = false;
-            this.Inputter_TXT.Location = new System.Drawing.Point(536, 414);
+            this.Inputter_TXT.Location = new System.Drawing.Point(79, 256);
             this.Inputter_TXT.MaxLength = 7;
             this.Inputter_TXT.Name = "Inputter_TXT";
             this.Inputter_TXT.Size = new System.Drawing.Size(93, 20);
@@ -727,28 +676,127 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(465, 414);
+            this.label40.Location = new System.Drawing.Point(8, 256);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(57, 13);
             this.label40.TabIndex = 162;
             this.label40.Text = "Inputter ID";
             // 
-            // IssueBranchAuthScreen
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Year_LBL);
+            this.groupBox1.Controls.Add(this.label39);
+            this.groupBox1.Controls.Add(this.Inputter_TXT);
+            this.groupBox1.Controls.Add(this.label43);
+            this.groupBox1.Controls.Add(this.label40);
+            this.groupBox1.Controls.Add(this.label42);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.TotalAmount_TXT);
+            this.groupBox1.Controls.Add(this.label41);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.Amount_TXT);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.Authorize_BTN);
+            this.groupBox1.Controls.Add(this.Back_BTN);
+            this.groupBox1.Location = new System.Drawing.Point(760, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(292, 509);
+            this.groupBox1.TabIndex = 164;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Load";
+            // 
+            // Year_LBL
+            // 
+            this.Year_LBL.AutoSize = true;
+            this.Year_LBL.Location = new System.Drawing.Point(136, 152);
+            this.Year_LBL.Name = "Year_LBL";
+            this.Year_LBL.Size = new System.Drawing.Size(14, 13);
+            this.Year_LBL.TabIndex = 148;
+            this.Year_LBL.Text = "X";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(249, 152);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(37, 13);
+            this.label43.TabIndex = 147;
+            this.label43.Text = ":لـسنة ";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(25, 152);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(50, 13);
+            this.label42.TabIndex = 146;
+            this.label42.Text = "For Year:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(155, 136);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(131, 13);
+            this.label13.TabIndex = 145;
+            this.label13.Text = "اجمالي ماتم شحنه حتى الان";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // TotalAmount_TXT
+            // 
+            this.TotalAmount_TXT.Enabled = false;
+            this.TotalAmount_TXT.Location = new System.Drawing.Point(28, 165);
+            this.TotalAmount_TXT.MaxLength = 7;
+            this.TotalAmount_TXT.Name = "TotalAmount_TXT";
+            this.TotalAmount_TXT.Size = new System.Drawing.Size(122, 20);
+            this.TotalAmount_TXT.TabIndex = 143;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(25, 136);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(97, 13);
+            this.label41.TabIndex = 144;
+            this.label41.Text = "Total Load Amount";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(91, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 142;
+            this.label4.Text = "قيمة الشحن";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Amount_TXT
+            // 
+            this.Amount_TXT.Enabled = false;
+            this.Amount_TXT.Location = new System.Drawing.Point(28, 61);
+            this.Amount_TXT.MaxLength = 7;
+            this.Amount_TXT.Name = "Amount_TXT";
+            this.Amount_TXT.Size = new System.Drawing.Size(122, 20);
+            this.Amount_TXT.TabIndex = 140;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 141;
+            this.label7.Text = "Amount";
+            // 
+            // LoadBranchAuthScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(756, 540);
+            this.ClientSize = new System.Drawing.Size(1058, 540);
             this.ControlBox = false;
-            this.Controls.Add(this.label39);
-            this.Controls.Add(this.Inputter_TXT);
-            this.Controls.Add(this.label40);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.AppSubType_TXT);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.AppType_TXT);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label29);
@@ -785,8 +833,6 @@
             this.Controls.Add(this.Birthdate);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.CustomerID_TXT);
-            this.Controls.Add(this.Back_BTN);
-            this.Controls.Add(this.Authorize_BTN);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.Passport);
             this.Controls.Add(this.label33);
@@ -801,9 +847,9 @@
             this.Controls.Add(this.label38);
             this.Controls.Add(this.Program_CBox);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "IssueBranchAuthScreen";
-            this.Text = "IssueBranchAuthScreen";
-            this.Load += new System.EventHandler(this.IssueBranchAuthScreen_Load);
+            this.Name = "LoadBranchAuthScreen";
+            this.Text = "Authorize Load Request";
+            this.Load += new System.EventHandler(this.LoadBranchAuthScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
@@ -813,6 +859,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTSProgramBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -881,14 +929,18 @@
         private System.Windows.Forms.TextBox MainAccount_TXT;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.ComboBox Program_CBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox AppType_TXT;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox AppSubType_TXT;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox Inputter_TXT;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox Amount_TXT;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label Year_LBL;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox TotalAmount_TXT;
+        private System.Windows.Forms.Label label41;
     }
 }
