@@ -300,7 +300,6 @@
             this.AuthLoadRequests_BTN.AutoSize = true;
             this.AuthLoadRequests_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AuthLoadRequests_BTN.Depth = 0;
-            this.AuthLoadRequests_BTN.Enabled = false;
             this.AuthLoadRequests_BTN.Location = new System.Drawing.Point(13, 437);
             this.AuthLoadRequests_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AuthLoadRequests_BTN.MouseState = MaterialSkin.MouseState.HOVER;
@@ -310,6 +309,7 @@
             this.AuthLoadRequests_BTN.TabIndex = 58;
             this.AuthLoadRequests_BTN.Text = "Authorized Load Requests";
             this.AuthLoadRequests_BTN.UseVisualStyleBackColor = true;
+            this.AuthLoadRequests_BTN.Click += new System.EventHandler(this.AuthLoadRequests_BTN_Click);
             // 
             // GenerateT24_BTN
             // 

@@ -52,11 +52,14 @@ namespace MPBS.Screens.PTS.Load.SubScreen
             Email_TXT.Text = customerObject.Object.Email;
             var programsObject = PTSProgramController.getPrograms();
 
-            string programCode = record.ProgramCode;
+
+            string programCode = String.Concat(record.ProgramCode.Where(c => !Char.IsWhiteSpace(c)));
             if (programsObject.status)
             {
-                programCode = programsObject.Object.First(i => i.Code == record.ProgramCode).NameEN;
+                programCode = programsObject.Object.First(i => i.Code == programCode).NameEN;
             }
+
+
             Program_CBox.Text = programCode;
             var accountStatusObject = PTSAccountController.getAccount(record.CustomerID, record.ProgramCode);
             accountObject = accountStatusObject.Object;
@@ -82,6 +85,7 @@ namespace MPBS.Screens.PTS.Load.SubScreen
             if (string.IsNullOrWhiteSpace(accountObject.WalletNumber))
             {
                 MessageBox.Show("Error! This card doesn't have wallet number in Database");
+                return;
             }
 
              DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);

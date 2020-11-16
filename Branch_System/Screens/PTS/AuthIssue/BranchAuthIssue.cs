@@ -139,7 +139,7 @@ namespace MPBS.Screens.PTS.BranchAuthIssue
             if(isBranchAdmin)
             {
                 DataGridViewRow r = Record_DGView.SelectedRows[0];
-                LoadBranchAuthScreen authorize = new LoadBranchAuthScreen();
+                IssueBranchAuthScreen authorize = new IssueBranchAuthScreen();
                 if (records != null)
                 {
                     var q = records.Where(x => x.RecordID == Convert.ToInt32(r.Cells[0].Value)).ToArray();

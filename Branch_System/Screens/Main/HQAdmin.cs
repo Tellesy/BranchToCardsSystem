@@ -18,6 +18,7 @@ using MPBS.Screens.PTS.BranchAuthIssue;
 using MPBS.Screens.PTS.Generate_File;
 using MPBS.Screens.PTS.AuthIssue;
 using MPBS.Screens.UploadFile;
+using MPBS.Screens.PTS.Load;
 
 namespace MPBS.Screens.Main
 {
@@ -29,6 +30,7 @@ namespace MPBS.Screens.Main
         private BranchAuthIssue branchAuthIssue;
         private HQAuthIssue hQAuthIssue;
         private GenerateT24Files generateT24Files;
+        private HQAuthLoad hQAuthLoad;
 
         private GenAppRecord genAppRecord;
         public HQAdmin()
@@ -183,6 +185,21 @@ namespace MPBS.Screens.Main
                 };
                 generateT24Files.Show();
                 GenerateT24_BTN.Enabled = false;
+            }
+        }
+
+        private void AuthLoadRequests_BTN_Click(object sender, EventArgs e)
+        {
+            if (hQAuthLoad == null)
+            {
+                hQAuthLoad = new HQAuthLoad();
+
+
+                hQAuthLoad.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    hQAuthLoad = null; AuthLoadRequests_BTN.Enabled = true;
+                };
+                hQAuthLoad.Show();
+                AuthLoadRequests_BTN.Enabled = false;
             }
         }
     }

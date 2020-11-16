@@ -1,6 +1,6 @@
 ﻿namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
 {
-    partial class LoadBranchAuthScreen
+    partial class IssueBranchAuthScreen
     {
         /// <summary>
         /// Required designer variable.

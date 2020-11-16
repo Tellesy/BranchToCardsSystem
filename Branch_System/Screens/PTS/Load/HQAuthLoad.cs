@@ -1,31 +1,35 @@
-﻿using System;
+﻿using MPBS.Database.Objects;
+using MPBS.Screens.PTS.AuthIssue.SubScreen;
+using MPBS.Screens.PTS.Load.SubScreen;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MPBS.Database;
-using MPBS.Database.Objects;
-using MPBS.Screens.PTS.BranchAuthIssue.SubScreen;
-using MPBS.Screens.PTS.Load.SubScreen;
+
+//using static MPBS.Screens.AuthRecharge.AuthRecharge;
 
 namespace MPBS.Screens.PTS.Load
 {
-    public partial class BranchAuthLoad : MaterialSkin.Controls.MaterialForm
+    public partial class HQAuthLoad : MaterialSkin.Controls.MaterialForm
     {
-        private bool isBranchAdmin = true;
+        
         public List<Database.Objects.PTSLoad> records;
-        //public bool isEnquire = false;
 
-        public BranchAuthLoad()
+        public HQAuthLoad()
         {
             InitializeComponent();
         }
 
-        private void AuthIssue_Load(object sender, EventArgs e)
+        private void Sync_BTN_Click(object sender, EventArgs e)
+        {
+            GetUnAuthRecords();
+        }
+
+        private void HQAuthIssue_Load(object sender, EventArgs e)
         {
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
@@ -34,14 +38,6 @@ namespace MPBS.Screens.PTS.Load
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            if (Database.Login.role == "0")
-            {
-                isBranchAdmin = false;
-            }
-            else
-            {
-                isBranchAdmin = true;
-            }
             GetUnAuthRecords();
         }
 
@@ -50,7 +46,7 @@ namespace MPBS.Screens.PTS.Load
             //Get un Auth recharge records
             records = null;
             List<ViewList> viewLists = new List<ViewList>();
-            Status<List<Database.Objects.PTSLoad>> statusObject = Database.PTSLoadController.getBranchUnAuthLoad(isBranchAdmin);
+            Status<List<Database.Objects.PTSLoad>> statusObject = Database.PTSLoadController.getHQUnAuthLoad();
 
             if (statusObject.status)
             {
@@ -123,12 +119,6 @@ namespace MPBS.Screens.PTS.Load
 
         }
 
-        private void Sync_BTN_Click(object sender, EventArgs e)
-        {
-            GetUnAuthRecords();
-
-        }
-
 
         private void Exit_BTN_Click(object sender, EventArgs e)
         {
@@ -137,10 +127,9 @@ namespace MPBS.Screens.PTS.Load
 
         private void Record_DGView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(isBranchAdmin)
-            {
+            
                 DataGridViewRow r = Record_DGView.SelectedRows[0];
-                LoadBranchAuthScreen authorize = new LoadBranchAuthScreen();
+                LoadHQAuthScreen authorize = new LoadHQAuthScreen();
                 if (records != null)
                 {
                     var q = records.Where(x => x.ID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
@@ -153,8 +142,8 @@ namespace MPBS.Screens.PTS.Load
                         authorize.Show();
                     }
                 }
-            }
-          
+            
+
 
 
         }

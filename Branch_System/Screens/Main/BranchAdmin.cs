@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using MPBS.Screens.FilesAuth;
 using MPBS.Screens.Account_Details;
 using MPBS.Screens.PTS.BranchAuthIssue;
+using MPBS.Screens.PTS.Load;
 
 namespace MPBS.Screens
 {
@@ -25,6 +26,7 @@ namespace MPBS.Screens
         public ChangePassword changePassword;
         private POBranchUnauth POApp;
         private Search search;
+        private BranchAuthLoad branchAuthLoad;
 
         //PTSScreens
         private BranchAuthIssue authIssue;
@@ -172,6 +174,19 @@ namespace MPBS.Screens
                 };
                 changePassword.Show();
                 Password_BTN.Enabled = false;
+            }
+        }
+
+        private void PTSLoadAuth_BTN_Click(object sender, EventArgs e)
+        {
+            if (branchAuthLoad == null)
+            {
+                branchAuthLoad = new BranchAuthLoad();
+                branchAuthLoad.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    branchAuthLoad = null; PTSLoadAuth_BTN.Enabled = true;
+                };
+                branchAuthLoad.Show();
+                PTSLoadAuth_BTN.Enabled = false;
             }
         }
     }

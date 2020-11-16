@@ -13,12 +13,12 @@ using System.Windows.Forms;
 namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
 {
 
-    public partial class LoadBranchAuthScreen : Form
+    public partial class IssueBranchAuthScreen : Form
     {
 
         public PTSAppRecord record;
 
-        public LoadBranchAuthScreen()
+        public IssueBranchAuthScreen()
         {
             InitializeComponent();
         }

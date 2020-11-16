@@ -228,7 +228,6 @@
             this.PTSLoadAuth_BTN.AutoSize = true;
             this.PTSLoadAuth_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.PTSLoadAuth_BTN.Depth = 0;
-            this.PTSLoadAuth_BTN.Enabled = false;
             this.PTSLoadAuth_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.PTSLoadAuth_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PTSLoadAuth_BTN.Image")));
             this.PTSLoadAuth_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -242,6 +241,7 @@
             this.PTSLoadAuth_BTN.Text = "Authorize Load Request (PTS)";
             this.PTSLoadAuth_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.PTSLoadAuth_BTN.UseVisualStyleBackColor = true;
+            this.PTSLoadAuth_BTN.Click += new System.EventHandler(this.PTSLoadAuth_BTN_Click);
             // 
             // Welcome_LBL
             // 
@@ -408,7 +408,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(520, 704);
+            this.ClientSize = new System.Drawing.Size(516, 700);
             this.ControlBox = false;
             this.Controls.Add(this.Branch_LBL);
             this.Controls.Add(this.materialLabel3);

@@ -386,6 +386,12 @@
     <Compile Include="Screens\PTS\Load\BranchAuthLoad.Designer.cs">
       <DependentUpon>BranchAuthLoad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\PTS\Load\HQAuthLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Load\HQAuthLoad.Designer.cs">
+      <DependentUpon>HQAuthLoad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PTS\Load\Load.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -575,6 +581,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Load\BranchAuthLoad.resx">
       <DependentUpon>BranchAuthLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Load\HQAuthLoad.resx">
+      <DependentUpon>HQAuthLoad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Load\Load.resx">
       <DependentUpon>Load.cs</DependentUpon>
