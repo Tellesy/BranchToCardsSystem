@@ -493,6 +493,97 @@ namespace MPBS.Database
             }
         }
 
+        public static Status<List<Objects.PTSLoad>> getFullyAuthorizedLoadRequests()
+        {
+
+            Status<List<Objects.PTSLoad>> statusObject = new Status<List<Objects.PTSLoad>>();
+            statusObject.Object = new List<Objects.PTSLoad>();
+            statusObject.status = false;
+
+
+            SqlConnection conn = DBConnection.Connection();
+
+
+
+            conn.Open();
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+
+                try
+                {
+
+                    string query = @"SELECT  [ID],[customer_ID] ,[program_code],[branch_code],[year],[amount],[inputter],[input_time] ,[branch_authorizer],[branch_auth_time] ,[HQ_authorizer] ,[HQ_auth_time] ,[generated] ,[gen_time] FROM [CTS].[dbo].[PTS_Load] where branch_authorizer is not NULL AND HQ_authorizer is not NULL AND generated = 0";
+
+
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (!reader.HasRows)
+                        {
+                            statusObject.status = false;
+                            statusObject.message = "لا يوجد سجلات تحتاج الى تخويل";
+                            return statusObject;
+
+                        }
+
+                        while (reader.Read())
+                        {
+                            Objects.PTSLoad request = new Objects.PTSLoad();
+                            if (!string.IsNullOrEmpty(reader[0].ToString()))
+                                request.ID = int.Parse(reader[0].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[1].ToString()))
+                                request.CustomerID = reader[1].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[2].ToString()))
+                                request.ProgramCode = reader[2].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[3].ToString()))
+                                request.BranchCode = reader[3].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[4].ToString()))
+                                request.Year = reader[4].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[5].ToString()))
+                                request.Amount = int.Parse(reader[5].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[6].ToString()))
+                                request.Inputter = reader[6].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[7].ToString()))
+                                request.InputTime = DateTime.Parse(reader[7].ToString());
+
+                            statusObject.Object.Add(request);
+                        }
+                        conn.Close();
+                        statusObject.status = true;
+                        return statusObject;
+                    }
+
+
+                }
+                catch (Exception e)
+                {
+                    conn.Close();
+                    statusObject.status = false;
+                    statusObject.message = "Get Unauth Recharge requests \n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return statusObject;
+                }
+            }
+            else
+            {
+                statusObject.status = false;
+                statusObject.message = Errors.ErrorsString.Error001;
+
+                return statusObject;
+            }
+        }
         public static Status authBranchLoadRequest(int recordID)
         {
             Status status = new Status();

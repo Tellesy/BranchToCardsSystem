@@ -374,6 +374,12 @@
     <Compile Include="Screens\Main\Printing.Designer.cs">
       <DependentUpon>Printing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\PTS\Generate File\GenLoadFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Generate File\GenLoadFile.Designer.cs">
+      <DependentUpon>GenLoadFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PTS\Issue\PTS_Issue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -575,6 +581,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\Printing.resx">
       <DependentUpon>Printing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Generate File\GenLoadFile.resx">
+      <DependentUpon>GenLoadFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Issue\PTS_Issue.resx">
       <DependentUpon>PTS_Issue.cs</DependentUpon>

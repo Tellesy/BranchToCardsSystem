@@ -13,7 +13,7 @@ using MPBS.Database;
 
 namespace MPBS.Screens.PTS.Generate_File
 {
-    public partial class GenAppRecord : Form
+    public partial class GenAppRecord : MaterialSkin.Controls.MaterialForm
     {
         public GenAppRecord()
         {
