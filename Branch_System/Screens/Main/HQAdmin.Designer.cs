@@ -47,6 +47,7 @@
             this.UnauthBrasnchLoad_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.AuthLoadRequests_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.GenerateT24_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.GenLoadFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -252,7 +253,7 @@
             this.GenFiles_BTN.AutoSize = true;
             this.GenFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenFiles_BTN.Depth = 0;
-            this.GenFiles_BTN.Location = new System.Drawing.Point(12, 544);
+            this.GenFiles_BTN.Location = new System.Drawing.Point(13, 533);
             this.GenFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenFiles_BTN.Name = "GenFiles_BTN";
@@ -268,7 +269,7 @@
             this.Logout_BTN.AutoSize = true;
             this.Logout_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Logout_BTN.Depth = 0;
-            this.Logout_BTN.Location = new System.Drawing.Point(11, 592);
+            this.Logout_BTN.Location = new System.Drawing.Point(13, 629);
             this.Logout_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Logout_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Logout_BTN.Name = "Logout_BTN";
@@ -327,13 +328,30 @@
             this.GenerateT24_BTN.UseVisualStyleBackColor = true;
             this.GenerateT24_BTN.Click += new System.EventHandler(this.GenerateT24_BTN_Click);
             // 
+            // GenLoadFiles_BTN
+            // 
+            this.GenLoadFiles_BTN.AutoSize = true;
+            this.GenLoadFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GenLoadFiles_BTN.Depth = 0;
+            this.GenLoadFiles_BTN.Location = new System.Drawing.Point(13, 581);
+            this.GenLoadFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.GenLoadFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.GenLoadFiles_BTN.Name = "GenLoadFiles_BTN";
+            this.GenLoadFiles_BTN.Primary = false;
+            this.GenLoadFiles_BTN.Size = new System.Drawing.Size(196, 36);
+            this.GenLoadFiles_BTN.TabIndex = 60;
+            this.GenLoadFiles_BTN.Text = "Generate Load Files (PTS)";
+            this.GenLoadFiles_BTN.UseVisualStyleBackColor = true;
+            this.GenLoadFiles_BTN.Click += new System.EventHandler(this.GenLoadFiles_BTN_Click);
+            // 
             // HQAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(517, 664);
+            this.ClientSize = new System.Drawing.Size(517, 687);
             this.ControlBox = false;
+            this.Controls.Add(this.GenLoadFiles_BTN);
             this.Controls.Add(this.GenerateT24_BTN);
             this.Controls.Add(this.AuthLoadRequests_BTN);
             this.Controls.Add(this.UnauthBrasnchLoad_BTN);
@@ -377,5 +395,6 @@
         private MaterialSkin.Controls.MaterialFlatButton UnauthBrasnchLoad_BTN;
         private MaterialSkin.Controls.MaterialFlatButton AuthLoadRequests_BTN;
         private MaterialSkin.Controls.MaterialFlatButton GenerateT24_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton GenLoadFiles_BTN;
     }
 }

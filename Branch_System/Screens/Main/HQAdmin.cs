@@ -31,6 +31,7 @@ namespace MPBS.Screens.Main
         private HQAuthIssue hQAuthIssue;
         private GenerateT24Files generateT24Files;
         private HQAuthLoad hQAuthLoad;
+        private GenLoadFile genLoadFile;
 
         private GenAppRecord genAppRecord;
         public HQAdmin()
@@ -200,6 +201,21 @@ namespace MPBS.Screens.Main
                 };
                 hQAuthLoad.Show();
                 AuthLoadRequests_BTN.Enabled = false;
+            }
+        }
+
+        private void GenLoadFiles_BTN_Click(object sender, EventArgs e)
+        {
+            if (genLoadFile == null)
+            {
+                genLoadFile = new GenLoadFile();
+
+
+                genLoadFile.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    genLoadFile = null; GenLoadFiles_BTN.Enabled = true;
+                };
+                genLoadFile.Show();
+                GenLoadFiles_BTN.Enabled = false;
             }
         }
     }

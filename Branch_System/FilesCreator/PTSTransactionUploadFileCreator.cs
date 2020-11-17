@@ -17,7 +17,7 @@ namespace MPBS.FilesCreator
         
       
 
-        public static Status GenerateAppRecordFile(List<PTSTransactionRecord> records)
+        public static Status GenerateTransactionsRecordsFile(List<PTSTransactionRecord> records)
         {
             Status status = new Status();
             status.status = false;
