@@ -52,6 +52,7 @@
             this.Exit_BTN.TabIndex = 51;
             this.Exit_BTN.Text = "Back";
             this.Exit_BTN.UseVisualStyleBackColor = true;
+            this.Exit_BTN.Click += new System.EventHandler(this.Exit_BTN_Click);
             // 
             // GenLoadFilesBasedOnCode_BTN
             // 

@@ -259,5 +259,10 @@ namespace MPBS.Screens.PTS.Generate_File
             public List<string> col_4 { get; set; }
 
         }
+
+        private void Exit_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
