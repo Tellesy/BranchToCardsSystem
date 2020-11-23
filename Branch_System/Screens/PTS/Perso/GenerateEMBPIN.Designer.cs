@@ -77,6 +77,7 @@
             this.BrowsePIN_BTN.TabIndex = 54;
             this.BrowsePIN_BTN.Text = "Browse";
             this.BrowsePIN_BTN.UseVisualStyleBackColor = true;
+            this.BrowsePIN_BTN.Click += new System.EventHandler(this.BrowsePIN_BTN_Click);
             // 
             // BrowseEMB_TXT
             // 

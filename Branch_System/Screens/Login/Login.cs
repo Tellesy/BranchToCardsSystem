@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using MPBS.Database;
 using System.Reflection;
 using MPBS.Screens.Main;
+using MPBS.Screens.PTS.Perso;
 
 namespace MPBS.Screens
 {
@@ -116,8 +117,6 @@ namespace MPBS.Screens
                     HQAdmin hqAdmin = new HQAdmin();
                     hqAdmin.Closed += (s, args) => this.Show();
                     hqAdmin.Show();
-
-
                 }
                 else if(Database.Login.role == "3")
                 {
@@ -127,6 +126,14 @@ namespace MPBS.Screens
                     Auditor auditorApp = new Auditor();
                     auditorApp.Closed += (s, args) => this.Show();
                     auditorApp.Show();
+                }else if(Database.Login.role == "4")
+                {
+                    Username_TXT.Text = "";
+                    Password_TXT.Text = "";
+                    this.Hide();
+                    GenerateEMBPIN generateEMBPIN = new GenerateEMBPIN();
+                    generateEMBPIN.Closed += (s, args) => this.Show();
+                    generateEMBPIN.Show();
                 }
                 else
                 {

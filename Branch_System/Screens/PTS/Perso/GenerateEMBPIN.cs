@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPBS.FilesCreator;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,6 +55,19 @@ namespace MPBS.Screens.PTS.Perso
         }
 
         private void BrowseEmb_BTN_Click(object sender, EventArgs e)
+        {
+            var deviceDialog = OpenFileDialog();
+            DialogResult dr = deviceDialog.ShowDialog();
+
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                BrowseEMB_TXT.Text = deviceDialog.FileName;
+                EmbPINFilesReader.ExtractRecordsFromFiles(deviceDialog.FileName);
+
+            }
+        }
+
+        private void BrowsePIN_BTN_Click(object sender, EventArgs e)
         {
             var deviceDialog = OpenFileDialog();
             DialogResult dr = deviceDialog.ShowDialog();

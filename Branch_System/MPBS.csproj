@@ -215,6 +215,7 @@
     <Compile Include="Database\PTSProgramController.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\AppRecrodFileCreator.cs" />
+    <Compile Include="FilesCreator\EmbPINFilesReader.cs" />
     <Compile Include="FilesCreator\FilesCreator.cs" />
     <Compile Include="FilesCreator\PTSTransactionUploadFileCreator.cs" />
     <Compile Include="MPBSConfig.cs" />
@@ -338,6 +339,12 @@
     <Compile Include="Screens\Main\HQAdmin.Designer.cs">
       <DependentUpon>HQAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Main\PersoPinMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\PersoPinMaster.Designer.cs">
+      <DependentUpon>PersoPinMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PTS\AuthIssue\BranchAuthIssue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -415,6 +422,12 @@
     </Compile>
     <Compile Include="Screens\PTS\Load\SubScreen\LoadHQAuthScreen.Designer.cs">
       <DependentUpon>LoadHQAuthScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PTS\Perso\GenerateEMBPIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Perso\GenerateEMBPIN.Designer.cs">
+      <DependentUpon>GenerateEMBPIN.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\SMT\PIN\PIN.cs">
       <SubType>Form</SubType>
@@ -564,6 +577,9 @@
     <EmbeddedResource Include="Screens\Main\Inputter.resx">
       <DependentUpon>Inputter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\PersoPinMaster.resx">
+      <DependentUpon>PersoPinMaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\AuthIssue\BranchAuthIssue.resx">
       <DependentUpon>BranchAuthIssue.cs</DependentUpon>
     </EmbeddedResource>
@@ -602,6 +618,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Load\SubScreen\LoadHQAuthScreen.resx">
       <DependentUpon>LoadHQAuthScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Perso\GenerateEMBPIN.resx">
+      <DependentUpon>GenerateEMBPIN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\SMT\PIN\PIN.resx">
       <DependentUpon>PIN.cs</DependentUpon>
