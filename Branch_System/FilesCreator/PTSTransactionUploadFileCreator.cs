@@ -25,7 +25,7 @@ namespace MPBS.FilesCreator
 
             foreach (PTSTransactionRecord record in records)
             {
-                recordStrings.Add(extractRecordsString(record));
+                recordStrings.Add(extractRecordsString(record, records.Count));
             }
 
             string fileName = getFileName();
@@ -55,7 +55,9 @@ namespace MPBS.FilesCreator
             string hour = today.Hour.ToString().PadLeft(2, '0');
             string minutes = today.Minute.ToString().PadLeft(2, '0');
             string seconds = today.Second.ToString().PadLeft(2, '0');
-            string header = "HD" + "|" + MPBSConfig.PTSBankCode + "|" + day + month + year + hour + minutes + seconds + "|" + "2.0";
+            //string header = "HD" + "|" + MPBSConfig.PTSBankCode + "|" + day + month + year + hour + minutes + seconds + "|" + "2.0";
+            string header = "HD" + MPBSConfig.PTSBankCode  + day + month + year + hour + minutes + seconds  + "2.0";
+
 
             return header;
         }
@@ -63,7 +65,9 @@ namespace MPBS.FilesCreator
         private static string getFooter(int count)
         {
             string recordCount = count.ToString().PadLeft(9, '0');
-            string footer = "FT" + "|" + recordCount;
+           //string footer = "FT" + "|" + recordCount;
+            string footer = "FT"  + recordCount;
+
             return footer;
         }
 
@@ -88,7 +92,7 @@ namespace MPBS.FilesCreator
             name += ".dat";
             return name;
         }
-        private static string extractRecordsString(PTSTransactionRecord record)
+        private static string extractRecordsString(PTSTransactionRecord record, int checksum)
         {
 
             string recordString = "";
@@ -150,6 +154,8 @@ namespace MPBS.FilesCreator
             {
                 record.Narration = "";
             }
+
+           //record.Narration = String.Concat(record.Narration.Where(c => !Char.IsWhiteSpace(c)));
             recordString += record.Narration + "|";
 
             //ORG_TXN_ARN
@@ -160,10 +166,10 @@ namespace MPBS.FilesCreator
 
 
             //Source
-            recordString += record.Source + "|";
+            recordString += record.Source.ToString().PadLeft(2,'0') + "|";
 
             //Checksum 
-            recordString += "";
+            recordString += checksum.ToString().PadLeft(8,'0')+ "";
 
             return recordString;
         }
@@ -183,7 +189,7 @@ namespace MPBS.FilesCreator
         {
             Status status = new Status();
             status.status = false;
-            string file = String.Format(MPBSConfig.PTSApplicationFiles + @"\" + fileName);
+            string file = String.Format(MPBSConfig.PTSLoadFiles + @"\" + fileName);
 
             try
             {
