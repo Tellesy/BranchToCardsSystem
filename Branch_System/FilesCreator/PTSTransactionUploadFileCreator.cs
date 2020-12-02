@@ -25,7 +25,7 @@ namespace MPBS.FilesCreator
 
             foreach (PTSTransactionRecord record in records)
             {
-                recordStrings.Add(extractRecordsString(record, records.Count));
+                recordStrings.Add(extractRecordsString(record));
             }
 
             string fileName = getFileName();
@@ -92,7 +92,7 @@ namespace MPBS.FilesCreator
             name += ".dat";
             return name;
         }
-        private static string extractRecordsString(PTSTransactionRecord record, int checksum)
+        private static string extractRecordsString(PTSTransactionRecord record)
         {
 
             string recordString = "";
@@ -169,7 +169,7 @@ namespace MPBS.FilesCreator
             recordString += record.Source.ToString().PadLeft(2,'0') + "|";
 
             //Checksum 
-            recordString += checksum.ToString().PadLeft(8,'0')+ "";
+            recordString += "".PadLeft(8, '0') + "";
 
             return recordString;
         }
