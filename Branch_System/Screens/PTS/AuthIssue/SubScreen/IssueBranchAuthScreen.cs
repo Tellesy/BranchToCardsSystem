@@ -45,12 +45,14 @@ namespace MPBS.Screens.PTS.BranchAuthIssue.SubScreen
             CountryPhoneCode_CBox.Text = customerObject.Object.PhoneISD;
             PhoneNo_TXT.Text = customerObject.Object.Phone;
             Email_TXT.Text = customerObject.Object.Email;
-           var programsObject = PTSProgramController.getPrograms();
+            var programsObject = PTSProgramController.getPrograms();
 
-            string programCode = record.ProgramCode;
+            string programCode = String.Concat(record.ProgramCode.Where(c => !Char.IsWhiteSpace(c)));
+
             if (programsObject.status)
             {
-                programCode = programsObject.Object.First(i => i.Code == record.ProgramCode).NameEN;
+                
+                programCode = programsObject.Object.First(i => i.Code == String.Concat(record.ProgramCode.Where(c => !Char.IsWhiteSpace(c)))).NameEN;
             }
             Program_CBox.Text = programCode;
             var accountObject = PTSAccountController.getAccount(record.CustomerID, record.ProgramCode);
