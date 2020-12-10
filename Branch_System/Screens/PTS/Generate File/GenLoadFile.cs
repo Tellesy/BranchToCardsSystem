@@ -38,6 +38,7 @@ namespace MPBS.Screens.PTS.Generate_File
             Status<List<PTSLoad>> recordsStatus = PTSLoadController.getFullyAuthorizedLoadRequests();
 
             List<PTSLoad> records = new List<PTSLoad>();
+            List<PTSLoad> generatedRecords = new List<PTSLoad>();
             List<PTSTransactionRecord> transactions = new List<PTSTransactionRecord>();
 
           
@@ -96,7 +97,6 @@ namespace MPBS.Screens.PTS.Generate_File
                         DeviceNumber_logs.col_3.Add(record.ProgramCode);
                         DeviceNumber_logs.col_4.Add("No Device Number in Database");
                         records.Remove(record);
-
                         continue;
                     }
 
@@ -121,40 +121,50 @@ namespace MPBS.Screens.PTS.Generate_File
              
 
                     transactions.Add(t);
+                    generatedRecords.Add(record);
 
 
                 }
 
-
-                var status = PTSTransactionUploadFileCreator.GenerateTransactionsRecordsFile(transactions);
-
-                
-
-                if (status.status)
+                if(transactions.Count>0)
                 {
-                    foreach (var record in records)
+                    var status = PTSTransactionUploadFileCreator.GenerateTransactionsRecordsFile(transactions);
+
+
+
+                    if (status.status)
                     {
-                        var sObject = PTSLoadController.genLoad(record.ID);
-                        if (!sObject.status)
+
+                        foreach (var record in generatedRecords)
                         {
-                            MessageBox.Show("The Record has been generated in file but failed to update (generated Var in DB)", "Error in Reocrd " + record.ID);
-                            //add to logs
-                            GenLoadRecordinDB_logs.col_1.Add(record.ID.ToString());
-                            GenLoadRecordinDB_logs.col_2.Add(record.CustomerID);
-                            GenLoadRecordinDB_logs.col_3.Add(record.ProgramCode);
-                            GenLoadRecordinDB_logs.col_4.Add("The Record has been generated in file but failed to update (generated Var in DB)");
-                            records.Remove(record);
+                            var sObject = PTSLoadController.genLoad(record.ID);
+                            if (!sObject.status)
+                            {
+                                MessageBox.Show("The Record has been generated in file but failed to update (generated Var in DB)", "Error in Reocrd " + record.ID);
+                                //add to logs
+                                GenLoadRecordinDB_logs.col_1.Add(record.ID.ToString());
+                                GenLoadRecordinDB_logs.col_2.Add(record.CustomerID);
+                                GenLoadRecordinDB_logs.col_3.Add(record.ProgramCode);
+                                GenLoadRecordinDB_logs.col_4.Add("The Record has been generated in file but failed to update (generated Var in DB)");
+                                records.Remove(record);
 
 
+                            }
                         }
-                    }
 
-                    MessageBox.Show("Done");
+                        MessageBox.Show("Done");
+                    }
+                    else
+                    {
+                        MessageBox.Show(status.message);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(status.message);
+                    MessageBox.Show("No transactions file was generated");
                 }
+
+          
 
                 GenerateTransactionsErrorReport(WalletNumber_logs, "Wallet_Number_Error_logs");
                 GenerateTransactionsErrorReport(DeviceNumber_logs, "Device_Number_Error_logs");
