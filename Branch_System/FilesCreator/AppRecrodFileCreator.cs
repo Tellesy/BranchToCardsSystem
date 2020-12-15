@@ -397,7 +397,7 @@ namespace MPBS.FilesCreator
             recordString += "C" + "|";
 
             //Current Address Line 1
-            recordString += record.Customer.Address + "|";
+            recordString += "Tripoli" + "|";
 
             //Current Address Line 2
             recordString += "|";
@@ -484,7 +484,7 @@ namespace MPBS.FilesCreator
             recordString += record.Customer.Email + "|";
 
             //Language Preference
-            recordString += "ar" + "|";
+            recordString += "en" + "|";
 
             //Office Address Line 1
             recordString += "|";
@@ -699,10 +699,10 @@ namespace MPBS.FilesCreator
             recordString += "|";
 
             //Wallet Custom Number 1
-            recordString += record.Account.AccountNumberCurrency + "|";
+            recordString += "" + "|";
 
             //Wallet Custom Number 2
-            recordString += record.Account.AccountNumberLYD + "|";
+            recordString += "" + "|";
 
             //Wallet Custom Number 3
             recordString += "|";
