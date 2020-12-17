@@ -421,7 +421,8 @@ namespace MPBS.FilesCreator
             recordString += "|";
 
             //Current Phone Number 1
-            recordString += record.Customer.Phone.Where(c => !Char.IsWhiteSpace(c)) + "|";
+            
+            recordString += String.Concat(record.Customer.Phone.Where(c => !Char.IsWhiteSpace(c))) + "|";
 
             //Current Phone Number 2
             recordString += "|";
