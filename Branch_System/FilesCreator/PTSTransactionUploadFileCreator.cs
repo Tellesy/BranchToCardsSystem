@@ -154,7 +154,7 @@ namespace MPBS.FilesCreator
             }
 
            //record.Narration = String.Concat(record.Narration.Where(c => !Char.IsWhiteSpace(c)));
-            recordString += record.Narration + "|";
+            recordString += record.Narration.Substring(0,38) + "|";
 
             //ORG_TXN_ARN
             recordString += record.OrgTxnArn + "|";
@@ -164,7 +164,7 @@ namespace MPBS.FilesCreator
 
 
             //Source
-            recordString += record.Source.ToString().PadLeft(2,'0') + "|";
+            recordString += "" + "|";
 
             //Checksum 
             recordString += "".PadLeft(8, '0') + "";
