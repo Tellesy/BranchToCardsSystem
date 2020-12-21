@@ -147,6 +147,8 @@
     </Reference>
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\net45\System.Interactive.Async.dll</HintPath>
     </Reference>
@@ -338,6 +340,18 @@
     </Compile>
     <Compile Include="Screens\Main\HQAdmin.Designer.cs">
       <DependentUpon>HQAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Main\HQIssueMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\HQIssueMenu.Designer.cs">
+      <DependentUpon>HQIssueMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Main\HQLoadMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\HQLoadMenu.Designer.cs">
+      <DependentUpon>HQLoadMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Main\PersoPinMaster.cs">
       <SubType>Form</SubType>
@@ -573,6 +587,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\HQAdmin.resx">
       <DependentUpon>HQAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\HQIssueMenu.resx">
+      <DependentUpon>HQIssueMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\HQLoadMenu.resx">
+      <DependentUpon>HQLoadMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\Inputter.resx">
       <DependentUpon>Inputter.cs</DependentUpon>

@@ -22,9 +22,8 @@ using MPBS.Screens.PTS.Load;
 
 namespace MPBS.Screens.Main
 {
-    public partial class HQAdmin : MaterialSkin.Controls.MaterialForm
+    public partial class HQLoadMenu : MaterialSkin.Controls.MaterialForm
     {
-
         private ChangePassword changePassword;
         private Search search;
         private BranchAuthIssue branchAuthIssue;
@@ -33,45 +32,13 @@ namespace MPBS.Screens.Main
         private HQAuthLoad hQAuthLoad;
         private GenLoadFile genLoadFile;
 
-        private GenAppRecord genAppRecord;
-        public HQAdmin()
+
+        public HQLoadMenu()
         {
             InitializeComponent();
         }
 
-        private void Password_BTN_Click(object sender, EventArgs e)
-        {
-            if (changePassword == null)
-            {
-                changePassword = new ChangePassword();
-                changePassword.Closed += (s, args) => {
-                    //authRecharge.UnlockRecord();
-                    Password_BTN.Enabled = true;
-                    changePassword = null; //PBF_Auth_BTN.Enabled = true;
-                };
-                changePassword.Show();
-                Password_BTN.Enabled = false;
-            }
-        }
-
-        private void UpdateUser_BTN_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddUser_BTN_Click(object sender, EventArgs e)
-        {
-            MPBS.Screens.User.Add_User adduser = new MPBS.Screens.User.Add_User();
-            adduser.Show();
-        }
-
-        private void AddCardAccount_BTN_Click(object sender, EventArgs e)
-        {
-            MPBS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
-            cardAccount.Show();
-        }
-
-        private void HQAdmin_Load(object sender, EventArgs e)
+        private void HQLoadMenu_Load(object sender, EventArgs e)
         {
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
@@ -86,7 +53,7 @@ namespace MPBS.Screens.Main
             System.IO.Directory.CreateDirectory(FileExporter.location);
             string RECEPT = String.Format(FileExporter.location + "RECEPT");
             string REFRESH = String.Format(FileExporter.location + "REFRESH");
-      
+
 
 
 
@@ -123,59 +90,14 @@ namespace MPBS.Screens.Main
             }
         }
 
-        private void unAuthAppRecord_BTN_Click(object sender, EventArgs e)
+        private void UnauthBrasnchLoad_BTN_Click(object sender, EventArgs e)
         {
-            if(branchAuthIssue == null)
-            {
-                branchAuthIssue = new BranchAuthIssue();
-                
 
-                branchAuthIssue.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    branchAuthIssue = null; unAuthAppRecord_BTN.Enabled = true;
-                };
-                branchAuthIssue.Show();
-                unAuthAppRecord_BTN.Enabled = false;
-            }
-           
-        }
-
-        private void Logout_BTN_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void GenFiles_BTN_Click(object sender, EventArgs e)
-        {
-            if (genAppRecord == null)
-            {
-                genAppRecord = new GenAppRecord();
-
-
-                genAppRecord.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    genAppRecord = null; GenFiles_BTN.Enabled = true;
-                };
-                genAppRecord.Show();
-                GenFiles_BTN.Enabled = false;
-            }
-        }
-
-        private void HQAuthAppRecord_BTN_Click(object sender, EventArgs e)
-        {
-            if (hQAuthIssue == null)
-            {
-                hQAuthIssue = new HQAuthIssue();
-
-
-                hQAuthIssue.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    hQAuthIssue = null; HQAuthAppRecord_BTN.Enabled = true;
-                };
-                hQAuthIssue.Show();
-                HQAuthAppRecord_BTN.Enabled = false;
-            }
         }
 
         private void GenerateT24_BTN_Click(object sender, EventArgs e)
         {
+
             if (generateT24Files == null)
             {
                 generateT24Files = new GenerateT24Files();
@@ -219,9 +141,24 @@ namespace MPBS.Screens.Main
             }
         }
 
-        private void UnauthBrasnchLoad_BTN_Click(object sender, EventArgs e)
+        private void Logout_BTN_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void Password_BTN_Click(object sender, EventArgs e)
+        {
+            if (changePassword == null)
+            {
+                changePassword = new ChangePassword();
+                changePassword.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    Password_BTN.Enabled = true;
+                    changePassword = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                changePassword.Show();
+                Password_BTN.Enabled = false;
+            }
         }
     }
 }

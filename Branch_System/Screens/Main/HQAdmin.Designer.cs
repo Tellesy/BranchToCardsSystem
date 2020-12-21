@@ -295,6 +295,7 @@
             this.UnauthBrasnchLoad_BTN.TabIndex = 57;
             this.UnauthBrasnchLoad_BTN.Text = "Unauthorized Branch Load";
             this.UnauthBrasnchLoad_BTN.UseVisualStyleBackColor = true;
+            this.UnauthBrasnchLoad_BTN.Click += new System.EventHandler(this.UnauthBrasnchLoad_BTN_Click);
             // 
             // AuthLoadRequests_BTN
             // 

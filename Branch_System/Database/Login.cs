@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
 
 namespace MPBS.Database
 {
@@ -171,6 +173,139 @@ namespace MPBS.Database
                 }
             }
             return status;
+        }
+
+        /// <summary>
+        /// Check if the username is Active directory Enabled
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public static Status isADEnabled(string username)
+        {
+
+
+            Status status = new Status();
+            status.status = false;
+            string active = "False";
+            string enabled = "False";
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                status.status = false;
+                status.message = "لا يمكن الوصول بقاعدة البيانات, الرجاء التأكد من الإتصال";
+
+                return status;
+            }
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = String.Format(@"SELECT 
+                               [Username]
+                              ,[Employee]
+                              ,[Active]
+                              ,[LIB_ID]
+                              ,[Role]
+                              ,[Branch]
+                              ,[AD_enabled]
+                          FROM [Users] WHERE Username = '{0}", username);
+
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            status.status = false;
+                            status.message = "اسم المستخدم غير صحيح, الرجاء التأكد";
+
+                            return status;
+
+                        }
+                        while (reader.Read())
+                        {
+                            enabled = reader[6].ToString();
+
+                        }
+
+                        if (active != "True")
+                        {
+                            status.status = false;
+                            status.message = "هذا المستخدم غير مفعل, الرجاء الاستفسار من مديرك";
+
+                            return status;
+                        }
+                        if(enabled != "True")
+                        {
+                            status.status = false;
+                            status.message = "هذا المستخدم غير مفعل, الرجاء الاستفسار من مديرك";
+
+                            return status;
+                        }
+                    }
+
+
+                    status.status = true;
+                    conn.Close();
+                    return status;
+                }
+                catch (Exception e)
+                {
+                    status.status = false;
+                    status.message = Errors.ErrorsString.Error002 + "\n" + e;
+                    return status;
+                }
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                return status;
+            }
+        }
+        public static Status domainLogin(string username, string password)
+        {
+
+            Status result = new Status();
+
+            result.status = false;
+            using (DirectoryEntry _entry = new DirectoryEntry())
+            {
+               // username = @"lib\" + username;
+                _entry.Username = username;
+                _entry.Password = password;
+                DirectorySearcher _searcher = new DirectorySearcher(_entry);
+                _searcher.Filter = "(objectclass=user)";
+
+                //try
+                //{
+                //    PrincipalContext pc = new PrincipalContext(ContextType.Domain, "lib");
+                //    bool Valid = pc.ValidateCredentials(username, password);
+                //}
+                //catch (Exception e)
+                //{
+                //    string error = e.Message;
+                //}
+               
+                try
+                {
+                    SearchResult _sr = _searcher.FindOne();
+                    string _name = _sr.Properties["displayname"][0].ToString();
+                    result.status = true;
+                }
+                catch(Exception e)
+                {
+                    result.status = false;
+                    result.message = e.Message;
+                }
+            }
+
+            return result; //true = user authenticated!
         }
     }
 }

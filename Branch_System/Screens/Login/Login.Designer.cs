@@ -36,6 +36,7 @@
             this.Username_TXT = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.Password_TXT = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DomainLogin_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,12 +131,33 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // DomainLogin_BTN
+            // 
+            this.DomainLogin_BTN.AutoSize = true;
+            this.DomainLogin_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DomainLogin_BTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.DomainLogin_BTN.Depth = 0;
+            this.DomainLogin_BTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.DomainLogin_BTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.DomainLogin_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DomainLogin_BTN.Location = new System.Drawing.Point(13, 385);
+            this.DomainLogin_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DomainLogin_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.DomainLogin_BTN.Name = "DomainLogin_BTN";
+            this.DomainLogin_BTN.Primary = false;
+            this.DomainLogin_BTN.Size = new System.Drawing.Size(108, 36);
+            this.DomainLogin_BTN.TabIndex = 12;
+            this.DomainLogin_BTN.Text = "Domain Login";
+            this.DomainLogin_BTN.UseVisualStyleBackColor = false;
+            this.DomainLogin_BTN.Click += new System.EventHandler(this.DomainLogin_BTN_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(362, 481);
+            this.Controls.Add(this.DomainLogin_BTN);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Password_TXT);
             this.Controls.Add(this.Username_TXT);
@@ -161,5 +183,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField Username_TXT;
         private MaterialSkin.Controls.MaterialSingleLineTextField Password_TXT;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialFlatButton DomainLogin_BTN;
     }
 }

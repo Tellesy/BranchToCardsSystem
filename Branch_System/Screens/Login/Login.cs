@@ -82,68 +82,71 @@ namespace MPBS.Screens
 
         private void Login_BTN_Click(object sender, EventArgs e)
         {
-     
+          
+
             string username = Username_TXT.Text;
             string password = Password_TXT.Text;
 
-         Status status =  Database.Login.login(username, password);
+
+           
+
+
+            Status status =  Database.Login.login(username, password);
 
             if(status.status)
             {
-                if(Database.Login.role == "1")
+                preLoginProcedure();
+              
+                switch (Database.Login.role)
                 {
-                    Username_TXT.Text = "";
-                    Password_TXT.Text = "";
-                    this.Hide();
-                    Inputter app = new Inputter();
-                    app.Closed += (s, args) => this.Show();
-                    app.Show();
-                   
+                    case "0":
+                        HQAdmin hqAdmin = new HQAdmin();
+                        hqAdmin.Closed += (s, args) => this.Show();
+                        hqAdmin.Show();
+                        break;
+                    case "1":
+                        Inputter app = new Inputter();
+                        app.Closed += (s, args) => this.Show();
+                        app.Show();
+                        break;
+                    case "2":
+                        BranchAdmin branchApp = new BranchAdmin();
+                        branchApp.Closed += (s, args) => this.Show();
+                        branchApp.Show();
+                        break;
+                    case "3":
+                        Auditor auditorApp = new Auditor();
+                        auditorApp.Closed += (s, args) => this.Show();
+                        auditorApp.Show();
+                        break;
+
+                        //Card Issuance is No.4
+                    case "4":
+                        HQIssueMenu hQIssueMenu = new HQIssueMenu();
+                        hQIssueMenu.Closed += (s, args) => this.Show();
+                        hQIssueMenu.Show();
+                        break;
+
+                    //Load Admin is No.5
+                    case "5":
+                        HQLoadMenu hQLoadMenu = new HQLoadMenu();
+                        hQLoadMenu.Closed += (s, args) => this.Show();
+                        hQLoadMenu.Show();
+                        break;
+
+                    case "6":
+                        GenerateEMBPIN generateEMBPIN = new GenerateEMBPIN();
+                        generateEMBPIN.Closed += (s, args) => this.Show();
+                        generateEMBPIN.Show();
+                        break;
+                    default:
+                        MessageBox.Show("لا تملك الصلاحيات للدخول الى هذا النظام");
+                        this.Show();
+                        break;
                 }
-                else if(Database.Login.role == "2")
-                {
-                    Username_TXT.Text = "";
-                    Password_TXT.Text = "";
-                    this.Hide();
-                    BranchAdmin branchApp = new BranchAdmin();
-                    branchApp.Closed += (s, args) => this.Show();
-                    branchApp.Show();
-                }
-                else if(Database.Login.role == "0")
-                {
-                    Username_TXT.Text = "";
-                    Password_TXT.Text = "";
-                    this.Hide();
-                    //Old admin page
-                    //Admin adminApp = new Admin();
-                    //adminApp.Closed += (s, args) => this.Show();
-                    //adminApp.Show();
-                    //New Admin Page
-                    HQAdmin hqAdmin = new HQAdmin();
-                    hqAdmin.Closed += (s, args) => this.Show();
-                    hqAdmin.Show();
-                }
-                else if(Database.Login.role == "3")
-                {
-                    Username_TXT.Text = "";
-                    Password_TXT.Text = "";
-                    this.Hide();
-                    Auditor auditorApp = new Auditor();
-                    auditorApp.Closed += (s, args) => this.Show();
-                    auditorApp.Show();
-                }else if(Database.Login.role == "4")
-                {
-                    Username_TXT.Text = "";
-                    Password_TXT.Text = "";
-                    this.Hide();
-                    GenerateEMBPIN generateEMBPIN = new GenerateEMBPIN();
-                    generateEMBPIN.Closed += (s, args) => this.Show();
-                    generateEMBPIN.Show();
-                }
-                else
-                {
-                    MessageBox.Show("لا تملك الصلاحيات للدخول الى هذا النظام");
-                }
+
+               
+   
             }
             else
             {
@@ -153,6 +156,25 @@ namespace MPBS.Screens
 
         }
 
-      
+        private void preLoginProcedure()
+        {
+            Username_TXT.Text = "";
+            Password_TXT.Text = "";
+            this.Hide();
+        }
+
+        private void DomainLogin_BTN_Click(object sender, EventArgs e)
+        {
+            string username = Username_TXT.Text;
+            string password = Password_TXT.Text;
+
+
+            var result = Database.Login.domainLogin(username, password);
+
+            Console.WriteLine(result.status);
+            MessageBox.Show(result.status.ToString());
+            MessageBox.Show(result.message);
+
+        }
     }
 }
