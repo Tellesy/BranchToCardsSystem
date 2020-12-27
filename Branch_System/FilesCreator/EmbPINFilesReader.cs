@@ -12,9 +12,10 @@ namespace MPBS.FilesCreator
   
     public static class PINFileRecordsReorder
     {
-        private static string header = "HRLibyan Islamic Bank           ";
-        private static string footer = "TR";
+        public static string header = "HRLibyan Islamic Bank           ";
+        public static string footer = "TR";
 
+        
 
         public static List<EmbPINRecord> extractPINString(string fileLocation)
         {
@@ -40,6 +41,9 @@ namespace MPBS.FilesCreator
                 System.Console.WriteLine(line);
             }
 
+            //get header and footer
+            header = records[0].Line;
+            footer = records[(records.Count - 1)].Line;
             records.Remove(records[0]);
             records.Remove(records[(records.Count - 1)]);
             foreach(EmbPINRecord r in records)
@@ -110,7 +114,7 @@ namespace MPBS.FilesCreator
             return sortedPINs.OrderBy(i => i.Sequence).ToList<EmbPINRecord>();
         }
 
-        public static Status generatePINFile(List<EmbPINRecord> pinFile)
+        public static Status generatePINFile(List<EmbPINRecord> pinFile,string pinHeader, string pinFooter)
         {
             Status status = new Status();
             status.status = false;
@@ -126,13 +130,13 @@ namespace MPBS.FilesCreator
                 using (StreamWriter fs = File.CreateText(file))
                 {
                     //Write header
-                    fs.WriteLine(header);
+                    fs.WriteLine(pinHeader);
                     foreach(var record in pinFile)
                     {
                         fs.WriteLine(record.Line);
                     }
                     //Write Footer  
-                    fs.WriteLine(footer);
+                    fs.WriteLine(pinFooter);
 
                     status.status = true;
 

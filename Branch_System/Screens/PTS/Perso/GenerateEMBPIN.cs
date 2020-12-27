@@ -40,18 +40,18 @@ namespace MPBS.Screens.PTS.Perso
         private void Process_BTN_Click(object sender, EventArgs e)
         {
            var pin = PINFileRecordsReorder.extractPINString(pinFileLocation);
-            MessageBox.Show(pin[5].PAN);
-            MessageBox.Show(pin[5].Sequence.ToString());
+
+            string pinHeader = PINFileRecordsReorder.header;
+            string pinFooter = PINFileRecordsReorder.footer;
 
             var emb = PINFileRecordsReorder.extractEMBString(embFileLocation);
-            MessageBox.Show(emb[5].PAN);
-            MessageBox.Show(emb[5].Sequence.ToString());
+
 
 
             var sortedPIN = PINFileRecordsReorder.sortPINFile(emb, pin);
-            MessageBox.Show(sortedPIN[0].PAN);
 
-           var status = PINFileRecordsReorder.generatePINFile(sortedPIN);
+
+           var status = PINFileRecordsReorder.generatePINFile(sortedPIN,pinHeader,pinFooter);
             MessageBox.Show(status.status.ToString());
         }
 
