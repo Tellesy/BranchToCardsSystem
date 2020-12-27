@@ -13,6 +13,8 @@ namespace MPBS.Screens.PTS.Perso
 {
     public partial class GenerateEMBPIN : MaterialSkin.Controls.MaterialForm
     {
+        private string pinFileLocation;
+        private string embFileLocation;
         public GenerateEMBPIN()
         {
             InitializeComponent();
@@ -37,7 +39,20 @@ namespace MPBS.Screens.PTS.Perso
 
         private void Process_BTN_Click(object sender, EventArgs e)
         {
+           var pin = PINFileRecordsReorder.extractPINString(pinFileLocation);
+            MessageBox.Show(pin[5].PAN);
+            MessageBox.Show(pin[5].Sequence.ToString());
 
+            var emb = PINFileRecordsReorder.extractEMBString(embFileLocation);
+            MessageBox.Show(emb[5].PAN);
+            MessageBox.Show(emb[5].Sequence.ToString());
+
+
+            var sortedPIN = PINFileRecordsReorder.sortPINFile(emb, pin);
+            MessageBox.Show(sortedPIN[0].PAN);
+
+           var status = PINFileRecordsReorder.generatePINFile(sortedPIN);
+            MessageBox.Show(status.status.ToString());
         }
 
 
@@ -61,8 +76,9 @@ namespace MPBS.Screens.PTS.Perso
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                BrowseEMB_TXT.Text = deviceDialog.FileName;
-                EmbPINFilesReader.ExtractRecordsFromFiles(deviceDialog.FileName);
+                 BrowseEMB_TXT.Text = deviceDialog.FileName;
+                 embFileLocation = deviceDialog.FileName;
+                //PINFileRecordsReorder.ExtractRecordsFromFiles(deviceDialog.FileName);
 
             }
         }
@@ -74,7 +90,8 @@ namespace MPBS.Screens.PTS.Perso
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                BrowseEMB_TXT.Text = deviceDialog.FileName;
+                BrowsePIN_TXT.Text = deviceDialog.FileName;
+                pinFileLocation = deviceDialog.FileName;
                 //var SMTTransactions = this.ReadSMTTransactionSpreadSheet(deviceDialog.FileName);
 
                 //var transactionsWithAccountNumber = new List<TransactionSettlements>();

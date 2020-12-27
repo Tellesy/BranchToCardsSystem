@@ -101,11 +101,7 @@ namespace MPBS.Database
 
             conn.Open();
 
-            if (conn.State == System.Data.ConnectionState.Open)
-            {
-                try
-                {
-                    string query = @"INSERT INTO [dbo].[PTS_Customer]
+            string query = @"INSERT INTO [dbo].[PTS_Customer]
            ([customer_ID]
            ,[first_name]
            ,[father_name]
@@ -137,6 +133,45 @@ namespace MPBS.Database
            ,@v13
            ,@v14
            ,@v15)";
+            if (customer.Email == null)
+            {
+               query = @"INSERT INTO [dbo].[PTS_Customer]
+           ([customer_ID]
+           ,[first_name]
+           ,[father_name]
+           ,[last_name]
+           ,[gender]
+           ,[nationality]
+           ,[embossed_name]
+           ,[birthdate]
+           ,[national_id]
+           ,[passport_number]
+           ,[passport_exp]
+           ,[address]
+           ,[phone_ISD]
+           ,[phone_number])
+     VALUES
+           (@v1
+           ,@v2
+           ,@v3
+           ,@v4
+           ,@v5
+           ,@v6
+           ,@v7
+           ,@v8
+           ,@v9
+           ,@v10
+           ,@v11
+           ,@v12
+           ,@v13
+           ,@v14)";
+            }
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+          
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -154,6 +189,7 @@ namespace MPBS.Database
                     cmd.Parameters.AddWithValue("@v12", customer.Address);
                     cmd.Parameters.AddWithValue("@v13", customer.PhoneISD);
                     cmd.Parameters.AddWithValue("@v14", customer.Phone);
+                    if(customer.Email != null)
                     cmd.Parameters.AddWithValue("@v15", customer.Email);
 
 

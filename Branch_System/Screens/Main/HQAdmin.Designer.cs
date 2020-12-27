@@ -48,6 +48,7 @@
             this.AuthLoadRequests_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.GenerateT24_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.GenLoadFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.GenerateEMBPIN_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -269,7 +270,7 @@
             this.Logout_BTN.AutoSize = true;
             this.Logout_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Logout_BTN.Depth = 0;
-            this.Logout_BTN.Location = new System.Drawing.Point(13, 629);
+            this.Logout_BTN.Location = new System.Drawing.Point(13, 693);
             this.Logout_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Logout_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Logout_BTN.Name = "Logout_BTN";
@@ -345,13 +346,30 @@
             this.GenLoadFiles_BTN.UseVisualStyleBackColor = true;
             this.GenLoadFiles_BTN.Click += new System.EventHandler(this.GenLoadFiles_BTN_Click);
             // 
+            // GenerateEMBPIN_BTN
+            // 
+            this.GenerateEMBPIN_BTN.AutoSize = true;
+            this.GenerateEMBPIN_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GenerateEMBPIN_BTN.Depth = 0;
+            this.GenerateEMBPIN_BTN.Location = new System.Drawing.Point(12, 629);
+            this.GenerateEMBPIN_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.GenerateEMBPIN_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.GenerateEMBPIN_BTN.Name = "GenerateEMBPIN_BTN";
+            this.GenerateEMBPIN_BTN.Primary = false;
+            this.GenerateEMBPIN_BTN.Size = new System.Drawing.Size(324, 36);
+            this.GenerateEMBPIN_BTN.TabIndex = 61;
+            this.GenerateEMBPIN_BTN.Text = "Upload and Generate PTS Emb and PIN Files";
+            this.GenerateEMBPIN_BTN.UseVisualStyleBackColor = true;
+            this.GenerateEMBPIN_BTN.Click += new System.EventHandler(this.GenerateEMBPIN_BTN_Click);
+            // 
             // HQAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(517, 687);
+            this.ClientSize = new System.Drawing.Size(517, 744);
             this.ControlBox = false;
+            this.Controls.Add(this.GenerateEMBPIN_BTN);
             this.Controls.Add(this.GenLoadFiles_BTN);
             this.Controls.Add(this.GenerateT24_BTN);
             this.Controls.Add(this.AuthLoadRequests_BTN);
@@ -397,5 +415,6 @@
         private MaterialSkin.Controls.MaterialFlatButton AuthLoadRequests_BTN;
         private MaterialSkin.Controls.MaterialFlatButton GenerateT24_BTN;
         private MaterialSkin.Controls.MaterialFlatButton GenLoadFiles_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton GenerateEMBPIN_BTN;
     }
 }

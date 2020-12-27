@@ -207,6 +207,7 @@ namespace MPBS.Screens.PTS.Issue
             CountryPhoneCode_CBox.Enabled = false;
             PhoneNo_TXT.Enabled = false;
             Email_TXT.Enabled = false;
+            Email_CHBox.Enabled = false;
         }
 
         private void EnableAllAndClearFields()
@@ -226,7 +227,8 @@ namespace MPBS.Screens.PTS.Issue
             Address_TXT.Enabled = true;
             CountryPhoneCode_CBox.Enabled = true;
             PhoneNo_TXT.Enabled = true;
-            Email_TXT.Enabled = true;
+            //Email_TXT.Enabled = true;
+            Email_CHBox.Enabled = true;
 
             MainAccount_TXT.Clear();
             ProgramAccount_TXT.Clear();
@@ -239,6 +241,7 @@ namespace MPBS.Screens.PTS.Issue
             Address_TXT.Clear();
             PhoneNo_TXT.Clear();
             Email_TXT.Clear();
+            Email_CHBox.Checked = false;
         }
         private void EnableAndClearFields()
         {
@@ -255,7 +258,9 @@ namespace MPBS.Screens.PTS.Issue
             Address_TXT.Enabled = true;
             CountryPhoneCode_CBox.Enabled = true;
             PhoneNo_TXT.Enabled = true;
-            Email_TXT.Enabled = true;
+            Email_CHBox.Enabled = true;
+            //Email_TXT.Enabled = true;
+            Email_CHBox.Checked = false;
 
             FirstName_TXT.Clear();
             FatherName_TXT.Clear();
@@ -287,9 +292,12 @@ namespace MPBS.Screens.PTS.Issue
             CountryPhoneCode_CBox.Enabled = false;
             PhoneNo_TXT.Enabled = false;
             Email_TXT.Enabled = false;
+            Email_CHBox.Enabled = false;
 
             MainAccount_TXT.Enabled = true;
             ProgramAccount_TXT.Enabled = true;
+
+            Email_CHBox.Checked = false;
 
         }
 
@@ -422,7 +430,15 @@ namespace MPBS.Screens.PTS.Issue
             customer.Address = Address_TXT.Text;
             customer.PhoneISD = String.Concat(CountryPhoneCode_CBox.SelectedValue.ToString().Where(c => !char.IsWhiteSpace(c))); 
             customer.Phone = PhoneNo_TXT.Text;
-            customer.Email = Email_TXT.Text;
+            if(Email_CHBox.Checked)
+            {
+                customer.Email = Email_TXT.Text;
+            }
+            else
+            {
+                customer.Email = null;
+            }
+            
 
             Status cstatus = PTSCustomerController.addCustomer(customer);
 
@@ -510,7 +526,7 @@ namespace MPBS.Screens.PTS.Issue
                 return status;
             }
 
-            if (String.IsNullOrWhiteSpace(NID_TXT.Text))
+            if (String.IsNullOrWhiteSpace(NID_TXT.Text) || NID_TXT.Text.Length != 12)
             {
                 MessageBox.Show("الرجاء إدخال الرقم الوطني");
                 return status;
@@ -542,16 +558,31 @@ namespace MPBS.Screens.PTS.Issue
                 return status;
             }
 
-            if (String.IsNullOrWhiteSpace(Email_TXT.Text))
+            if (String.IsNullOrWhiteSpace(Email_TXT.Text) && Email_CHBox.Checked)
             {
                 MessageBox.Show("الرجاء إدخال عنوان البريد الإلكتروني");
                 return status;
             }
-
+            if(!IsValidEmail(Email_TXT.Text) && Email_CHBox.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من عنوان البريد الإلكتروني");
+                return status;
+            }
             status = true;
             return status;
         }
-
+        bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private void TXTB_ONLY_NUMBER_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -607,6 +638,44 @@ namespace MPBS.Screens.PTS.Issue
         private void Back_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Email_CHBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(Email_CHBox.Checked)
+            {
+                Email_TXT.Enabled = true;
+            }
+            else
+            {
+                Email_TXT.Enabled = false;
+            }
+
+        }
+
+        private void NID_TXT_TextChanged(object sender, EventArgs e)
+        {
+            if (NID_TXT.Text.Length > 2)
+            {
+                if (NID_TXT.Text[0] == '1')
+                {
+                    Gender_CBOX.SelectedIndex = 0;
+                }
+                else if (NID_TXT.Text[0] == '2')
+                {
+                    Gender_CBOX.SelectedIndex = 1;
+                }
+            }
+           
+
+            if (NID_TXT.Text.Length == 12)
+            {
+                if (NID_TXT.Text[0] != '1' && NID_TXT.Text[0] != '2')
+                {
+                    MessageBox.Show("الرقم الوطني غير صحيح");
+                    NID_TXT.Text = "";
+                }
+            }
         }
     }
 }

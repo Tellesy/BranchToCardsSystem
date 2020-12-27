@@ -91,6 +91,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.pTS_ProgramTableAdapter = new MPBS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
             this.label31 = new System.Windows.Forms.Label();
+            this.Email_CHBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();
@@ -216,6 +217,7 @@
             this.NID_TXT.Name = "NID_TXT";
             this.NID_TXT.Size = new System.Drawing.Size(170, 20);
             this.NID_TXT.TabIndex = 12;
+            this.NID_TXT.TextChanged += new System.EventHandler(this.NID_TXT_TextChanged);
             this.NID_TXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXTB_ONLY_NUMBER_KeyPress);
             // 
             // label4
@@ -582,7 +584,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(553, 290);
+            this.label25.Location = new System.Drawing.Point(668, 290);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(82, 13);
             this.label25.TabIndex = 99;
@@ -591,7 +593,8 @@
             // 
             // Email_TXT
             // 
-            this.Email_TXT.Location = new System.Drawing.Point(410, 306);
+            this.Email_TXT.Enabled = false;
+            this.Email_TXT.Location = new System.Drawing.Point(529, 305);
             this.Email_TXT.MaxLength = 50;
             this.Email_TXT.Name = "Email_TXT";
             this.Email_TXT.Size = new System.Drawing.Size(221, 20);
@@ -640,11 +643,23 @@
             this.label31.Text = "الإسم على البطاقة";
             this.label31.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // PTS_Issue
+            // Email_CHBox
+            // 
+            this.Email_CHBox.AutoSize = true;
+            this.Email_CHBox.Location = new System.Drawing.Point(410, 309);
+            this.Email_CHBox.Name = "Email_CHBox";
+            this.Email_CHBox.Size = new System.Drawing.Size(90, 17);
+            this.Email_CHBox.TabIndex = 104;
+            this.Email_CHBox.Text = "تفعيل الرسائل";
+            this.Email_CHBox.UseVisualStyleBackColor = true;
+            this.Email_CHBox.CheckedChanged += new System.EventHandler(this.Email_CHBox_CheckedChanged);
+            // 
+            // Issue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(756, 549);
+            this.Controls.Add(this.Email_CHBox);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label29);
@@ -696,7 +711,7 @@
             this.Controls.Add(this.MainAccount_TXT);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Program_CBox);
-            this.Name = "PTS_Issue";
+            this.Name = "Issue";
             this.Text = "PTS_Issue";
             this.Load += new System.EventHandler(this.PTS_Issue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
@@ -777,5 +792,6 @@
         private System.Windows.Forms.BindingSource pTSProgramBindingSource;
         private CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter pTS_ProgramTableAdapter;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.CheckBox Email_CHBox;
     }
 }

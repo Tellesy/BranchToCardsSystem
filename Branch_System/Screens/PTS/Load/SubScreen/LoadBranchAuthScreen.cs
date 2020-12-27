@@ -62,6 +62,7 @@ namespace MPBS.Screens.PTS.Load.SubScreen
             ProgramAccount_TXT.Text = accountObject.Object.AccountNumberCurrency;
 
             Amount_TXT.Text = record.Amount.ToString();
+            Amount_LBL.Text = record.Amount.ToString();
             var sTotal = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(record.CustomerID, record.ProgramCode, Database.Recharge.year);
             if(sTotal.status)
             {
@@ -107,6 +108,11 @@ namespace MPBS.Screens.PTS.Load.SubScreen
             {
                 //do something else
             }
+        }
+
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

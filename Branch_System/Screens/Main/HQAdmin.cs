@@ -19,6 +19,7 @@ using MPBS.Screens.PTS.Generate_File;
 using MPBS.Screens.PTS.AuthIssue;
 using MPBS.Screens.UploadFile;
 using MPBS.Screens.PTS.Load;
+using MPBS.Screens.PTS.Perso;
 
 namespace MPBS.Screens.Main
 {
@@ -32,7 +33,7 @@ namespace MPBS.Screens.Main
         private GenerateT24Files generateT24Files;
         private HQAuthLoad hQAuthLoad;
         private GenLoadFile genLoadFile;
-
+        GenerateEMBPIN generateEMBPIN;
         private GenAppRecord genAppRecord;
         public HQAdmin()
         {
@@ -222,6 +223,22 @@ namespace MPBS.Screens.Main
         private void UnauthBrasnchLoad_BTN_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void GenerateEMBPIN_BTN_Click(object sender, EventArgs e)
+        {
+
+            if (generateEMBPIN == null)
+            {
+                generateEMBPIN = new GenerateEMBPIN();
+
+
+                generateEMBPIN.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    generateEMBPIN = null; GenerateEMBPIN_BTN.Enabled = true;
+                };
+                generateEMBPIN.Show();
+                GenerateEMBPIN_BTN.Enabled = false;
+            }
         }
     }
 }

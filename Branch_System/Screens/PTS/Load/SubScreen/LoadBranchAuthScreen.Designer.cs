@@ -104,6 +104,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Amount_TXT = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.Amount_LBL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
@@ -684,6 +685,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Amount_LBL);
             this.groupBox1.Controls.Add(this.Year_LBL);
             this.groupBox1.Controls.Add(this.label39);
             this.groupBox1.Controls.Add(this.Inputter_TXT);
@@ -704,6 +706,7 @@
             this.groupBox1.TabIndex = 164;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Load";
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // Year_LBL
             // 
@@ -788,6 +791,17 @@
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 141;
             this.label7.Text = "Amount";
+            // 
+            // Amount_LBL
+            // 
+            this.Amount_LBL.AutoSize = true;
+            this.Amount_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.Amount_LBL.ForeColor = System.Drawing.Color.Red;
+            this.Amount_LBL.Location = new System.Drawing.Point(179, 55);
+            this.Amount_LBL.Name = "Amount_LBL";
+            this.Amount_LBL.Size = new System.Drawing.Size(27, 26);
+            this.Amount_LBL.TabIndex = 164;
+            this.Amount_LBL.Text = "X";
             // 
             // LoadBranchAuthScreen
             // 
@@ -942,5 +956,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox TotalAmount_TXT;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label Amount_LBL;
     }
 }

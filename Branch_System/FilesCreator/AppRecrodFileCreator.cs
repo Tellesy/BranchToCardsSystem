@@ -467,7 +467,14 @@ namespace MPBS.FilesCreator
             recordString += "Y" + "|";
 
             //Email Alert
-            recordString += "Y" + "|";
+            if(String.IsNullOrWhiteSpace(record.Customer.Email) || !IsValidEmail(record.Customer.Email))
+            {
+                recordString += "N" + "|";
+            }
+           else
+            {
+                recordString += "Y" + "|";
+            }
 
             //Statement Preference
             recordString += "B" + "|";
@@ -480,9 +487,17 @@ namespace MPBS.FilesCreator
 
             //Mobile Number
             recordString += String.Concat(record.Customer.Phone.Where(c => !Char.IsWhiteSpace(c))) + "|";
-            
+
             //Email
-            recordString += record.Customer.Email + "|";
+            if (String.IsNullOrWhiteSpace(record.Customer.Email) || !IsValidEmail(record.Customer.Email))
+            {
+                recordString += "" + "|";
+            }
+            else
+            {
+                recordString += record.Customer.Email + "|";
+            }
+                
 
             //Language Preference
             recordString += "en" + "|";
@@ -826,7 +841,18 @@ namespace MPBS.FilesCreator
 
             return recordString;
         }
-
+       private static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private static bool checkFileExist(string fileName)
         {
             string file = String.Format(MPBSConfig.PTSApplicationFiles + @"\" + fileName);
@@ -873,8 +899,12 @@ namespace MPBS.FilesCreator
                 status.message = Ex.Message;
                 return status;
             }
+
+
         }
 
         
     }
+
+   
 }
