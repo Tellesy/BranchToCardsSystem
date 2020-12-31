@@ -119,7 +119,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label4.Location = new System.Drawing.Point(202, 678);
+            this.label4.Location = new System.Drawing.Point(179, 736);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 17);
             this.label4.TabIndex = 31;
@@ -408,7 +408,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(516, 700);
+            this.ClientSize = new System.Drawing.Size(512, 762);
             this.ControlBox = false;
             this.Controls.Add(this.Branch_LBL);
             this.Controls.Add(this.materialLabel3);
