@@ -18,6 +18,8 @@ namespace MPBS.Screens.PTS.Issue
 
         private bool customerExistInDB = false;
         private bool customerHasAnAccountUnderTheSameProgram = false;
+        private bool birthdateChanged = false;
+        private bool passportExpDateChanged = false;
        
 
         private List<PTSProgram> programs;
@@ -322,6 +324,8 @@ namespace MPBS.Screens.PTS.Issue
                     };
                 }
              
+
+                
                if(CheckAccount(CustomerID_TXT.Text,Program_CBox.SelectedValue.ToString()))
                 {
                     MessageBox.Show("عذراً, هذا الزبون لديه بطاقة صادرة مسبقاً لنفس المنتج");
@@ -468,7 +472,16 @@ namespace MPBS.Screens.PTS.Issue
         public bool validateFields()
         {
             bool status = false;
-
+            if(!birthdateChanged)
+            {
+                MessageBox.Show("الرجاء ادخال تاريخ الميلاد");
+                return status;
+            }
+            if(!passportExpDateChanged)
+            {
+                MessageBox.Show("الرجاء إدخال تاريخ إنتهاء الصلاحية");
+                return status;
+            }
             if(String.IsNullOrWhiteSpace(Program_CBox.Text))
             {
                 MessageBox.Show("الرجاء اختيار المنتج");
@@ -676,6 +689,16 @@ namespace MPBS.Screens.PTS.Issue
                     NID_TXT.Text = "";
                 }
             }
+        }
+
+        private void Birthdate_ValueChanged(object sender, EventArgs e)
+        {
+            birthdateChanged = true;
+        }
+
+        private void PassportExpDate_ValueChanged(object sender, EventArgs e)
+        {
+            passportExpDateChanged = true;
         }
     }
 }

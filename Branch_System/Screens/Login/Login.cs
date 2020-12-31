@@ -68,7 +68,15 @@ namespace MPBS.Screens
             //Run gpupdate in CMD to update to leatest verion
             string strCmdText;
             strCmdText = "/C gpupdate";
-            System.Diagnostics.Process.Start("CMD.exe", strCmdText);
+            //System.Diagnostics.Process.Start("CMD.exe", strCmdText);
+
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = strCmdText;
+            process.StartInfo = startInfo;
+            process.Start();
 
             status = MPBSystem.CheckVersion(thisAssemName.Version.ToString());
             if (!status.status)

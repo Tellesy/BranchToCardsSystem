@@ -154,7 +154,11 @@ namespace MPBS.FilesCreator
             }
 
            //record.Narration = String.Concat(record.Narration.Where(c => !Char.IsWhiteSpace(c)));
-            recordString += record.Narration.Substring(0,38) + "|";
+           if(record.Narration.Count() >38)
+            {
+                record.Narration = record.Narration.Substring(0, 38);
+            }
+            recordString += record.Narration + "|";
 
             //ORG_TXN_ARN
             recordString += record.OrgTxnArn + "|";

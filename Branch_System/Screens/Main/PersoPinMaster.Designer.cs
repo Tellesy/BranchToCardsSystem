@@ -35,6 +35,7 @@
             this.Name_LBL = new MaterialSkin.Controls.MaterialLabel();
             this.GenerateEMBPIN_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Logout_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // AddUser_BTN
@@ -140,11 +141,27 @@
             this.Logout_BTN.UseVisualStyleBackColor = true;
             this.Logout_BTN.Click += new System.EventHandler(this.Logout_BTN_Click);
             // 
+            // materialFlatButton1
+            // 
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Location = new System.Drawing.Point(13, 340);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(134, 36);
+            this.materialFlatButton1.TabIndex = 62;
+            this.materialFlatButton1.Text = "Batch Document";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            // 
             // PersoPinMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 526);
+            this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.Logout_BTN);
             this.Controls.Add(this.GenerateEMBPIN_BTN);
             this.Controls.Add(this.AddUser_BTN);
@@ -169,5 +186,6 @@
         private MaterialSkin.Controls.MaterialLabel Name_LBL;
         private MaterialSkin.Controls.MaterialFlatButton GenerateEMBPIN_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Logout_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
     }
 }

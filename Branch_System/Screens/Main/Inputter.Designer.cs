@@ -54,6 +54,8 @@
             this.Status_LBL = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.PTSLoadWallet_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.EditCustomerInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.EditAccountInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +68,7 @@
             this.Issue_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
             this.Issue_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Issue_BTN.Image")));
             this.Issue_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Issue_BTN.Location = new System.Drawing.Point(18, 363);
+            this.Issue_BTN.Location = new System.Drawing.Point(18, 459);
             this.Issue_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Issue_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Issue_BTN.Name = "Issue_BTN";
@@ -87,7 +89,7 @@
             this.Recharge_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
             this.Recharge_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Recharge_BTN.Image")));
             this.Recharge_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Recharge_BTN.Location = new System.Drawing.Point(18, 507);
+            this.Recharge_BTN.Location = new System.Drawing.Point(18, 603);
             this.Recharge_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Recharge_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Recharge_BTN.Name = "Recharge_BTN";
@@ -108,7 +110,7 @@
             this.Reissue_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
             this.Reissue_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reissue_BTN.Image")));
             this.Reissue_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reissue_BTN.Location = new System.Drawing.Point(18, 459);
+            this.Reissue_BTN.Location = new System.Drawing.Point(18, 555);
             this.Reissue_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Reissue_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Reissue_BTN.Name = "Reissue_BTN";
@@ -129,7 +131,7 @@
             this.PIN_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.PIN_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PIN_BTN.Image")));
             this.PIN_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PIN_BTN.Location = new System.Drawing.Point(18, 411);
+            this.PIN_BTN.Location = new System.Drawing.Point(18, 507);
             this.PIN_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PIN_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.PIN_BTN.Name = "PIN_BTN";
@@ -149,7 +151,7 @@
             this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
             this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Logout_BTN.Location = new System.Drawing.Point(18, 763);
+            this.Logout_BTN.Location = new System.Drawing.Point(18, 843);
             this.Logout_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Logout_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Logout_BTN.Name = "Logout_BTN";
@@ -183,7 +185,7 @@
             this.Reports_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(18, 651);
+            this.Reports_BTN.Location = new System.Drawing.Point(18, 747);
             this.Reports_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Reports_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Reports_BTN.Name = "Reports_BTN";
@@ -203,7 +205,7 @@
             this.label6.Enabled = false;
             this.label6.Font = new System.Drawing.Font("Roboto", 11F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(190, 801);
+            this.label6.Location = new System.Drawing.Point(246, 865);
             this.label6.MouseState = MaterialSkin.MouseState.HOVER;
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(141, 19);
@@ -219,7 +221,7 @@
             this.CardENQ_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
             this.CardENQ_BTN.Image = ((System.Drawing.Image)(resources.GetObject("CardENQ_BTN.Image")));
             this.CardENQ_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CardENQ_BTN.Location = new System.Drawing.Point(18, 555);
+            this.CardENQ_BTN.Location = new System.Drawing.Point(18, 651);
             this.CardENQ_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.CardENQ_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.CardENQ_BTN.Name = "CardENQ_BTN";
@@ -237,7 +239,7 @@
             this.ShareFolder_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ShareFolder_BTN.Depth = 0;
             this.ShareFolder_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.ShareFolder_BTN.Location = new System.Drawing.Point(18, 699);
+            this.ShareFolder_BTN.Location = new System.Drawing.Point(18, 795);
             this.ShareFolder_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ShareFolder_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.ShareFolder_BTN.Name = "ShareFolder_BTN";
@@ -257,7 +259,7 @@
             this.AccountDetails_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.AccountDetails_BTN.Image = ((System.Drawing.Image)(resources.GetObject("AccountDetails_BTN.Image")));
             this.AccountDetails_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AccountDetails_BTN.Location = new System.Drawing.Point(18, 603);
+            this.AccountDetails_BTN.Location = new System.Drawing.Point(18, 699);
             this.AccountDetails_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AccountDetails_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.AccountDetails_BTN.Name = "AccountDetails_BTN";
@@ -468,14 +470,48 @@
             this.PTSLoadWallet_BTN.UseVisualStyleBackColor = true;
             this.PTSLoadWallet_BTN.Click += new System.EventHandler(this.PTSLoadWallet_BTN_Click);
             // 
+            // EditCustomerInformation_BTN
+            // 
+            this.EditCustomerInformation_BTN.AutoSize = true;
+            this.EditCustomerInformation_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditCustomerInformation_BTN.Depth = 0;
+            this.EditCustomerInformation_BTN.Location = new System.Drawing.Point(18, 363);
+            this.EditCustomerInformation_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.EditCustomerInformation_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.EditCustomerInformation_BTN.Name = "EditCustomerInformation_BTN";
+            this.EditCustomerInformation_BTN.Primary = false;
+            this.EditCustomerInformation_BTN.Size = new System.Drawing.Size(212, 36);
+            this.EditCustomerInformation_BTN.TabIndex = 63;
+            this.EditCustomerInformation_BTN.Text = "Edit Customer Information";
+            this.EditCustomerInformation_BTN.UseVisualStyleBackColor = true;
+            this.EditCustomerInformation_BTN.Click += new System.EventHandler(this.EditCustomerInformation_BTN_Click);
+            // 
+            // EditAccountInformation_BTN
+            // 
+            this.EditAccountInformation_BTN.AutoSize = true;
+            this.EditAccountInformation_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditAccountInformation_BTN.Depth = 0;
+            this.EditAccountInformation_BTN.Location = new System.Drawing.Point(18, 411);
+            this.EditAccountInformation_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.EditAccountInformation_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.EditAccountInformation_BTN.Name = "EditAccountInformation_BTN";
+            this.EditAccountInformation_BTN.Primary = false;
+            this.EditAccountInformation_BTN.Size = new System.Drawing.Size(203, 36);
+            this.EditAccountInformation_BTN.TabIndex = 64;
+            this.EditAccountInformation_BTN.Text = "Edit Account Information";
+            this.EditAccountInformation_BTN.UseVisualStyleBackColor = true;
+            this.EditAccountInformation_BTN.Click += new System.EventHandler(this.EditAccountInformation_BTN_Click);
+            // 
             // Inputter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(514, 829);
+            this.ClientSize = new System.Drawing.Size(654, 893);
             this.ControlBox = false;
+            this.Controls.Add(this.EditAccountInformation_BTN);
+            this.Controls.Add(this.EditCustomerInformation_BTN);
             this.Controls.Add(this.PTSLoadWallet_BTN);
             this.Controls.Add(this.Branch_LBL);
             this.Controls.Add(this.materialLabel3);
@@ -501,7 +537,6 @@
             this.Name = "Inputter";
             this.Text = "Inputter";
             this.Load += new System.EventHandler(this.Menu_Load);
-            // this.PTS_load += new System.EventHandler(this.Menu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -535,5 +570,7 @@
         private MaterialSkin.Controls.MaterialLabel Status_LBL;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialFlatButton PTSLoadWallet_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton EditCustomerInformation_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton EditAccountInformation_BTN;
     }
 }

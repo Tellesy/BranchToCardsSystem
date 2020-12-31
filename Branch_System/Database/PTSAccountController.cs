@@ -194,5 +194,49 @@ namespace MPBS.Database
             }
 
         }
+
+
+        public static Status updateAccount(string customerID, string programCode, string lydAccount, string programAccount)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "UPDATE [CTS].[dbo].[PTS_Account] SET [account_number_lyd]= @v1,[account_number_currency] = @v2 WHERE [customer_ID] = @v3 AND [program_code] = @v4";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@v1", lydAccount);
+                    cmd.Parameters.AddWithValue("@v2", programAccount);
+                    cmd.Parameters.AddWithValue("@v3", customerID);
+                    cmd.Parameters.AddWithValue("@v4", programCode);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    conn.Close();
+                    status.status = false;
+                    status.message = "PTS Account (update account)\n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
     }
 }

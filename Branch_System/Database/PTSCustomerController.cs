@@ -218,6 +218,107 @@ namespace MPBS.Database
             }
         }
 
+
+        public static Status updateCustomer(PTSCustomer customer,string customerID)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = DBConnection.Connection();
+
+            conn.Open();
+
+            string query = @"UPDATE[dbo].[PTS_Customer]
+   SET[customer_ID] = @v1
+      ,[first_name] = @v2
+      ,[father_name] = @v3
+      ,[last_name] = @v4
+      ,[gender] = @v5
+      ,[nationality] = @v6
+      ,[embossed_name] = @v7
+      ,[birthdate] = @v8
+      ,[national_id] = @v9
+      ,[passport_number] = @v10
+      ,[passport_exp] =@v11
+      ,[address] =@v12
+      ,[phone_ISD] =@v13
+      ,[phone_number] = @v14
+      ,[email] = @v15
+      WHERE customer_ID = @v16";
+
+            if(string.IsNullOrWhiteSpace(customer.Email))
+            {
+
+                query = @"UPDATE[dbo].[PTS_Customer]
+   SET[customer_ID] = @v1
+      ,[first_name] = @v2
+      ,[father_name] = @v3
+      ,[last_name] = @v4
+      ,[gender] = @v5
+      ,[nationality] = @v6
+      ,[embossed_name] = @v7
+      ,[birthdate] = @v8
+      ,[national_id] = @v9
+      ,[passport_number] = @v10
+      ,[passport_exp] =@v11
+      ,[address] =@v12
+      ,[phone_ISD] =@v13
+      ,[phone_number] = @v14
+      WHERE customer_ID = @v16";
+            }
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                
+
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@v1", customer.CustomerID);
+                    cmd.Parameters.AddWithValue("@v2", customer.FirstName);
+                    cmd.Parameters.AddWithValue("@v3", customer.FatherName);
+                    cmd.Parameters.AddWithValue("@v4", customer.LastName);
+                    cmd.Parameters.AddWithValue("@v5", customer.Gender);
+                    cmd.Parameters.AddWithValue("@v6", customer.Nationality);
+                    cmd.Parameters.AddWithValue("@v7", customer.EmbossedName);
+                    cmd.Parameters.AddWithValue("@v8", customer.Birthdate);
+                    cmd.Parameters.AddWithValue("@v9", customer.NationalID);
+                    cmd.Parameters.AddWithValue("@v10", customer.PassportNumber);
+                    cmd.Parameters.AddWithValue("@v11", customer.PassportExp);
+                    cmd.Parameters.AddWithValue("@v12", customer.Address);
+                    cmd.Parameters.AddWithValue("@v13", customer.PhoneISD);
+                    cmd.Parameters.AddWithValue("@v14", customer.Phone);
+                    if (!string.IsNullOrWhiteSpace(customer.Email))
+                    {
+                        cmd.Parameters.AddWithValue("@v15", customer.Email);
+                    }
+                      
+
+                    cmd.Parameters.AddWithValue("@v16", customerID);
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    conn.Close();
+                    status.status = false;
+                    status.message = "Customer Table (Update Customer)\n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                return status;
+            }
+        }
+
         public static Status AddClientCode(string customerID, string clientCode)
         {
             Status status = new Status();

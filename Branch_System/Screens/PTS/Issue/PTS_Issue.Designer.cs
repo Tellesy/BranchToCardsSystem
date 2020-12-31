@@ -319,6 +319,7 @@
             this.Birthdate.Name = "Birthdate";
             this.Birthdate.Size = new System.Drawing.Size(114, 20);
             this.Birthdate.TabIndex = 10;
+            this.Birthdate.ValueChanged += new System.EventHandler(this.Birthdate_ValueChanged);
             // 
             // PassportExpDate
             // 
@@ -327,6 +328,7 @@
             this.PassportExpDate.Name = "PassportExpDate";
             this.PassportExpDate.Size = new System.Drawing.Size(170, 20);
             this.PassportExpDate.TabIndex = 14;
+            this.PassportExpDate.ValueChanged += new System.EventHandler(this.PassportExpDate_ValueChanged);
             // 
             // label2
             // 
