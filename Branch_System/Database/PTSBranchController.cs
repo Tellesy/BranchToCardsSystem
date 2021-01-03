@@ -81,7 +81,7 @@ namespace MPBS.Database
             }
         }
 
-        public static Status<PTSBranch> getBranche(int branch_code)
+        public static Status<PTSBranch> getBranch(int branch_code)
         {
             Status<PTSBranch> statusObject = new Status<PTSBranch>();
             statusObject.status = false;

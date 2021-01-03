@@ -112,7 +112,7 @@ namespace MPBS.Screens.PTS.Issue
 
                     Birthdate.Value = DateTime.Parse(customer.Birthdate);
                     Nationality_CBOX.Text = customer.Nationality;
-                    NID_TXT.Text = customer.NationalID;
+                    NID_TXT.Text = customer.NationalID.Substring(0,12);
                     Passport.Text = customer.PassportNumber;
                     PassportExpDate.Value = DateTime.Parse(customer.PassportExp);
                     Address_TXT.Text = customer.Address;
@@ -159,7 +159,7 @@ namespace MPBS.Screens.PTS.Issue
         }
         private void GetPrograms()
         {
-           Status<List<PTSProgram>> programStatus = PTSProgramController.getPrograms();
+           Status<List<PTSProgram>> programStatus = PTSProgramController.getActivePrograms();
 
             if(programStatus.status)
             {
@@ -346,6 +346,7 @@ namespace MPBS.Screens.PTS.Issue
                 if (customerExistInDB)
                 {
                     appRecord.ApplicationSubType = 'E';
+                    
                 }
                 else
                 {
@@ -365,7 +366,7 @@ namespace MPBS.Screens.PTS.Issue
                         appRecord.DevicePlanCode1 = "";
                     }
                 //appRecord.BranchCode = Database.Login.branch.PadLeft(6, '0');
-                 var bstatus = PTSBranchController.getBranche(int.Parse(Database.Login.branch));
+                 var bstatus = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
 
                 if (bstatus.status)
                 {
@@ -378,15 +379,19 @@ namespace MPBS.Screens.PTS.Issue
                 appRecord.Inputter = Database.Login.id;
 
                   var appRecordStatus =  PTSAppRecordController.addAppRecord(appRecord);
-                    if(appRecordStatus.status)
-                    {
+
+                if (appRecordStatus.status)
+                {
                         if (AddAccount())
                         {
                               MessageBox.Show("تم الإضافة بنجاح");
                               EnableAllAndClearFields();
                               DisableAllFields();
                               customerExistInDB = false;
-                    }
+
+                            //Add to charge table
+                            
+                        }
                         else
                         {
                    //     MessageBox.Show("عذراً, هذا الزبون لديه بطاقة صادرة مسبقاً لنفس المنتج");
@@ -395,7 +400,17 @@ namespace MPBS.Screens.PTS.Issue
                         return;
                         }
 
+                    if (AddCharge())
+                    {
+                        MessageBox.Show("تم إضافة عمولة الإصدار بنجاح");
                     }
+                    else
+                    {
+                        MessageBox.Show("لم يتم اضافة البطاقة الى ملف العمولات, راجع إدارة المدفوعات");
+                    }
+
+                    
+                }
                     else
                     {
                         MessageBox.Show(appRecordStatus.message);
@@ -410,7 +425,27 @@ namespace MPBS.Screens.PTS.Issue
          
 
         }
+        public bool AddCharge()
+        {
+            Charge charge = new Charge();
+            charge.CustomerID = int.Parse(CustomerID_TXT.Text);
+            charge.ProgramCode = Program_CBox.SelectedValue.ToString();
+            charge.ChargeType = 1;
+            charge.BranchCode = int.Parse(Database.Login.branch);
 
+
+           var status = ChargeController.addCharges(charge);
+            
+            if(!status.status)
+            {
+                MessageBox.Show(status.message);
+
+                
+            }
+
+            return status.status;
+
+        }
         public bool AddCustomer()
         {
             bool status = false;

@@ -98,7 +98,7 @@ namespace MPBS.Database
 
             if (branchFlag)
             {
-               var bstatus = PTSBranchController.getBranche(int.Parse(Database.Login.branch));
+               var bstatus = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
                 if(bstatus.status)
                 {
                     branch_code = bstatus.Object.Code;

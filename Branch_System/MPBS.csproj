@@ -183,9 +183,11 @@
     </Compile>
     <Compile Include="Database\Branch.cs" />
     <Compile Include="Database\CAF.cs" />
+    <Compile Include="Database\ChargeController.cs" />
     <Compile Include="Database\Countries.cs" />
     <Compile Include="Database\DataObjects\Recharge.cs" />
     <Compile Include="Database\Issue.cs" />
+    <Compile Include="Database\Objects\Charge.cs" />
     <Compile Include="Database\Objects\PTSBranch.cs" />
     <Compile Include="Database\Objects\Branch.cs" />
     <Compile Include="Database\Objects\CAFObject.cs" />

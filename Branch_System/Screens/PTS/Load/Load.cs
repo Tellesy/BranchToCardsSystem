@@ -46,7 +46,7 @@ namespace MPBS.Screens.PTS.Load
 
         private void GetPrograms()
         {
-            Status<List<PTSProgram>> programStatus = PTSProgramController.getPrograms();
+            Status<List<PTSProgram>> programStatus = PTSProgramController.getActivePrograms();
 
             if (programStatus.status)
             {
@@ -119,7 +119,7 @@ namespace MPBS.Screens.PTS.Load
             //    return;
             //}
 
-            var sBranch = PTSBranchController.getBranche(int.Parse(Database.Login.branch));
+            var sBranch = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
             if (!sBranch.status)
             {
                 MessageBox.Show("There is an issue related to getting Branch Code");
