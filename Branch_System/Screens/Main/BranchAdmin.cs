@@ -17,6 +17,7 @@ using MPBS.Screens.FilesAuth;
 using MPBS.Screens.Account_Details;
 using MPBS.Screens.PTS.BranchAuthIssue;
 using MPBS.Screens.PTS.Load;
+using MPBS.Screens.Charges;
 
 namespace MPBS.Screens
 {
@@ -27,7 +28,7 @@ namespace MPBS.Screens
         private POBranchUnauth POApp;
         private Search search;
         private BranchAuthLoad branchAuthLoad;
-
+        private GenerateChargesFiles generateChargesFiles;
         //PTSScreens
         private BranchAuthIssue authIssue;
 
@@ -154,6 +155,19 @@ namespace MPBS.Screens
                 };
                 branchAuthLoad.Show();
                 PTSLoadAuth_BTN.Enabled = false;
+            }
+        }
+
+        private void ChargesAndLoadFiles_BTN_Click(object sender, EventArgs e)
+        {
+            if (generateChargesFiles == null)
+            {
+                generateChargesFiles = new GenerateChargesFiles();
+                generateChargesFiles.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    generateChargesFiles = null; ChargesAndLoadFiles_BTN.Enabled = true;
+                };
+                generateChargesFiles.Show();
+                ChargesAndLoadFiles_BTN.Enabled = false;
             }
         }
     }

@@ -63,11 +63,11 @@ namespace MPBS.Database
             }
         }
 
-        public static Status<PTSAccount> getAccount(string branch_code)
+        public static Status<List<Charge>> getUngenCharges(string branch_code)
         {
-            Status<PTSAccount> statusObject = new Status<PTSAccount>();
+            Status<List<Charge>> statusObject = new Status<List<Charge>>();
             statusObject.status = false;
-            PTSAccount account = new PTSAccount();
+            List<Charge> charges = new List<Charge>();
 
             SqlConnection conn = Database.DBConnection.Connection();
 
@@ -77,10 +77,7 @@ namespace MPBS.Database
             if (conn.State == System.Data.ConnectionState.Open)
             {
 
-                string query = @"
-                    SELECT [account_number_lyd],[account_number_currency],[wallet_number],[currency_code]
-                    FROM [CTS].[dbo].[PTS_Account]
-                    where program_code ='" + programCode + "' and customer_ID =" + customerID;
+                string query = @"SELECT [ID],[Charge_Type],[Customer_ID],[Program_Code],[Gen_Flag] ,[Input_Date],[Gen_Date],[Exe_Flag],[Exe_Date],[Branch_Code] FROM [CTS].[dbo].[Charge] where [Gen_Flag] = 0 and Branch_Code = '" + branch_code+"'";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -100,18 +97,20 @@ namespace MPBS.Database
                         {
                             while (reader.Read())
                             {
-                                account.AccountNumberLYD = reader[0].ToString();
-                                account.AccountNumberCurrency = reader[1].ToString();
-                                account.WalletNumber = reader[2].ToString();
-                                account.CurrencyCode = reader[3].ToString();
-                                account.ProgramCode = programCode;
-                                account.Customer_ID = customerID;
+                                Charge c = new Charge();
+                                c.ID = int.Parse(reader[0].ToString());
+                                c.ChargeType = int.Parse(reader[1].ToString());
+                                c.CustomerID = int.Parse(reader[2].ToString());
+                                c.ProgramCode = reader[3].ToString();
+                                c.BranchCode = int.Parse(reader[9].ToString());
+
+                                charges.Add(c);
 
 
-                                statusObject.status = true;
-                                statusObject.Object = account;
-                                return statusObject;
                             }
+
+                            statusObject.status = true;
+                            statusObject.Object = charges;
                             return statusObject;
 
                         }
@@ -119,7 +118,7 @@ namespace MPBS.Database
                     catch (Exception e)
                     {
                         statusObject.status = false;
-                        statusObject.message = "Get Customer Info\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                        statusObject.message = "Get Ungen Charges Info\n" + Errors.ErrorsString.Error002 + "\n" + e;
                         return statusObject;
                     }
 

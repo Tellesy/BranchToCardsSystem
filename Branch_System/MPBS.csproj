@@ -271,6 +271,12 @@
     <Compile Include="Screens\Add Card Account\AddCardAccount.Designer.cs">
       <DependentUpon>AddCardAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Charges\Generate Charges File.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Charges\Generate Charges File.Designer.cs">
+      <DependentUpon>Generate Charges File.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\FilesAuth\CAFUnauth.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -555,6 +561,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Add Card Account\AddCardAccount.resx">
       <DependentUpon>AddCardAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Charges\Generate Charges File.resx">
+      <DependentUpon>Generate Charges File.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\FilesAuth\CAFUnauth.resx">
       <DependentUpon>CAFUnauth.cs</DependentUpon>
