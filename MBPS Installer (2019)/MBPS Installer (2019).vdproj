@@ -1478,6 +1478,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -1502,6 +1510,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -2094,7 +2110,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MPBS, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MPBS, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_3E971A012B884162BBD74EC550C3450A"
@@ -4190,15 +4206,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MPBS"
-        "ProductCode" = "8:{EF11A256-EE6B-4BC9-94A2-DFA8F4E61039}"
-        "PackageCode" = "8:{B35DDBA9-7E13-4E19-981C-7B65CA7498DE}"
+        "ProductCode" = "8:{423D5EA1-F160-4742-B3BD-873013ADA445}"
+        "PackageCode" = "8:{44CF018A-D8A1-45B3-AC4D-05BCA6DEF102}"
         "UpgradeCode" = "8:{C220DDD2-0802-4218-A166-B1D845CC95A0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:3.1.5"
+        "ProductVersion" = "8:3.1.9"
         "Manufacturer" = "8:Muiee's Software"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

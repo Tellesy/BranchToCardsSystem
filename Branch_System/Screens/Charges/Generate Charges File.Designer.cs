@@ -30,6 +30,7 @@
         {
             this.Back_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.GenerateCardIssuingChargesFile_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.GenerateLoadFile_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // Back_BTN
@@ -64,14 +65,31 @@
             this.GenerateCardIssuingChargesFile_BTN.UseVisualStyleBackColor = true;
             this.GenerateCardIssuingChargesFile_BTN.Click += new System.EventHandler(this.GenerateCardIssuingChargesFile_BTN_Click);
             // 
-            // Generate_Charges_File
+            // GenerateLoadFile_BTN
+            // 
+            this.GenerateLoadFile_BTN.AutoSize = true;
+            this.GenerateLoadFile_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GenerateLoadFile_BTN.Depth = 0;
+            this.GenerateLoadFile_BTN.Location = new System.Drawing.Point(13, 166);
+            this.GenerateLoadFile_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.GenerateLoadFile_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.GenerateLoadFile_BTN.Name = "GenerateLoadFile_BTN";
+            this.GenerateLoadFile_BTN.Primary = false;
+            this.GenerateLoadFile_BTN.Size = new System.Drawing.Size(149, 36);
+            this.GenerateLoadFile_BTN.TabIndex = 9;
+            this.GenerateLoadFile_BTN.Text = "Generate Load File";
+            this.GenerateLoadFile_BTN.UseVisualStyleBackColor = true;
+            this.GenerateLoadFile_BTN.Click += new System.EventHandler(this.GenerateLoadFile_BTN_Click);
+            // 
+            // GenerateChargesFiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(332, 450);
+            this.Controls.Add(this.GenerateLoadFile_BTN);
             this.Controls.Add(this.GenerateCardIssuingChargesFile_BTN);
             this.Controls.Add(this.Back_BTN);
-            this.Name = "Generate_Charges_File";
+            this.Name = "GenerateChargesFiles";
             this.Text = "Generate_Charges_File";
             this.Load += new System.EventHandler(this.Generate_Charges_File_Load);
             this.ResumeLayout(false);
@@ -83,5 +101,6 @@
 
         private MaterialSkin.Controls.MaterialFlatButton Back_BTN;
         private MaterialSkin.Controls.MaterialFlatButton GenerateCardIssuingChargesFile_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton GenerateLoadFile_BTN;
     }
 }

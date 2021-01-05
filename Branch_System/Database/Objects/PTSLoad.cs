@@ -28,5 +28,11 @@ namespace MPBS.Database.Objects
 
         public bool Generated { get; set; }
         public DateTime GenTime { get; set; }
+
+        public bool CBSFileGen { get; set; }
+        public DateTime CBSFileGenTime { get; set; }
+
+        public bool FromCBLFlag { get; set; }
+        public decimal ExchangeRate { get; set; }
     }
 }

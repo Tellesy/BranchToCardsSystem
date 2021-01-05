@@ -38,7 +38,7 @@ namespace MPBS.Database
                         {
                             statusObject.status = false;
                             statusObject.message = Errors.ErrorsString.Error012;
-
+                            conn.Close();
                             return statusObject;
 
                         }
@@ -54,14 +54,17 @@ namespace MPBS.Database
 
                                 statusObject.status = true;
                                 statusObject.Object = device;
+                                conn.Close();
                                 return statusObject;
                             }
+                            conn.Close();
                             return statusObject;
 
                         }
                     }
                     catch (Exception e)
                     {
+                        conn.Close();
                         statusObject.status = false;
                         statusObject.message = "Get PTS Device \n" + Errors.ErrorsString.Error002 + "\n" + e;
                         return statusObject;
@@ -73,6 +76,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
 

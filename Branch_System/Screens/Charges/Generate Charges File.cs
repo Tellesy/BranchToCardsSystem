@@ -47,8 +47,8 @@ namespace MPBS.Screens.Charges
             }
 
 
-         
-  
+            var date = DateTime.Now;
+
 
             List<List<string>> dataTable = new List<List<string>>();
             List<string> headers = new List<string>();
@@ -63,7 +63,7 @@ namespace MPBS.Screens.Charges
                 if(astatus.status && astatus.Object != null)
                 {
                     cols.Add(astatus.Object.AccountNumberLYD);
-                    var date = DateTime.Now;
+                   
                     string dString = string.Format(date.Day + @"/" + date.Month + @"/"+ date.Year);
                     cols.Add(dString);
                     generatedCharges.Add(c);
@@ -72,7 +72,7 @@ namespace MPBS.Screens.Charges
             dataTable.Add(cols);
 
 
-            string fileName = "CardsChargesFile" + DateTime.Now.ToString(); ;
+            string fileName = "CardsChargesFile-"+ date.Day.ToString().PadLeft(2,'0') + date.Month.ToString().PadLeft(2, '0') + date.Year.ToString() + date.Hour.ToString().PadLeft(2, '0') + date.Minute.ToString().PadLeft(2, '0') + date.Millisecond.ToString().PadLeft(2, '0');
 
             SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
             
@@ -97,6 +97,76 @@ namespace MPBS.Screens.Charges
             }
 
             return charges;
+        }
+
+        private void GenerateLoadFile_BTN_Click(object sender, EventArgs e)
+        {
+            List<PTSLoad> genLoads = new List<PTSLoad>();
+            List<PTSLoad> loads = new List<PTSLoad>();
+            var sBranch = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
+            if (!sBranch.status)
+            {
+                MessageBox.Show("There is an issue related to getting Branch Code");
+                return;
+            }
+
+            var lstatus = PTSLoadController.getCBSLoadRecords(sBranch.Object.Code);
+            if(lstatus.status)
+            {
+                loads = lstatus.Object;
+            }
+            else
+            {
+                MessageBox.Show(lstatus.message);
+                return;
+            }
+
+            var date = DateTime.Now;
+
+
+            List<List<string>> dataTable = new List<List<string>>();
+            List<string> headers = new List<string>();
+            headers.Add("ID");
+            headers.Add("LYD Account Number");
+            headers.Add("Currency Account Number");
+            headers.Add("Amount");
+            headers.Add("Currency");
+            headers.Add("Exchange Rate");
+            headers.Add("Value Date");
+            headers.Add("Waive Flag");
+
+
+
+
+            dataTable.Add(headers);
+          
+            foreach (var l in loads)
+            {
+                List<string> cols = new List<string>();
+                var astatus = PTSAccountController.getAccount(l.CustomerID.ToString(), l.ProgramCode);
+                if (astatus.status && astatus.Object != null)
+                {
+               
+                    cols.Add(l.ID.ToString());
+
+                    cols.Add(astatus.Object.AccountNumberLYD);
+                    cols.Add(astatus.Object.AccountNumberCurrency);
+                    cols.Add(l.Amount.ToString());
+                    cols.Add("USD");
+                    cols.Add(l.ExchangeRate.ToString());
+                    string dString = string.Format(date.Day + @"/" + date.Month + @"/" + date.Year);
+                    cols.Add(dString);
+                    genLoads.Add(l);
+                }
+
+                dataTable.Add(cols);
+            }
+           
+
+
+            string fileName = "CBSLoadFile-" + date.Day.ToString().PadLeft(2, '0') + date.Month.ToString().PadLeft(2, '0') + date.Year.ToString() + date.Hour.ToString().PadLeft(2, '0') + date.Minute.ToString().PadLeft(2, '0') + date.Millisecond.ToString().PadLeft(2, '0');
+
+            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
         }
     }
 }
