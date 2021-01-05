@@ -101,6 +101,9 @@ namespace MPBS.Screens.Charges
 
         private void GenerateLoadFile_BTN_Click(object sender, EventArgs e)
         {
+            var charges = GetCharges();
+
+            List<Charge> genCharges = new List<Charge>();
             List<PTSLoad> genLoads = new List<PTSLoad>();
             List<PTSLoad> loads = new List<PTSLoad>();
             var sBranch = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
@@ -133,6 +136,8 @@ namespace MPBS.Screens.Charges
             headers.Add("Currency");
             headers.Add("Exchange Rate");
             headers.Add("Value Date");
+            headers.Add("Program Code");
+
             headers.Add("Waive Flag");
 
 
@@ -156,6 +161,55 @@ namespace MPBS.Screens.Charges
                     cols.Add(l.ExchangeRate.ToString());
                     string dString = string.Format(date.Day + @"/" + date.Month + @"/" + date.Year);
                     cols.Add(dString);
+                    cols.Add(l.ProgramCode);
+                    //Decide to waive the charge or not
+                    //If it is already in genCharges list then waive 
+                    var resutls = charges.FindAll(i => i.CustomerID == int.Parse(l.CustomerID));
+                    if(resutls.Count > 0)
+                    {
+                        
+                       var c = resutls.Find(x => x.ProgramCode == l.ProgramCode);
+                        if (c != null)
+                        {
+                            if(genCharges.Contains(c))
+                            {
+                                cols.Add("Waive");
+                            }
+                            else
+                            {
+                                genCharges.Add(c);
+                            }
+                           // //Dobule check if you did not already taken the charge 
+                           //var cResults = genCharges.FindAll(i => i.CustomerID == c.CustomerID);
+                           // if(cResults.Count>0)
+                           // {
+                           //     var cResult = cResults.First(x => x.ProgramCode == c.ProgramCode);
+                           //     if (cResult != null)
+                           //     {
+                           //         cols.Add("Waive");
+                           //     }
+                           //     else
+                           //     {
+                           //         genCharges.Add(c);
+                           //     }
+                           // }
+                           // else
+                           // {
+                           //     genCharges.Add(c);
+                           // }
+                           
+                        }
+                        else
+                        {
+                            cols.Add("Waive");
+                        }
+                    }
+                    else
+                    {
+                        cols.Add("Waive");
+                    }
+
+
                     genLoads.Add(l);
                 }
 
