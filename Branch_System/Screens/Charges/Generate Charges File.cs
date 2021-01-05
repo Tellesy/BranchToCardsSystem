@@ -72,9 +72,9 @@ namespace MPBS.Screens.Charges
             dataTable.Add(cols);
 
 
+            string fileName = "CardsChargesFile" + DateTime.Now.ToString(); ;
 
-
-            SettlementsFiles.GenerateTemplateSpreadsheet("ChargesNow", dataTable);
+            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
             
 
         }
