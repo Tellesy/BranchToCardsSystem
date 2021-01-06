@@ -431,7 +431,17 @@ namespace MPBS.Screens.PTS.Issue
             charge.CustomerID = int.Parse(CustomerID_TXT.Text);
             charge.ProgramCode = Program_CBox.SelectedValue.ToString();
             charge.ChargeType = 1;
-            charge.BranchCode = int.Parse(Database.Login.branch);
+            var bstatus = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
+
+            if (bstatus.status)
+            {
+                charge.BranchCode  = bstatus.Object.Code;
+            }
+            else
+            {
+                charge.BranchCode  = "0003";
+            }
+            //charge.BranchCode = int.Parse(Database.Login.branch);
 
 
            var status = ChargeController.addCharges(charge);

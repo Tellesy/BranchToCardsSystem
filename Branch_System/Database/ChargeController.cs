@@ -102,7 +102,7 @@ namespace MPBS.Database
                                 c.ChargeType = int.Parse(reader[1].ToString());
                                 c.CustomerID = int.Parse(reader[2].ToString());
                                 c.ProgramCode = reader[3].ToString();
-                                c.BranchCode = int.Parse(reader[9].ToString());
+                                c.BranchCode = reader[9].ToString();
 
                                 charges.Add(c);
 

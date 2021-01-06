@@ -25,6 +25,6 @@ namespace MPBS.Database.Objects
         public bool ExeFlag { get; set; }
         public DateTime ExeDate { get; set; }
         
-        public int BranchCode { get; set; }
+        public string BranchCode { get; set; }
     }
 }
