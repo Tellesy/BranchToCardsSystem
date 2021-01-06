@@ -135,6 +135,48 @@ namespace MPBS.Database
             }
         }
 
+        public static Status genCharge(int recordID)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "UPDATE [CTS].[dbo].[Charge] SET [Gen_Flag] = @v1 , [Gen_Date] = @v2 WHERE [ID] = @v3";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@v1", 1);
+                    cmd.Parameters.AddWithValue("@v2", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@v3", recordID);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    conn.Close();
+                    status.status = false;
+                    status.message = "Load Generator(Update Auth)\n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+
+                return status;
+            }
+
+        }
+
         //public static Status<List<Charge>> getUngenCharges(string customer_id, string program_code)
         //{
         //    Status<List<Charge>> statusObject = new Status<List<Charge>>();

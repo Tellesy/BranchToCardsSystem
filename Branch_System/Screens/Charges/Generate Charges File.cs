@@ -128,8 +128,10 @@ namespace MPBS.Screens.Charges
 
 
             List<List<string>> dataTable = new List<List<string>>();
+
+            //Set Headers
             List<string> headers = new List<string>();
-            headers.Add("ID");
+            headers.Add("Record ID");
             headers.Add("LYD Account Number");
             headers.Add("Currency Account Number");
             headers.Add("Amount");
@@ -137,14 +139,12 @@ namespace MPBS.Screens.Charges
             headers.Add("Exchange Rate");
             headers.Add("Value Date");
             headers.Add("Program Code");
-
             headers.Add("Waive Flag");
 
-
-
-
+            //Add headers to dataTable
             dataTable.Add(headers);
           
+            //Add coloums 
             foreach (var l in loads)
             {
                 List<string> cols = new List<string>();
@@ -152,22 +152,31 @@ namespace MPBS.Screens.Charges
                 if (astatus.status && astatus.Object != null)
                 {
                
+                    //Add record ID
                     cols.Add(l.ID.ToString());
-
+                    //Account number (Debit)
                     cols.Add(astatus.Object.AccountNumberLYD);
+                    //Account number (Credit)
                     cols.Add(astatus.Object.AccountNumberCurrency);
+                    //Load Amount
                     cols.Add(l.Amount.ToString());
+                    //Currency
                     cols.Add("USD");
+                    //Exchange rate from Credit to Debit
                     cols.Add(l.ExchangeRate.ToString());
+                    //Value Date
                     string dString = string.Format(date.Day + @"/" + date.Month + @"/" + date.Year);
                     cols.Add(dString);
+                    //Add Program Code
                     cols.Add(l.ProgramCode);
-                    //Decide to waive the charge or not
+
+                    //Waive charge in case the charge was already collected 
                     //If it is already in genCharges list then waive 
+
+                    //Get the untaken charges 
                     var resutls = charges.FindAll(i => i.CustomerID == int.Parse(l.CustomerID));
                     if(resutls.Count > 0)
                     {
-                        
                        var c = resutls.Find(x => x.ProgramCode == l.ProgramCode);
                         if (c != null)
                         {
@@ -177,26 +186,9 @@ namespace MPBS.Screens.Charges
                             }
                             else
                             {
+                                //Keep Empty and add it genCharges to mark and generated charge
                                 genCharges.Add(c);
                             }
-                           // //Dobule check if you did not already taken the charge 
-                           //var cResults = genCharges.FindAll(i => i.CustomerID == c.CustomerID);
-                           // if(cResults.Count>0)
-                           // {
-                           //     var cResult = cResults.First(x => x.ProgramCode == c.ProgramCode);
-                           //     if (cResult != null)
-                           //     {
-                           //         cols.Add("Waive");
-                           //     }
-                           //     else
-                           //     {
-                           //         genCharges.Add(c);
-                           //     }
-                           // }
-                           // else
-                           // {
-                           //     genCharges.Add(c);
-                           // }
                            
                         }
                         else
@@ -214,6 +206,7 @@ namespace MPBS.Screens.Charges
                 }
 
                 dataTable.Add(cols);
+
             }
            
 
@@ -221,6 +214,27 @@ namespace MPBS.Screens.Charges
             string fileName = "CBSLoadFile-" + date.Day.ToString().PadLeft(2, '0') + date.Month.ToString().PadLeft(2, '0') + date.Year.ToString() + date.Hour.ToString().PadLeft(2, '0') + date.Minute.ToString().PadLeft(2, '0') + date.Millisecond.ToString().PadLeft(2, '0');
 
             SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
+
+            //Now make the taken charges as generated and load gen Loads in DB
+            
+            foreach(var l in genLoads)
+            {
+               var genLoadStatus = PTSLoadController.genCBSLoadRecords(l.ID);
+                if(!genLoadStatus.status)
+                {
+                    MessageBox.Show("Error in Load record " + l.ID);
+                }
+            }
+
+            foreach (var c in genCharges)
+            {
+                var genChargeStatus = ChargeController.genCharge(c.ID);
+                if (!genChargeStatus.status)
+                {
+                    MessageBox.Show("Error in Charge record " + c.ID);
+                }
+            }
+
         }
     }
 }
