@@ -16,6 +16,8 @@ namespace MPBS.Database
         public static string branch;
         public static string role;
         public static string id;
+        public static bool ADEnabled;
+
 
         public static Status login(string username, string password)
         {
@@ -180,14 +182,14 @@ namespace MPBS.Database
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
-        public static Status isADEnabled(string username)
+        public static Status ADlogin(string username, string password)
         {
 
 
             Status status = new Status();
             status.status = false;
-            string active = "False";
-            string enabled = "False";
+            bool active = false;
+            bool AD_enabled = false;
 
             SqlConnection conn = Database.DBConnection.Connection();
             try
@@ -212,7 +214,7 @@ namespace MPBS.Database
                               ,[Role]
                               ,[Branch]
                               ,[AD_enabled]
-                          FROM [Users] WHERE Username = '{0}", username);
+                          FROM [Users] WHERE Username = '{0}'", username);
 
                 try
                 {
@@ -229,28 +231,50 @@ namespace MPBS.Database
                         }
                         while (reader.Read())
                         {
-                            enabled = reader[6].ToString();
+                           
+                            active = bool.Parse(reader[2].ToString());
+
+                            if (!String.IsNullOrWhiteSpace(reader[6].ToString()) && reader[6].ToString() != "NULL")
+                                AD_enabled = bool.Parse(reader[6].ToString());
+                            else
+                                AD_enabled = false;
+
+
 
                         }
 
-                        if (active != "True")
+                        if (!active)
                         {
                             status.status = false;
                             status.message = "هذا المستخدم غير مفعل, الرجاء الاستفسار من مديرك";
 
                             return status;
                         }
-                        if(enabled != "True")
+
+                        if(!AD_enabled)
                         {
                             status.status = false;
                             status.message = "هذا المستخدم غير مفعل, الرجاء الاستفسار من مديرك";
 
                             return status;
                         }
+
+                    
+                        status = domainLogin(username,password);
+                        if(status.status)
+                        {
+                            Login.username = reader.GetValue(0).ToString();
+                            Login.name = reader.GetValue(1).ToString();
+                            Login.id = reader[3].ToString();
+                            Login.role = reader[4].ToString();
+                            Login.branch = reader[5].ToString();
+                            Login.ADEnabled = AD_enabled;
+                        }
+  
                     }
 
 
-                    status.status = true;
+                    //status.status = true;
                     conn.Close();
                     return status;
                 }
@@ -270,6 +294,7 @@ namespace MPBS.Database
         }
         public static Status domainLogin(string username, string password)
         {
+            
 
             Status result = new Status();
 
@@ -282,15 +307,7 @@ namespace MPBS.Database
                 DirectorySearcher _searcher = new DirectorySearcher(_entry);
                 _searcher.Filter = "(objectclass=user)";
 
-                //try
-                //{
-                //    PrincipalContext pc = new PrincipalContext(ContextType.Domain, "lib");
-                //    bool Valid = pc.ValidateCredentials(username, password);
-                //}
-                //catch (Exception e)
-                //{
-                //    string error = e.Message;
-                //}
+              
                
                 try
                 {
