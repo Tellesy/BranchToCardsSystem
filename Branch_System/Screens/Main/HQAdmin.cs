@@ -20,6 +20,7 @@ using MPBS.Screens.PTS.AuthIssue;
 using MPBS.Screens.UploadFile;
 using MPBS.Screens.PTS.Load;
 using MPBS.Screens.PTS.Perso;
+using MPBS.Screens.PTS.Reports;
 
 namespace MPBS.Screens.Main
 {
@@ -35,6 +36,7 @@ namespace MPBS.Screens.Main
         private GenLoadFile genLoadFile;
         GenerateEMBPIN generateEMBPIN;
         private GenAppRecord genAppRecord;
+        private ReportsMenu reportMenu;
         public HQAdmin()
         {
             InitializeComponent();
@@ -238,6 +240,21 @@ namespace MPBS.Screens.Main
                 };
                 generateEMBPIN.Show();
                 GenerateEMBPIN_BTN.Enabled = false;
+            }
+        }
+
+
+
+        private void Reports_BTN_Click(object sender, EventArgs e)
+        {
+            if (reportMenu == null)
+            {
+                reportMenu = new ReportsMenu();
+                reportMenu.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    reportMenu = null; Reports_BTN.Enabled = true;
+                };
+                reportMenu.Show();
+                Reports_BTN.Enabled = false;
             }
         }
     }

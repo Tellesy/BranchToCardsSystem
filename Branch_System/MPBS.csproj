@@ -469,6 +469,12 @@
     <Compile Include="Screens\PTS\Perso\GenerateEMBPIN.Designer.cs">
       <DependentUpon>GenerateEMBPIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\PTS\Reports\ReportsMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Reports\ReportsMenu.Designer.cs">
+      <DependentUpon>ReportsMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\SMT\PIN\PIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -679,6 +685,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Perso\GenerateEMBPIN.resx">
       <DependentUpon>GenerateEMBPIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Reports\ReportsMenu.resx">
+      <DependentUpon>ReportsMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\SMT\PIN\PIN.resx">
       <DependentUpon>PIN.cs</DependentUpon>

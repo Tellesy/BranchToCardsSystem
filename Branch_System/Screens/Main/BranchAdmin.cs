@@ -18,6 +18,10 @@ using MPBS.Screens.Account_Details;
 using MPBS.Screens.PTS.BranchAuthIssue;
 using MPBS.Screens.PTS.Load;
 using MPBS.Screens.Charges;
+using MPBS.Screens.PTS.Customer;
+using MPBS.Screens.PTS.Account;
+using Microsoft.VisualBasic;
+using MPBS.Screens.PTS.Reports;
 
 namespace MPBS.Screens
 {
@@ -31,6 +35,9 @@ namespace MPBS.Screens
         private GenerateChargesFiles generateChargesFiles;
         //PTSScreens
         private BranchAuthIssue authIssue;
+        private EditCustomer editCustomer;
+        private EditAccount editAccount;
+        private ReportsMenu reportMenu;
 
         public BranchAdmin()
         {
@@ -95,17 +102,8 @@ namespace MPBS.Screens
             }
         }
 
-        private void Reports_BTN_Click(object sender, EventArgs e)
-        {
-            MPBS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
-            rechargeReport.Show();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MPBS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
-            cardAccount.Show();
-        }
+       
 
    
 
@@ -168,6 +166,86 @@ namespace MPBS.Screens
                 };
                 generateChargesFiles.Show();
                 ChargesAndLoadFiles_BTN.Enabled = false;
+            }
+        }
+
+        private void EditCustomerInformation_BTN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                string customerID = Interaction.InputBox("Please Enter Customer ID?", "Search for Customer", "1000000");
+
+                if (customerID.Count() < 7)
+                {
+                    MessageBox.Show("رقم الزبون غير صحيح");
+                    return;
+                }
+
+
+                var status = PTSCustomerController.getCustomer(customerID);
+                if (!status.status)
+                {
+                    MessageBox.Show("لا يوجد زبون بهذا الرقم");
+                    return;
+                }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(status.Object.CustomerID))
+                    {
+                        MessageBox.Show("لا يوجد زبون بهذا الرقم");
+                        return;
+                    }
+                    if (editCustomer == null)
+                    {
+                        editCustomer = new EditCustomer();
+                        editCustomer.customer_id = customerID;
+
+                        editCustomer.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                            editCustomer = null; EditCustomerInformation_BTN.Enabled = true;
+                        };
+                        editCustomer.Show();
+                        EditCustomerInformation_BTN.Enabled = false;
+                    }
+
+
+                }
+
+
+
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void EditAccountInformation_BTN_Click(object sender, EventArgs e)
+        {
+            if (editAccount == null)
+            {
+                editAccount = new EditAccount();
+
+
+                editAccount.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    editAccount = null; EditAccountInformation_BTN.Enabled = true;
+                };
+                editAccount.Show();
+                EditAccountInformation_BTN.Enabled = false;
+            }
+        }
+
+        private void Reports_BTN_Click(object sender, EventArgs e)
+        {
+            if (reportMenu == null)
+            {
+                reportMenu = new ReportsMenu();
+                reportMenu.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    reportMenu = null; Reports_BTN.Enabled = true;
+                };
+                reportMenu.Show();
+                Reports_BTN.Enabled = false;
             }
         }
     }

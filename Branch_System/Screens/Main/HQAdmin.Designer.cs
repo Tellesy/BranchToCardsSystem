@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HQAdmin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.Amount_LBL = new MaterialSkin.Controls.MaterialLabel();
@@ -49,6 +50,7 @@
             this.GenerateT24_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.GenLoadFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.GenerateEMBPIN_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Reports_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -254,14 +256,14 @@
             this.GenFiles_BTN.AutoSize = true;
             this.GenFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenFiles_BTN.Depth = 0;
-            this.GenFiles_BTN.Location = new System.Drawing.Point(13, 533);
+            this.GenFiles_BTN.Location = new System.Drawing.Point(13, 632);
             this.GenFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenFiles_BTN.Name = "GenFiles_BTN";
             this.GenFiles_BTN.Primary = false;
-            this.GenFiles_BTN.Size = new System.Drawing.Size(119, 36);
+            this.GenFiles_BTN.Size = new System.Drawing.Size(210, 36);
             this.GenFiles_BTN.TabIndex = 55;
-            this.GenFiles_BTN.Text = "Generate Files";
+            this.GenFiles_BTN.Text = "Generate Application Files";
             this.GenFiles_BTN.UseVisualStyleBackColor = true;
             this.GenFiles_BTN.Click += new System.EventHandler(this.GenFiles_BTN_Click);
             // 
@@ -270,7 +272,7 @@
             this.Logout_BTN.AutoSize = true;
             this.Logout_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Logout_BTN.Depth = 0;
-            this.Logout_BTN.Location = new System.Drawing.Point(13, 693);
+            this.Logout_BTN.Location = new System.Drawing.Point(13, 723);
             this.Logout_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Logout_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Logout_BTN.Name = "Logout_BTN";
@@ -303,7 +305,7 @@
             this.AuthLoadRequests_BTN.AutoSize = true;
             this.AuthLoadRequests_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AuthLoadRequests_BTN.Depth = 0;
-            this.AuthLoadRequests_BTN.Location = new System.Drawing.Point(13, 437);
+            this.AuthLoadRequests_BTN.Location = new System.Drawing.Point(12, 437);
             this.AuthLoadRequests_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AuthLoadRequests_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.AuthLoadRequests_BTN.Name = "AuthLoadRequests_BTN";
@@ -319,7 +321,7 @@
             this.GenerateT24_BTN.AutoSize = true;
             this.GenerateT24_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenerateT24_BTN.Depth = 0;
-            this.GenerateT24_BTN.Location = new System.Drawing.Point(13, 485);
+            this.GenerateT24_BTN.Location = new System.Drawing.Point(13, 535);
             this.GenerateT24_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenerateT24_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenerateT24_BTN.Name = "GenerateT24_BTN";
@@ -335,7 +337,7 @@
             this.GenLoadFiles_BTN.AutoSize = true;
             this.GenLoadFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenLoadFiles_BTN.Depth = 0;
-            this.GenLoadFiles_BTN.Location = new System.Drawing.Point(13, 581);
+            this.GenLoadFiles_BTN.Location = new System.Drawing.Point(13, 680);
             this.GenLoadFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenLoadFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenLoadFiles_BTN.Name = "GenLoadFiles_BTN";
@@ -351,7 +353,7 @@
             this.GenerateEMBPIN_BTN.AutoSize = true;
             this.GenerateEMBPIN_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenerateEMBPIN_BTN.Depth = 0;
-            this.GenerateEMBPIN_BTN.Location = new System.Drawing.Point(12, 629);
+            this.GenerateEMBPIN_BTN.Location = new System.Drawing.Point(13, 584);
             this.GenerateEMBPIN_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenerateEMBPIN_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenerateEMBPIN_BTN.Name = "GenerateEMBPIN_BTN";
@@ -362,13 +364,34 @@
             this.GenerateEMBPIN_BTN.UseVisualStyleBackColor = true;
             this.GenerateEMBPIN_BTN.Click += new System.EventHandler(this.GenerateEMBPIN_BTN_Click);
             // 
+            // Reports_BTN
+            // 
+            this.Reports_BTN.AutoSize = true;
+            this.Reports_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Reports_BTN.Depth = 0;
+            this.Reports_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
+            this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Reports_BTN.Location = new System.Drawing.Point(12, 485);
+            this.Reports_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Reports_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Reports_BTN.Name = "Reports_BTN";
+            this.Reports_BTN.Primary = false;
+            this.Reports_BTN.Size = new System.Drawing.Size(72, 36);
+            this.Reports_BTN.TabIndex = 69;
+            this.Reports_BTN.Text = "Reports";
+            this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Reports_BTN.UseVisualStyleBackColor = true;
+            this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
+            // 
             // HQAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(517, 744);
+            this.ClientSize = new System.Drawing.Size(517, 774);
             this.ControlBox = false;
+            this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.GenerateEMBPIN_BTN);
             this.Controls.Add(this.GenLoadFiles_BTN);
             this.Controls.Add(this.GenerateT24_BTN);
@@ -416,5 +439,6 @@
         private MaterialSkin.Controls.MaterialFlatButton GenerateT24_BTN;
         private MaterialSkin.Controls.MaterialFlatButton GenLoadFiles_BTN;
         private MaterialSkin.Controls.MaterialFlatButton GenerateEMBPIN_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton Reports_BTN;
     }
 }

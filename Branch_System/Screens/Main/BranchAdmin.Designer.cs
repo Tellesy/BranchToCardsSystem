@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BranchAdmin));
-            this.Reports_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Logout_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.label4 = new System.Windows.Forms.Label();
             this.ShareFolder_BTN = new MaterialSkin.Controls.MaterialFlatButton();
@@ -50,28 +49,9 @@
             this.EditAccountInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.EditCustomerInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.ChargesAndLoadFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Reports_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Reports_BTN
-            // 
-            this.Reports_BTN.AutoSize = true;
-            this.Reports_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Reports_BTN.Depth = 0;
-            this.Reports_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
-            this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(23, 503);
-            this.Reports_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.Reports_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.Reports_BTN.Name = "Reports_BTN";
-            this.Reports_BTN.Primary = false;
-            this.Reports_BTN.Size = new System.Drawing.Size(102, 36);
-            this.Reports_BTN.TabIndex = 26;
-            this.Reports_BTN.Text = "Load Report";
-            this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Reports_BTN.UseVisualStyleBackColor = true;
-            this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
             // 
             // Logout_BTN
             // 
@@ -128,7 +108,7 @@
             this.PTSIssueAuth_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.PTSIssueAuth_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PTSIssueAuth_BTN.Image")));
             this.PTSIssueAuth_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PTSIssueAuth_BTN.Location = new System.Drawing.Point(25, 366);
+            this.PTSIssueAuth_BTN.Location = new System.Drawing.Point(23, 366);
             this.PTSIssueAuth_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PTSIssueAuth_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.PTSIssueAuth_BTN.Name = "PTSIssueAuth_BTN";
@@ -148,7 +128,7 @@
             this.PTSLoadAuth_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.PTSLoadAuth_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PTSLoadAuth_BTN.Image")));
             this.PTSLoadAuth_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PTSLoadAuth_BTN.Location = new System.Drawing.Point(23, 414);
+            this.PTSLoadAuth_BTN.Location = new System.Drawing.Point(25, 414);
             this.PTSLoadAuth_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PTSLoadAuth_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.PTSLoadAuth_BTN.Name = "PTSLoadAuth_BTN";
@@ -333,13 +313,14 @@
             this.EditAccountInformation_BTN.TabIndex = 66;
             this.EditAccountInformation_BTN.Text = "Edit Account Information";
             this.EditAccountInformation_BTN.UseVisualStyleBackColor = true;
+            this.EditAccountInformation_BTN.Click += new System.EventHandler(this.EditAccountInformation_BTN_Click);
             // 
             // EditCustomerInformation_BTN
             // 
             this.EditCustomerInformation_BTN.AutoSize = true;
             this.EditCustomerInformation_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.EditCustomerInformation_BTN.Depth = 0;
-            this.EditCustomerInformation_BTN.Location = new System.Drawing.Point(25, 270);
+            this.EditCustomerInformation_BTN.Location = new System.Drawing.Point(23, 270);
             this.EditCustomerInformation_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.EditCustomerInformation_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.EditCustomerInformation_BTN.Name = "EditCustomerInformation_BTN";
@@ -348,6 +329,7 @@
             this.EditCustomerInformation_BTN.TabIndex = 65;
             this.EditCustomerInformation_BTN.Text = "Edit Customer Information";
             this.EditCustomerInformation_BTN.UseVisualStyleBackColor = true;
+            this.EditCustomerInformation_BTN.Click += new System.EventHandler(this.EditCustomerInformation_BTN_Click);
             // 
             // ChargesAndLoadFiles_BTN
             // 
@@ -357,7 +339,7 @@
             this.ChargesAndLoadFiles_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.ChargesAndLoadFiles_BTN.Image = ((System.Drawing.Image)(resources.GetObject("ChargesAndLoadFiles_BTN.Image")));
             this.ChargesAndLoadFiles_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ChargesAndLoadFiles_BTN.Location = new System.Drawing.Point(27, 455);
+            this.ChargesAndLoadFiles_BTN.Location = new System.Drawing.Point(23, 503);
             this.ChargesAndLoadFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ChargesAndLoadFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.ChargesAndLoadFiles_BTN.Name = "ChargesAndLoadFiles_BTN";
@@ -369,14 +351,35 @@
             this.ChargesAndLoadFiles_BTN.UseVisualStyleBackColor = true;
             this.ChargesAndLoadFiles_BTN.Click += new System.EventHandler(this.ChargesAndLoadFiles_BTN_Click);
             // 
+            // Reports_BTN
+            // 
+            this.Reports_BTN.AutoSize = true;
+            this.Reports_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Reports_BTN.Depth = 0;
+            this.Reports_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
+            this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Reports_BTN.Location = new System.Drawing.Point(23, 455);
+            this.Reports_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Reports_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Reports_BTN.Name = "Reports_BTN";
+            this.Reports_BTN.Primary = false;
+            this.Reports_BTN.Size = new System.Drawing.Size(72, 36);
+            this.Reports_BTN.TabIndex = 68;
+            this.Reports_BTN.Text = "Reports";
+            this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Reports_BTN.UseVisualStyleBackColor = true;
+            this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
+            // 
             // BranchAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(515, 644);
+            this.ClientSize = new System.Drawing.Size(507, 636);
             this.ControlBox = false;
+            this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.ChargesAndLoadFiles_BTN);
             this.Controls.Add(this.EditAccountInformation_BTN);
             this.Controls.Add(this.EditCustomerInformation_BTN);
@@ -390,7 +393,6 @@
             this.Controls.Add(this.PTSIssueAuth_BTN);
             this.Controls.Add(this.ShareFolder_BTN);
             this.Controls.Add(this.Logout_BTN);
-            this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -409,7 +411,6 @@
         #endregion
         private System.Windows.Forms.Label label4;
         private MaterialSkin.Controls.MaterialFlatButton PTSIssueAuth_BTN;
-        private MaterialSkin.Controls.MaterialFlatButton Reports_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Logout_BTN;
         private MaterialSkin.Controls.MaterialFlatButton ShareFolder_BTN;
         private MaterialSkin.Controls.MaterialFlatButton PTSLoadAuth_BTN;
@@ -428,5 +429,6 @@
         private MaterialSkin.Controls.MaterialFlatButton EditAccountInformation_BTN;
         private MaterialSkin.Controls.MaterialFlatButton EditCustomerInformation_BTN;
         private MaterialSkin.Controls.MaterialFlatButton ChargesAndLoadFiles_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton Reports_BTN;
     }
 }

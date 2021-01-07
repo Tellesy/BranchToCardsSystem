@@ -29,17 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inputter));
-            this.Issue_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            this.Recharge_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            this.Reissue_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            this.PIN_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Logout_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.label4 = new MaterialSkin.Controls.MaterialLabel();
-            this.Reports_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.label6 = new MaterialSkin.Controls.MaterialLabel();
-            this.CardENQ_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.ShareFolder_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            this.AccountDetails_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Issue_PTS_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Branch_LBL = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
@@ -56,92 +49,9 @@
             this.PTSLoadWallet_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.EditCustomerInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.EditAccountInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Reports_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Issue_BTN
-            // 
-            this.Issue_BTN.AutoSize = true;
-            this.Issue_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Issue_BTN.Depth = 0;
-            this.Issue_BTN.Enabled = false;
-            this.Issue_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
-            this.Issue_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Issue_BTN.Image")));
-            this.Issue_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Issue_BTN.Location = new System.Drawing.Point(18, 459);
-            this.Issue_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.Issue_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.Issue_BTN.Name = "Issue_BTN";
-            this.Issue_BTN.Primary = false;
-            this.Issue_BTN.Size = new System.Drawing.Size(130, 36);
-            this.Issue_BTN.TabIndex = 13;
-            this.Issue_BTN.Text = "Issue Card (SMT)";
-            this.Issue_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Issue_BTN.UseVisualStyleBackColor = true;
-            this.Issue_BTN.Click += new System.EventHandler(this.Issue_BTN_Click);
-            // 
-            // Recharge_BTN
-            // 
-            this.Recharge_BTN.AutoSize = true;
-            this.Recharge_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Recharge_BTN.Depth = 0;
-            this.Recharge_BTN.Enabled = false;
-            this.Recharge_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
-            this.Recharge_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Recharge_BTN.Image")));
-            this.Recharge_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Recharge_BTN.Location = new System.Drawing.Point(18, 603);
-            this.Recharge_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.Recharge_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.Recharge_BTN.Name = "Recharge_BTN";
-            this.Recharge_BTN.Primary = false;
-            this.Recharge_BTN.Size = new System.Drawing.Size(89, 36);
-            this.Recharge_BTN.TabIndex = 14;
-            this.Recharge_BTN.Text = "Load (SMT)";
-            this.Recharge_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Recharge_BTN.UseVisualStyleBackColor = true;
-            this.Recharge_BTN.Click += new System.EventHandler(this.Recharge_BTN_Click);
-            // 
-            // Reissue_BTN
-            // 
-            this.Reissue_BTN.AutoSize = true;
-            this.Reissue_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Reissue_BTN.Depth = 0;
-            this.Reissue_BTN.Enabled = false;
-            this.Reissue_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
-            this.Reissue_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reissue_BTN.Image")));
-            this.Reissue_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reissue_BTN.Location = new System.Drawing.Point(18, 555);
-            this.Reissue_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.Reissue_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.Reissue_BTN.Name = "Reissue_BTN";
-            this.Reissue_BTN.Primary = false;
-            this.Reissue_BTN.Size = new System.Drawing.Size(151, 36);
-            this.Reissue_BTN.TabIndex = 15;
-            this.Reissue_BTN.Text = "Replace Card (SMT)";
-            this.Reissue_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Reissue_BTN.UseVisualStyleBackColor = true;
-            this.Reissue_BTN.Click += new System.EventHandler(this.Reissue_BTN_Click);
-            // 
-            // PIN_BTN
-            // 
-            this.PIN_BTN.AutoSize = true;
-            this.PIN_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.PIN_BTN.Depth = 0;
-            this.PIN_BTN.Enabled = false;
-            this.PIN_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.PIN_BTN.Image = ((System.Drawing.Image)(resources.GetObject("PIN_BTN.Image")));
-            this.PIN_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PIN_BTN.Location = new System.Drawing.Point(18, 507);
-            this.PIN_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.PIN_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.PIN_BTN.Name = "PIN_BTN";
-            this.PIN_BTN.Primary = false;
-            this.PIN_BTN.Size = new System.Drawing.Size(138, 36);
-            this.PIN_BTN.TabIndex = 16;
-            this.PIN_BTN.Text = "Replace PIN (SMT)";
-            this.PIN_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PIN_BTN.UseVisualStyleBackColor = true;
-            this.PIN_BTN.Click += new System.EventHandler(this.PIN_BTN_Click);
             // 
             // Logout_BTN
             // 
@@ -176,27 +86,6 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Mu Tellesy Software ©";
             // 
-            // Reports_BTN
-            // 
-            this.Reports_BTN.AutoSize = true;
-            this.Reports_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Reports_BTN.Depth = 0;
-            this.Reports_BTN.Enabled = false;
-            this.Reports_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
-            this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(18, 747);
-            this.Reports_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.Reports_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.Reports_BTN.Name = "Reports_BTN";
-            this.Reports_BTN.Primary = false;
-            this.Reports_BTN.Size = new System.Drawing.Size(107, 36);
-            this.Reports_BTN.TabIndex = 34;
-            this.Reports_BTN.Text = "Load Enquiry";
-            this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Reports_BTN.UseVisualStyleBackColor = true;
-            this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -211,27 +100,6 @@
             this.label6.Size = new System.Drawing.Size(141, 19);
             this.label6.TabIndex = 35;
             this.label6.Text = "Muiee\'s Software ©";
-            // 
-            // CardENQ_BTN
-            // 
-            this.CardENQ_BTN.AutoSize = true;
-            this.CardENQ_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.CardENQ_BTN.Depth = 0;
-            this.CardENQ_BTN.Enabled = false;
-            this.CardENQ_BTN.Font = new System.Drawing.Font("Modern No. 20", 18.55F);
-            this.CardENQ_BTN.Image = ((System.Drawing.Image)(resources.GetObject("CardENQ_BTN.Image")));
-            this.CardENQ_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CardENQ_BTN.Location = new System.Drawing.Point(18, 651);
-            this.CardENQ_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.CardENQ_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.CardENQ_BTN.Name = "CardENQ_BTN";
-            this.CardENQ_BTN.Primary = false;
-            this.CardENQ_BTN.Size = new System.Drawing.Size(141, 36);
-            this.CardENQ_BTN.TabIndex = 36;
-            this.CardENQ_BTN.Text = "Card Enquiy (SMT)";
-            this.CardENQ_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CardENQ_BTN.UseVisualStyleBackColor = true;
-            this.CardENQ_BTN.Click += new System.EventHandler(this.CardENQ_BTN_Click);
             // 
             // ShareFolder_BTN
             // 
@@ -249,27 +117,6 @@
             this.ShareFolder_BTN.Text = "Shared Folder";
             this.ShareFolder_BTN.UseVisualStyleBackColor = true;
             this.ShareFolder_BTN.Click += new System.EventHandler(this.ShareFolder_BTN_Click);
-            // 
-            // AccountDetails_BTN
-            // 
-            this.AccountDetails_BTN.AutoSize = true;
-            this.AccountDetails_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AccountDetails_BTN.Depth = 0;
-            this.AccountDetails_BTN.Enabled = false;
-            this.AccountDetails_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
-            this.AccountDetails_BTN.Image = ((System.Drawing.Image)(resources.GetObject("AccountDetails_BTN.Image")));
-            this.AccountDetails_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AccountDetails_BTN.Location = new System.Drawing.Point(18, 699);
-            this.AccountDetails_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AccountDetails_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AccountDetails_BTN.Name = "AccountDetails_BTN";
-            this.AccountDetails_BTN.Primary = false;
-            this.AccountDetails_BTN.Size = new System.Drawing.Size(236, 36);
-            this.AccountDetails_BTN.TabIndex = 39;
-            this.AccountDetails_BTN.Text = "Card Infromation Enquiy (SMT)";
-            this.AccountDetails_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AccountDetails_BTN.UseVisualStyleBackColor = true;
-            this.AccountDetails_BTN.Click += new System.EventHandler(this.AccountDetails_BTN_Click);
             // 
             // Issue_PTS_BTN
             // 
@@ -502,6 +349,26 @@
             this.EditAccountInformation_BTN.UseVisualStyleBackColor = true;
             this.EditAccountInformation_BTN.Click += new System.EventHandler(this.EditAccountInformation_BTN_Click);
             // 
+            // Reports_BTN
+            // 
+            this.Reports_BTN.AutoSize = true;
+            this.Reports_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Reports_BTN.Depth = 0;
+            this.Reports_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
+            this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Reports_BTN.Location = new System.Drawing.Point(19, 459);
+            this.Reports_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Reports_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Reports_BTN.Name = "Reports_BTN";
+            this.Reports_BTN.Primary = false;
+            this.Reports_BTN.Size = new System.Drawing.Size(72, 36);
+            this.Reports_BTN.TabIndex = 70;
+            this.Reports_BTN.Text = "Reports";
+            this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Reports_BTN.UseVisualStyleBackColor = true;
+            this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
+            // 
             // Inputter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,6 +377,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(654, 893);
             this.ControlBox = false;
+            this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.EditAccountInformation_BTN);
             this.Controls.Add(this.EditCustomerInformation_BTN);
             this.Controls.Add(this.PTSLoadWallet_BTN);
@@ -520,15 +388,8 @@
             this.Controls.Add(this.Name_LBL);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Issue_PTS_BTN);
-            this.Controls.Add(this.AccountDetails_BTN);
             this.Controls.Add(this.ShareFolder_BTN);
-            this.Controls.Add(this.CardENQ_BTN);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.Reports_BTN);
-            this.Controls.Add(this.PIN_BTN);
-            this.Controls.Add(this.Reissue_BTN);
-            this.Controls.Add(this.Recharge_BTN);
-            this.Controls.Add(this.Issue_BTN);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Logout_BTN);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -545,17 +406,10 @@
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialFlatButton Issue_BTN;
-        private MaterialSkin.Controls.MaterialFlatButton Recharge_BTN;
-        private MaterialSkin.Controls.MaterialFlatButton Reissue_BTN;
-        private MaterialSkin.Controls.MaterialFlatButton PIN_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Logout_BTN;
         private MaterialSkin.Controls.MaterialLabel label4;
-        private MaterialSkin.Controls.MaterialFlatButton Reports_BTN;
         private MaterialSkin.Controls.MaterialLabel label6;
-        private MaterialSkin.Controls.MaterialFlatButton CardENQ_BTN;
         private MaterialSkin.Controls.MaterialFlatButton ShareFolder_BTN;
-        private MaterialSkin.Controls.MaterialFlatButton AccountDetails_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Issue_PTS_BTN;
         private MaterialSkin.Controls.MaterialLabel Branch_LBL;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
@@ -572,5 +426,6 @@
         private MaterialSkin.Controls.MaterialFlatButton PTSLoadWallet_BTN;
         private MaterialSkin.Controls.MaterialFlatButton EditCustomerInformation_BTN;
         private MaterialSkin.Controls.MaterialFlatButton EditAccountInformation_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton Reports_BTN;
     }
 }
