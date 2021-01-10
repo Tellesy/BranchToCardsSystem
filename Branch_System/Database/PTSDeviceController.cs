@@ -138,5 +138,81 @@ namespace MPBS.Database
             }
         }
 
+        public static Status<PTSDevice> getExistingDevice(string customerID)
+        {
+            Status<PTSDevice> statusObject = new Status<PTSDevice>();
+            statusObject.status = false;
+            PTSDevice device = new PTSDevice();
+
+            SqlConnection conn = Database.DBConnection.Connection();
+
+
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = @"SELECT TOP 1 [device_number]
+      ,d.[wallet_number]
+      ,[active]
+      ,[card_pack_id]
+  FROM [CTS].[dbo].[PTS_Device] as d join PTS_Account as a on a.wallet_number = d.wallet_number where a.customer_ID = " + customerID;
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        if (!reader.HasRows)
+                        {
+                            statusObject.status = false;
+                            statusObject.message = Errors.ErrorsString.Error012;
+                            conn.Close();
+                            return statusObject;
+
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+                                device.DeviceNumber = reader[0].ToString();
+                                device.WalletNumber = reader[1].ToString();
+                                device.Active = bool.Parse(reader[2].ToString());
+                                device.CardPackID = reader[3].ToString();
+
+
+                                statusObject.status = true;
+                                statusObject.Object = device;
+                                conn.Close();
+                                return statusObject;
+                            }
+                            conn.Close();
+                            return statusObject;
+
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        conn.Close();
+                        statusObject.status = false;
+                        statusObject.message = "Get PTS Device \n" + Errors.ErrorsString.Error002 + "\n" + e;
+                        return statusObject;
+                    }
+
+
+                }
+
+            }
+            else
+            {
+                conn.Close();
+                statusObject.status = false;
+                statusObject.message = Errors.ErrorsString.Error001;
+
+                return statusObject;
+            }
+        }
+
     }
 }

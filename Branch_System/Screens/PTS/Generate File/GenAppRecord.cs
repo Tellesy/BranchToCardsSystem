@@ -54,17 +54,37 @@ namespace MPBS.Screens.PTS.Generate_File
                         }
                         else
                         {
-                            MessageBox.Show(accountStatus.message + "هنالك مشكلة في بيانات حساب احد الزبائن ");
+                            MessageBox.Show(accountStatus.message + "هنالك مشكلة في بيانات حساب احد الزبائن " + " Customer ID " + record.CustomerID);
                             return;
                         }
                     }
                     else
                     {
-                        MessageBox.Show(customerStatus.message + "هنالك مشكلة في بيانات احد الزبائن ");
+                        MessageBox.Show(customerStatus.message + "هنالك مشكلة في بيانات حساب احد الزبائن " + " Customer ID " + record.CustomerID);
                         return;
                     }
                 }
 
+                
+                //Get Device Number
+                foreach(var r in records)
+                {
+                    if(r.ApplicationSubType == 'E')
+                    {
+
+                      var devuceStatus =  PTSDeviceController.getExistingDevice(r.CustomerID);
+                        if(devuceStatus.status)
+                        {
+                            r.ExistingDeviceNumber = devuceStatus.Object.DeviceNumber;
+                        }
+                        else
+                        {
+                            MessageBox.Show(devuceStatus.message + "هنالك مشكلة في بياناات رقم البطاقة لاحد الزبائن " + " Customer ID " + r.CustomerID);
+                            records.Remove(r);
+                        }
+                    }
+                    
+                }
                 var status = AppRecrodFileCreator.GenerateAppRecordFile(records);
 
                 if(status.status)
