@@ -225,7 +225,7 @@ namespace MPBS.SpreadSheet
           
         }
 
-        public static  void GenerateTemplateSpreadsheet(string fileName,List<List<string>> dataTable )
+        public static  void GenerateTemplateSpreadsheet(string fileName,List<List<string>> dataTable , bool isCSV)
         {
             
             xlApp = new Microsoft.Office.Interop.Excel.Application();
@@ -257,17 +257,33 @@ namespace MPBS.SpreadSheet
             //Extract the other rows (Start from index No.1
             for (int i = 1; i < dataTable.Count; i++)
             {
+                //In case csv ignore header
+                int counter = i;
+                if (isCSV)  counter = i -1;
+
                 int cellCounter = 1;
-                foreach(string cell in dataTable[i])
+                foreach(string cell in dataTable[counter])
                 {
-                    xlWorkSheet.Cells[i+1, cellCounter] = dataTable[i][cellCounter-1];
+                    xlWorkSheet.Cells[counter + 1, cellCounter] = dataTable[counter][cellCounter-1];
                     cellCounter++;
                 }
             }
 
 
             string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            xlWorkBook.SaveAs(location + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
+            if(!isCSV)
+            {
+                xlWorkBook.SaveAs(location + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            }
+            else
+            {
+                //xlWorkBook.SaveAs(location + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlCSV, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange);
+                xlWorkBook.SaveAs(location + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlCSV, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
+            }
+            //xlWorkSheet.SaveAs(location + @"\" + "sample.csv", ",", Encoding.UTF8);
+
             xlWorkBook.Close(true, misValue, misValue);
             xlApp.Quit();
 

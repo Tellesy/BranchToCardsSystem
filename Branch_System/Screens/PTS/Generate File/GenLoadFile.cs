@@ -208,7 +208,7 @@ namespace MPBS.Screens.PTS.Generate_File
          
 
             string fileName =FileName+ DateTime.Parse(DateTime.Now.ToString()).ToString("ddMMyyyyhhmmss");
-            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
+            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable,false);
         }
         
         private void CreateErrorLogs()

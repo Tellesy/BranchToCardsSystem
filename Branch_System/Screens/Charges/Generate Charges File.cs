@@ -15,7 +15,7 @@ namespace MPBS.Screens.Charges
 {
     public partial class GenerateChargesFiles : MaterialSkin.Controls.MaterialForm
     {
-        private string ChargeCreditAccount = "1000124522";
+        private string ChargeCreditAccount = "PL52120";
         public GenerateChargesFiles()
         {
             InitializeComponent();
@@ -75,7 +75,7 @@ namespace MPBS.Screens.Charges
 
             string fileName = "CardsChargesFile-"+ date.Day.ToString().PadLeft(2,'0') + date.Month.ToString().PadLeft(2, '0') + date.Year.ToString() + date.Hour.ToString().PadLeft(2, '0') + date.Minute.ToString().PadLeft(2, '0') + date.Millisecond.ToString().PadLeft(2, '0');
 
-            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
+            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable,true);
             
 
         }
@@ -214,7 +214,7 @@ namespace MPBS.Screens.Charges
 
             string fileName = "CBSLoadFile-" + date.Day.ToString().PadLeft(2, '0') + date.Month.ToString().PadLeft(2, '0') + date.Year.ToString() + date.Hour.ToString().PadLeft(2, '0') + date.Minute.ToString().PadLeft(2, '0') + date.Millisecond.ToString().PadLeft(2, '0');
 
-            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
+            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable,true);
 
             //Now make the taken charges as generated and load gen Loads in DB
             
@@ -269,21 +269,21 @@ namespace MPBS.Screens.Charges
             List<List<string>> dataTable = new List<List<string>>();
 
             //Set Headers
-            List<string> headers = new List<string>();
-            headers.Add("Record ID");
-            headers.Add("LYD Account Number");
-            headers.Add("Currency Account Number");
-            headers.Add("Amount");
-            headers.Add("Currency");
-            headers.Add("Exchange Rate");
-            headers.Add("Value Date");
-            headers.Add("Program Code");
-            headers.Add("Issue Charge");
-            headers.Add("FT Type");
+            //List<string> headers = new List<string>();
+            //headers.Add("Record ID");
+            //headers.Add("LYD Account Number");
+            //headers.Add("Currency Account Number");
+            //headers.Add("Amount");
+            //headers.Add("Currency");
+            //headers.Add("Exchange Rate");
+            //headers.Add("Value Date");
+            //headers.Add("Program Code");
+            //headers.Add("Issue Charge");
+            //headers.Add("FT Type");
 
 
-            //Add headers to dataTable
-            dataTable.Add(headers);
+            ////Add headers to dataTable
+            //dataTable.Add(headers);
 
             //Add coloums 
             foreach (var l in loads)
@@ -306,14 +306,17 @@ namespace MPBS.Screens.Charges
                     //Exchange rate from Credit to Debit
                     cols.Add(l.ExchangeRate.ToString());
                     //Value Date
-                    string dString = string.Format(date.Day + @"/" + date.Month + @"/" + date.Year);
+                    string dString = string.Format(date.Year.ToString() + date.Month.ToString().PadLeft(2,'0') + date.Day.ToString().PadLeft(2, '0'));
                     cols.Add(dString);
                     //Add Program Code
                     cols.Add(l.ProgramCode);
 
-                    //Waive issue charge
-                    cols.Add("NOCHARGE");
-
+                    //Don't waive load charge 
+                    cols.Add("");
+                    //Type
+                    cols.Add("ACMC");
+                    //Desc
+                    cols.Add("");
                     //FT Type
                     cols.Add("Load");
                   
@@ -342,20 +345,26 @@ namespace MPBS.Screens.Charges
                 //Credit account
                 cols.Add(ChargeCreditAccount);
                 //Amount
-                cols.Add("0");
+                cols.Add("150");
                 //Currency
                 cols.Add("LYD");
                 //Exchange rate
                 cols.Add("0");
                 //Value Date
-                string dString = string.Format(date.Day + @"/" + date.Month + @"/" + date.Year);
+                string dString = string.Format(date.Year.ToString() + date.Month.ToString().PadLeft(2, '0') + date.Day.ToString().PadLeft(2, '0'));
                 cols.Add(dString);
                 //Program Code
                 cols.Add(c.ProgramCode);
                 //headers.Add("Waive Flag");
-                cols.Add("");
+                cols.Add("NOCHARGE");
+                //Type
+                cols.Add("ACCI");
+                //Desc
+                cols.Add("Travel Card Issuing Charge");
                 //FT Type
                 cols.Add("Issue");
+
+           
 
                 genCharges.Add(c);
                 dataTable.Add(cols);
@@ -364,7 +373,7 @@ namespace MPBS.Screens.Charges
 
             string fileName = "CBSLoadAndIssueFile-" + date.Day.ToString().PadLeft(2, '0') + date.Month.ToString().PadLeft(2, '0') + date.Year.ToString() + date.Hour.ToString().PadLeft(2, '0') + date.Minute.ToString().PadLeft(2, '0') + date.Millisecond.ToString().PadLeft(2, '0');
 
-            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
+            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable,true);
 
             //Now make the taken charges as generated and load gen Loads in DB
 

@@ -222,7 +222,7 @@ namespace MPBS.Screens.UploadFile
             }
 
             string fileName = ErrorType + "Report" + DateTime.Parse(DateTime.Now.ToString()).ToString("ddMMyyyyhhmmss");
-            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable);
+            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable,false);
         }
 
         private bool EnterTreasuryRate()
