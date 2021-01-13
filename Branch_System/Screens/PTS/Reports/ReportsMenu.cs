@@ -27,5 +27,10 @@ namespace MPBS.Screens.PTS.Reports
             ToDate_DTP.CustomFormat = "yyyy-MM-dd";
             ToDate_DTP.Format = DateTimePickerFormat.Custom;
         }
+
+        private void Generate_BTN_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
