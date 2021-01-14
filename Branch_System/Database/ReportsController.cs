@@ -12,7 +12,7 @@ namespace MPBS.Database
     {
         public static Status<List<List<string>>> getPTSCardsIssueReport(string fromDate,string toDate,bool isBranch)
         {
-            string dateType = "ar.get_time";
+            string dateType = "ar.gen_time";
             if(isBranch)
             {
                 dateType = "ar.input_time";
@@ -93,8 +93,12 @@ and {0} > '{1} 00:00:00' AND {0} <= '{2} 23:59:59'", dateType,fromDate,toDate);
 
                             if (!string.IsNullOrEmpty(reader[5].ToString()))
                                 cols.Add(reader[5].ToString());
+
                             if (!string.IsNullOrEmpty(reader[6].ToString()))
-                                cols.Add(reader[6].ToString());
+                            {
+                                cols.Add(DateTime.Parse(reader[6].ToString()).ToString("yyyy-MM-dd"));
+                            }
+                             
 
                             statusObject.Object.Add(cols);
                         }

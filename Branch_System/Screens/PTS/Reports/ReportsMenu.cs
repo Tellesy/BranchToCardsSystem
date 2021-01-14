@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPBS.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,7 +31,18 @@ namespace MPBS.Screens.PTS.Reports
 
         private void Generate_BTN_Click(object sender, EventArgs e)
         {
-            
+
+            string fromDate = FromDate_DTP.Value.ToString("yyyy-MM-dd");
+            string toDate = ToDate_DTP.Value.ToString("yyyy-MM-dd");
+            var rStatus = ReportsController.getPTSCardsIssueReport(fromDate, toDate, false);
+            if(rStatus.status)
+            {
+                SpreadSheet.SettlementsFiles.GenerateTemplateSpreadsheet("DFFF", rStatus.Object, false);
+            }
+            else
+            {
+                MessageBox.Show(rStatus.message);
+            }
         }
     }
 }

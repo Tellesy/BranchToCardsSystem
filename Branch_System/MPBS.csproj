@@ -223,6 +223,7 @@
     <Compile Include="Database\PTSBranchController.cs" />
     <Compile Include="Database\PTSLoadController.cs" />
     <Compile Include="Database\PTSProgramController.cs" />
+    <Compile Include="Database\ReportsController.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\AppRecrodFileCreator.cs" />
     <Compile Include="FilesCreator\CSVCreator.cs" />

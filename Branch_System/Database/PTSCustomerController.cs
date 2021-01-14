@@ -66,14 +66,19 @@ namespace MPBS.Database
                                 customer.CustomerID = ID;
                                 statusObject.status = true;
                                 statusObject.Object = customer;
+                                conn.Close();
                                 return statusObject;
                             }
+                            conn.Close();
+
                             return statusObject;
 
                         }
                     }
                     catch (Exception e)
                     {
+                        conn.Close();
+
                         statusObject.status = false;
                         statusObject.message = "Get Customer Info\n" + Errors.ErrorsString.Error002 + "\n" + e;
                         return statusObject;

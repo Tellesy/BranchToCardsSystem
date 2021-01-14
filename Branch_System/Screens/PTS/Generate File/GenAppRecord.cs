@@ -65,26 +65,35 @@ namespace MPBS.Screens.PTS.Generate_File
                     }
                 }
 
-                
-                //Get Device Number
-                foreach(var r in records)
+                try
                 {
-                    if(r.ApplicationSubType == 'E')
+                    foreach (var r in records)
                     {
+                        if (r.ApplicationSubType == 'E')
+                        {
 
-                      var devuceStatus =  PTSDeviceController.getExistingDevice(r.CustomerID);
-                        if(devuceStatus.status)
-                        {
-                            r.ExistingDeviceNumber = devuceStatus.Object.DeviceNumber;
+                            var devuceStatus = PTSDeviceController.getExistingDevice(r.CustomerID);
+                            if (devuceStatus.status)
+                            {
+                                r.ExistingDeviceNumber = devuceStatus.Object.DeviceNumber;
+                            }
+                            else
+                            {
+                                MessageBox.Show(devuceStatus.message + "هنالك مشكلة في بياناات رقم البطاقة لاحد الزبائن " + " Customer ID " + r.CustomerID);
+                                records.Remove(r);
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show(devuceStatus.message + "هنالك مشكلة في بياناات رقم البطاقة لاحد الزبائن " + " Customer ID " + r.CustomerID);
-                            records.Remove(r);
-                        }
+
                     }
-                    
+
                 }
+                catch(Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                    return;
+                }
+                //Get Device Number
+             
                 var status = AppRecrodFileCreator.GenerateAppRecordFile(records);
 
                 if(status.status)

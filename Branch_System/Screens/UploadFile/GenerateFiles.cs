@@ -323,9 +323,10 @@ namespace MPBS.Screens.UploadFile
                                 }
 
                                 Console.WriteLine(app.DevicePackID);
-                                MessageBox.Show(app.DevicePackID);
+                               // MessageBox.Show(app.DevicePackID);
                             }
                         }
+                        MessageBox.Show("Done!");
                     }
 
 
