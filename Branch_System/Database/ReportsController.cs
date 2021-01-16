@@ -10,12 +10,24 @@ namespace MPBS.Database
 {
    public static class ReportsController
     {
-        public static Status<List<List<string>>> getPTSCardsIssueReport(string fromDate,string toDate,bool isBranch)
+        public static Status<List<List<string>>> getPTSCardsIssueReport(string fromDate,string toDate,bool isBranch,string programCode)
         {
             string dateType = "ar.gen_time";
-            if(isBranch)
+            string joinDeviceTable = @" join PTS_Device as dev on dev.wallet_number = acc.wallet_number";
+            string getDeviceNumber = @",SUBSTRING(dev.device_number,1,6) + 'XXXXXX' + SUBSTRING(dev.device_number,13,4) as  'Device Number'";
+            string branch = "";
+            if (isBranch)
             {
                 dateType = "ar.input_time";
+                getDeviceNumber = "";
+                joinDeviceTable = "";
+                var sbranch = PTSBranchController.getBranch(int.Parse(Login.branch));
+                if(sbranch.status)
+                {
+                    branch = "and ar.branch_code = '" + sbranch.Object.Code+"' ";
+
+                }
+                
             }
             
             Status<List<List<string>>> statusObject = new Status<List<List<string>>>();
@@ -34,13 +46,15 @@ namespace MPBS.Database
 
                 try
                 {
-                    string query = string.Format(@"select ar.customer_id, c.embossed_name , acc.account_number_currency, ar.branch_code ,SUBSTRING(dev.device_number,1,6) + 'XXXXXX' + SUBSTRING(dev.device_number,13,4) as  'Device Number',ar.program_code,
-{0} as Date from  PTS_AppRecord as ar join PTS_Customer as c
-on ar.customer_id = c.customer_ID  
-join PTS_Account as acc on acc.customer_ID = ar.customer_id
-join PTS_Device as dev on dev.wallet_number = acc.wallet_number
-where acc.program_code = ar.program_code 
-and {0} > '{1} 00:00:00' AND {0} <= '{2} 23:59:59'", dateType,fromDate,toDate);
+                    string query = string.Format(@"select ar.customer_id, c.embossed_name , acc.account_number_currency, ar.branch_code  ,ar.program_code,
+                                                {0} as Date {3} from  PTS_AppRecord as ar join PTS_Customer as c
+                                                on ar.customer_id = c.customer_ID  
+                                                join PTS_Account as acc on acc.customer_ID = ar.customer_id
+                                                {4}
+                                                where acc.program_code = ar.program_code 
+                                                and {0} > '{1} 00:00:00' AND {0} <= '{2} 23:59:59'
+                                                and ar.program_code ='{5}'
+                                                {6}", dateType,fromDate,toDate,getDeviceNumber,joinDeviceTable, programCode,branch);
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -64,9 +78,12 @@ and {0} > '{1} 00:00:00' AND {0} <= '{2} 23:59:59'", dateType,fromDate,toDate);
                         header.Add("Name");
                         header.Add("Account Number");
                         header.Add("Branch");
-                        header.Add("Device Number");
+                   
                         header.Add("Program");
                         header.Add("Date");
+
+                        if (!isBranch)
+                            header.Add("Device Number");
 
                         statusObject.Object.Add(header);
                         int counter = 1;
@@ -92,12 +109,14 @@ and {0} > '{1} 00:00:00' AND {0} <= '{2} 23:59:59'", dateType,fromDate,toDate);
                                 cols.Add(reader[4].ToString());
 
                             if (!string.IsNullOrEmpty(reader[5].ToString()))
-                                cols.Add(reader[5].ToString());
-
-                            if (!string.IsNullOrEmpty(reader[6].ToString()))
                             {
-                                cols.Add(DateTime.Parse(reader[6].ToString()).ToString("yyyy-MM-dd"));
+                                cols.Add(DateTime.Parse(reader[5].ToString()).ToString("yyyy-MM-dd"));
                             }
+                            if(!isBranch)
+                            if (!string.IsNullOrEmpty(reader[6].ToString()))
+                                cols.Add(reader[6].ToString());
+
+                       
                              
 
                             statusObject.Object.Add(cols);

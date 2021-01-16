@@ -36,7 +36,7 @@ namespace MPBS.Screens.Main
         private GenLoadFile genLoadFile;
         GenerateEMBPIN generateEMBPIN;
         private GenAppRecord genAppRecord;
-        private ReportsMenu reportMenu;
+        private ReportsGenerator reportGenerator;
         public HQAdmin()
         {
             InitializeComponent();
@@ -247,13 +247,14 @@ namespace MPBS.Screens.Main
 
         private void Reports_BTN_Click(object sender, EventArgs e)
         {
-            if (reportMenu == null)
+            if (reportGenerator == null)
             {
-                reportMenu = new ReportsMenu();
-                reportMenu.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    reportMenu = null; Reports_BTN.Enabled = true;
+                reportGenerator = new ReportsGenerator();
+                reportGenerator.isBranch = false;
+                reportGenerator.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    reportGenerator = null; Reports_BTN.Enabled = true;
                 };
-                reportMenu.Show();
+                reportGenerator.Show();
                 Reports_BTN.Enabled = false;
             }
         }

@@ -1,6 +1,6 @@
 ﻿namespace MPBS.Screens.PTS.Reports
 {
-    partial class ReportsMenu
+    partial class ReportsGenerator
     {
         /// <summary>
         /// Required designer variable.
@@ -32,10 +32,8 @@
             this.ToDate_DTP = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Products_CBox = new System.Windows.Forms.ComboBox();
-            this.Products_LBL = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Branch_Cbox = new System.Windows.Forms.ComboBox();
+            this.Program_CBox = new System.Windows.Forms.ComboBox();
+            this.Program_LBL = new System.Windows.Forms.Label();
             this.CardIssuingReport_RBTN = new MaterialSkin.Controls.MaterialRadioButton();
             this.Generate_BTN = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
@@ -76,46 +74,29 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "To";
             // 
-            // Products_CBox
+            // Program_CBox
             // 
-            this.Products_CBox.FormattingEnabled = true;
-            this.Products_CBox.Location = new System.Drawing.Point(23, 264);
-            this.Products_CBox.Name = "Products_CBox";
-            this.Products_CBox.Size = new System.Drawing.Size(121, 21);
-            this.Products_CBox.TabIndex = 5;
+            this.Program_CBox.FormattingEnabled = true;
+            this.Program_CBox.Location = new System.Drawing.Point(23, 226);
+            this.Program_CBox.Name = "Program_CBox";
+            this.Program_CBox.Size = new System.Drawing.Size(121, 21);
+            this.Program_CBox.TabIndex = 5;
             // 
-            // Products_LBL
+            // Program_LBL
             // 
-            this.Products_LBL.AutoSize = true;
-            this.Products_LBL.Location = new System.Drawing.Point(20, 248);
-            this.Products_LBL.Name = "Products_LBL";
-            this.Products_LBL.Size = new System.Drawing.Size(44, 13);
-            this.Products_LBL.TabIndex = 6;
-            this.Products_LBL.Text = "Product";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(293, 248);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Branch";
-            // 
-            // Branch_Cbox
-            // 
-            this.Branch_Cbox.FormattingEnabled = true;
-            this.Branch_Cbox.Location = new System.Drawing.Point(296, 264);
-            this.Branch_Cbox.Name = "Branch_Cbox";
-            this.Branch_Cbox.Size = new System.Drawing.Size(121, 21);
-            this.Branch_Cbox.TabIndex = 7;
+            this.Program_LBL.AutoSize = true;
+            this.Program_LBL.Location = new System.Drawing.Point(20, 210);
+            this.Program_LBL.Name = "Program_LBL";
+            this.Program_LBL.Size = new System.Drawing.Size(46, 13);
+            this.Program_LBL.TabIndex = 6;
+            this.Program_LBL.Text = "Program";
             // 
             // CardIssuingReport_RBTN
             // 
             this.CardIssuingReport_RBTN.AutoSize = true;
             this.CardIssuingReport_RBTN.Depth = 0;
             this.CardIssuingReport_RBTN.Font = new System.Drawing.Font("Roboto", 10F);
-            this.CardIssuingReport_RBTN.Location = new System.Drawing.Point(23, 145);
+            this.CardIssuingReport_RBTN.Location = new System.Drawing.Point(23, 154);
             this.CardIssuingReport_RBTN.Margin = new System.Windows.Forms.Padding(0);
             this.CardIssuingReport_RBTN.MouseLocation = new System.Drawing.Point(-1, -1);
             this.CardIssuingReport_RBTN.MouseState = MaterialSkin.MouseState.HOVER;
@@ -126,10 +107,12 @@
             this.CardIssuingReport_RBTN.TabStop = true;
             this.CardIssuingReport_RBTN.Text = "Card Issuing Report";
             this.CardIssuingReport_RBTN.UseVisualStyleBackColor = true;
+            this.CardIssuingReport_RBTN.CheckedChanged += new System.EventHandler(this.CardIssuingReport_RBTN_CheckedChanged);
             // 
             // Generate_BTN
             // 
             this.Generate_BTN.Depth = 0;
+            this.Generate_BTN.Enabled = false;
             this.Generate_BTN.Location = new System.Drawing.Point(477, 295);
             this.Generate_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Generate_BTN.Name = "Generate_BTN";
@@ -147,10 +130,8 @@
             this.ClientSize = new System.Drawing.Size(629, 388);
             this.Controls.Add(this.Generate_BTN);
             this.Controls.Add(this.CardIssuingReport_RBTN);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.Branch_Cbox);
-            this.Controls.Add(this.Products_LBL);
-            this.Controls.Add(this.Products_CBox);
+            this.Controls.Add(this.Program_LBL);
+            this.Controls.Add(this.Program_CBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ToDate_DTP);
@@ -169,10 +150,8 @@
         private System.Windows.Forms.DateTimePicker ToDate_DTP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox Products_CBox;
-        private System.Windows.Forms.Label Products_LBL;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox Branch_Cbox;
+        private System.Windows.Forms.ComboBox Program_CBox;
+        private System.Windows.Forms.Label Program_LBL;
         private MaterialSkin.Controls.MaterialRadioButton CardIssuingReport_RBTN;
         private MaterialSkin.Controls.MaterialRaisedButton Generate_BTN;
     }

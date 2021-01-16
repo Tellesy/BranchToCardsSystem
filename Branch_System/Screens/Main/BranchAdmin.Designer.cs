@@ -77,7 +77,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label4.Location = new System.Drawing.Point(179, 625);
+            this.label4.Location = new System.Drawing.Point(177, 646);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 17);
             this.label4.TabIndex = 31;
@@ -377,7 +377,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(507, 636);
+            this.ClientSize = new System.Drawing.Size(503, 672);
             this.ControlBox = false;
             this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.ChargesAndLoadFiles_BTN);
