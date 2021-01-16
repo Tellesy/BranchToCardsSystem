@@ -79,7 +79,7 @@
             // Products_CBox
             // 
             this.Products_CBox.FormattingEnabled = true;
-            this.Products_CBox.Location = new System.Drawing.Point(22, 210);
+            this.Products_CBox.Location = new System.Drawing.Point(23, 264);
             this.Products_CBox.Name = "Products_CBox";
             this.Products_CBox.Size = new System.Drawing.Size(121, 21);
             this.Products_CBox.TabIndex = 5;
@@ -87,7 +87,7 @@
             // Products_LBL
             // 
             this.Products_LBL.AutoSize = true;
-            this.Products_LBL.Location = new System.Drawing.Point(19, 194);
+            this.Products_LBL.Location = new System.Drawing.Point(20, 248);
             this.Products_LBL.Name = "Products_LBL";
             this.Products_LBL.Size = new System.Drawing.Size(44, 13);
             this.Products_LBL.TabIndex = 6;
@@ -96,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(228, 194);
+            this.label3.Location = new System.Drawing.Point(293, 248);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 8;
@@ -105,7 +105,7 @@
             // Branch_Cbox
             // 
             this.Branch_Cbox.FormattingEnabled = true;
-            this.Branch_Cbox.Location = new System.Drawing.Point(231, 210);
+            this.Branch_Cbox.Location = new System.Drawing.Point(296, 264);
             this.Branch_Cbox.Name = "Branch_Cbox";
             this.Branch_Cbox.Size = new System.Drawing.Size(121, 21);
             this.Branch_Cbox.TabIndex = 7;
@@ -115,7 +115,7 @@
             this.CardIssuingReport_RBTN.AutoSize = true;
             this.CardIssuingReport_RBTN.Depth = 0;
             this.CardIssuingReport_RBTN.Font = new System.Drawing.Font("Roboto", 10F);
-            this.CardIssuingReport_RBTN.Location = new System.Drawing.Point(23, 151);
+            this.CardIssuingReport_RBTN.Location = new System.Drawing.Point(23, 145);
             this.CardIssuingReport_RBTN.Margin = new System.Windows.Forms.Padding(0);
             this.CardIssuingReport_RBTN.MouseLocation = new System.Drawing.Point(-1, -1);
             this.CardIssuingReport_RBTN.MouseState = MaterialSkin.MouseState.HOVER;

@@ -34,10 +34,12 @@ namespace MPBS.Screens.PTS.Reports
 
             string fromDate = FromDate_DTP.Value.ToString("yyyy-MM-dd");
             string toDate = ToDate_DTP.Value.ToString("yyyy-MM-dd");
+            
             var rStatus = ReportsController.getPTSCardsIssueReport(fromDate, toDate, false);
             if(rStatus.status)
             {
-                SpreadSheet.SettlementsFiles.GenerateTemplateSpreadsheet("DFFF", rStatus.Object, false);
+                string fileName = "Card Issuing Report" +DateTime.Now.ToString("yyyyMMddhhmmss") ;
+                SpreadSheet.SettlementsFiles.GenerateTemplateSpreadsheet(fileName, rStatus.Object, false);
             }
             else
             {
