@@ -22,6 +22,9 @@ using MPBS.Screens.PTS.Customer;
 using MPBS.Screens.PTS.Account;
 using Microsoft.VisualBasic;
 using MPBS.Screens.PTS.Reports;
+using MPBS.SpreadSheet.Structure;
+using MPBS.SpreadSheet;
+using MPBS.Database.Objects;
 
 namespace MPBS.Screens
 {
@@ -248,6 +251,95 @@ namespace MPBS.Screens
                 reportGenerator.Show();
                 Reports_BTN.Enabled = false;
             }
+        }
+
+        private void UploadCBLLoadReport_BTN_Click(object sender, EventArgs e)
+        {
+            string programCode = "TF019     ";
+
+            var deviceDialog = OpenFileDialog();
+            DialogResult dr = deviceDialog.ShowDialog();
+
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+
+
+
+                var cblRecords = CBLReports.CBLLoadReportReader(deviceDialog.FileName);
+
+                if(!cblRecords.status)
+                {
+                    MessageBox.Show("Error! " + cblRecords.message );
+                    return;
+                }
+
+
+                List<PTSLoad> loads = new List<PTSLoad>();
+                foreach (var cbl in cblRecords.Object)
+                {
+                    PTSLoad l = new PTSLoad();
+                    l.InputTime = DateTime.Parse(cbl.Date);
+                    l.ProgramCode = programCode;
+                    l.Inputter = Database.Login.id;
+                    l.CustomerID = cbl.CustomerID;
+
+                    //Check if there is a load with same date
+                    MessageBox.Show(l.InputTime.ToString());
+                }
+
+
+                MessageBox.Show("Done!");
+
+            }
+      
+        }
+        public static string getBranchCode(string name)
+        {
+            if(name.Contains("المصرف الإسلامي - الرئيسي"))
+            {
+                return "1002";
+            }
+            if (name.Contains("المصرف الإسلامي - فرع تاجوراء"))
+            {
+                return "1004";
+            }
+            if (name.Contains("المصرف الاسلامي - فرع مصراتة"))
+            {
+                return "1005";
+            }
+            if (name.Contains("المصرف الإسلامي - فرع السواني"))
+            {
+                return "1006";
+            }
+            if (name.Contains("المصرف الإسلامي - فرع هون"))
+            {
+                return "1007";
+            }
+            if (name.Contains("لمصرف الاسلامي - فرع السياحية"))
+            {
+                return "1008";
+            }
+            else
+            {
+                return null;
+            }
+
+           
+
+
+
+        }
+        private OpenFileDialog OpenFileDialog()
+        {
+            OpenFileDialog deviceDialog = new OpenFileDialog();
+            deviceDialog.InitialDirectory = @"C:\";
+            deviceDialog.RestoreDirectory = true;
+            deviceDialog.DefaultExt = "xlsx";
+            deviceDialog.Filter = "xlsx files (*.xlsx)|*.xlsx";
+            deviceDialog.AddExtension = true;
+            // DialogResult dr = deviceDialog.ShowDialog();
+
+            return deviceDialog;
         }
     }
 }

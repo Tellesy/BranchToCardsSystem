@@ -546,10 +546,12 @@
     <Compile Include="Screens\Main\Inputter.Designer.cs">
       <DependentUpon>Inputter.cs</DependentUpon>
     </Compile>
+    <Compile Include="SpreadSheet\CBLReport.cs" />
     <Compile Include="SpreadSheet\GenericSpreadsheetReader.cs" />
     <Compile Include="SpreadSheet\PTSReports.cs" />
     <Compile Include="SpreadSheet\SettlementsFiles.cs" />
     <Compile Include="SpreadSheet\Structure\ApplicationApproveReport.cs" />
+    <Compile Include="SpreadSheet\Structure\CBLLoadReport.cs" />
     <Compile Include="SpreadSheet\Structure\SpreadSheetColumn.cs" />
     <Compile Include="SpreadSheet\Structure\SpreadSheetHeader.cs" />
     <Compile Include="SpreadSheet\Structure\TransactionSettlements.cs" />
