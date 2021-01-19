@@ -37,6 +37,7 @@
             this.Password_TXT = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DomainLogin_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.DataBaseType_CBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,12 +152,26 @@
             this.DomainLogin_BTN.UseVisualStyleBackColor = false;
             this.DomainLogin_BTN.Click += new System.EventHandler(this.DomainLogin_BTN_Click);
             // 
+            // DataBaseType_CBox
+            // 
+            this.DataBaseType_CBox.FormattingEnabled = true;
+            this.DataBaseType_CBox.Items.AddRange(new object[] {
+            "Production",
+            "UAT",
+            "Dev (Not For Branch Users)"});
+            this.DataBaseType_CBox.Location = new System.Drawing.Point(12, 93);
+            this.DataBaseType_CBox.Name = "DataBaseType_CBox";
+            this.DataBaseType_CBox.Size = new System.Drawing.Size(109, 21);
+            this.DataBaseType_CBox.TabIndex = 13;
+            this.DataBaseType_CBox.SelectedIndexChanged += new System.EventHandler(this.DataBaseType_CBox_SelectedIndexChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(362, 481);
+            this.Controls.Add(this.DataBaseType_CBox);
             this.Controls.Add(this.DomainLogin_BTN);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Password_TXT);
@@ -184,5 +199,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField Password_TXT;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MaterialSkin.Controls.MaterialFlatButton DomainLogin_BTN;
+        private System.Windows.Forms.ComboBox DataBaseType_CBox;
     }
 }

@@ -255,7 +255,7 @@ namespace MPBS.Screens
 
         private void UploadCBLLoadReport_BTN_Click(object sender, EventArgs e)
         {
-            string programCode = "TF019     ";
+            string programCode = "TF019";
 
             var deviceDialog = OpenFileDialog();
             DialogResult dr = deviceDialog.ShowDialog();
@@ -281,10 +281,37 @@ namespace MPBS.Screens
                     l.InputTime = DateTime.Parse(cbl.Date);
                     l.ProgramCode = programCode;
                     l.Inputter = Database.Login.id;
+                    l.InputTime = DateTime.Parse(cbl.Date);
                     l.CustomerID = cbl.CustomerID;
+                    l.Amount = int.Parse(cbl.AmountUSD);
+                    l.ExchangeRate = decimal.Parse(cbl.ExchangeRate);
+                    l.FromCBLFlag = true;
+                    l.Year = Database.Recharge.year;
+                    l.BranchCode = cbl.BranchCode;
+
+                    var status = PTSLoadController.getCBSLoadRecordByCustomerIDAndDate(l.CustomerID, cbl.Date, l.Amount);
+                    if(status.status || status.Object.Count > 0)
+                    {
+
+                        MessageBox.Show(string.Format("عملية الشحن للزبون {0} موجودة مسبقاً", l.CustomerID));
+                    }
+                    else
+                    {
+                        var pstatus = PTSLoadController.addLoadRecordFromCBLReport(l);
+                        if(pstatus.status)
+                        {
+                           
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error with Customer ID "+l.CustomerID,"Error");
+
+                        }
+                    }
+                 
 
                     //Check if there is a load with same date
-                    MessageBox.Show(l.InputTime.ToString());
+                    MessageBox.Show(l.ExchangeRate.ToString());
                 }
 
 
