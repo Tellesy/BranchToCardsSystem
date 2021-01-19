@@ -255,6 +255,7 @@ namespace MPBS.Screens
 
         private void UploadCBLLoadReport_BTN_Click(object sender, EventArgs e)
         {
+            int YearlyLimit = 10000;
             string programCode = "TF019";
 
             var deviceDialog = OpenFileDialog();
@@ -297,6 +298,30 @@ namespace MPBS.Screens
                     }
                     else
                     {
+
+                        //Check total
+                        var sBalance = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(l.CustomerID, l.ProgramCode, l.Year);
+
+                        if (!sBalance.status)
+                        {
+
+                            MessageBox.Show("There is an issue related to getting the customer yearly balance");
+                            return;
+                        }
+
+                        int total = sBalance.Object.Sum(i => i.Amount);
+
+
+                        if ((total + l.Amount) >= YearlyLimit)
+                        {
+                            MessageBox.Show("Sorry, The total Load Request for this customer exceeds the yearly limit for this program");
+                            return;
+                        }
+
+
+
+
+
                         var pstatus = PTSLoadController.addLoadRecordFromCBLReport(l);
                         if(pstatus.status)
                         {
