@@ -513,7 +513,7 @@ namespace MPBS.Database
                 try
                 {
 
-                    string query = @"SELECT  [ID],[customer_ID] ,[program_code],[branch_code],[year],[amount],[inputter],[input_time] ,[branch_authorizer],[branch_auth_time] ,[HQ_authorizer] ,[HQ_auth_time] ,[generated] ,[gen_time] FROM [CTS].[dbo].[PTS_Load] where branch_authorizer is not NULL AND HQ_authorizer is not NULL AND generated = 0";
+                    string query = @"SELECT  [ID],[customer_ID] ,[program_code],[branch_code],[year],[amount],[inputter],[input_time] ,[branch_authorizer],[branch_auth_time] ,[HQ_authorizer] ,[HQ_auth_time] ,[generated] ,[gen_time] FROM [CTS].[dbo].[PTS_Load] where branch_authorizer is not NULL AND HQ_authorizer is not NULL AND generated = 0 AND MFlag = 0";
 
 
 

@@ -55,6 +55,7 @@
             this.GenerateCardIssuingChargesFile_BTN.AutoSize = true;
             this.GenerateCardIssuingChargesFile_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenerateCardIssuingChargesFile_BTN.Depth = 0;
+            this.GenerateCardIssuingChargesFile_BTN.Enabled = false;
             this.GenerateCardIssuingChargesFile_BTN.Location = new System.Drawing.Point(13, 108);
             this.GenerateCardIssuingChargesFile_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenerateCardIssuingChargesFile_BTN.MouseState = MaterialSkin.MouseState.HOVER;
@@ -71,6 +72,7 @@
             this.GenerateLoadFile_BTN.AutoSize = true;
             this.GenerateLoadFile_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenerateLoadFile_BTN.Depth = 0;
+            this.GenerateLoadFile_BTN.Enabled = false;
             this.GenerateLoadFile_BTN.Location = new System.Drawing.Point(13, 166);
             this.GenerateLoadFile_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenerateLoadFile_BTN.MouseState = MaterialSkin.MouseState.HOVER;

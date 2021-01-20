@@ -345,7 +345,7 @@ namespace MPBS.Screens.Charges
                 //Credit account
                 cols.Add(ChargeCreditAccount);
                 //Amount
-                cols.Add("150");
+                cols.Add("70");
                 //Currency
                 cols.Add("LYD");
                 //Exchange rate

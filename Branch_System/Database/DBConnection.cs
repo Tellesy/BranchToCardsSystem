@@ -19,8 +19,8 @@ namespace MPBS.Database
         private static string ConnectionStringUAT = @"Server=10.128.130.119,8888; Database=CTS_UAT; User Id= sa; Password = TellesyM1195; ";
 
 
-        //private static string connString = ConnectionStringProduction;
-        private static string connString = ConnectionStringDev;
+        private static string connString = ConnectionStringProduction;
+        //private static string connString = ConnectionStringDev;
 
 
         //Local DB Desktop
