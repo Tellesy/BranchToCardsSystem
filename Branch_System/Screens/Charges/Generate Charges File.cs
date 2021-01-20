@@ -356,7 +356,7 @@ namespace MPBS.Screens.Charges
                 //Program Code
                 cols.Add(c.ProgramCode);
                 //headers.Add("Waive Flag");
-                cols.Add("NOCHARGE");
+                cols.Add("CARDMAIN");
                 //Type
                 cols.Add("ACCI");
                 //Desc

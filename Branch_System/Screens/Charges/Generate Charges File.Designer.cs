@@ -92,9 +92,9 @@
             this.LoadAndIssueFile_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.LoadAndIssueFile_BTN.Name = "LoadAndIssueFile_BTN";
             this.LoadAndIssueFile_BTN.Primary = false;
-            this.LoadAndIssueFile_BTN.Size = new System.Drawing.Size(271, 36);
+            this.LoadAndIssueFile_BTN.Size = new System.Drawing.Size(340, 36);
             this.LoadAndIssueFile_BTN.TabIndex = 10;
-            this.LoadAndIssueFile_BTN.Text = "Generate Card Issuing Charges File";
+            this.LoadAndIssueFile_BTN.Text = "Generate Load and Card Issuing Charges File";
             this.LoadAndIssueFile_BTN.UseVisualStyleBackColor = true;
             this.LoadAndIssueFile_BTN.Click += new System.EventHandler(this.LoadAndIssueFile_BTN_Click);
             // 
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 450);
+            this.ClientSize = new System.Drawing.Size(416, 450);
             this.Controls.Add(this.LoadAndIssueFile_BTN);
             this.Controls.Add(this.GenerateLoadFile_BTN);
             this.Controls.Add(this.GenerateCardIssuingChargesFile_BTN);
