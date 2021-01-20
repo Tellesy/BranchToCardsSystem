@@ -627,6 +627,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Screens\Login\PreLoginPage.resx">
+      <DependentUpon>PreLoginPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
