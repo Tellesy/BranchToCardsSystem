@@ -360,7 +360,7 @@ namespace MPBS.Screens.Charges
                 //Type
                 cols.Add("ACCI");
                 //Desc
-                cols.Add("Travel Card Issuing Charge");
+                cols.Add("Travel Card");
                 //FT Type
                 cols.Add("Issue");
 

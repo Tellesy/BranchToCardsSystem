@@ -55,9 +55,7 @@ namespace MPBS.Database
         }
         public static SqlConnection Connection()
         {
-           
-           
-            SqlConnection conn = new SqlConnection(connString);
+        SqlConnection conn = new SqlConnection(connString);
 
 
             return conn;

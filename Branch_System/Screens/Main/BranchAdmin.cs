@@ -106,9 +106,6 @@ namespace MPBS.Screens
         }
 
 
-       
-
-   
 
         private void ShareFolder_BTN_Click(object sender, EventArgs e)
         {
@@ -257,6 +254,13 @@ namespace MPBS.Screens
         {
             int YearlyLimit = 10000;
             string programCode = "TF019";
+            var branch = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
+            if(!branch.status || branch.Object == null)
+            {
+                MessageBox.Show("Error", branch.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string userPTSBranchCode = branch.Object.Code;
 
             var deviceDialog = OpenFileDialog();
             DialogResult dr = deviceDialog.ShowDialog();
@@ -276,7 +280,7 @@ namespace MPBS.Screens
 
 
                 List<PTSLoad> loads = new List<PTSLoad>();
-                foreach (var cbl in cblRecords.Object)
+                foreach (var cbl in cblRecords.Object.FindAll(i=>i.BranchCode== userPTSBranchCode))
                 {
                     PTSLoad l = new PTSLoad();
                     l.InputTime = DateTime.Parse(cbl.Date);
@@ -305,17 +309,17 @@ namespace MPBS.Screens
                         if (!sBalance.status)
                         {
 
-                            MessageBox.Show("There is an issue related to getting the customer yearly balance");
-                            return;
+                            MessageBox.Show(string.Format("There is an issue related to getting the customer yearly balance for Customer {0}",l.CustomerID));
+                            continue;
                         }
 
                         int total = sBalance.Object.Sum(i => i.Amount);
 
 
-                        if ((total + l.Amount) >= YearlyLimit)
+                        if ((total + l.Amount) > YearlyLimit)
                         {
                             MessageBox.Show("Sorry, The total Load Request for this customer exceeds the yearly limit for this program");
-                            return;
+                            continue;
                         }
 
 
@@ -336,7 +340,7 @@ namespace MPBS.Screens
                  
 
                     //Check if there is a load with same date
-                    MessageBox.Show(l.ExchangeRate.ToString());
+                    
                 }
 
 

@@ -333,6 +333,12 @@
     <Compile Include="Screens\FilesAuth\SubForms\AuthorizePO.Designer.cs">
       <DependentUpon>AuthorizePO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Login\PreLoginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Login\PreLoginPage.Designer.cs">
+      <DependentUpon>PreLoginPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Main\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
