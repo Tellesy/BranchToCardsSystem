@@ -28,11 +28,6 @@ namespace MPBS.Screens
 
         private async void Login_Load(object sender, EventArgs e)
         {
-            DataBaseType_CBox.SelectedIndex = 0;
-            //Test Forms here
-
-            //
-
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
@@ -48,7 +43,7 @@ namespace MPBS.Screens
             this.MinimizeBox = false;
             SheetManager.CreateFile();
 
-         await MPBSystem.CheckIfSystemActiveAsync();
+            await MPBSystem.CheckIfSystemActiveAsync();
 
             Assembly thisAssem = typeof(Login).Assembly;
             AssemblyName thisAssemName = thisAssem.GetName();
@@ -86,6 +81,8 @@ namespace MPBS.Screens
             }
             //To here 
             Version_LBL.Text = Version_LBL.Text + " V" + thisAssemName.Version;
+
+            
         }
 
         private void Login_BTN_Click(object sender, EventArgs e)
@@ -194,27 +191,8 @@ namespace MPBS.Screens
 
         }
 
-        private void DataBaseType_CBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Database.DBConnection.ConnectionType connectionType = DBConnection.ConnectionType.Prod;
+    
 
-            switch (DataBaseType_CBox.SelectedIndex)
-            {
-                case 1:
-                    connectionType = DBConnection.ConnectionType.UAT;
-                    break;
-
-                case 2:
-                    connectionType = DBConnection.ConnectionType.Dev;
-                    break;
-                case 0:
-                default:
-                       connectionType = DBConnection.ConnectionType.Prod;
-                    break;
-               
-
-            }
-            Database.DBConnection.SwitchConnectionType(connectionType);
-        }
+        
     }
 }

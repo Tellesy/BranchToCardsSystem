@@ -23,20 +23,7 @@ namespace MPBS.Database
         //private static string connString = ConnectionStringDev;
 
 
-        //Local DB Desktop
-        //private static string ConnectionString = @"Server=localhost\SQLEXPRESS01;Database=CTS;Trusted_Connection=True;";
 
-        //All local Enviroment :: Should enable port first
-        //private static string ConnectionString = @"Server=127.0.0.1,8888; Database=CTS; User Id= sa; Password = TellesyM1195;";
-
-        // Production DB
-        //private static string ConnectionString =  @"Server=10.128.130.119,8888; Database=CTS; User Id= sa; Password = TellesyM1195; ";
-        // Test DB
-        //   private static string ConnectionString = @"Server=10.128.130.119,8888; Database=CTS_UAT; User Id= sa; Password = TellesyM1195; ";
-
-        //Macdows DB
-        //DESKTOP-6AAHS4C\SQLEXPRESS
-        //private static string ConnectionString = @"Data Source=DESKTOP-6AAHS4C\SQLEXPRESS;Initial Catalog=CTS;Integrated Security=True";
         public static void SwitchConnectionType(ConnectionType type)
         {
             switch (type)
