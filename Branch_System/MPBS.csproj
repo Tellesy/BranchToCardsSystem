@@ -531,6 +531,8 @@
     <Compile Include="Screens\User\ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settlements\ReportTemplates\TransactionReport.cs" />
+    <Compile Include="Settlements\SettlementsManager.cs" />
     <Compile Include="SheetManager\SheetManager.cs" />
     <Compile Include="Screens\Issue\Issue.cs">
       <SubType>Form</SubType>

@@ -2152,7 +2152,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MPBS, Version=3.1.8.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MPBS, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_3E971A012B884162BBD74EC550C3450A"
@@ -4310,15 +4310,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MPBS"
-        "ProductCode" = "8:{DB8DE39B-AC7C-4D0F-88CD-9B7C80DADBEB}"
-        "PackageCode" = "8:{2ED92207-804A-4090-AB8D-4A253ECDB2B6}"
+        "ProductCode" = "8:{27CBBFB3-CEC1-4869-82E8-F8F153B62929}"
+        "PackageCode" = "8:{632D33D7-EABE-4BB3-A12C-F9C936E57CA7}"
         "UpgradeCode" = "8:{C220DDD2-0802-4218-A166-B1D845CC95A0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:3.2.0"
+        "ProductVersion" = "8:3.3.0"
         "Manufacturer" = "8:Muiee's Software"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -53,10 +53,6 @@ namespace MPBS.SpreadSheet
 
 
 
-
-
-
-
         public static Status<List<TransactionSettlements>> SMT_TransactionsFileReader(string fileLocation)
         {
             Status<List<TransactionSettlements>> status = new Status<List<TransactionSettlements>>();
