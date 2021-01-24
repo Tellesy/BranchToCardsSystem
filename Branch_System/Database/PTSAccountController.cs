@@ -137,6 +137,7 @@ namespace MPBS.Database
                                 conn.Close();
                                 return statusObject;
                             }
+                            conn.Close();
                             return statusObject;
 
                         }
@@ -155,6 +156,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
 

@@ -60,10 +60,29 @@ namespace MPBS.Screens.SettlementsSecreens
         {
             if(!string.IsNullOrWhiteSpace(transactionReportFileLocation))
             {
-                var obj = MPBS.Settlements.SettlementsManager.PTS_TransactionsReportReader(transactionReportFileLocation);
-                if(obj.status)
+                var SettlementStatusObject = MPBS.Settlements.SettlementsManager.PTS_TransactionsReportReader(transactionReportFileLocation);
+                if(SettlementStatusObject.status)
                 {
+                    var allRecords = SettlementStatusObject.Object;
+                    //Get all Debit Transactions
+                    var allDebitRecords = MPBS.Settlements.SettlementsManager.getTotalDebitAmountPerWallet(allRecords);
+                    var status = MPBS.Settlements.SettlementsManager.createDebitTransactionsSettelmentsFile(allDebitRecords,"1002");
+                    //Get All Purchase and AuthCompletion Transactio Fee Transactions
+                    var allTransactionsFeeRecords = MPBS.Settlements.SettlementsManager.getPurchaseAndAuthCompletionTransactioFeePerWallet(allRecords);
 
+                    //Get All Credit Transactions
+                    var allCreditRecords = MPBS.Settlements.SettlementsManager.getTotalCreditAmountPerWallet(allRecords);
+
+                    //Get All Reversal Transactions
+                    var allReversalRecords = MPBS.Settlements.SettlementsManager.getTotalReversalAmountPerWallet(allRecords);
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show(SettlementStatusObject.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
         }

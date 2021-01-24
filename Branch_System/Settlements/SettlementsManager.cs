@@ -50,12 +50,12 @@ namespace MPBS.Settlements
         private static string T24DebitTheirRefCellName = "DEBIT.THEIR.REF";
         private static string T24CreditTheirRefCellName = "CREDIT.THEIR.REF";
         private static string T24CreditAccountNumberCellName = "CREDIT.ACCT";
-        private static string T24CreditCurrencyCellName = "EUR";
+        private static string T24CreditCurrencyCellName = "USD";
         private static string T24CreditAmountCellName = "CREDIT.AMOUNT";
         private static string T24CreditValueDateCellName = "CREDIT.VALUE.DATE";
 
 
-        private static string T24TreasuryRateCellName = "TREASURY.RATE";
+        //private static string T24TreasuryRateCellName = "TREASURY.RATE";
         private static string T24DescriptionCellName = "Description";
         private static string T24TypeCellName = "TYPE";
         private static string T24CompanyCodeCellName = "COMPANY.CODE";
@@ -164,14 +164,14 @@ namespace MPBS.Settlements
                 else
                 {
                     TransactionReport tr = new TransactionReport();
-                    tr.ValueDate = DateTime.Parse((range.Cells[rowCounter, valueDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
+                    tr.ValueDate = (range.Cells[rowCounter, valueDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     tr.ProgramName = (range.Cells[rowCounter, programNameColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     tr.Channel = (range.Cells[rowCounter, channelColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     tr.TransactionCode = (range.Cells[rowCounter, transactionCodeColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
-                    tr.TransactionType = DateTime.Parse((range.Cells[rowCounter, transactionTypeColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
+                    tr.TransactionType = (range.Cells[rowCounter, transactionTypeColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     tr.DeviceNumber = (range.Cells[rowCounter, deviceNumberColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     tr.BillingAmount = float.Parse((range.Cells[rowCounter, billingAmountColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
-                    tr.TransactionDate = DateTime.Parse((range.Cells[rowCounter, transactionDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
+                    tr.TransactionDate = (range.Cells[rowCounter, transactionDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     tr.TotalFeesAndCharges = float.Parse((range.Cells[rowCounter, totalFeesAndChargesColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
 
                     string revCol = (range.Cells[rowCounter, reversalFlagColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
@@ -179,7 +179,7 @@ namespace MPBS.Settlements
                     else tr.ReversalFlag = false;
 
                     tr.WalletNumber = (range.Cells[rowCounter, walletNumberColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
-                    tr.SettlementDate = DateTime.Parse((range.Cells[rowCounter, settlementDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
+                    tr.SettlementDate = (range.Cells[rowCounter, settlementDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     string DRorCRVal = (range.Cells[rowCounter, dRorCRtoCardholderColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
 
                     switch (DRorCRVal)
@@ -226,8 +226,7 @@ namespace MPBS.Settlements
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Debit Transactions",
                 LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
-                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber),
-                BranchCode = getBranchCode(getLYDAccountNumber(tr.First().WalletNumber))
+                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber)
             }).ToList();
 
 
@@ -250,8 +249,7 @@ namespace MPBS.Settlements
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Card Fees Transactions",
                 LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
-                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber),
-                BranchCode = getBranchCode(getLYDAccountNumber(tr.First().WalletNumber))
+                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber)
             }).ToList();
 
 
@@ -272,8 +270,8 @@ namespace MPBS.Settlements
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Reversal Transactions",
                 LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
-                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber),
-                BranchCode = getBranchCode(getLYDAccountNumber(tr.First().WalletNumber))
+                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber)
+                
             }).ToList();
 
             return transactions;
@@ -295,28 +293,134 @@ namespace MPBS.Settlements
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Credit Transaction",
                 LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
-                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber),
-                BranchCode = getBranchCode(getLYDAccountNumber(tr.First().WalletNumber))
+                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber)
+               
             }).ToList();
 
 
             return transactions;
         }
 
-        public static string getLYDAccountNumber(string walletNumber)
+        private static string getLYDAccountNumber(string walletNumber)
         {
             var status  = PTSAccountController.getAccount(walletNumber);
             return status.status ? status.Object.AccountNumberLYD : null;
         }
 
-        public static string getCurrencyAccountNumber(string walletNumber)
+        private static string getCurrencyAccountNumber(string walletNumber)
         {
             var status = PTSAccountController.getAccount(walletNumber);
             return status.status ? status.Object.AccountNumberCurrency : null;
         }
-        public static string getBranchCode(string account)
+        private static string getBranchCode(string account)
         {
             return string.IsNullOrWhiteSpace(account)?null: account.Substring(9, 2);
+        }
+
+        public static Status<int> createDebitTransactionsSettelmentsFile(List<TransactionReport> transactions, string branch)
+        {
+            string FT_ValueDate = DateTime.Now.ToString("yyyyMMdd");
+            Status<int> status = new Status<int>();
+            int count = 0;
+            try
+            {
+                xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+                if (xlApp == null)
+                {
+                    status.message = "Excel is not properly installed!";
+                    status.Object = 0;
+                    status.status = false;
+                }
+
+                object misValue = System.Reflection.Missing.Value;
+
+                xlWorkBook = xlApp.Workbooks.Add(misValue);
+                //xlWorkBook = xlApp.Workbooks.Add("Transactions");
+
+                xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                range = xlWorkSheet.get_Range("A1", "N1").EntireColumn;
+                range.NumberFormat = "@";
+                int rows = transactions.Count;
+
+                //xlWorkSheet.Cells[1, 1] = T24CompanyCodeCellName;
+                //xlWorkSheet.Cells[1, 2] = T24DebitAccountNumberCellName;
+                //xlWorkSheet.Cells[1, 3] = "Wallet Number";
+                //xlWorkSheet.Cells[1, 4] = T24DebitCurrencyCellName;
+                //xlWorkSheet.Cells[1, 5] = T24AmountCellName;
+                //xlWorkSheet.Cells[1, 6] = T24ValueDateCellName;
+                //xlWorkSheet.Cells[1, 7] = T24DebitTheirRefCellName;
+                //xlWorkSheet.Cells[1, 8] = T24CreditTheirRefCellName;
+                //xlWorkSheet.Cells[1, 9] = T24CreditAccountNumberCellName;
+                //xlWorkSheet.Cells[1, 10] = T24CreditCurrencyCellName;
+                //xlWorkSheet.Cells[1, 11] = T24CreditAmountCellName;
+                //xlWorkSheet.Cells[1, 12] = T24CreditValueDateCellName;
+                //xlWorkSheet.Cells[1, 13] = T24OredringCustomerCellName;
+                //xlWorkSheet.Cells[1, 14] = T24OrderingBankCellName;
+
+
+
+                //xlWorkSheet.Cells[1, 3] = T24TypeCellName;
+                //xlWorkSheet.Cells[1, 4] = T24AmountCellName;
+
+
+          
+                for (int i = 0; i < transactions.Count; i++)
+                {
+                    count++;
+                    xlWorkSheet.Cells[i + 1, 1] = "LY0010001";
+
+                    if (string.IsNullOrEmpty(transactions[i].USDAccountNumber))
+                        continue;
+                    xlWorkSheet.Cells[i + 1, 2] = transactions[i].USDAccountNumber.ToString();
+                    xlWorkSheet.Cells[i + 1, 3] = transactions[i].WalletNumber.ToString();
+
+                    xlWorkSheet.Cells[i + 1, 4] = "USD";
+                    xlWorkSheet.Cells[i + 1, 5] = transactions[i].BillingAmount.ToString();
+                    xlWorkSheet.Cells[i + 1, 6] = FT_ValueDate;
+                    xlWorkSheet.Cells[i + 1, 7] = "Account Transfer";
+                    xlWorkSheet.Cells[i + 1, 8] = "Account Transfer";
+
+                    //Must change to
+                    //USD Settelemtn Account and USD
+                    xlWorkSheet.Cells[i + 1, 9] = "USD1755300010001";
+                    xlWorkSheet.Cells[i + 1, 10] = "USD";
+                    xlWorkSheet.Cells[i + 1, 11] = "";
+
+                    xlWorkSheet.Cells[i + 1, 12] = FT_ValueDate;
+                    xlWorkSheet.Cells[i + 1, 13] = "";
+                    xlWorkSheet.Cells[i + 1, 14] = "LIB.BANK";
+
+                    //xlWorkSheet.Cells[i + 2, 1] = transactions[i].AccountNumber.ToString();
+                    //xlWorkSheet.Cells[i + 2, 2] = transactions[i].Description;
+                    //xlWorkSheet.Cells[i + 2, 3] = transactions[i].Type;
+                    //xlWorkSheet.Cells[i + 2, 4] = transactions[i].Amount.ToString();
+                }
+                //range = xlWorkSheet.get_Range("A1", "N" + (transactions.Count + 1).ToString()).EntireColumn;
+                range.NumberFormat = "@";
+                string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                //xlWorkBook.SaveAs(location+ @"\transactionFile.xls");
+                string fileName = "TS" + "BR" + branch + "DATE" + DateTime.Parse(DateTime.Now.ToString()).ToString("ddMMyyyyhhmmss");
+
+                //xlWorkBook.SaveAs(location + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook.SaveAs(location + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlCSV, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
+                xlWorkBook.Close(true, misValue, misValue);
+                xlApp.Quit();
+
+                status.status = true;
+                status.Object = transactions.Count;
+                return status;
+            }
+            catch (Exception e)
+            {
+                count = count;
+                status.status = false;
+                status.Object = 0;
+                status.message = e.Message;
+                return status;
+            }
+
         }
 
     }
