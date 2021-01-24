@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MPBS.Database;
 using MPBS.Database.Objects;
-using MPBS.Settlements.PTS.ReportTemplates
+using MPBS.Settlements.PTS.ReportTemplates;
 
 namespace MPBS.Settlements
 {
-   public static class SettlementsManager
+    public static class SettlementsManager
     {
         //Set Public values
 
@@ -23,7 +24,7 @@ namespace MPBS.Settlements
         private static Microsoft.Office.Interop.Excel.Range range;
 
         //SMT Transaction File Table Headers
-      
+
         //PTS Transaction File Table Headers
         private static string ValueDate = "Value Date";
         private static string ProgramName = "Program Name";
@@ -79,7 +80,7 @@ namespace MPBS.Settlements
             rw = range.Rows.Count;
             cl = range.Columns.Count;
 
-        //Column numbers of the requried columns
+            //Column numbers of the requried columns
             int valueDateColNo = 0;
             int programNameColNo = 0;
             int channelColNo = 0;
@@ -102,7 +103,7 @@ namespace MPBS.Settlements
                 {
                     for (colCounter = 1; colCounter <= cl; colCounter++)
                     {
-  
+
                         if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == ValueDate)
                         {
                             valueDateColNo = colCounter;
@@ -134,7 +135,7 @@ namespace MPBS.Settlements
                         }
 
                         else if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == TransactionDate)
-                        {      
+                        {
 
                             transactionDateColNo = colCounter;
                         }
@@ -163,7 +164,7 @@ namespace MPBS.Settlements
                 else
                 {
                     TransactionReport tr = new TransactionReport();
-                    tr.ValueDate =DateTime.Parse((range.Cells[rowCounter, valueDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
+                    tr.ValueDate = DateTime.Parse((range.Cells[rowCounter, valueDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
                     tr.ProgramName = (range.Cells[rowCounter, programNameColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     tr.Channel = (range.Cells[rowCounter, channelColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     tr.TransactionCode = (range.Cells[rowCounter, transactionCodeColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
@@ -181,7 +182,7 @@ namespace MPBS.Settlements
                     tr.SettlementDate = DateTime.Parse((range.Cells[rowCounter, settlementDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
                     string DRorCRVal = (range.Cells[rowCounter, dRorCRtoCardholderColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
 
-                    switch(DRorCRVal)
+                    switch (DRorCRVal)
                     {
                         case "CR":
                             tr.DRorCRtoCardholder = TransactionToCardType.CR;
@@ -191,7 +192,7 @@ namespace MPBS.Settlements
                             tr.DRorCRtoCardholder = TransactionToCardType.DR;
                             break;
                     }
-                    
+
 
 
 
@@ -210,25 +211,52 @@ namespace MPBS.Settlements
         }
 
         /// <summary>
-        /// Get the total Amount for Debit Transactions per Wallet Number
+        /// Get the total Amount for Debit Transactions per Wallet Number except for Purchase/Auth Completion Transaction Fee  Trasnactions
         /// </summary>
         /// <param name="transactionReports"></param>
         /// <returns></returns
         public static List<TransactionReport> getTotalDebitAmountPerWallet(List<TransactionReport> transactionReports)
         {
-    
-            List< TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.DR).GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
+
+            List<TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.DR && t.TransactionCode != "22").GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
             {
                 WalletNumber = tr.First().WalletNumber,
                 DeviceNumber = tr.First().DeviceNumber,
                 TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
                 BillingAmount = tr.Sum(s => s.BillingAmount),
+                CBSFTDescription = "Debit Transactions",
+                LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
+                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber),
+                BranchCode = getBranchCode(getLYDAccountNumber(tr.First().WalletNumber))
             }).ToList();
 
 
             return transactions;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="transactionReports"></param>
+        /// <returns></returns>
+        public static List<TransactionReport> getPurchaseAndAuthCompletionTransactioFeePerWallet(List<TransactionReport> transactionReports)
+        {
+
+            List<TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.DR && t.TransactionCode == "22").GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
+            {
+                WalletNumber = tr.First().WalletNumber,
+                DeviceNumber = tr.First().DeviceNumber,
+                TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
+                BillingAmount = tr.Sum(s => s.BillingAmount),
+                CBSFTDescription = "Card Fees Transactions",
+                LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
+                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber),
+                BranchCode = getBranchCode(getLYDAccountNumber(tr.First().WalletNumber))
+            }).ToList();
+
+
+            return transactions;
+        }
         /// <summary>
         /// Get the total Amount for Revesed Transactions per Wallet Number
         /// </summary>
@@ -242,29 +270,53 @@ namespace MPBS.Settlements
                 DeviceNumber = tr.First().DeviceNumber,
                 TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
                 BillingAmount = tr.Sum(s => s.BillingAmount),
+                CBSFTDescription = "Reversal Transactions",
+                LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
+                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber),
+                BranchCode = getBranchCode(getLYDAccountNumber(tr.First().WalletNumber))
             }).ToList();
 
             return transactions;
         }
 
         /// <summary>
-        /// Get The total amount for Credit transctions except for Load Cash U1 and Miscellaneous Credit
+        /// Get The total amount for Credit transctions except for Reversal, Load Cash U1 and Miscellaneous Credit
         /// </summary>
         /// <param name="transactionReports"></param>
         /// <returns></returns>
         public static List<TransactionReport> getTotalCreditAmountPerWallet(List<TransactionReport> transactionReports)
         {
 
-            List<TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.DR).GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
+            List<TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.CR && !t.ReversalFlag && t.TransactionCode != "71" && t.TransactionCode != "U1").GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
             {
                 WalletNumber = tr.First().WalletNumber,
                 DeviceNumber = tr.First().DeviceNumber,
                 TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
                 BillingAmount = tr.Sum(s => s.BillingAmount),
+                CBSFTDescription = "Credit Transaction",
+                LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
+                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber),
+                BranchCode = getBranchCode(getLYDAccountNumber(tr.First().WalletNumber))
             }).ToList();
 
 
             return transactions;
+        }
+
+        public static string getLYDAccountNumber(string walletNumber)
+        {
+            var status  = PTSAccountController.getAccount(walletNumber);
+            return status.status ? status.Object.AccountNumberLYD : null;
+        }
+
+        public static string getCurrencyAccountNumber(string walletNumber)
+        {
+            var status = PTSAccountController.getAccount(walletNumber);
+            return status.status ? status.Object.AccountNumberCurrency : null;
+        }
+        public static string getBranchCode(string account)
+        {
+            return string.IsNullOrWhiteSpace(account)?null: account.Substring(9, 2);
         }
 
     }

@@ -324,7 +324,10 @@ namespace MPBS.Screens.Charges
 
                     genLoads.Add(l);
                 }
+                else
+                {
 
+                }
                 dataTable.Add(cols);
 
             }

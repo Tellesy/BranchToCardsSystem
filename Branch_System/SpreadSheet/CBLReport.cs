@@ -96,6 +96,7 @@ namespace MPBS.SpreadSheet
                 else
                 {
                     CBLLoadReport cbl = new CBLLoadReport();
+             
                     cbl.NID = (range.Cells[rowCounter, nid] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     cbl.CustomerID = (range.Cells[rowCounter, customerID] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     cbl.CustomerID = cbl.CustomerID.Substring(0, 7);
@@ -157,7 +158,7 @@ namespace MPBS.SpreadSheet
             {
                 return "1002";
             }
-            if (name.Contains("المصرف الإسلامي - فرع تاجوراء"))
+            if (name.Contains("المصرف الاسلامي - فرع تاجوراء"))
             {
                 return "1004";
             }

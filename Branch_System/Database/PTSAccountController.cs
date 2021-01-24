@@ -87,6 +87,81 @@ namespace MPBS.Database
             }
         }
 
+        public static Status<PTSAccount> getAccount(string walletNumber)
+        {
+            Status<PTSAccount> statusObject = new Status<PTSAccount>();
+            statusObject.status = false;
+            PTSAccount account = new PTSAccount();
+
+            SqlConnection conn = Database.DBConnection.Connection();
+
+
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = @"
+                    SELECT [customer_ID],[account_number_lyd],[account_number_currency],[wallet_number],[currency_code]
+                    FROM [CTS].[dbo].[PTS_Account]
+                    where [wallet_number] ='" + walletNumber+"'";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        if (!reader.HasRows)
+                        {
+                            statusObject.status = false;
+                            statusObject.message = Errors.ErrorsString.Error012;
+                            conn.Close();
+                            return statusObject;
+
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+                                account.Customer_ID = reader[0].ToString();
+                                account.AccountNumberLYD = reader[1].ToString();
+                                account.AccountNumberCurrency = reader[2].ToString();
+                                account.WalletNumber = reader[3].ToString();
+                                account.CurrencyCode = reader[4].ToString();
+
+
+
+                                statusObject.status = true;
+                                statusObject.Object = account;
+                                conn.Close();
+                                return statusObject;
+                            }
+                            return statusObject;
+
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        conn.Close();
+                        statusObject.status = false;
+                        statusObject.message = "Get PTS Account by Wallet Number Info\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                        return statusObject;
+                    }
+
+
+                }
+
+            }
+            else
+            {
+                statusObject.status = false;
+                statusObject.message = Errors.ErrorsString.Error001;
+
+                return statusObject;
+            }
+        }
+
         public static Status addAccount(PTSAccount account)
         {
             Status status = new Status();

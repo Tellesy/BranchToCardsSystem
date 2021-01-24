@@ -489,6 +489,12 @@
     <Compile Include="Screens\PTS\Reports\ReportGenerator.Designer.cs">
       <DependentUpon>ReportGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Settlements\SettlementsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Settlements\SettlementsManager.Designer.cs">
+      <DependentUpon>SettlementsManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\SMT\PIN\PIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -709,6 +715,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Reports\ReportGenerator.resx">
       <DependentUpon>ReportGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Settlements\SettlementsManager.resx">
+      <DependentUpon>SettlementsManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\SMT\PIN\PIN.resx">
       <DependentUpon>PIN.cs</DependentUpon>

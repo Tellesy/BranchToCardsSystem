@@ -22,7 +22,15 @@ namespace MPBS.Settlements.PTS.ReportTemplates
         public DateTime SettlementDate { get; set; }
         public TransactionToCardType DRorCRtoCardholder { get; set; }
 
-        
+        public String CBSFTDescription { get; set; }
+        public String BranchCode { get; set; }
+        public String LYDAccountNumber { get; set; }
+        public String USDAccountNumber { get; set; }
+
+
+
+
+
     }
     public enum TransactionToCardType { DR, CR }
 }

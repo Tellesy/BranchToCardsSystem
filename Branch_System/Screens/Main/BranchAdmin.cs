@@ -294,6 +294,14 @@ namespace MPBS.Screens
                     l.Year = Database.Recharge.year;
                     l.BranchCode = cbl.BranchCode;
 
+                    //Check if customer exist
+                    var cStatus = PTSCustomerController.getCustomer(l.CustomerID);
+                    if(!cStatus.status || cStatus.Object == null)
+                    {
+                        MessageBox.Show(string.Format("زبون رقم {0} غير موجود في النظام, ارجو الإضافة بشكل يدوي", l.CustomerID));
+                        continue;
+                    }
+
                     var status = PTSLoadController.getCBSLoadRecordByCustomerIDAndDate(l.CustomerID, cbl.Date, l.Amount);
                     if(status.status || status.Object.Count > 0)
                     {
@@ -355,7 +363,7 @@ namespace MPBS.Screens
             {
                 return "1002";
             }
-            if (name.Contains("المصرف الإسلامي - فرع تاجوراء"))
+            if (name.Contains("المصرف الاسلامي - فرع تاجوراء"))
             {
                 return "1004";
             }
