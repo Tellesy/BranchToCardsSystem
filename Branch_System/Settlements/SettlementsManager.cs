@@ -314,14 +314,13 @@ namespace MPBS.Settlements
         }
         private static string getBranchCode(string account)
         {
-            return string.IsNullOrWhiteSpace(account)?null: account.Substring(9, 2);
+            return string.IsNullOrWhiteSpace(account)?null: account.Substring(10, 2);
         }
 
         public static Status<int> createDebitTransactionsSettelmentsFile(List<TransactionReport> transactions, string branch)
         {
             string FT_ValueDate = DateTime.Now.ToString("yyyyMMdd");
             Status<int> status = new Status<int>();
-            int count = 0;
             try
             {
                 xlApp = new Microsoft.Office.Interop.Excel.Application();
@@ -367,29 +366,25 @@ namespace MPBS.Settlements
           
                 for (int i = 0; i < transactions.Count; i++)
                 {
-                    count++;
-                    xlWorkSheet.Cells[i + 1, 1] = "LY0010001";
-
                     if (string.IsNullOrEmpty(transactions[i].USDAccountNumber))
                         continue;
+                   
+                    xlWorkSheet.Cells[i + 1, 1] = "LY0010001";       
                     xlWorkSheet.Cells[i + 1, 2] = transactions[i].USDAccountNumber.ToString();
                     xlWorkSheet.Cells[i + 1, 3] = transactions[i].WalletNumber.ToString();
-
                     xlWorkSheet.Cells[i + 1, 4] = "USD";
                     xlWorkSheet.Cells[i + 1, 5] = transactions[i].BillingAmount.ToString();
                     xlWorkSheet.Cells[i + 1, 6] = FT_ValueDate;
                     xlWorkSheet.Cells[i + 1, 7] = "Account Transfer";
                     xlWorkSheet.Cells[i + 1, 8] = "Account Transfer";
-
-                    //Must change to
-                    //USD Settelemtn Account and USD
                     xlWorkSheet.Cells[i + 1, 9] = "USD1755300010001";
                     xlWorkSheet.Cells[i + 1, 10] = "USD";
                     xlWorkSheet.Cells[i + 1, 11] = "";
-
+                   
                     xlWorkSheet.Cells[i + 1, 12] = FT_ValueDate;
                     xlWorkSheet.Cells[i + 1, 13] = "";
-                    xlWorkSheet.Cells[i + 1, 14] = "LIB.BANK";
+                    xlWorkSheet.Cells[i + 1, 14] = "";
+                    xlWorkSheet.Cells[i + 1, 15] = "LIB.BANK";
 
                     //xlWorkSheet.Cells[i + 2, 1] = transactions[i].AccountNumber.ToString();
                     //xlWorkSheet.Cells[i + 2, 2] = transactions[i].Description;
@@ -414,7 +409,6 @@ namespace MPBS.Settlements
             }
             catch (Exception e)
             {
-                count = count;
                 status.status = false;
                 status.Object = 0;
                 status.message = e.Message;
