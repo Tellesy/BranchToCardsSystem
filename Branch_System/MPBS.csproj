@@ -327,6 +327,12 @@
     <Compile Include="Screens\Login\PreLoginPage.Designer.cs">
       <DependentUpon>PreLoginPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Main\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Main\Auditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -620,6 +626,9 @@
     <EmbeddedResource Include="Screens\Login\PreLoginPage.resx">
       <DependentUpon>PreLoginPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\Auditor.resx">
       <DependentUpon>Auditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -791,10 +800,12 @@
     <Content Include="icon2_ykR_icon.ico" />
     <Content Include="Muee%27sSoftware Logo.ico" />
     <None Include="Properties\icon.ico" />
+    <None Include="Resources\Icon1.ico" />
     <EmbeddedResource Include="Resources\countries.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="Resources\CTSIcon.ico" />
     <None Include="Resources\SystemIcon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -842,7 +853,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.22.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.22.0\build\net45\Grpc.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -16,8 +16,6 @@ namespace MPBS
         public static string PTSApplicationFiles = String.Format(PTSLocation + "PTSApplication");
         public static string PTSLoadFiles = String.Format(PTSLocation + "PTSLoad");
         public static string PINFiles = String.Format(PTSLocation + "PIN");
-        public static string SettlementFiles = String.Format(PTSLocation + "Settlement Files");
-
 
         public static void CreateFolders()
         {
@@ -27,9 +25,6 @@ namespace MPBS
             System.IO.Directory.CreateDirectory(PTSApplicationFiles);
             System.IO.Directory.CreateDirectory(PTSLoadFiles);
             System.IO.Directory.CreateDirectory(PINFiles);
-            System.IO.Directory.CreateDirectory(SettlementFiles);
-
-
         }
 
     }
