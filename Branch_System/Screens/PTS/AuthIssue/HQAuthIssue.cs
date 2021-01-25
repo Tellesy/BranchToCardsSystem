@@ -9,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using static MPBS.Screens.AuthRecharge.AuthRecharge;
-
 namespace MPBS.Screens.PTS.AuthIssue
 {
     public partial class HQAuthIssue : MaterialSkin.Controls.MaterialForm

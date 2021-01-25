@@ -208,7 +208,7 @@ namespace MPBS.Database
 
         public static Status<List<Objects.PTSAppRecord>> getHQUnAuthAppRecords()
         {
-            string branch_code = "";
+            //string branch_code = "";
             Status<List<Objects.PTSAppRecord>> statusObject = new Status<List<Objects.PTSAppRecord>>();
             statusObject.Object = new List<Objects.PTSAppRecord>();
             statusObject.status = false;

@@ -67,6 +67,9 @@
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=19.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.19.0.0\lib\net45\CsvHelper.dll</HintPath>
@@ -261,18 +264,6 @@
     <Compile Include="Database\Recharge.cs" />
     <Compile Include="Database\Status.cs" />
     <Compile Include="Errors\Errors.cs" />
-    <Compile Include="Screens\AuthRecharge\AuthRecharge.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\AuthRecharge\AuthRecharge.Designer.cs">
-      <DependentUpon>AuthRecharge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\AuthRecharge\SubForms\Authorize.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\AuthRecharge\SubForms\Authorize.Designer.cs">
-      <DependentUpon>Authorize.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\Add Card Account\AddCardAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,54 +275,6 @@
     </Compile>
     <Compile Include="Screens\Charges\Generate Charges File.Designer.cs">
       <DependentUpon>Generate Charges File.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\CAFUnauth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\CAFUnauth.Designer.cs">
-      <DependentUpon>CAFUnauth.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\PBFUnauth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\PBFUnauth.Designer.cs">
-      <DependentUpon>PBFUnauth.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\POBranchUnauth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\POBranchUnauth.Designer.cs">
-      <DependentUpon>POBranchUnauth.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\POUnauth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\POUnauth.Designer.cs">
-      <DependentUpon>POUnauth.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\SubForms\AuthorizeBranchPO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\SubForms\AuthorizeBranchPO.Designer.cs">
-      <DependentUpon>AuthorizeBranchPO.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\SubForms\AuthorizeCAF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\SubForms\AuthorizeCAF.Designer.cs">
-      <DependentUpon>AuthorizeCAF.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\SubForms\AuthorizePBF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\SubForms\AuthorizePBF.Designer.cs">
-      <DependentUpon>AuthorizePBF.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\SubForms\AuthorizePO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\FilesAuth\SubForms\AuthorizePO.Designer.cs">
-      <DependentUpon>AuthorizePO.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Login\PreLoginPage.cs">
       <SubType>Form</SubType>
@@ -489,30 +432,6 @@
     <Compile Include="Screens\Settlements\SettlementsManager.Designer.cs">
       <DependentUpon>SettlementsManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\SMT\PIN\PIN.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\SMT\PIN\PIN.Designer.cs">
-      <DependentUpon>PIN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\SMT\Recharge\Recharge.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\SMT\Recharge\Recharge.Designer.cs">
-      <DependentUpon>Recharge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\SMT\ReIssue\ReIssue.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\SMT\ReIssue\ReIssue.Designer.cs">
-      <DependentUpon>ReIssue.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\SMT\Reports\RechargeReports.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\SMT\Reports\RechargeReports.Designer.cs">
-      <DependentUpon>RechargeReports.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\UploadFile\GenerateFiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -534,12 +453,6 @@
     <Compile Include="Settlements\ReportTemplates\TransactionReport.cs" />
     <Compile Include="Settlements\SettlementsManager.cs" />
     <Compile Include="SheetManager\SheetManager.cs" />
-    <Compile Include="Screens\Issue\Issue.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\Issue\Issue.Designer.cs">
-      <DependentUpon>Issue.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -574,47 +487,11 @@
     <EmbeddedResource Include="Screens\Application\Application.resx">
       <DependentUpon>Application.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\AuthRecharge\AuthRecharge.resx">
-      <DependentUpon>AuthRecharge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\AuthRecharge\SubForms\Authorize.ar-LY.resx">
-      <DependentUpon>Authorize.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\AuthRecharge\SubForms\Authorize.resx">
-      <DependentUpon>Authorize.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Add Card Account\AddCardAccount.resx">
       <DependentUpon>AddCardAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Charges\Generate Charges File.resx">
       <DependentUpon>Generate Charges File.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\FilesAuth\CAFUnauth.resx">
-      <DependentUpon>CAFUnauth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\FilesAuth\PBFUnauth.resx">
-      <DependentUpon>PBFUnauth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\FilesAuth\POBranchUnauth.resx">
-      <DependentUpon>POBranchUnauth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\FilesAuth\POUnauth.resx">
-      <DependentUpon>POUnauth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\FilesAuth\SubForms\AuthorizeBranchPO.resx">
-      <DependentUpon>AuthorizeBranchPO.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\FilesAuth\SubForms\AuthorizeCAF.resx">
-      <DependentUpon>AuthorizeCAF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\FilesAuth\SubForms\AuthorizePBF.resx">
-      <DependentUpon>AuthorizePBF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\FilesAuth\SubForms\AuthorizePO.resx">
-      <DependentUpon>AuthorizePO.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Issue\Issue.resx">
-      <DependentUpon>Issue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -710,20 +587,6 @@
     <EmbeddedResource Include="Screens\Settlements\SettlementsManager.resx">
       <DependentUpon>SettlementsManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\SMT\PIN\PIN.resx">
-      <DependentUpon>PIN.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\SMT\Recharge\Recharge.resx">
-      <DependentUpon>Recharge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\SMT\ReIssue\ReIssue.resx">
-      <DependentUpon>ReIssue.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\SMT\Reports\MyFamilyRechargReport.rdlc" />
-    <EmbeddedResource Include="Screens\SMT\Reports\RechargeReports.resx">
-      <DependentUpon>RechargeReports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\SMT\Reports\AlrafiqRechargReport.rdlc" />
     <EmbeddedResource Include="Screens\UploadFile\GenerateFiles.resx">
       <DependentUpon>GenerateFiles.cs</DependentUpon>
     </EmbeddedResource>

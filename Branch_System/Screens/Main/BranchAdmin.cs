@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using MPBS.Database;
 using MPBS.Screens;
-using MPBS.Screens.AuthRecharge;
+
 using MPBS.Screens.User;
 
 
 using System.Windows.Forms;
-using MPBS.Screens.FilesAuth;
+
 using MPBS.Screens.Account_Details;
 using MPBS.Screens.PTS.BranchAuthIssue;
 using MPBS.Screens.PTS.Load;
@@ -30,9 +30,9 @@ namespace MPBS.Screens
 {
     public partial class BranchAdmin : MaterialSkin.Controls.MaterialForm
     {
-        public AuthRecharge.AuthRecharge authRecharge;
+
         public ChangePassword changePassword;
-        private POBranchUnauth POApp;
+
         private Search search;
         private BranchAuthLoad branchAuthLoad;
         private GenerateChargesFiles generateChargesFiles;
