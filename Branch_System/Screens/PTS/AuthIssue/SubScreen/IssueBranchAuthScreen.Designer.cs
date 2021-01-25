@@ -63,6 +63,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.CountryPhoneCode_CBox = new System.Windows.Forms.ComboBox();
             this.productsTableAdapter = new MPBS.CTSMainTableAdapters.ProductsTableAdapter();
+            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
             this.cTSDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cTSDataSet = new MPBS.CTSDataSet();
             this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -101,6 +102,7 @@
             this.label40 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).BeginInit();
@@ -427,7 +429,8 @@
             // 
             // branch_system1DataSet
             // 
-
+            this.branch_system1DataSet.DataSetName = "Branch_system1DataSet";
+            this.branch_system1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cTSDataSetBindingSource1
             // 
@@ -449,7 +452,10 @@
             this.pTS_ProgramTableAdapter.ClearBeforeFill = true;
             // 
             // branchsystem1DataSetBindingSource
-
+            // 
+            this.branchsystem1DataSetBindingSource.DataSource = this.branch_system1DataSet;
+            this.branchsystem1DataSetBindingSource.Position = 0;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -800,7 +806,7 @@
             this.Load += new System.EventHandler(this.IssueBranchAuthScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).EndInit();
-
+            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).EndInit();
@@ -847,6 +853,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox CountryPhoneCode_CBox;
         private MPBS.CTSMainTableAdapters.ProductsTableAdapter productsTableAdapter;
+        private Branch_system1DataSet branch_system1DataSet;
         private System.Windows.Forms.BindingSource cTSDataSetBindingSource1;
         private CTSDataSet cTSDataSet;
         private System.Windows.Forms.BindingSource cTSDataSetBindingSource;

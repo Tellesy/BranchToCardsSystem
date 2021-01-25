@@ -58,7 +58,7 @@
             this.Nationality_CBOX = new System.Windows.Forms.ComboBox();
             this.productsTableAdapter = new MPBS.CTSMainTableAdapters.ProductsTableAdapter();
             this.label3 = new System.Windows.Forms.Label();
-
+            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
             this.cTSDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cTSDataSet = new MPBS.CTSDataSet();
             this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -85,6 +85,7 @@
             this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).BeginInit();
@@ -352,7 +353,8 @@
             // 
             // branch_system1DataSet
             // 
-
+            this.branch_system1DataSet.DataSetName = "Branch_system1DataSet";
+            this.branch_system1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cTSDataSetBindingSource1
             // 
@@ -380,7 +382,7 @@
             // 
             // branchsystem1DataSetBindingSource
             // 
-
+            this.branchsystem1DataSetBindingSource.DataSource = this.branch_system1DataSet;
             this.branchsystem1DataSetBindingSource.Position = 0;
             // 
             // label2
@@ -595,7 +597,7 @@
             this.Load += new System.EventHandler(this.EditCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSMain)).EndInit();
-
+            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).EndInit();
@@ -638,6 +640,7 @@
         private System.Windows.Forms.ComboBox Nationality_CBOX;
         private CTSMainTableAdapters.ProductsTableAdapter productsTableAdapter;
         private System.Windows.Forms.Label label3;
+        private Branch_system1DataSet branch_system1DataSet;
         private System.Windows.Forms.BindingSource cTSDataSetBindingSource1;
         private CTSDataSet cTSDataSet;
         private System.Windows.Forms.BindingSource cTSDataSetBindingSource;

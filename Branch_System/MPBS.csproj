@@ -71,6 +71,9 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CsvHelper, Version=19.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.19.0.0\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
@@ -225,12 +228,36 @@
       <DependentUpon>Countries.resx</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Screens\Account Details\Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Account Details\Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Application\Application.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Application\Application.Designer.cs">
+      <DependentUpon>Application.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BranchSystem.cs" />
+    <Compile Include="Branch_system1DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Branch_system1DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CardsValidation.cs" />
     <Compile Include="Database\DBConnection.cs" />
     <Compile Include="Database\Login.cs" />
     <Compile Include="Database\Recharge.cs" />
     <Compile Include="Database\Status.cs" />
     <Compile Include="Errors\Errors.cs" />
+    <Compile Include="Screens\Add Card Account\AddCardAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Add Card Account\AddCardAccount.Designer.cs">
+      <DependentUpon>AddCardAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Charges\Generate Charges File.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +269,12 @@
     </Compile>
     <Compile Include="Screens\Login\PreLoginPage.Designer.cs">
       <DependentUpon>PreLoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Main\Auditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\Auditor.Designer.cs">
+      <DependentUpon>Auditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Main\BranchAdmin.cs">
       <SubType>Form</SubType>
@@ -436,6 +469,15 @@
       <LastGenOutput>Countries.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Account Details\Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Application\Application.resx">
+      <DependentUpon>Application.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Add Card Account\AddCardAccount.resx">
+      <DependentUpon>AddCardAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Charges\Generate Charges File.resx">
       <DependentUpon>Generate Charges File.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,6 +496,9 @@
     </Compile>
     <EmbeddedResource Include="Screens\Login\PreLoginPage.resx">
       <DependentUpon>PreLoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\Auditor.resx">
+      <DependentUpon>Auditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\BranchAdmin.resx">
       <DependentUpon>BranchAdmin.cs</DependentUpon>
@@ -539,6 +584,18 @@
     <EmbeddedResource Include="Screens\User\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Branch_system1DataSet.xsc">
+      <DependentUpon>Branch_system1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Branch_system1DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Branch_system1DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Branch_system1DataSet.xss">
+      <DependentUpon>Branch_system1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Branch_System_TemporaryKey.pfx" />
     <None Include="CTSDataSet.xsc">
       <DependentUpon>CTSDataSet.xsd</DependentUpon>
     </None>
@@ -589,6 +646,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Branch_system1.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="icon.ico" />
     <Content Include="icon2.ico" />
     <Content Include="icon2_ykR_icon.ico" />
