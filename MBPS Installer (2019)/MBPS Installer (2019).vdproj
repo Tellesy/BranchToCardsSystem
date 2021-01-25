@@ -159,12 +159,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_20FBE5A6092A638541AABE491778F849"
-        "OwnerKey" = "8:_3E971A012B884162BBD74EC550C3450A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_2199D8C3BD6334CAA4E5B698B19DB9E7"
         "OwnerKey" = "8:_A14126AB1AE047F1AF7F03E26607557A"
         "MsmSig" = "8:_UNDEFINED"
@@ -173,12 +167,6 @@
         {
         "MsmKey" = "8:_2259722EBB5A71D394A4B90BC0B3D33D"
         "OwnerKey" = "8:_6C46EE2E865A3FF01ECD3C2CD90AAD89"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2259722EBB5A71D394A4B90BC0B3D33D"
-        "OwnerKey" = "8:_3E971A012B884162BBD74EC550C3450A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -633,20 +621,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_995226D0CF1411F6506615D581E050ED"
-        "OwnerKey" = "8:_3E971A012B884162BBD74EC550C3450A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_9BB4A518E622DB6611961EE04727CC49"
         "OwnerKey" = "8:_A14126AB1AE047F1AF7F03E26607557A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9BB4A518E622DB6611961EE04727CC49"
-        "OwnerKey" = "8:_3E971A012B884162BBD74EC550C3450A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -783,12 +759,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C055E1BEDA4FF0EDA1AF76B38458B4C3"
-        "OwnerKey" = "8:_3E971A012B884162BBD74EC550C3450A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C2B31093043BADF547B08758A10C15BB"
         "OwnerKey" = "8:_6AF3E0992E98A3EBBBE6FA25A2C0B297"
         "MsmSig" = "8:_UNDEFINED"
@@ -893,12 +863,6 @@
         {
         "MsmKey" = "8:_E0007F8B2D08ACA951F38527055D9334"
         "OwnerKey" = "8:_A14126AB1AE047F1AF7F03E26607557A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E0007F8B2D08ACA951F38527055D9334"
-        "OwnerKey" = "8:_3E971A012B884162BBD74EC550C3450A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1025,12 +989,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_53CC66E72CFCA3F9966BFDB1AA2528B9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3E971A012B884162BBD74EC550C3450A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2155,11 +2113,6 @@
             "AssemblyAsmDisplayName" = "8:MPBS, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3E971A012B884162BBD74EC550C3450A"
-                    {
-                    "Name" = "8:MPBS.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:C:\\Program Files (x86)\\Muiee's Software\\MPBS\\MPBS.exe"
             "TargetName" = "8:"
@@ -4986,7 +4939,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
