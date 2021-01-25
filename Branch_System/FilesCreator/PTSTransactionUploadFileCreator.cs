@@ -72,7 +72,7 @@ namespace MPBS.FilesCreator
         private static string getFileName()
         {
             string name = "TXU" + MPBSConfig.PTSBankCode;
-           
+            int seq = 0;
             var today = DateTime.Now;
 
 

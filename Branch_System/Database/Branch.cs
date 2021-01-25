@@ -43,7 +43,7 @@ namespace MPBS.Database
                         }
                     }
                 }
-                catch
+                catch (Exception e)
                 {
                     
                     conn.Close();

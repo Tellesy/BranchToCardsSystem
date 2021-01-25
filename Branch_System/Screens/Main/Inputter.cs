@@ -19,8 +19,10 @@ namespace MPBS.Screens
 {
     public partial class Inputter : MaterialSkin.Controls.MaterialForm
     {
-
-
+        private Issue issueApp;
+        private Recharge recargeApp;
+        private ReIssue reIssueApp;
+        private PIN_Screen pin;
         public ChangePassword changePassword;
         private Search search;
         private PTS.Issue.Issue PTS_issue;
@@ -76,6 +78,16 @@ namespace MPBS.Screens
 
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
+            if (issueApp != null)
+                issueApp.Close();
+            if (recargeApp != null)
+                recargeApp.Close();
+            if (reIssueApp != null)
+                reIssueApp.Close();
+            if (pin != null)
+                pin.Close();
+
+
             this.Close();
         }
 

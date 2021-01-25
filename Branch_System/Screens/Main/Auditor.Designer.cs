@@ -174,7 +174,7 @@
             this.Reports_BTN.Text = "تقرير عمليات الشحن";
             this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Reports_BTN.UseVisualStyleBackColor = true;
-
+            this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
             // 
             // Logout_BTN
             // 

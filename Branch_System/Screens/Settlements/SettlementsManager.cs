@@ -74,10 +74,6 @@ namespace MPBS.Screens.SettlementsSecreens
 
                     foreach(var b in brStatus.Object)
                     {
-                        //Remove records with Empty Account number
-                        allRecords.RemoveAll(i => string.IsNullOrWhiteSpace(i.LYDAccountNumber));
-                       
-
                        var branchRecords = allRecords.FindAll(r => b.Code.Contains(r.BranchCode));
                         if(branchRecords.Count==0)
                         {

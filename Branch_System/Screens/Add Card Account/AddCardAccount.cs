@@ -12,8 +12,10 @@ namespace MPBS.Screens.Card_Enquire
 {
     public partial class CardENQ : Form
     {
-        
+        private string CardNumber;
         private string Product;
+        private string Customer_ID;
+        private bool UpdateInfoFlag = false;
 
         public CardENQ()
         {
