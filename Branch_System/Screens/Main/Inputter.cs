@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using MPBS.Database;
-using MPBS.Screens.Account_Details;
 using MPBS.Screens.PTS.Account;
 using MPBS.Screens.PTS.Customer;
 using MPBS.Screens.PTS.Reports;
@@ -22,7 +21,6 @@ namespace MPBS.Screens
 
 
         public ChangePassword changePassword;
-        private Search search;
         private PTS.Issue.Issue PTS_issue;
         private PTS.Load.Load PTS_load;
         private EditCustomer editCustomer;

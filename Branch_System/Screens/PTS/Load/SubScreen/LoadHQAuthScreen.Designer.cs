@@ -35,7 +35,7 @@
             this.cTSDataSet = new MPBS.CTSDataSet();
             this.pTS_ProgramTableAdapter = new MPBS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
+
             this.cTS_PTS_Programs = new MPBS.CTS_PTS_Programs();
             this.pTSProgramBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label40 = new System.Windows.Forms.Label();
@@ -107,7 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTSProgramBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).BeginInit();
@@ -149,15 +149,7 @@
             // 
             this.pTS_ProgramTableAdapter.ClearBeforeFill = true;
             // 
-            // branchsystem1DataSetBindingSource
-            // 
-            this.branchsystem1DataSetBindingSource.DataSource = this.branch_system1DataSet;
-            this.branchsystem1DataSetBindingSource.Position = 0;
-            // 
-            // branch_system1DataSet
-            // 
-            this.branch_system1DataSet.DataSetName = "Branch_system1DataSet";
-            this.branch_system1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+
             // 
             // cTS_PTS_Programs
             // 
@@ -852,7 +844,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
+  
             ((System.ComponentModel.ISupportInitialize)(this.cTS_PTS_Programs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTSProgramBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).EndInit();
@@ -873,7 +865,6 @@
         private CTSDataSet cTSDataSet;
         private CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter pTS_ProgramTableAdapter;
         private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource;
-        private Branch_system1DataSet branch_system1DataSet;
         private CTS_PTS_Programs cTS_PTS_Programs;
         private System.Windows.Forms.BindingSource pTSProgramBindingSource;
         private System.Windows.Forms.Label label40;

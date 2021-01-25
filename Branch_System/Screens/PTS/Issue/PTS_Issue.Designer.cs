@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.productsTableAdapter = new MPBS.CTSMainTableAdapters.ProductsTableAdapter();
-            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
+
             this.cTSDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cTSDataSet = new MPBS.CTSDataSet();
             this.cTSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -92,7 +92,7 @@
             this.pTS_ProgramTableAdapter = new MPBS.CTS_PTS_ProgramsTableAdapters.PTS_ProgramTableAdapter();
             this.label31 = new System.Windows.Forms.Label();
             this.Email_CHBox = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).BeginInit();
@@ -107,11 +107,7 @@
             // 
             this.productsTableAdapter.ClearBeforeFill = true;
             // 
-            // branch_system1DataSet
-            // 
-            this.branch_system1DataSet.DataSetName = "Branch_system1DataSet";
-            this.branch_system1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
+
             // cTSDataSetBindingSource1
             // 
             this.cTSDataSetBindingSource1.DataSource = this.cTSDataSet;
@@ -241,9 +237,7 @@
             // 
             // branchsystem1DataSetBindingSource
             // 
-            this.branchsystem1DataSetBindingSource.DataSource = this.branch_system1DataSet;
-            this.branchsystem1DataSetBindingSource.Position = 0;
-            // 
+
             // cTSMain
             // 
             this.cTSMain.DataSetName = "CTSMain";
@@ -716,7 +710,7 @@
             this.Name = "Issue";
             this.Text = "PTS_Issue";
             this.Load += new System.EventHandler(this.PTS_Issue_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource)).EndInit();
@@ -733,7 +727,6 @@
         #endregion
 
         private CTSMainTableAdapters.ProductsTableAdapter productsTableAdapter;
-        private Branch_system1DataSet branch_system1DataSet;
         private System.Windows.Forms.BindingSource cTSDataSetBindingSource1;
         private CTSDataSet cTSDataSet;
         private System.Windows.Forms.BindingSource cTSDataSetBindingSource;

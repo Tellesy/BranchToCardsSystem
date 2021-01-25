@@ -10,7 +10,6 @@ using MPBS.FilesCreator;
 using MPBS.Screens.User;
 using System.Net;
 using System.IO;
-using MPBS.Screens.Account_Details;
 using System;
 using System.Collections.Generic;
 using MPBS.Screens.PTS.BranchAuthIssue;
@@ -27,7 +26,6 @@ namespace MPBS.Screens.Main
     {
 
         private ChangePassword changePassword;
-        private Search search;
         private BranchAuthIssue branchAuthIssue;
         private HQAuthIssue hQAuthIssue;
         private GenerateT24Files generateT24Files;
@@ -67,11 +65,7 @@ namespace MPBS.Screens.Main
             adduser.Show();
         }
 
-        private void AddCardAccount_BTN_Click(object sender, EventArgs e)
-        {
-            MPBS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
-            cardAccount.Show();
-        }
+
 
         private void HQAdmin_Load(object sender, EventArgs e)
         {

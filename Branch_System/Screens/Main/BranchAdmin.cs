@@ -8,13 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MPBS.Database;
 using MPBS.Screens;
-
 using MPBS.Screens.User;
-
-
 using System.Windows.Forms;
-
-using MPBS.Screens.Account_Details;
 using MPBS.Screens.PTS.BranchAuthIssue;
 using MPBS.Screens.PTS.Load;
 using MPBS.Screens.Charges;
@@ -33,7 +28,7 @@ namespace MPBS.Screens
 
         public ChangePassword changePassword;
 
-        private Search search;
+
         private BranchAuthLoad branchAuthLoad;
         private GenerateChargesFiles generateChargesFiles;
         //PTSScreens

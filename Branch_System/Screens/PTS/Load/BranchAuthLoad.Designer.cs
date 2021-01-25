@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BranchAuthLoad));
-            this.branch_system1DataSet = new MPBS.Branch_system1DataSet();
+
             this.branchsystem1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Record_DGView = new System.Windows.Forms.DataGridView();
             this.branchsystem1DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.Exit_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Sync_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource1)).BeginInit();
@@ -44,12 +44,11 @@
             // 
             // branch_system1DataSet
             // 
-            this.branch_system1DataSet.DataSetName = "Branch_system1DataSet";
-            this.branch_system1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+
             // 
             // branchsystem1DataSetBindingSource
             // 
-            this.branchsystem1DataSetBindingSource.DataSource = this.branch_system1DataSet;
+
             this.branchsystem1DataSetBindingSource.Position = 0;
             // 
             // Record_DGView
@@ -66,7 +65,7 @@
             // 
             // branchsystem1DataSetBindingSource1
             // 
-            this.branchsystem1DataSetBindingSource1.DataSource = this.branch_system1DataSet;
+
             this.branchsystem1DataSetBindingSource1.Position = 0;
             // 
             // Exit_BTN
@@ -128,7 +127,7 @@
             this.Text = "Authorize Load Requests";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.AuthIssue_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_DGView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchsystem1DataSetBindingSource1)).EndInit();
@@ -139,7 +138,6 @@
 
         #endregion
 
-        private Branch_system1DataSet branch_system1DataSet;
         private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource;
         private System.Windows.Forms.DataGridView Record_DGView;
         private System.Windows.Forms.BindingSource branchsystem1DataSetBindingSource1;
