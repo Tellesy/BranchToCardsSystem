@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MPBS.Database;
 using MPBS.Settlements;
 using MPBS.Settlements.PTS.ReportTemplates;
 
@@ -36,7 +37,7 @@ namespace MPBS.Screens.SettlementsSecreens
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                BrowseReport_BTN.Text = deviceDialog.FileName;
+                BrowseTransactionReport_TXT.Text = deviceDialog.FileName;
                 transactionReportFileLocation = deviceDialog.FileName;
                 //PINFileRecordsReorder.ExtractRecordsFromFiles(deviceDialog.FileName);
 
@@ -61,7 +62,28 @@ namespace MPBS.Screens.SettlementsSecreens
             if(!string.IsNullOrWhiteSpace(transactionReportFileLocation))
             {
                 var SettlementStatusObject = MPBS.Settlements.SettlementsManager.PTS_TransactionsReportReader(transactionReportFileLocation);
-                var allRecords = SettlementStatusObject.Object;
+                var RecordsAsFoundInFile = SettlementStatusObject.Object;
+
+                List<TransactionReport> CleanRecords = new List<TransactionReport>();
+                //Add branch and account number
+                foreach(var r in RecordsAsFoundInFile)
+                {
+                   var aStatus = PTSAccountController.getAccount(r.WalletNumber);
+                    
+                    if (!aStatus.status || aStatus.Object == null)
+                    {
+                        //Add to logs in the futrue
+                       
+                        continue;
+                    }
+
+                    r.LYDAccountNumber = aStatus.Object.AccountNumberLYD;
+                    r.USDAccountNumber = aStatus.Object.AccountNumberCurrency;
+
+                    r.BranchCode = r.LYDAccountNumber.Substring(10, 2);
+
+                    CleanRecords.Add(r);
+                }
 
                 if (SettlementStatusObject.status)
                 {
@@ -74,34 +96,21 @@ namespace MPBS.Screens.SettlementsSecreens
 
                     foreach(var b in brStatus.Object)
                     {
-                       var branchRecords = allRecords.FindAll(r => b.Code.Contains(r.BranchCode));
+                     
+                     
+                       var branchRecords = CleanRecords.FindAll(r => b.Code.Contains(r.BranchCode));
+
                         if(branchRecords.Count==0)
                         {
                             MessageBox.Show(string.Format("No Records for Branch {0} {1}",b.Code,b.Name), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             continue;
                         }
-                        //Get all Debit Transactions
-                        var allDebitRecords = MPBS.Settlements.SettlementsManager.getTotalDebitAmountPerWallet(branchRecords);
-                       
-                        var status = MPBS.Settlements.SettlementsManager.createDebitTransactionsSettelmentsFile(allDebitRecords, b.Code);
-                        if(!status.status)
-                        {
-                            MessageBox.Show(status.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+
+                        extractTransactionFile(branchRecords, b.Code);
+
+                        //}
                     }
-
-
-
-                   
-                    //Get All Purchase and AuthCompletion Transactio Fee Transactions
-                    var allTransactionsFeeRecords = MPBS.Settlements.SettlementsManager.getPurchaseAndAuthCompletionTransactioFeePerWallet(allRecords);
-
-                    //Get All Credit Transactions
-                    var allCreditRecords = MPBS.Settlements.SettlementsManager.getTotalCreditAmountPerWallet(allRecords);
-
-                    //Get All Reversal Transactions
-                    var allReversalRecords = MPBS.Settlements.SettlementsManager.getTotalReversalAmountPerWallet(allRecords);
 
 
 
@@ -119,7 +128,7 @@ namespace MPBS.Screens.SettlementsSecreens
             //Get all Debit Transactions
             var allDebitRecords = MPBS.Settlements.SettlementsManager.getTotalDebitAmountPerWallet(records);
 
-            var status = MPBS.Settlements.SettlementsManager.createDebitTransactionsSettelmentsFile(allDebitRecords, branchCode);
+            var status = MPBS.Settlements.SettlementsManager.createTransactionsSettelmentsFile(FileType.DEBIT, allDebitRecords, branchCode);
             if (!status.status)
             {
                 MessageBox.Show(status.message + string.Format(" Error In generating Debit Tnx File for branch ",branchCode), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -128,21 +137,21 @@ namespace MPBS.Screens.SettlementsSecreens
 
             //Get All Purchase and AuthCompletion Transactio Fee Transactions
             var allTransactionsFeeRecords = MPBS.Settlements.SettlementsManager.getPurchaseAndAuthCompletionTransactioFeePerWallet(records);
-            status = MPBS.Settlements.SettlementsManager.createDebitTransactionsSettelmentsFile(allTransactionsFeeRecords, branchCode);
+            status = MPBS.Settlements.SettlementsManager.createTransactionsSettelmentsFile(FileType.FEES,allTransactionsFeeRecords, branchCode);
             if (!status.status)
             {
                 MessageBox.Show(status.message + string.Format(" Error In generating Purchase and PreAuth completion fee Tnx File for branch ", branchCode), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //Get All Credit Transactions
             var allCreditRecords = MPBS.Settlements.SettlementsManager.getTotalCreditAmountPerWallet(records);
-            status = MPBS.Settlements.SettlementsManager.createDebitTransactionsSettelmentsFile(allCreditRecords, branchCode);
+            status = MPBS.Settlements.SettlementsManager.createTransactionsSettelmentsFile(FileType.CREDIT, allCreditRecords, branchCode);
             if (!status.status)
             {
                 MessageBox.Show(status.message + string.Format(" Error In generating Purchase and PreAuth completion fee Tnx File for branch ", branchCode), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //Get All Reversal Transactions
             var allReversalRecords = MPBS.Settlements.SettlementsManager.getTotalReversalAmountPerWallet(records);
-            status = MPBS.Settlements.SettlementsManager.createDebitTransactionsSettelmentsFile(allReversalRecords, branchCode);
+            status = MPBS.Settlements.SettlementsManager.createTransactionsSettelmentsFile(FileType.REVERSAL, allReversalRecords, branchCode);
             if (!status.status)
             {
                 MessageBox.Show(status.message+ string.Format(" Error In generating Purchase and PreAuth completion fee Tnx File for branch ", branchCode),  "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

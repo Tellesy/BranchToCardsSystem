@@ -218,15 +218,15 @@ namespace MPBS.Settlements
         public static List<TransactionReport> getTotalDebitAmountPerWallet(List<TransactionReport> transactionReports)
         {
 
-            List<TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.DR && t.TransactionCode != "22").GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
+            List<TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.DR && t.TransactionCode != "22" && t.TransactionCode != "70").GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
             {
                 WalletNumber = tr.First().WalletNumber,
                 DeviceNumber = tr.First().DeviceNumber,
                 TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Debit Transactions",
-                LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
-                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber)
+                LYDAccountNumber = tr.First().LYDAccountNumber,
+                USDAccountNumber = tr.First().USDAccountNumber
             }).ToList();
 
 
@@ -248,8 +248,8 @@ namespace MPBS.Settlements
                 TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Card Fees Transactions",
-                LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
-                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber)
+                LYDAccountNumber = tr.First().LYDAccountNumber,
+                USDAccountNumber = tr.First().USDAccountNumber
             }).ToList();
 
 
@@ -269,9 +269,9 @@ namespace MPBS.Settlements
                 TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Reversal Transactions",
-                LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
-                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber)
-                
+                LYDAccountNumber = tr.First().LYDAccountNumber,
+                USDAccountNumber = tr.First().USDAccountNumber
+
             }).ToList();
 
             return transactions;
@@ -292,9 +292,9 @@ namespace MPBS.Settlements
                 TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Credit Transaction",
-                LYDAccountNumber = getLYDAccountNumber(tr.First().WalletNumber),
-                USDAccountNumber = getCurrencyAccountNumber(tr.First().WalletNumber)
-               
+                LYDAccountNumber = tr.First().LYDAccountNumber,
+                USDAccountNumber = tr.First().USDAccountNumber
+
             }).ToList();
 
 
@@ -312,12 +312,12 @@ namespace MPBS.Settlements
             var status = PTSAccountController.getAccount(walletNumber);
             return status.status ? status.Object.AccountNumberCurrency : null;
         }
-        private static string getBranchCode(string account)
-        {
-            return string.IsNullOrWhiteSpace(account)?null: account.Substring(10, 2);
-        }
+        //private static string getBranchCode(string account)
+        //{
+        //    return string.IsNullOrWhiteSpace(account)?null: account.Substring(10, 2);
+        //}
 
-        public static Status<int> createDebitTransactionsSettelmentsFile(List<TransactionReport> transactions, string branch)
+        public static Status<int> createTransactionsSettelmentsFile(FileType fileType,List<TransactionReport> transactions, string branch)
         {
             string FT_ValueDate = DateTime.Now.ToString("yyyyMMdd");
             Status<int> status = new Status<int>();
@@ -368,10 +368,10 @@ namespace MPBS.Settlements
                 {
                     if (string.IsNullOrEmpty(transactions[i].USDAccountNumber))
                         continue;
-                   
-                    xlWorkSheet.Cells[i + 1, 1] = "LY0010001";       
-                    xlWorkSheet.Cells[i + 1, 2] = transactions[i].USDAccountNumber.ToString();
-                    xlWorkSheet.Cells[i + 1, 3] = transactions[i].WalletNumber.ToString();
+
+                    xlWorkSheet.Cells[i + 1, 1] = "LY00100" + branch.Substring(2, 2);
+                    xlWorkSheet.Cells[i + 1, 2] = "";
+                    xlWorkSheet.Cells[i + 1, 3] = transactions[i].USDAccountNumber.ToString();
                     xlWorkSheet.Cells[i + 1, 4] = "USD";
                     xlWorkSheet.Cells[i + 1, 5] = transactions[i].BillingAmount.ToString();
                     xlWorkSheet.Cells[i + 1, 6] = FT_ValueDate;
@@ -393,12 +393,30 @@ namespace MPBS.Settlements
                 }
                 //range = xlWorkSheet.get_Range("A1", "N" + (transactions.Count + 1).ToString()).EntireColumn;
                 range.NumberFormat = "@";
-                string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Settlements\" + branch;
+                string folder = "UNKNOWN";
+                switch(fileType)
+                {
+                    case FileType.DEBIT:
+                        folder = "DEBIT";
+                        break;
+                    case FileType.FEES:
+                        folder = "FEES";
+                        break;
+                    case FileType.REVERSAL:
+                        folder = "REVERSAL";
+                        break;
+                    case FileType.CREDIT:
+                        folder = "CREDIT";
+                        break;
+                }
                 //xlWorkBook.SaveAs(location+ @"\transactionFile.xls");
-                string fileName = "TS" + "BR" + branch + "DATE" + DateTime.Parse(DateTime.Now.ToString()).ToString("ddMMyyyyhhmmss");
+                string fileName = "TS" + branch + "DATE" + DateTime.Parse(DateTime.Now.ToString()).ToString("dd-MM-yyyy-hhmmss");
+
+                System.IO.Directory.CreateDirectory(location+@"\"+folder);
 
                 //xlWorkBook.SaveAs(location + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                xlWorkBook.SaveAs(location + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlCSV, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook.SaveAs(location  + @"\" + folder + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlCSV, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
 
                 xlWorkBook.Close(true, misValue, misValue);
                 xlApp.Quit();
@@ -417,5 +435,12 @@ namespace MPBS.Settlements
 
         }
 
+        
+
+    }
+
+    public enum FileType
+    {
+        DEBIT,CREDIT,REVERSAL,FEES
     }
 }
