@@ -50,8 +50,8 @@ namespace MPBS.Screens
             Version_LBL.Text = Version_LBL.Text + " V" + thisAssemName.Version;
 
             //Run Tests
-            MPBS.Screens.SettlementsSecreens.SettlementsManager x = new SettlementsSecreens.SettlementsManager();
-            x.Show();
+            //MPBS.Screens.SettlementsSecreens.SettlementsManager x = new SettlementsSecreens.SettlementsManager();
+            //x.Show();
         }
 
         private void DataBaseType_CBox_SelectedIndexChanged(object sender, EventArgs e)

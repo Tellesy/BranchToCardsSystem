@@ -49,7 +49,16 @@ namespace MPBS.Screens.Charges
             //    MessageBox.Show("There is an issue related to getting Branch Code");
             //    return null;
             //}
-            var cstatus = MPBS.Database.ChargeController.getUngenCharges(Database.Login.branch);
+
+            //Get The the branch
+            var bStatus = MPBS.Database.PTSBranchController.getBranch(int.Parse(Database.Login.branch));
+            if(!bStatus.status)
+            {
+                MessageBox.Show("Error Getting Branch Code");
+                return null;
+            }
+
+            var cstatus = MPBS.Database.ChargeController.getUngenCharges(bStatus.Object.Code);
            
             if(cstatus.status)
             {
@@ -112,6 +121,8 @@ namespace MPBS.Screens.Charges
                     //Currency
                     cols.Add("USD");
                     //Exchange rate from Credit to Debit
+                    //Add Profit Margin 
+                    l.ExchangeRate = (decimal)(decimal.ToDouble(l.ExchangeRate) + (decimal.ToDouble(l.ExchangeRate) * 0.0025));
                     cols.Add(l.ExchangeRate.ToString());
                     //Value Date
                     string dString = string.Format(date.Year.ToString() + date.Month.ToString().PadLeft(2,'0') + date.Day.ToString().PadLeft(2, '0'));
@@ -182,9 +193,15 @@ namespace MPBS.Screens.Charges
 
             }
 
-            string fileName = "CBSLoadAndIssueFile-" + date.Day.ToString().PadLeft(2, '0') + date.Month.ToString().PadLeft(2, '0') + date.Year.ToString() + date.Hour.ToString().PadLeft(2, '0') + date.Minute.ToString().PadLeft(2, '0') + date.Millisecond.ToString().PadLeft(2, '0');
+            //string fileName = "CBSLoadAndIssueFile-" + date.Day.ToString().PadLeft(2, '0') + date.Month.ToString().PadLeft(2, '0') + date.Year.ToString() + date.Hour.ToString().PadLeft(2, '0') + date.Minute.ToString().PadLeft(2, '0') + date.Millisecond.ToString().PadLeft(2, '0');
 
-            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable,true);
+            string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\CBL Load Files\" + sBranch.Object.Code;
+            string folder = DateTime.Now.ToString("dd-MM-yyyy");
+            string fileName = "CBL Load File " + DateTime.Now.ToString("dd-MM-yyyy-hhmmss");
+            System.IO.Directory.CreateDirectory(location + @"\" + folder);
+
+           // System.IO.File.WriteAllLines((location + @"\" + folder + @"\" + filename), logs);
+            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable,true,(location+folder));
 
             //Now make the taken charges as generated and load gen Loads in DB
 

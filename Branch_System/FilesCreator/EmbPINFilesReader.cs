@@ -101,6 +101,8 @@ namespace MPBS.FilesCreator
             List<EmbPINRecord> sortedPINs = new List<EmbPINRecord>();
            foreach(EmbPINRecord pin in pinFile)
             {
+                if (embFile.FindAll(i => i.PAN == pin.PAN).Count == 0)
+                    continue;
                 pin.Sequence = embFile.First(i => i.PAN == pin.PAN).Sequence;
                 var aStringBuilder = new StringBuilder(pin.Line);
                 aStringBuilder.Remove(4, 6);

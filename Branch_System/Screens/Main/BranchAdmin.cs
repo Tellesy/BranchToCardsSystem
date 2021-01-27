@@ -252,6 +252,7 @@ namespace MPBS.Screens
 
         private void UploadCBLLoadReport_BTN_Click(object sender, EventArgs e)
         {
+            List<string> logs = new List<string>();
             int YearlyLimit = 10000;
             string programCode = "TF019";
             var branch = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
@@ -298,7 +299,10 @@ namespace MPBS.Screens
                     var cStatus = PTSCustomerController.getCustomer(l.CustomerID);
                     if(!cStatus.status || cStatus.Object == null)
                     {
-                        MessageBox.Show(string.Format("زبون رقم {0} غير موجود في النظام, ارجو الإضافة بشكل يدوي", l.CustomerID));
+                        string error = string.Format("Customer ID {0} data does not excist in the system", l.CustomerID);
+                        MessageBox.Show(error,"Error in Customer ID",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        //Add to logs
+                        logs.Add(error);
                         continue;
                     }
 
@@ -307,6 +311,7 @@ namespace MPBS.Screens
                     {
 
                         MessageBox.Show(string.Format("عملية الشحن للزبون {0} موجودة مسبقاً", l.CustomerID));
+                        
                     }
                     else
                     {
@@ -316,8 +321,10 @@ namespace MPBS.Screens
 
                         if (!sBalance.status)
                         {
-
-                            MessageBox.Show(string.Format("There is an issue related to getting the customer yearly balance for Customer {0}",l.CustomerID));
+                            string error = string.Format("There is an issue related to getting the customer yearly balance for Customer {0}", l.CustomerID);
+                            MessageBox.Show(error, "Error in Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //Add to logs
+                            logs.Add(error);
                             continue;
                         }
 
@@ -326,7 +333,10 @@ namespace MPBS.Screens
 
                         if ((total + l.Amount) > YearlyLimit)
                         {
-                            MessageBox.Show("Sorry, The total Load Request for this customer exceeds the yearly limit for this program");
+                            string error = string.Format("The total Load Request for this customer {0} exceeds the yearly limit for this program ", l.CustomerID);
+                            MessageBox.Show(error, "Error in Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //Add to logs
+                            logs.Add(error);
                             continue;
                         }
 
@@ -341,7 +351,12 @@ namespace MPBS.Screens
                         }
                         else
                         {
-                            MessageBox.Show("Error with Customer ID "+l.CustomerID,"Error");
+
+                            string error = string.Format("Error in Adding Load record for Customer ID {0}", l.CustomerID);
+                            MessageBox.Show(error, "Error in Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //Add to logs
+                            logs.Add(error);
+                
 
                         }
                     }
@@ -350,6 +365,15 @@ namespace MPBS.Screens
                     //Check if there is a load with same date
                     
                 }
+
+                //Create log file
+                string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\CBL Load Files\" + branch.Object.Code;
+                string folder = DateTime.Now.ToString("dd-MM-yyyy");
+                string filename = "CBL File Logs " + DateTime.Now.ToString("dd-MM-yyyy-hhmmss");
+                System.IO.Directory.CreateDirectory(location + @"\" + folder);
+
+                System.IO.File.WriteAllLines((location+@"\"+folder+@"\"+filename),logs);
+
 
 
                 MessageBox.Show("Done!");
