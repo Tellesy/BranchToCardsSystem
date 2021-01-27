@@ -6,12 +6,11 @@ using System.Windows.Forms;
 using MPBS.Database;
 using MPBS.Database.Objects;
 using MPBS.Screens;
-using MPBS.Screens.AuthRecharge;
 using MPBS.FilesCreator;
 using MPBS.Screens.User;
 using System.Net;
 using System.IO;
-using MPBS.Screens.Account_Details;
+
 using System;
 using System.Collections.Generic;
 using MPBS.Screens.PTS.BranchAuthIssue;
@@ -25,7 +24,7 @@ namespace MPBS.Screens.Main
     public partial class HQLoadMenu : MaterialSkin.Controls.MaterialForm
     {
         private ChangePassword changePassword;
-        private Search search;
+
         private BranchAuthIssue branchAuthIssue;
         private HQAuthIssue hQAuthIssue;
         private GenerateT24Files generateT24Files;

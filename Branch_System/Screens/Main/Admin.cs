@@ -10,23 +10,21 @@ using System.Windows.Forms;
 using MPBS.Database;
 using MPBS.Database.Objects;
 using MPBS.Screens;
-using MPBS.Screens.AuthRecharge;
+
 using MPBS.FilesCreator;
 using MPBS.Screens.User;
 using System.Net;
 using System.IO;
-using MPBS.Screens.Account_Details;
+
 
 namespace MPBS.Screens
 {
     public partial class Admin : Form
     {
-        private AuthRecharge.AuthRecharge unauthRecords;
-        private POUnauth POApp;
-        private PBFUnauth PBFApp;
-        private CAFUnauth CAFApp;
+
+
         private ChangePassword changePassword;
-        private Search search;
+
 
         public Admin()
         {
@@ -76,58 +74,8 @@ namespace MPBS.Screens
             SheetManager.CreateFile();
         }
 
-        private void UnuthReport_BTN_Click(object sender, EventArgs e)
-        {
-            if (unauthRecords == null)
-            {
-                unauthRecords = new AuthRecharge.AuthRecharge();
-                unauthRecords.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    unauthRecords = null; UnuthReport_BTN.Enabled = true;
-                };
-                unauthRecords.Show();
-                UnuthReport_BTN.Enabled = false;
-            }
-        }
+   
 
-        private void PO_Auth_BTN_Click(object sender, EventArgs e)
-        {
-            if (POApp == null)
-            {
-                POApp = new POUnauth();
-                POApp.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    POApp = null; PO_Auth_BTN.Enabled = true;
-                };
-                POApp.Show();
-                PO_Auth_BTN.Enabled = false;
-            }
-        }
-
-        private void PBF_Auth_BTN_Click(object sender, EventArgs e)
-        {
-            if(PBFApp == null)
-            {
-                PBFApp = new PBFUnauth();
-                PBFApp.Closed += (s, args) => {
-                    //authRecharge.UnlockRecord();
-                    PBFApp = null; PBF_Auth_BTN.Enabled = true;
-                };
-                PBFApp.Show();
-                PBF_Auth_BTN.Enabled = false;
-            }
-        }
-
-        private void CAF_Auth_BTN_Click(object sender, EventArgs e)
-        {
-            if (CAFApp == null)
-            {
-                CAFApp = new CAFUnauth();
-                CAFApp.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    CAFApp = null; CAF_Auth_BTN.Enabled = true;
-                };
-                CAFApp.Show();
-                CAF_Auth_BTN.Enabled = false;
-            }
-        }
 
         private void PO_Gen_BTN_Click(object sender, EventArgs e)
         {
@@ -344,17 +292,7 @@ namespace MPBS.Screens
             }
         }
 
-        private void Reports_BTN_Click(object sender, EventArgs e)
-        {
-            MPBS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
-            rechargeReport.Show();
-        }
 
-        private void AddCardAccount_BTN_Click(object sender, EventArgs e)
-        {
-            MPBS.Screens.Card_Enquire.CardENQ cardAccount = new Card_Enquire.CardENQ();
-            cardAccount.Show();
-        }
 
         private void AddUser_BTN_Click(object sender, EventArgs e)
         {
@@ -371,19 +309,7 @@ namespace MPBS.Screens
             MPBS.ConnectToSharedFolder.ShowShareFolder();
         }
 
-        private void AccountDetails_BTN_Click(object sender, EventArgs e)
-        {
-            if (search == null)
-            {
-                search = new Search();
-                search.Closed += (s, args) => {
-                    search = null; AccountDetails_BTN.Enabled = true;
-                };
-                search.Show();
-                AccountDetails_BTN.Enabled = false;
-            }
 
-        }
 
         private void UpdateUser_BTN_Click(object sender, EventArgs e)
         {

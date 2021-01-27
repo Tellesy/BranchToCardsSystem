@@ -20,11 +20,6 @@ namespace MPBS.Screens.Main
             InitializeComponent();
         }
 
-        private void Reports_BTN_Click(object sender, EventArgs e)
-        {
-            MPBS.Screens.Reports.RechargeReports rechargeReport = new Reports.RechargeReports();
-            rechargeReport.Show();
-        }
 
         private void Password_LBL_Click(object sender, EventArgs e)
         {

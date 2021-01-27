@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using MPBS.Database;
 using MPBS.Screens;
-using MPBS.Screens.AuthRecharge;
+
 using MPBS.Screens.User;
 
 
 using System.Windows.Forms;
-using MPBS.Screens.FilesAuth;
-using MPBS.Screens.Account_Details;
+
+
 using MPBS.Screens.PTS.BranchAuthIssue;
 using MPBS.Screens.PTS.Load;
-using MPBS.Screens.Charges;
+
 using MPBS.Screens.PTS.Customer;
 using MPBS.Screens.PTS.Account;
 using Microsoft.VisualBasic;
@@ -30,12 +30,11 @@ namespace MPBS.Screens
 {
     public partial class BranchAdmin : MaterialSkin.Controls.MaterialForm
     {
-        public AuthRecharge.AuthRecharge authRecharge;
+
         public ChangePassword changePassword;
-        private POBranchUnauth POApp;
-        private Search search;
+
         private BranchAuthLoad branchAuthLoad;
-        private GenerateChargesFiles generateChargesFiles;
+
         //PTSScreens
         private BranchAuthIssue authIssue;
         private EditCustomer editCustomer;
@@ -156,19 +155,6 @@ namespace MPBS.Screens
             }
         }
 
-        private void ChargesAndLoadFiles_BTN_Click(object sender, EventArgs e)
-        {
-            if (generateChargesFiles == null)
-            {
-                generateChargesFiles = new GenerateChargesFiles();
-                generateChargesFiles.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    generateChargesFiles = null; ChargesAndLoadFiles_BTN.Enabled = true;
-                };
-                generateChargesFiles.Show();
-                ChargesAndLoadFiles_BTN.Enabled = false;
-            }
-        }
-
         private void EditCustomerInformation_BTN_Click(object sender, EventArgs e)
         {
             try
@@ -252,6 +238,8 @@ namespace MPBS.Screens
 
         private void UploadCBLLoadReport_BTN_Click(object sender, EventArgs e)
         {
+            int errorCount = 0;
+            int SuccesfulCount = 0;
             List<string> logs = new List<string>();
             int YearlyLimit = 10000;
             string programCode = "TF019";
@@ -275,7 +263,9 @@ namespace MPBS.Screens
 
                 if(!cblRecords.status)
                 {
-                    MessageBox.Show("Error! " + cblRecords.message );
+                    
+                    MessageBox.Show(cblRecords.message, "Error in Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     return;
                 }
 
@@ -303,6 +293,7 @@ namespace MPBS.Screens
                         MessageBox.Show(error,"Error in Customer ID",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         //Add to logs
                         logs.Add(error);
+                        errorCount++;
                         continue;
                     }
 
@@ -325,6 +316,7 @@ namespace MPBS.Screens
                             MessageBox.Show(error, "Error in Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             //Add to logs
                             logs.Add(error);
+                            errorCount++;
                             continue;
                         }
 
@@ -337,6 +329,7 @@ namespace MPBS.Screens
                             MessageBox.Show(error, "Error in Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             //Add to logs
                             logs.Add(error);
+                            errorCount++;
                             continue;
                         }
 
@@ -347,7 +340,7 @@ namespace MPBS.Screens
                         var pstatus = PTSLoadController.addLoadRecordFromCBLReport(l);
                         if(pstatus.status)
                         {
-                           
+                            SuccesfulCount++;
                         }
                         else
                         {
@@ -356,7 +349,7 @@ namespace MPBS.Screens
                             MessageBox.Show(error, "Error in Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             //Add to logs
                             logs.Add(error);
-                
+                            errorCount++;
 
                         }
                     }
@@ -366,10 +359,11 @@ namespace MPBS.Screens
                     
                 }
 
+                logs.Add(string.Format("Number of Errors: {0}   Number of Succesfully Added Records {1}",errorCount,SuccesfulCount));
                 //Create log file
                 string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\CBL Load Files\" + branch.Object.Code;
                 string folder = DateTime.Now.ToString("dd-MM-yyyy");
-                string filename = "CBL File Logs " + DateTime.Now.ToString("dd-MM-yyyy-hhmmss");
+                string filename = "CBL File Logs " + DateTime.Now.ToString("dd-MM-yyyy-hhmmss")+".txt";
                 System.IO.Directory.CreateDirectory(location + @"\" + folder);
 
                 System.IO.File.WriteAllLines((location+@"\"+folder+@"\"+filename),logs);

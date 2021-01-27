@@ -138,7 +138,7 @@
             this.UnuthReport_BTN.TabIndex = 1;
             this.UnuthReport_BTN.Text = "Unauthorized Recharge Report";
             this.UnuthReport_BTN.UseVisualStyleBackColor = true;
-            this.UnuthReport_BTN.Click += new System.EventHandler(this.UnuthReport_BTN_Click);
+ 
             // 
             // Name_LBL
             // 
@@ -169,7 +169,6 @@
             this.CAF_Auth_BTN.TabIndex = 4;
             this.CAF_Auth_BTN.Text = "Authorize CAF Reocrds";
             this.CAF_Auth_BTN.UseVisualStyleBackColor = true;
-            this.CAF_Auth_BTN.Click += new System.EventHandler(this.CAF_Auth_BTN_Click);
             // 
             // PBF_Auth_BTN
             // 
@@ -180,7 +179,6 @@
             this.PBF_Auth_BTN.TabIndex = 3;
             this.PBF_Auth_BTN.Text = "Authorize PBF Reocrds";
             this.PBF_Auth_BTN.UseVisualStyleBackColor = true;
-            this.PBF_Auth_BTN.Click += new System.EventHandler(this.PBF_Auth_BTN_Click);
             // 
             // PO_Auth_BTN
             // 
@@ -191,7 +189,6 @@
             this.PO_Auth_BTN.TabIndex = 2;
             this.PO_Auth_BTN.Text = "Authorize PO Reocrds";
             this.PO_Auth_BTN.UseVisualStyleBackColor = true;
-            this.PO_Auth_BTN.Click += new System.EventHandler(this.PO_Auth_BTN_Click);
             // 
             // PO_Gen_BTN
             // 
@@ -251,7 +248,7 @@
             this.Reports_BTN.Text = "Reports";
             this.Reports_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Reports_BTN.UseVisualStyleBackColor = true;
-            this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
+
             // 
             // Password_LBL
             // 
@@ -274,7 +271,7 @@
             this.AddCardAccount_BTN.TabIndex = 33;
             this.AddCardAccount_BTN.Text = "Add Card Account";
             this.AddCardAccount_BTN.UseVisualStyleBackColor = true;
-            this.AddCardAccount_BTN.Click += new System.EventHandler(this.AddCardAccount_BTN_Click);
+
             // 
             // AddUser_BTN
             // 
@@ -321,7 +318,7 @@
             this.AccountDetails_BTN.Text = "بحث عن بيانات بطاقة";
             this.AccountDetails_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AccountDetails_BTN.UseVisualStyleBackColor = true;
-            this.AccountDetails_BTN.Click += new System.EventHandler(this.AccountDetails_BTN_Click);
+
             // 
             // Admin
             // 
