@@ -18,6 +18,11 @@ namespace MPBS.Screens.PTS.Load
     {
         private bool isBranchAdmin = true;
         public List<Database.Objects.PTSLoad> records;
+        private List<ViewList> viewLists;
+        private List<ViewList> viewListsByTime;
+
+
+
         //public bool isEnquire = false;
 
         public BranchAuthLoad()
@@ -45,11 +50,47 @@ namespace MPBS.Screens.PTS.Load
             GetUnAuthRecords();
         }
 
+        //public void getUnAuthRecordsWithOutRerender()
+        //{
+        //    //Get un Auth recharge records
+        //    records = null;
+        //    viewLists = new List<ViewList>();
+        //    Status<List<Database.Objects.PTSLoad>> statusObject = Database.PTSLoadController.getBranchUnAuthLoad(isBranchAdmin);
+
+        //    if (statusObject.status)
+        //    {
+        //        if (statusObject.Object.Count > 0)
+        //        {
+        //            records = statusObject.Object;
+        //            for (int i = 0; i < records.Count; i++)
+        //            {
+        //                ViewList viewList = new ViewList();
+        //                viewList.id = records[i].ID;
+        //                viewList.Customer_ID = records[i].CustomerID;
+        //                viewList.ProgramCode = records[i].ProgramCode;
+        //                viewList.Amount = records[i].Amount.ToString();
+        //                viewList.Year = records[i].Year.ToString();
+        //                viewList.Branch = records[i].BranchCode;
+        //                viewList.Inputter = records[i].Inputter;
+        //                viewList.InputTime = records[i].InputTime;
+
+        //                viewLists.Add(viewList);
+        //            }
+
+        //        }
+        //        else
+        //        {
+        //            viewLists = null;
+        //        }
+
+                    
+        //  }
+        //}
         public void GetUnAuthRecords()
         {
             //Get un Auth recharge records
             records = null;
-            List<ViewList> viewLists = new List<ViewList>();
+            viewLists = new List<ViewList>();
             Status<List<Database.Objects.PTSLoad>> statusObject = Database.PTSLoadController.getBranchUnAuthLoad(isBranchAdmin);
 
             if (statusObject.status)
@@ -78,21 +119,27 @@ namespace MPBS.Screens.PTS.Load
                     viewLists = null;
                 }
 
+                Record_DGView.DataSource = null;
+                Record_DGView.Update();
+                Record_DGView.Refresh();
                 Record_DGView.DataSource = viewLists;
+                Record_DGView.Update();
+                Record_DGView.Refresh();
 
                 Record_DGView.Columns[0].HeaderText = "id";
-                Record_DGView.Columns[1].HeaderText = "رقم الزبون";
-                Record_DGView.Columns[2].HeaderText = "المنتج";
-                Record_DGView.Columns[3].HeaderText = "نوع الطلب";
-                Record_DGView.Columns[4].HeaderText = "النوع الثانوي";
-                Record_DGView.Columns[5].HeaderText = "الفرع";
-                Record_DGView.Columns[6].HeaderText = "المدخل";
-                Record_DGView.Columns[7].HeaderText = "وقت الإدخال";
+                Record_DGView.Columns[1].HeaderText = "Customer ID";
+                Record_DGView.Columns[2].HeaderText = "Product";
+                Record_DGView.Columns[3].HeaderText = "Inputter";
+                Record_DGView.Columns[4].HeaderText = "Amount";
+                Record_DGView.Columns[5].HeaderText = "Year";
+                Record_DGView.Columns[6].HeaderText = "Branch Code";
+                Record_DGView.Columns[7].HeaderText = "Input Time";
 
 
 
                 if (records == null)
                 {
+                    
                     Record_DGView.Rows.Clear();
                     Record_DGView.DataSource = null;
                     Record_DGView.Rows.Clear();
@@ -148,8 +195,10 @@ namespace MPBS.Screens.PTS.Load
                     if (q.Count() > 0)
                     {
                         this.Hide();
+                        this.Update();
                         authorize.record = q[0];
-                        authorize.Closed += (s, args) => { this.GetUnAuthRecords(); this.Show(); };
+                        authorize.Closed += (s, args) => { this.GetUnAuthRecords();
+                            returnToSameStateAfterAuthScreenCloses(); this.Show(); };
                         authorize.Show();
                     }
                 }
@@ -157,6 +206,82 @@ namespace MPBS.Screens.PTS.Load
           
 
 
+        }
+
+        public void returnToSameStateAfterAuthScreenCloses()
+        {
+            if(SearchByTime_CHBox.Checked)
+            {
+                viewListsByTime = viewLists.FindAll(i => i.InputTime.Date >= From_DTP.Value.Date && i.InputTime.Date <= To_DTP.Value.Date);
+
+                Record_DGView.DataSource = viewListsByTime;
+            }
+
+            if (CustomerID_TXT.Text.Count() > 0)
+            {
+                List<ViewList> scopedList = viewLists;
+
+                if (SearchByTime_CHBox.Checked)
+                {
+                    scopedList = viewListsByTime;
+                }
+
+             
+                    Record_DGView.DataSource = scopedList.FindAll(i => i.Customer_ID.Contains(CustomerID_TXT.Text));
+                
+
+            }
+            
+        }
+        private void CustomerID_TXT_TextChanged(object sender, EventArgs e)
+        {
+            List<ViewList> scopedList = viewLists;
+
+            if (SearchByTime_CHBox.Checked)
+            {
+                scopedList = viewListsByTime;
+            }
+
+            if(CustomerID_TXT.Text.Count() <= 7)
+            {
+                Record_DGView.DataSource = scopedList.FindAll(i => i.Customer_ID.Contains(CustomerID_TXT.Text));
+            }
+            else
+            {
+                if (SearchByTime_CHBox.Checked)
+                {
+                    Record_DGView.DataSource = viewListsByTime;
+                }
+                else
+                {
+
+                    GetUnAuthRecords();
+                }
+
+            }
+        }
+
+        private void SearchByTime_CHBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(SearchByTime_CHBox.Checked)
+            {
+                SearchByTime_GBox.Enabled = true;
+                viewListsByTime = viewLists;
+
+            }
+            else
+            {
+                SearchByTime_GBox.Enabled = false;
+                GetUnAuthRecords();
+            }
+        }
+
+        private void Search_BTN_Click(object sender, EventArgs e)
+        {
+            //GetUnAuthRecords();
+            GetUnAuthRecords();
+            viewListsByTime = viewLists.FindAll(i => i.InputTime.Date >= From_DTP.Value.Date && i.InputTime.Date <= To_DTP.Value.Date);
+            Record_DGView.DataSource = viewListsByTime;
         }
     }
 }
