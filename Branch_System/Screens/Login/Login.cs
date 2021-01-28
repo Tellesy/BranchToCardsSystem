@@ -43,7 +43,7 @@ namespace MPBS.Screens
             this.MinimizeBox = false;
             SheetManager.CreateFile();
 
-            await MPBSystem.CheckIfSystemActiveAsync();
+            //await MPBSystem.CheckIfSystemActiveAsync();
 
             Assembly thisAssem = typeof(Login).Assembly;
             AssemblyName thisAssemName = thisAssem.GetName();
@@ -61,17 +61,17 @@ namespace MPBS.Screens
                 this.Close();
             }
             //Run gpupdate in CMD to update to leatest verion
-            string strCmdText;
-            strCmdText = "/C gpupdate";
-            //System.Diagnostics.Process.Start("CMD.exe", strCmdText);
+            //string strCmdText;
+            //strCmdText = "/C gpupdate";
+            ////System.Diagnostics.Process.Start("CMD.exe", strCmdText);
 
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = strCmdText;
-            process.StartInfo = startInfo;
-            process.Start();
+            //System.Diagnostics.Process process = new System.Diagnostics.Process();
+            //System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            //startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            //startInfo.FileName = "cmd.exe";
+            //startInfo.Arguments = strCmdText;
+            //process.StartInfo = startInfo;
+            //process.Start();
 
             status = MPBSystem.CheckVersion(thisAssemName.Version.ToString());
             if (!status.status)
