@@ -25,6 +25,7 @@ using MPBS.Screens.PTS.Reports;
 using MPBS.SpreadSheet.Structure;
 using MPBS.SpreadSheet;
 using MPBS.Database.Objects;
+using MPBS.Screens.Charges;
 
 namespace MPBS.Screens
 {
@@ -32,7 +33,7 @@ namespace MPBS.Screens
     {
 
         public ChangePassword changePassword;
-
+        private GenerateChargesFiles generateChargesFiles;
         private BranchAuthLoad branchAuthLoad;
 
         //PTSScreens
@@ -422,6 +423,22 @@ namespace MPBS.Screens
             // DialogResult dr = deviceDialog.ShowDialog();
 
             return deviceDialog;
+        }
+
+        private void ChargesAndLoadFiles_BTN_Click(object sender, EventArgs e)
+        {
+      
+                if (generateChargesFiles == null)
+                {
+                    generateChargesFiles = new GenerateChargesFiles();
+                    generateChargesFiles.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                        generateChargesFiles = null; ChargesAndLoadFiles_BTN.Enabled = true;
+                    };
+                    generateChargesFiles.Show();
+                    ChargesAndLoadFiles_BTN.Enabled = false;
+                }
+            
+
         }
     }
 }

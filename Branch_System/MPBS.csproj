@@ -249,6 +249,12 @@
     <Compile Include="Database\Recharge.cs" />
     <Compile Include="Database\Status.cs" />
     <Compile Include="Errors\Errors.cs" />
+    <Compile Include="Screens\Charges\Charges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Charges\Charges.Designer.cs">
+      <DependentUpon>Charges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Login\PreLoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +465,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Countries.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Charges\Charges.resx">
+      <DependentUpon>Charges.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

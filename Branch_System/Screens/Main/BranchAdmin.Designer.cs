@@ -350,6 +350,7 @@
             this.ChargesAndLoadFiles_BTN.Text = "T24 Charges and Load Files";
             this.ChargesAndLoadFiles_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ChargesAndLoadFiles_BTN.UseVisualStyleBackColor = true;
+            this.ChargesAndLoadFiles_BTN.Click += new System.EventHandler(this.ChargesAndLoadFiles_BTN_Click);
             // 
             // Reports_BTN
             // 
@@ -397,7 +398,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(530, 691);
+            this.ClientSize = new System.Drawing.Size(526, 687);
             this.ControlBox = false;
             this.Controls.Add(this.UploadCBLLoadReport_BTN);
             this.Controls.Add(this.Reports_BTN);
