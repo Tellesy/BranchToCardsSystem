@@ -222,7 +222,6 @@
       <DependentUpon>Countries.resx</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="BranchSystem.cs" />
     <Compile Include="Branch_system1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -622,9 +621,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Branch_system1.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="icon.ico" />
     <Content Include="icon2.ico" />
     <Content Include="icon2_ykR_icon.ico" />
