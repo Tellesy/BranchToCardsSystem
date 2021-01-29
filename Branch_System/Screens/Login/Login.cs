@@ -138,9 +138,9 @@ namespace MPBS.Screens
                     branchApp.Show();
                     break;
                 case "3":
-                    Auditor auditorApp = new Auditor();
-                    auditorApp.Closed += (s, args) => this.Show();
-                    auditorApp.Show();
+                    //Auditor auditorApp = new Auditor();
+                    //auditorApp.Closed += (s, args) => this.Show();
+                    //auditorApp.Show();
                     break;
 
                 //Card Issuance is No.4

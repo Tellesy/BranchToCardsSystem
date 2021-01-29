@@ -197,8 +197,6 @@
     <Compile Include="Database\Objects\PTSTransactionRecord.cs" />
     <Compile Include="Database\Objects\Recharge.cs" />
     <Compile Include="Database\Objects\Status.cs" />
-    <Compile Include="Database\PBF.cs" />
-    <Compile Include="Database\PO.cs" />
     <Compile Include="Database\MPBSystem.cs" />
     <Compile Include="Database\PTSAccountController.cs" />
     <Compile Include="Database\PTSAppRecordController.cs" />
@@ -208,6 +206,7 @@
     <Compile Include="Database\PTSBranchController.cs" />
     <Compile Include="Database\PTSLoadController.cs" />
     <Compile Include="Database\PTSProgramController.cs" />
+    <Compile Include="Database\Recharge.cs" />
     <Compile Include="Database\ReportsController.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="FilesCreator\AppRecrodFileCreator.cs" />
@@ -230,7 +229,6 @@
     <Compile Include="CardsValidation.cs" />
     <Compile Include="Database\DBConnection.cs" />
     <Compile Include="Database\Login.cs" />
-    <Compile Include="Database\Recharge.cs" />
     <Compile Include="Database\Status.cs" />
     <Compile Include="Errors\Errors.cs" />
     <Compile Include="Screens\Charges\Charges.cs">
@@ -244,12 +242,6 @@
     </Compile>
     <Compile Include="Screens\Login\PreLoginPage.Designer.cs">
       <DependentUpon>PreLoginPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\Main\Auditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\Main\Auditor.Designer.cs">
-      <DependentUpon>Auditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Main\BranchAdmin.cs">
       <SubType>Form</SubType>
@@ -468,9 +460,6 @@
     </Compile>
     <EmbeddedResource Include="Screens\Login\PreLoginPage.resx">
       <DependentUpon>PreLoginPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Main\Auditor.resx">
-      <DependentUpon>Auditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\BranchAdmin.resx">
       <DependentUpon>BranchAdmin.cs</DependentUpon>
