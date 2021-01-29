@@ -175,7 +175,6 @@
     <Compile Include="Database\Branch.cs" />
     <Compile Include="Database\ChargeController.cs" />
     <Compile Include="Database\Countries.cs" />
-    <Compile Include="Database\DataObjects\Recharge.cs" />
     <Compile Include="Database\Issue.cs" />
     <Compile Include="Database\Objects\Charge.cs" />
     <Compile Include="Database\Objects\PTSBranch.cs" />
@@ -662,9 +661,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.22.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.22.0\build\net45\Grpc.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
