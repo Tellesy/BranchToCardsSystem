@@ -578,6 +578,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
 
@@ -618,6 +619,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
 
@@ -660,6 +662,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
 
@@ -790,7 +793,7 @@ namespace MPBS.Database
             {
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
-
+                conn.Close();
                 return statusObject;
             }
         }

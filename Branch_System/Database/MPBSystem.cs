@@ -82,6 +82,7 @@ namespace MPBS.Database
             }
             catch
             {
+                conn.Close();
                 status.status = false;
                 status.message = "لا يمكن الوصول بقاعدة البيانات, الرجاء التأكد من الإتصال";
 
@@ -101,6 +102,7 @@ namespace MPBS.Database
                     {
                         if (!reader.HasRows)
                         {
+                            conn.Close();
                             status.status = false;
                             status.message = "عذراً, هذه النسخة غير مدعومة الرجاء تحديث النظام";
 
@@ -116,6 +118,7 @@ namespace MPBS.Database
                 }
                 catch (Exception e)
                 {
+                    conn.Close();
                     status.status = false;
                     status.message = Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
@@ -123,6 +126,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
                 return status;
@@ -146,7 +150,7 @@ namespace MPBS.Database
             {
                 status.status = false;
                 status.message = "لا يمكن الوصول بقاعدة البيانات, الرجاء التأكد من الإتصال";
-
+                conn.Close();
                 return status;
             }
             if (conn.State == global::System.Data.ConnectionState.Open)
@@ -163,7 +167,7 @@ namespace MPBS.Database
                         {
                             status.status = false;
                             status.message = "عذراً, النظام غير مفعل, الرجاء التواصل مع مسؤول المنظومة";
-
+                            conn.Close();
                             return status;
 
                         }
@@ -191,6 +195,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
                 return status;
@@ -220,6 +225,7 @@ namespace MPBS.Database
                 }
                 catch
                 {
+                    conn.Close();
                     status.status = false;
                     status.message = "usActive Update \n" + Errors.ErrorsString.Error002;
                     return status;
@@ -230,7 +236,7 @@ namespace MPBS.Database
             {
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
-
+                conn.Close();
                 return status;
             }
         }

@@ -36,7 +36,7 @@ namespace MPBS.Database
                         {
                             statusObject.status = false;
                             statusObject.message = Errors.ErrorsString.Error012;
-
+                            conn.Close();
                             return statusObject;
 
                         }
@@ -55,6 +55,7 @@ namespace MPBS.Database
 
                       
                             }
+                            conn.Close();
                             statusObject.status = true;
                             statusObject.Object = branches;
                             return statusObject;
@@ -63,6 +64,7 @@ namespace MPBS.Database
                     }
                     catch (Exception e)
                     {
+                        conn.Close();
                         statusObject.status = false;
                         statusObject.message = "Get PTS Branches Info\n" + Errors.ErrorsString.Error002 + "\n" + e;
                         return statusObject;
@@ -76,7 +78,7 @@ namespace MPBS.Database
             {
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
-
+                conn.Close();
                 return statusObject;
             }
         }
@@ -107,7 +109,7 @@ namespace MPBS.Database
                         {
                             statusObject.status = false;
                             statusObject.message = Errors.ErrorsString.Error012;
-
+                            conn.Close();
                             return statusObject;
 
                         }
@@ -121,10 +123,9 @@ namespace MPBS.Database
                                 branch.Name = reader[1].ToString();
                                 branch.Branch_code = branch_code;
 
-                              
-
 
                             }
+                            conn.Close();
                             statusObject.status = true;
                             statusObject.Object = branch;
                             return statusObject;
@@ -133,6 +134,7 @@ namespace MPBS.Database
                     }
                     catch (Exception e)
                     {
+                        conn.Close();
                         statusObject.status = false;
                         statusObject.message = "Get PTS Branches Info\n" + Errors.ErrorsString.Error002 + "\n" + e;
                         return statusObject;
@@ -144,6 +146,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
 

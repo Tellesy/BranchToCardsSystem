@@ -39,7 +39,7 @@ namespace MPBS.Database
                         {
                             statusObject.status = false;
                             statusObject.message = Errors.ErrorsString.Error012;
-
+                            conn.Close();
                             return statusObject;
 
                         }
@@ -92,7 +92,7 @@ namespace MPBS.Database
             {
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
-
+                conn.Close();
                 return statusObject;
             }
         }
@@ -209,6 +209,7 @@ namespace MPBS.Database
                 }
                 catch (Exception e)
                 {
+                    conn.Close();
                     status.status = false;
                     status.status = false;
                     status.message = "Add to PTS Customer\n" + Errors.ErrorsString.Error002 + "\n" + e;
@@ -217,6 +218,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
                 return status;
@@ -318,6 +320,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
                 return status;
@@ -357,6 +360,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
 

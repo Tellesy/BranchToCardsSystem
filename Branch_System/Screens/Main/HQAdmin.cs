@@ -96,21 +96,21 @@ namespace MPBS.Screens.Main
             //Generate PTS Files
             MPBSConfig.CreateFolders();
 
-            Status IssueStatus = Database.Recharge.checkYear();
+            Status IssueStatus = Database.YearController.checkYear();
 
             CheckStatus();
 
             Name_LBL.Text = Database.Login.name;
             //Branch_LBL.Text = Database.Login.branch;
-            Amount_LBL.Text = Database.Recharge.amount.ToString();
-            Year_LBL.Text = Database.Recharge.year;
+            Amount_LBL.Text = Database.YearController.amount.ToString();
+            Year_LBL.Text = Database.YearController.year;
 
             SheetManager.CreateFile();
         }
 
         private void CheckStatus()
         {
-            if (Database.Recharge.active != "True")
+            if (Database.YearController.active != "True")
             {
                 MessageBox.Show("عذراً, الشحن و الإصدار غير متاح");
                 Status_LBL.Text = "Not Available";

@@ -28,7 +28,7 @@ namespace MPBS.Screens.PTS.Load.SubScreen
 
         private void IssueHQAuthScreen_Load(object sender, EventArgs e)
         {
-            Year_LBL.Text = Database.Recharge.year;
+            Year_LBL.Text = Database.YearController.year;
             this.Text = record.ID.ToString() + " " + record.Inputter;
 
 
@@ -68,7 +68,7 @@ namespace MPBS.Screens.PTS.Load.SubScreen
             ProgramAccount_TXT.Text = accountStatusObject.Object.AccountNumberCurrency;
 
             Amount_TXT.Text = record.Amount.ToString();
-            var sTotal = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(record.CustomerID, record.ProgramCode, Database.Recharge.year);
+            var sTotal = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(record.CustomerID, record.ProgramCode, Database.YearController.year);
             if (sTotal.status)
             {
                 TotalAmount_TXT.Text = sTotal.Object.Sum(t => t.Amount).ToString();

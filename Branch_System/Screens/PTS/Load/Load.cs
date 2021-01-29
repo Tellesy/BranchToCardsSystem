@@ -127,7 +127,7 @@ namespace MPBS.Screens.PTS.Load
             }
 
             //Check if the total Load requests doesn't exceed the yearyl limit
-            var sBalance = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(CustomerID_TXT.Text, selectedProgramCode, Database.Recharge.year);
+            var sBalance = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(CustomerID_TXT.Text, selectedProgramCode, Database.YearController.year);
 
             if(!sBalance.status)
             {
@@ -147,7 +147,7 @@ namespace MPBS.Screens.PTS.Load
             
             //if ())
             PTSLoad load = new PTSLoad();
-            load.Year = Database.Recharge.year;
+            load.Year = Database.YearController.year;
             load.CustomerID = CustomerID_TXT.Text;
             load.ProgramCode = selectedProgramCode;
             load.BranchCode = sBranch.Object.Code;

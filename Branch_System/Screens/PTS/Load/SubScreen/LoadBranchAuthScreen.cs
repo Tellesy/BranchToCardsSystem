@@ -25,7 +25,7 @@ namespace MPBS.Screens.PTS.Load.SubScreen
 
         private void LoadBranchAuthScreen_Load(object sender, EventArgs e)
         {
-            Year_LBL.Text = Database.Recharge.year;
+            Year_LBL.Text = Database.YearController.year;
             this.Text = record.ID.ToString() + " " + record.Inputter;
 
 
@@ -63,7 +63,7 @@ namespace MPBS.Screens.PTS.Load.SubScreen
 
             Amount_TXT.Text = record.Amount.ToString();
             Amount_LBL.Text = record.Amount.ToString();
-            var sTotal = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(record.CustomerID, record.ProgramCode, Database.Recharge.year);
+            var sTotal = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(record.CustomerID, record.ProgramCode, Database.YearController.year);
             if(sTotal.status)
             {
                 TotalAmount_TXT.Text = sTotal.Object.Sum(t => t.Amount).ToString();

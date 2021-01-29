@@ -49,7 +49,7 @@ namespace MPBS.Screens
 
         private void CheckStatus()
         {
-            if (Database.Recharge.active != "True")
+            if (Database.YearController.active != "True")
             {
                 MessageBox.Show("عذراً, الشحن و الإصدار غير متاح");
                 Status_LBL.Text = "Not Available";
@@ -71,14 +71,14 @@ namespace MPBS.Screens
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            Status IssueStatus = Database.Recharge.checkYear();
+            Status IssueStatus = Database.YearController.checkYear();
 
             CheckStatus();
 
             Name_LBL.Text = Database.Login.name;
             Branch_LBL.Text = Database.Login.branch;
-            Amount_LBL.Text = Database.Recharge.amount.ToString();
-            Year_LBL.Text = Database.Recharge.year;
+            Amount_LBL.Text = Database.YearController.amount.ToString();
+            Year_LBL.Text = Database.YearController.year;
 
             SheetManager.CreateFile();
         }
@@ -283,7 +283,7 @@ namespace MPBS.Screens
                     l.Amount = int.Parse(cbl.AmountUSD);
                     l.ExchangeRate = decimal.Parse(cbl.ExchangeRate);
                     l.FromCBLFlag = true;
-                    l.Year = Database.Recharge.year;
+                    l.Year = Database.YearController.year;
                     l.BranchCode = cbl.BranchCode;
 
                     //Check if customer exist

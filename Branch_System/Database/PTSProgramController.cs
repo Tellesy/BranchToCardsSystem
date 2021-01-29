@@ -37,7 +37,7 @@ namespace MPBS.Database
                         {
                             statusObject.status = false;
                             statusObject.message = Errors.ErrorsString.Error012;
-
+                            conn.Close();
                             return statusObject;
 
                         }
@@ -61,12 +61,14 @@ namespace MPBS.Database
                             }
                             statusObject.status = true;
                             statusObject.Object = programs;
+                            conn.Close();
                             return statusObject;
 
                         }
                     }
                     catch (Exception e)
                     {
+                        conn.Close();
                         statusObject.status = false;
                         statusObject.message = "Get Customer Info\n" + Errors.ErrorsString.Error002 + "\n" + e;
                         return statusObject;
@@ -78,6 +80,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
 
@@ -112,7 +115,7 @@ namespace MPBS.Database
                         {
                             statusObject.status = false;
                             statusObject.message = Errors.ErrorsString.Error012;
-
+                            conn.Close();
                             return statusObject;
 
                         }
@@ -134,6 +137,7 @@ namespace MPBS.Database
 
 
                             }
+                            conn.Close();
                             statusObject.status = true;
                             statusObject.Object = programs;
                             return statusObject;
@@ -142,6 +146,7 @@ namespace MPBS.Database
                     }
                     catch (Exception e)
                     {
+                        conn.Close();
                         statusObject.status = false;
                         statusObject.message = "Get Customer Info\n" + Errors.ErrorsString.Error002 + "\n" + e;
                         return statusObject;
@@ -153,6 +158,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
 

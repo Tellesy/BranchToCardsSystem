@@ -78,6 +78,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
                 return status;
@@ -138,6 +139,7 @@ namespace MPBS.Database
 
                         if (!reader.HasRows)
                         {
+                            conn.Close();
                             statusObject.status = false;
                             statusObject.message = "لا يوجد سجلات تحتاج الى تخويل";
                             return statusObject;
@@ -199,6 +201,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
 
@@ -300,6 +303,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
 
@@ -343,7 +347,7 @@ namespace MPBS.Database
             {
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
-
+                conn.Close();
                 return status;
             }
 
@@ -385,7 +389,7 @@ namespace MPBS.Database
             {
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
-
+                conn.Close();
                 return status;
             }
 
@@ -487,7 +491,7 @@ namespace MPBS.Database
             {
                 statusObject.status = false;
                 statusObject.message = Errors.ErrorsString.Error001;
-
+                conn.Close();
                 return statusObject;
             }
         }
@@ -527,7 +531,7 @@ namespace MPBS.Database
             {
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
-
+                conn.Close();
                 return status;
             }
 

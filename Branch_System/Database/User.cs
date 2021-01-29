@@ -52,11 +52,13 @@ namespace MPBS.Database
                     status.status = false;
                     status.status = false;
                     status.message = "Add to Add User\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    conn.Close();
                     return status;
                 }
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
                 return status;

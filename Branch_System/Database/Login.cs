@@ -42,7 +42,7 @@ namespace MPBS.Database
             {
                 status.status = false;
                 status.message = "لا يمكن الوصول بقاعدة البيانات, الرجاء التأكد من الإتصال";
-
+                conn.Close();
                 return status;
             }
             if (conn.State == System.Data.ConnectionState.Open)
@@ -66,7 +66,7 @@ namespace MPBS.Database
                         {
                             status.status = false;
                             status.message = "اسم المستخدم او الرقم السري غير صحيح, الرجاء التأكد";
-
+                            conn.Close();
                             return status;
 
                         }
@@ -86,7 +86,7 @@ namespace MPBS.Database
                         {
                             status.status = false;
                             status.message = "هذا المستخدم غير مفعل, الرجاء الاستفسار من مديرك";
-
+                            conn.Close();
                             return status;
                         }
                     }
@@ -98,6 +98,7 @@ namespace MPBS.Database
                 }
                 catch (Exception e)
                 {
+                    conn.Close();
                     status.status = false;
                     status.message = Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
@@ -105,6 +106,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
                 return status;
@@ -127,6 +129,7 @@ namespace MPBS.Database
             catch (Exception e)
             {
                 status.status = false;
+                conn.Close();
                 status.message = "لا يمكن الوصول بقاعدة البيانات, الرجاء التأكد من الإتصال" + "\n" + e;
                 return status;
             }
@@ -143,6 +146,7 @@ namespace MPBS.Database
                     {
                         if (!reader.HasRows)
                         {
+                            conn.Close();
                             status.status = false;
                             status.message = "الرقم السري القديم غير صحيح, الرجاء التأكد";
 
@@ -169,6 +173,7 @@ namespace MPBS.Database
                 }
                 catch(Exception e)
                 {
+                    conn.Close();
                     status.status = false;
                     status.message = e.ToString();
                     return status;
@@ -200,7 +205,7 @@ namespace MPBS.Database
             {
                 status.status = false;
                 status.message = "لا يمكن الوصول بقاعدة البيانات, الرجاء التأكد من الإتصال";
-
+                conn.Close();
                 return status;
             }
             if (conn.State == System.Data.ConnectionState.Open)
@@ -225,7 +230,7 @@ namespace MPBS.Database
                         {
                             status.status = false;
                             status.message = "اسم المستخدم غير صحيح, الرجاء التأكد";
-
+                            conn.Close();
                             return status;
 
                         }
@@ -245,6 +250,7 @@ namespace MPBS.Database
 
                         if (!active)
                         {
+                            conn.Close();
                             status.status = false;
                             status.message = "هذا المستخدم غير مفعل, الرجاء الاستفسار من مديرك";
 
@@ -253,6 +259,7 @@ namespace MPBS.Database
 
                         if(!AD_enabled)
                         {
+                            conn.Close();
                             status.status = false;
                             status.message = "هذا المستخدم غير مفعل, الرجاء الاستفسار من مديرك";
 
@@ -280,6 +287,7 @@ namespace MPBS.Database
                 }
                 catch (Exception e)
                 {
+                    conn.Close();
                     status.status = false;
                     status.message = Errors.ErrorsString.Error002 + "\n" + e;
                     return status;
@@ -287,6 +295,7 @@ namespace MPBS.Database
             }
             else
             {
+                conn.Close();
                 status.status = false;
                 status.message = Errors.ErrorsString.Error001;
                 return status;
@@ -317,6 +326,7 @@ namespace MPBS.Database
                 }
                 catch(Exception e)
                 {
+                    
                     result.status = false;
                     result.message = e.Message;
                 }
