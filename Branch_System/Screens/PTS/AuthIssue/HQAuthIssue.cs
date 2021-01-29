@@ -17,7 +17,8 @@ namespace MPBS.Screens.PTS.AuthIssue
     {
         
         public List<Database.Objects.PTSAppRecord> records;
-
+        private List<ViewList> viewLists;
+        private List<ViewList> viewListsByTime;
         public HQAuthIssue()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace MPBS.Screens.PTS.AuthIssue
         {
             //Get un Auth recharge records
             records = null;
-            List<ViewList> viewLists = new List<ViewList>();
+             viewLists = new List<ViewList>();
             Status<List<Database.Objects.PTSAppRecord>> statusObject = Database.PTSAppRecordController.getHQUnAuthAppRecords();
 
             if (statusObject.status)
@@ -75,14 +76,14 @@ namespace MPBS.Screens.PTS.AuthIssue
 
                 Record_DGView.DataSource = viewLists;
 
-                Record_DGView.Columns[0].HeaderText = "id";
-                Record_DGView.Columns[1].HeaderText = "رقم الزبون";
-                Record_DGView.Columns[2].HeaderText = "المنتج";
-                Record_DGView.Columns[3].HeaderText = "نوع الطلب";
-                Record_DGView.Columns[4].HeaderText = "النوع الثانوي";
-                Record_DGView.Columns[5].HeaderText = "الفرع";
-                Record_DGView.Columns[6].HeaderText = "المدخل";
-                Record_DGView.Columns[7].HeaderText = "وقت الإدخال";
+                Record_DGView.Columns[0].HeaderText = "ID";
+                Record_DGView.Columns[1].HeaderText = "Customer ID";
+                Record_DGView.Columns[2].HeaderText = "Program";
+                Record_DGView.Columns[3].HeaderText = "Application Type";
+                Record_DGView.Columns[4].HeaderText = "Sub Type";
+                Record_DGView.Columns[5].HeaderText = "Branch";
+                Record_DGView.Columns[6].HeaderText = "Inputter";
+                Record_DGView.Columns[7].HeaderText = "Input Time";
 
 
 
@@ -136,14 +137,94 @@ namespace MPBS.Screens.PTS.AuthIssue
                     {
                         this.Hide();
                         authorize.record = q[0];
-                        authorize.Closed += (s, args) => { this.GetUnAuthRecords(); this.Show(); };
-                        authorize.Show();
+                        authorize.Closed += (s, args) => {
+                            this.GetUnAuthRecords();
+                            returnToSameStateAfterAuthScreenCloses(); this.Show();
+                        };
+                    authorize.Show();
                     }
                 }
             
 
 
 
+        }
+
+        public void returnToSameStateAfterAuthScreenCloses()
+        {
+            if (SearchByTime_CHBox.Checked)
+            {
+                viewListsByTime = viewLists.FindAll(i => i.InputTime.Date >= From_DTP.Value.Date && i.InputTime.Date <= To_DTP.Value.Date);
+
+                Record_DGView.DataSource = viewListsByTime;
+            }
+
+            if (CustomerID_TXT.Text.Count() > 0)
+            {
+                List<ViewList> scopedList = viewLists;
+
+                if (SearchByTime_CHBox.Checked)
+                {
+                    scopedList = viewListsByTime;
+                }
+
+
+                Record_DGView.DataSource = scopedList.FindAll(i => i.Customer_ID.Contains(CustomerID_TXT.Text));
+
+
+            }
+
+        }
+
+        private void Search_BTN_Click(object sender, EventArgs e)
+        {
+            //GetUnAuthRecords();
+            GetUnAuthRecords();
+            viewListsByTime = viewLists.FindAll(i => i.InputTime.Date >= From_DTP.Value.Date && i.InputTime.Date <= To_DTP.Value.Date);
+            Record_DGView.DataSource = viewListsByTime;
+        }
+
+        private void SearchByTime_CHBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SearchByTime_CHBox.Checked)
+            {
+                SearchByTime_GBox.Enabled = true;
+                viewListsByTime = viewLists;
+
+            }
+            else
+            {
+                SearchByTime_GBox.Enabled = false;
+                GetUnAuthRecords();
+            }
+        }
+
+        private void CustomerID_TXT_TextChanged(object sender, EventArgs e)
+        {
+            List<ViewList> scopedList = viewLists;
+
+            if (SearchByTime_CHBox.Checked)
+            {
+                scopedList = viewListsByTime;
+            }
+
+            if (CustomerID_TXT.Text.Count() <= 7)
+            {
+                Record_DGView.DataSource = scopedList.FindAll(i => i.Customer_ID.Contains(CustomerID_TXT.Text));
+            }
+            else
+            {
+                if (SearchByTime_CHBox.Checked)
+                {
+                    Record_DGView.DataSource = viewListsByTime;
+                }
+                else
+                {
+
+                    GetUnAuthRecords();
+                }
+
+            }
         }
     }
 }

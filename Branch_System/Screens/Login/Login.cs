@@ -152,9 +152,9 @@ namespace MPBS.Screens
 
                 //Load Admin is No.5
                 case "5":
-                    HQLoadMenu hQLoadMenu = new HQLoadMenu();
-                    hQLoadMenu.Closed += (s, args) => this.Show();
-                    hQLoadMenu.Show();
+                    HQAccounting hqAccountingMenu = new HQAccounting();
+                    hqAccountingMenu.Closed += (s, args) => this.Show();
+                    hqAccountingMenu.Show();
                     break;
 
                 case "6":
@@ -162,6 +162,7 @@ namespace MPBS.Screens
                     generateEMBPIN.Closed += (s, args) => this.Show();
                     generateEMBPIN.Show();
                     break;
+
                 default:
                     MessageBox.Show("لا تملك الصلاحيات للدخول الى هذا النظام");
                     this.Show();

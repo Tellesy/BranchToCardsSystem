@@ -316,18 +316,24 @@
             // 
             this.Birthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.Birthdate.Location = new System.Drawing.Point(20, 408);
+            this.Birthdate.MaxDate = new System.DateTime(2015, 12, 31, 0, 0, 0, 0);
+            this.Birthdate.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.Birthdate.Name = "Birthdate";
             this.Birthdate.Size = new System.Drawing.Size(114, 20);
             this.Birthdate.TabIndex = 10;
+            this.Birthdate.Value = new System.DateTime(1990, 12, 31, 0, 0, 0, 0);
             this.Birthdate.ValueChanged += new System.EventHandler(this.Birthdate_ValueChanged);
             // 
             // PassportExpDate
             // 
             this.PassportExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.PassportExpDate.Location = new System.Drawing.Point(580, 135);
+            this.PassportExpDate.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.PassportExpDate.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.PassportExpDate.Name = "PassportExpDate";
             this.PassportExpDate.Size = new System.Drawing.Size(170, 20);
             this.PassportExpDate.TabIndex = 14;
+            this.PassportExpDate.Value = new System.DateTime(2023, 1, 30, 13, 4, 0, 0);
             this.PassportExpDate.ValueChanged += new System.EventHandler(this.PassportExpDate_ValueChanged);
             // 
             // label2
@@ -601,6 +607,7 @@
             this.Email_TXT.Name = "Email_TXT";
             this.Email_TXT.Size = new System.Drawing.Size(221, 20);
             this.Email_TXT.TabIndex = 18;
+            this.Email_TXT.TextChanged += new System.EventHandler(this.Email_TXT_TextChanged);
             // 
             // label26
             // 
@@ -714,7 +721,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Program_CBox);
             this.Name = "Issue";
-            this.Text = "PTS_Issue";
+            this.Text = "Issue New Card";
             this.Load += new System.EventHandler(this.PTS_Issue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.branch_system1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTSDataSetBindingSource1)).EndInit();

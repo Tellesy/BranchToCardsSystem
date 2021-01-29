@@ -261,12 +261,6 @@
     <Compile Include="Screens\Login\PreLoginPage.Designer.cs">
       <DependentUpon>PreLoginPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Main\Admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\Main\Admin.Designer.cs">
-      <DependentUpon>Admin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\Main\Auditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +272,12 @@
     </Compile>
     <Compile Include="Screens\Main\BranchAdmin.Designer.cs">
       <DependentUpon>BranchAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Main\HQAccounting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\HQAccounting.Designer.cs">
+      <DependentUpon>HQAccounting.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Main\HQAdmin.cs">
       <SubType>Form</SubType>
@@ -485,14 +485,14 @@
     <EmbeddedResource Include="Screens\Login\PreLoginPage.resx">
       <DependentUpon>PreLoginPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\Main\Admin.resx">
-      <DependentUpon>Admin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\Auditor.resx">
       <DependentUpon>Auditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\BranchAdmin.resx">
       <DependentUpon>BranchAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\HQAccounting.resx">
+      <DependentUpon>HQAccounting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Main\HQAdmin.resx">
       <DependentUpon>HQAdmin.cs</DependentUpon>

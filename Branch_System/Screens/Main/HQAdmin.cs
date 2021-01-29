@@ -30,6 +30,8 @@ namespace MPBS.Screens.Main
         private ChangePassword changePassword;
        
         private BranchAuthIssue branchAuthIssue;
+        private BranchAuthLoad branchAuthLoad;
+
         private HQAuthIssue hQAuthIssue;
         private GenerateT24Files generateT24Files;
         private HQAuthLoad hQAuthLoad;
@@ -37,6 +39,7 @@ namespace MPBS.Screens.Main
         GenerateEMBPIN generateEMBPIN;
         private GenAppRecord genAppRecord;
         private ReportsGenerator reportGenerator;
+
         public HQAdmin()
         {
             InitializeComponent();
@@ -218,7 +221,17 @@ namespace MPBS.Screens.Main
 
         private void UnauthBrasnchLoad_BTN_Click(object sender, EventArgs e)
         {
+            if (branchAuthLoad == null)
+            {
+                branchAuthLoad = new BranchAuthLoad();
 
+
+                branchAuthLoad.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    branchAuthLoad = null; UnauthBrasnchLoad_BTN.Enabled = true;
+                };
+                branchAuthLoad.Show();
+                UnauthBrasnchLoad_BTN.Enabled = false;
+            }
         }
 
         private void GenerateEMBPIN_BTN_Click(object sender, EventArgs e)

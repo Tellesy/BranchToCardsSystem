@@ -59,13 +59,23 @@ namespace MPBS.Screens.SettlementsSecreens
 
         private void Process_BTN_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(transactionReportFileLocation))
+            BrowseReport_BTN.Enabled = false;
+            BrowseTransactionReport_TXT.Enabled = false;
+
+            progressBar.Value = 0;
+            if (!string.IsNullOrWhiteSpace(transactionReportFileLocation))
             {
                 var SettlementStatusObject = MPBS.Settlements.SettlementsManager.PTS_TransactionsReportReader(transactionReportFileLocation);
                 var RecordsAsFoundInFile = SettlementStatusObject.Object;
 
+                progressBar.Value = 10;
+
+
                 List<TransactionReport> CleanRecords = new List<TransactionReport>();
+
+                //Add Branch Number is another 10%
                 //Add branch and account number
+                int progressCountForEachRecor = 10 / RecordsAsFoundInFile.Count;
                 foreach(var r in RecordsAsFoundInFile)
                 {
                    var aStatus = PTSAccountController.getAccount(r.WalletNumber);
@@ -83,7 +93,13 @@ namespace MPBS.Screens.SettlementsSecreens
                     r.BranchCode = r.LYDAccountNumber.Substring(10, 2);
 
                     CleanRecords.Add(r);
+
+                    progressBar.Value = progressBar.Value + progressCountForEachRecor;
+
+
                 }
+                progressBar.Value = 20;
+
 
                 if (SettlementStatusObject.status)
                 {
@@ -94,7 +110,8 @@ namespace MPBS.Screens.SettlementsSecreens
                         return;
                     }
 
-                    foreach(var b in brStatus.Object)
+                    progressCountForEachRecor = 75/brStatus.Object.Count;
+                    foreach (var b in brStatus.Object)
                     {
                      
                      
@@ -109,17 +126,26 @@ namespace MPBS.Screens.SettlementsSecreens
 
                         extractTransactionFile(branchRecords, b.Code);
 
+                        progressBar.Value = progressBar.Value + progressCountForEachRecor;
+
                         //}
                     }
 
 
-
+                    progressBar.Value = 100;
                 }
                 else
                 {
                     MessageBox.Show(SettlementStatusObject.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    BrowseReport_BTN.Enabled = Enabled;
+                    BrowseTransactionReport_TXT.Enabled = Enabled;
+                    progressBar.Value = 0;
                     return;
                 }
+
+                BrowseReport_BTN.Enabled = Enabled;
+                BrowseTransactionReport_TXT.Enabled = Enabled;
+                //progressBar.Value = 0;
             }
         }
 

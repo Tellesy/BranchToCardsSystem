@@ -38,6 +38,7 @@ namespace MPBS.Screens.PTS.Issue
             DisableAllFields();
             GetPrograms();
 
+           
             
             // TODO: This line of code loads data into the 'cTS_PTS_Programs.PTS_Program' table. You can move, or remove it, as needed.
             //this.pTS_ProgramTableAdapter.Fill(this.cTS_PTS_Programs.PTS_Program);
@@ -744,6 +745,11 @@ namespace MPBS.Screens.PTS.Issue
         private void PassportExpDate_ValueChanged(object sender, EventArgs e)
         {
             passportExpDateChanged = true;
+        }
+
+        private void Email_TXT_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
