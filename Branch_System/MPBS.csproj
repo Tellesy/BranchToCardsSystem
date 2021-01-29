@@ -173,7 +173,6 @@
       <DependentUpon>CTS_PTS_Programs.xsd</DependentUpon>
     </Compile>
     <Compile Include="Database\Branch.cs" />
-    <Compile Include="Database\CAF.cs" />
     <Compile Include="Database\ChargeController.cs" />
     <Compile Include="Database\Countries.cs" />
     <Compile Include="Database\DataObjects\Recharge.cs" />
