@@ -77,7 +77,7 @@ namespace MPBS.Screens.Main
             skinManager.AddFormToManage(this);
 
             this.CenterToScreen();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 

@@ -131,5 +131,10 @@ namespace MPBS.Screens.Main
                 Settlements_BTN.Enabled = false;
             }
         }
+
+        private void Logout_BTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

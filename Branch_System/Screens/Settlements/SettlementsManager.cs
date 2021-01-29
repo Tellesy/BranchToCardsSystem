@@ -124,7 +124,7 @@ namespace MPBS.Screens.SettlementsSecreens
                             continue;
                         }
 
-                        extractTransactionFile(branchRecords, b.Code);
+                         extractTransactionFile(branchRecords, b.Code);
 
                         progressBar.Value = progressBar.Value + progressCountForEachRecor;
 
@@ -149,7 +149,7 @@ namespace MPBS.Screens.SettlementsSecreens
             }
         }
 
-        private void extractTransactionFile(List<TransactionReport> records,string branchCode)
+        private async void extractTransactionFile(List<TransactionReport> records,string branchCode)
         {
             //Get all Debit Transactions
             var allDebitRecords = MPBS.Settlements.SettlementsManager.getTotalDebitAmountPerWallet(records);

@@ -93,6 +93,7 @@
             this.Logout_BTN.TabIndex = 72;
             this.Logout_BTN.Text = "Logout";
             this.Logout_BTN.UseVisualStyleBackColor = true;
+            this.Logout_BTN.Click += new System.EventHandler(this.Logout_BTN_Click);
             // 
             // AuthLoadRequests_BTN
             // 
@@ -278,6 +279,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(513, 627);
             this.Controls.Add(this.Settlements_BTN);
             this.Controls.Add(this.GenLoadFiles_BTN);
@@ -290,7 +292,7 @@
             this.Controls.Add(this.Name_LBL);
             this.Controls.Add(this.panel1);
             this.Name = "HQAccounting";
-            this.Text = "HQAccounting";
+            this.Text = "Accounting";
             this.Load += new System.EventHandler(this.HQAccounting_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
