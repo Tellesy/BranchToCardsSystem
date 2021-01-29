@@ -128,11 +128,11 @@ namespace MPBS.Screens.UploadFile
             foreach (var ts in transactions)
             {
                 //Look For card account here
-                var cardAccountObj = Database.Issue.getCardAccountFromCardNumber(ts.CardNumber);
+                var cardAccountObj = Database.SMTController.getCardAccountFromCardNumber(ts.CardNumber);
                 if (cardAccountObj.status && !String.IsNullOrWhiteSpace(cardAccountObj.Object))
                 {
                     //From card account get account number
-                    var customerAccountObj = Database.Issue.getAccountNumberFromCardAccount(cardAccountObj.Object);
+                    var customerAccountObj = Database.SMTController.getAccountNumberFromCardAccount(cardAccountObj.Object);
                     if (customerAccountObj.status && !String.IsNullOrWhiteSpace(customerAccountObj.Object))
                     {
                         var transaction = new TransactionSettlements();
@@ -374,11 +374,11 @@ namespace MPBS.Screens.UploadFile
                 for(int row = 0; row<RowsCount; row++)
                 {
                    var cardNumberColumn = content.Where(c => c.Row == (row + 2)).First(c => c.Index == cardNumber.Index);
-                    var aStatus = Database.Issue.getCardAccountFromCardNumber(cardNumberColumn.Content);
+                    var aStatus = Database.SMTController.getCardAccountFromCardNumber(cardNumberColumn.Content);
                     if(aStatus.status)
                     {
                         var customerAccountColumn = content.Where(c => c.Row == (row + 2)).First(c => c.Index == customerAccount.Index);
-                       var cStatus =  Database.Issue.updateCustomerAccountForCardAccount(aStatus.Object, customerAccountColumn.Content);
+                       var cStatus =  Database.SMTController.updateCustomerAccountForCardAccount(aStatus.Object, customerAccountColumn.Content);
                         Console.WriteLine("Row:" + row + " CRow:" + cardNumberColumn.Row);
                         Console.WriteLine(cardNumberColumn.Content);
                         Console.WriteLine(customerAccountColumn.Content + " Status:" + cStatus.status.ToString());
