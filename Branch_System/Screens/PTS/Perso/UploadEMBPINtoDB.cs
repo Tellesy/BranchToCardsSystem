@@ -1,5 +1,4 @@
-﻿using MPBS.FilesCreator;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,19 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MPBS.PersoOps;
 
 namespace MPBS.Screens.PTS.Perso
 {
-    public partial class GenerateEMBPIN : MaterialSkin.Controls.MaterialForm
+    public partial class UploadEMBPINtoDB : MaterialSkin.Controls.MaterialForm
     {
         private string pinFileLocation;
         private string embFileLocation;
-        public GenerateEMBPIN()
+        public UploadEMBPINtoDB()
         {
             InitializeComponent();
         }
 
-        private void GenerateEMBPIN_Load(object sender, EventArgs e)
+        private void UploadEMBPINtoDB_Load(object sender, EventArgs e)
         {
 
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
@@ -37,25 +37,6 @@ namespace MPBS.Screens.PTS.Perso
             this.Close();
         }
 
-        private void Process_BTN_Click(object sender, EventArgs e)
-        {
-           var pin = PINFileRecordsReorder.extractPINString(pinFileLocation);
-
-            string pinHeader = PINFileRecordsReorder.header;
-            string pinFooter = PINFileRecordsReorder.footer;
-
-            var emb = PINFileRecordsReorder.extractEMBString(embFileLocation);
-
-
-
-            var sortedPIN = PINFileRecordsReorder.sortPINFile(emb, pin);
-
-
-           var status = PINFileRecordsReorder.generatePINFile(sortedPIN,pinHeader,pinFooter);
-            MessageBox.Show(status.status.ToString());
-        }
-
-
         private OpenFileDialog OpenFileDialog()
         {
             OpenFileDialog deviceDialog = new OpenFileDialog();
@@ -68,7 +49,6 @@ namespace MPBS.Screens.PTS.Perso
 
             return deviceDialog;
         }
-
         private void BrowseEmb_BTN_Click(object sender, EventArgs e)
         {
             var deviceDialog = OpenFileDialog();
@@ -76,8 +56,8 @@ namespace MPBS.Screens.PTS.Perso
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                 BrowseEMB_TXT.Text = deviceDialog.FileName;
-                 embFileLocation = deviceDialog.FileName;
+                BrowseEMB_TXT.Text = deviceDialog.FileName;
+                embFileLocation = deviceDialog.FileName;
                 //PINFileRecordsReorder.ExtractRecordsFromFiles(deviceDialog.FileName);
 
             }
@@ -94,6 +74,11 @@ namespace MPBS.Screens.PTS.Perso
                 pinFileLocation = deviceDialog.FileName;
 
             }
+        }
+
+        private void Upload_BTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

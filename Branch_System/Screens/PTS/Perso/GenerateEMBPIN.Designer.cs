@@ -145,7 +145,7 @@
             this.Controls.Add(this.BrowseEmb_BTN);
             this.Controls.Add(this.Exit_BTN);
             this.Name = "GenerateEMBPIN";
-            this.Text = "Generate EMB and PIN files";
+            this.Text = "Sort PIN File";
             this.Load += new System.EventHandler(this.GenerateEMBPIN_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -205,6 +205,7 @@
     <Compile Include="FilesCreator\FilesCreator.cs" />
     <Compile Include="FilesCreator\PTSTransactionUploadFileCreator.cs" />
     <Compile Include="MPBSConfig.cs" />
+    <Compile Include="PersoOps\DeviceAndPINReader.cs" />
     <Compile Include="Resources\Countries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

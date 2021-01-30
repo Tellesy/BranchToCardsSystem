@@ -28,52 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddUser_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            this.UpdateUser_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Password_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Welcome_LBL = new MaterialSkin.Controls.MaterialLabel();
             this.Name_LBL = new MaterialSkin.Controls.MaterialLabel();
-            this.GenerateEMBPIN_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.SortEMBPINFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Logout_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.generateEMBandPINFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.UploadEMPAndPinFilesTODB_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
-            // 
-            // AddUser_BTN
-            // 
-            this.AddUser_BTN.AutoSize = true;
-            this.AddUser_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AddUser_BTN.Depth = 0;
-            this.AddUser_BTN.Location = new System.Drawing.Point(364, 162);
-            this.AddUser_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AddUser_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AddUser_BTN.Name = "AddUser_BTN";
-            this.AddUser_BTN.Primary = false;
-            this.AddUser_BTN.Size = new System.Drawing.Size(109, 36);
-            this.AddUser_BTN.TabIndex = 58;
-            this.AddUser_BTN.Text = "Add New User";
-            this.AddUser_BTN.UseVisualStyleBackColor = true;
-            // 
-            // UpdateUser_BTN
-            // 
-            this.UpdateUser_BTN.AutoSize = true;
-            this.UpdateUser_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.UpdateUser_BTN.Depth = 0;
-            this.UpdateUser_BTN.Location = new System.Drawing.Point(364, 202);
-            this.UpdateUser_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.UpdateUser_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.UpdateUser_BTN.Name = "UpdateUser_BTN";
-            this.UpdateUser_BTN.Primary = false;
-            this.UpdateUser_BTN.Size = new System.Drawing.Size(104, 36);
-            this.UpdateUser_BTN.TabIndex = 57;
-            this.UpdateUser_BTN.Text = "Update  User";
-            this.UpdateUser_BTN.UseVisualStyleBackColor = true;
             // 
             // Password_BTN
             // 
             this.Password_BTN.AutoSize = true;
             this.Password_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Password_BTN.Depth = 0;
-            this.Password_BTN.Location = new System.Drawing.Point(364, 84);
+            this.Password_BTN.Location = new System.Drawing.Point(193, 116);
             this.Password_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Password_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Password_BTN.Name = "Password_BTN";
@@ -89,7 +58,7 @@
             this.Welcome_LBL.Depth = 0;
             this.Welcome_LBL.Font = new System.Drawing.Font("Roboto", 11F);
             this.Welcome_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Welcome_LBL.Location = new System.Drawing.Point(85, 92);
+            this.Welcome_LBL.Location = new System.Drawing.Point(18, 84);
             this.Welcome_LBL.MouseState = MaterialSkin.MouseState.HOVER;
             this.Welcome_LBL.Name = "Welcome_LBL";
             this.Welcome_LBL.Size = new System.Drawing.Size(76, 19);
@@ -102,28 +71,28 @@
             this.Name_LBL.Depth = 0;
             this.Name_LBL.Font = new System.Drawing.Font("Roboto", 11F);
             this.Name_LBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Name_LBL.Location = new System.Drawing.Point(196, 92);
+            this.Name_LBL.Location = new System.Drawing.Point(129, 84);
             this.Name_LBL.MouseState = MaterialSkin.MouseState.HOVER;
             this.Name_LBL.Name = "Name_LBL";
             this.Name_LBL.Size = new System.Drawing.Size(18, 19);
             this.Name_LBL.TabIndex = 54;
             this.Name_LBL.Text = "X";
             // 
-            // GenerateEMBPIN_BTN
+            // SortEMBPINFiles_BTN
             // 
-            this.GenerateEMBPIN_BTN.AutoSize = true;
-            this.GenerateEMBPIN_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.GenerateEMBPIN_BTN.Depth = 0;
-            this.GenerateEMBPIN_BTN.Location = new System.Drawing.Point(13, 292);
-            this.GenerateEMBPIN_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.GenerateEMBPIN_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.GenerateEMBPIN_BTN.Name = "GenerateEMBPIN_BTN";
-            this.GenerateEMBPIN_BTN.Primary = false;
-            this.GenerateEMBPIN_BTN.Size = new System.Drawing.Size(324, 36);
-            this.GenerateEMBPIN_BTN.TabIndex = 60;
-            this.GenerateEMBPIN_BTN.Text = "Upload and Generate PTS Emb and PIN Files";
-            this.GenerateEMBPIN_BTN.UseVisualStyleBackColor = true;
-            this.GenerateEMBPIN_BTN.Click += new System.EventHandler(this.GenerateEMBPIN_BTN_Click);
+            this.SortEMBPINFiles_BTN.AutoSize = true;
+            this.SortEMBPINFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SortEMBPINFiles_BTN.Depth = 0;
+            this.SortEMBPINFiles_BTN.Location = new System.Drawing.Point(13, 263);
+            this.SortEMBPINFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.SortEMBPINFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SortEMBPINFiles_BTN.Name = "SortEMBPINFiles_BTN";
+            this.SortEMBPINFiles_BTN.Primary = false;
+            this.SortEMBPINFiles_BTN.Size = new System.Drawing.Size(324, 36);
+            this.SortEMBPINFiles_BTN.TabIndex = 60;
+            this.SortEMBPINFiles_BTN.Text = "Upload and Generate PTS Emb and PIN Files";
+            this.SortEMBPINFiles_BTN.UseVisualStyleBackColor = true;
+            this.SortEMBPINFiles_BTN.Click += new System.EventHandler(this.GenerateEMBPIN_BTN_Click);
             // 
             // Logout_BTN
             // 
@@ -141,36 +110,51 @@
             this.Logout_BTN.UseVisualStyleBackColor = true;
             this.Logout_BTN.Click += new System.EventHandler(this.Logout_BTN_Click);
             // 
-            // materialFlatButton1
+            // generateEMBandPINFiles_BTN
             // 
-            this.materialFlatButton1.AutoSize = true;
-            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(13, 340);
-            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton1.Name = "materialFlatButton1";
-            this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(134, 36);
-            this.materialFlatButton1.TabIndex = 62;
-            this.materialFlatButton1.Text = "Batch Document";
-            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            this.generateEMBandPINFiles_BTN.AutoSize = true;
+            this.generateEMBandPINFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.generateEMBandPINFiles_BTN.Depth = 0;
+            this.generateEMBandPINFiles_BTN.Location = new System.Drawing.Point(13, 359);
+            this.generateEMBandPINFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.generateEMBandPINFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.generateEMBandPINFiles_BTN.Name = "generateEMBandPINFiles_BTN";
+            this.generateEMBandPINFiles_BTN.Primary = false;
+            this.generateEMBandPINFiles_BTN.Size = new System.Drawing.Size(208, 36);
+            this.generateEMBandPINFiles_BTN.TabIndex = 63;
+            this.generateEMBandPINFiles_BTN.Text = "Generate EMP and PIN Files";
+            this.generateEMBandPINFiles_BTN.UseVisualStyleBackColor = true;
+            // 
+            // UploadEMPAndPinFilesTODB_BTN
+            // 
+            this.UploadEMPAndPinFilesTODB_BTN.AutoSize = true;
+            this.UploadEMPAndPinFilesTODB_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UploadEMPAndPinFilesTODB_BTN.Depth = 0;
+            this.UploadEMPAndPinFilesTODB_BTN.Location = new System.Drawing.Point(13, 311);
+            this.UploadEMPAndPinFilesTODB_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.UploadEMPAndPinFilesTODB_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.UploadEMPAndPinFilesTODB_BTN.Name = "UploadEMPAndPinFilesTODB_BTN";
+            this.UploadEMPAndPinFilesTODB_BTN.Primary = false;
+            this.UploadEMPAndPinFilesTODB_BTN.Size = new System.Drawing.Size(226, 36);
+            this.UploadEMPAndPinFilesTODB_BTN.TabIndex = 64;
+            this.UploadEMPAndPinFilesTODB_BTN.Text = "Upload EMP and PIN File To DB";
+            this.UploadEMPAndPinFilesTODB_BTN.UseVisualStyleBackColor = true;
+            this.UploadEMPAndPinFilesTODB_BTN.Click += new System.EventHandler(this.UploadEMPAndPinFilesTODB_BTN_Click);
             // 
             // PersoPinMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 526);
-            this.Controls.Add(this.materialFlatButton1);
+            this.ClientSize = new System.Drawing.Size(380, 526);
+            this.Controls.Add(this.UploadEMPAndPinFilesTODB_BTN);
+            this.Controls.Add(this.generateEMBandPINFiles_BTN);
             this.Controls.Add(this.Logout_BTN);
-            this.Controls.Add(this.GenerateEMBPIN_BTN);
-            this.Controls.Add(this.AddUser_BTN);
-            this.Controls.Add(this.UpdateUser_BTN);
+            this.Controls.Add(this.SortEMBPINFiles_BTN);
             this.Controls.Add(this.Password_BTN);
             this.Controls.Add(this.Welcome_LBL);
             this.Controls.Add(this.Name_LBL);
             this.Name = "PersoPinMaster";
-            this.Text = "PersoPinMaster";
+            this.Text = "Perso Office";
             this.Load += new System.EventHandler(this.PersoPinMaster_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -178,14 +162,12 @@
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialFlatButton AddUser_BTN;
-        private MaterialSkin.Controls.MaterialFlatButton UpdateUser_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Password_BTN;
         private MaterialSkin.Controls.MaterialLabel Welcome_LBL;
         private MaterialSkin.Controls.MaterialLabel Name_LBL;
-        private MaterialSkin.Controls.MaterialFlatButton GenerateEMBPIN_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton SortEMBPINFiles_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Logout_BTN;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private MaterialSkin.Controls.MaterialFlatButton generateEMBandPINFiles_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton UploadEMPAndPinFilesTODB_BTN;
     }
 }

@@ -44,16 +44,21 @@ namespace MPBS.Screens.Main
 
 
                 generateEMBPIN.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    generateEMBPIN = null; GenerateEMBPIN_BTN.Enabled = true;
+                    generateEMBPIN = null; SortEMBPINFiles_BTN.Enabled = true;
                 };
                 generateEMBPIN.Show();
-                GenerateEMBPIN_BTN.Enabled = false;
+                SortEMBPINFiles_BTN.Enabled = false;
             }
         }
 
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void UploadEMPAndPinFilesTODB_BTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
