@@ -39,6 +39,8 @@ namespace MPBS.Settlements
         private static string WalletNumber = "Wallet Number";
         private static string SettlementDate = "Settlement Date";
         private static string DRorCRtoCardholder = "DR/CR to Cardholder";
+        private static string TransactionFees = "Transaction Fees";
+
 
         //T24 Transaction Settlements File Headers
         private static string T24DebitAccountNumberCellName = "DEBIT.ACCOUNT";
@@ -94,6 +96,8 @@ namespace MPBS.Settlements
             int walletNumberColNo = 0;
             int settlementDateColNo = 0;
             int dRorCRtoCardholderColNo = 0;
+            int transactionFeeColNo = 0;
+
 
 
             for (rowCounter = 1; rowCounter <= rw; rowCounter++)
@@ -159,6 +163,10 @@ namespace MPBS.Settlements
                         {
                             dRorCRtoCardholderColNo = colCounter;
                         }
+                        else if ((range.Cells[rowCounter, colCounter] as Microsoft.Office.Interop.Excel.Range).Value2.ToString() == TransactionFees)
+                        {
+                            transactionFeeColNo = colCounter;
+                        }
                     }
                 }
                 else
@@ -173,6 +181,8 @@ namespace MPBS.Settlements
                     tr.BillingAmount = float.Parse((range.Cells[rowCounter, billingAmountColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
                     tr.TransactionDate = (range.Cells[rowCounter, transactionDateColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     tr.TotalFeesAndCharges = float.Parse((range.Cells[rowCounter, totalFeesAndChargesColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
+                    tr.TransactionFees = float.Parse((range.Cells[rowCounter, transactionFeeColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString());
+
 
                     string revCol = (range.Cells[rowCounter, reversalFlagColNo] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
                     if (revCol == "Reversal") tr.ReversalFlag = true;
@@ -223,7 +233,10 @@ namespace MPBS.Settlements
                 WalletNumber = tr.First().WalletNumber,
                 DeviceNumber = tr.First().DeviceNumber,
                 TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
+                
                 BillingAmount = tr.Sum(s => s.BillingAmount),
+
+                TransactionFees = tr.Sum(s => s.TransactionFees),
                 CBSFTDescription = "Debit Transactions",
                 LYDAccountNumber = tr.First().LYDAccountNumber,
                 USDAccountNumber = tr.First().USDAccountNumber
@@ -233,6 +246,29 @@ namespace MPBS.Settlements
             return transactions;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="transactionReports"></param>
+        /// <returns></returns>
+        public static List<TransactionReport> getBallanceEnquriyFees(List<TransactionReport> transactionReports)
+        {
+
+            List<TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.DR && t.TransactionCode == "22" && t.TransactionType == "Balance Inquiry Transaction Fee").GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
+            {
+                WalletNumber = tr.First().WalletNumber,
+                DeviceNumber = tr.First().DeviceNumber,
+                TotalFeesAndCharges = tr.Sum(s => s.TotalFeesAndCharges),
+                BillingAmount = tr.Sum(s => s.BillingAmount),
+                TransactionFees = tr.Sum(s => s.TransactionFees),
+                CBSFTDescription = "Card Fees Transactions",
+                LYDAccountNumber = tr.First().LYDAccountNumber,
+                USDAccountNumber = tr.First().USDAccountNumber
+            }).ToList();
+
+
+            return transactions;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -249,7 +285,8 @@ namespace MPBS.Settlements
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Card Fees Transactions",
                 LYDAccountNumber = tr.First().LYDAccountNumber,
-                USDAccountNumber = tr.First().USDAccountNumber
+                USDAccountNumber = tr.First().USDAccountNumber,
+                TransactionFees = tr.Sum(s => s.TransactionFees)
             }).ToList();
 
 
@@ -270,7 +307,8 @@ namespace MPBS.Settlements
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Reversal Transactions",
                 LYDAccountNumber = tr.First().LYDAccountNumber,
-                USDAccountNumber = tr.First().USDAccountNumber
+                USDAccountNumber = tr.First().USDAccountNumber,
+                TransactionFees = tr.Sum(s => s.TransactionFees)
 
             }).ToList();
 
@@ -293,7 +331,8 @@ namespace MPBS.Settlements
                 BillingAmount = tr.Sum(s => s.BillingAmount),
                 CBSFTDescription = "Credit Transaction",
                 LYDAccountNumber = tr.First().LYDAccountNumber,
-                USDAccountNumber = tr.First().USDAccountNumber
+                USDAccountNumber = tr.First().USDAccountNumber,
+                TransactionFees = tr.Sum(s => s.TransactionFees)
 
             }).ToList();
 

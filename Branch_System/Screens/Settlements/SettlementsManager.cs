@@ -162,12 +162,28 @@ namespace MPBS.Screens.SettlementsSecreens
 
 
             //Get All Purchase and AuthCompletion Transactio Fee Transactions
-            var allTransactionsFeeRecords = MPBS.Settlements.SettlementsManager.getPurchaseAndAuthCompletionTransactioFeePerWallet(records);
+            var allTransactionsFeeRecords = MPBS.Settlements.SettlementsManager.getBallanceEnquriyFees(records);
+            //Sum all fees 
+            foreach (var tnx in allDebitRecords)
+            {
+                if (tnx.TotalFeesAndCharges > 0)
+                {
+                    tnx.BillingAmount = tnx.TransactionFees;
+                    allTransactionsFeeRecords.Add(tnx);
+                }
+
+            }
+
             status = MPBS.Settlements.SettlementsManager.createTransactionsSettelmentsFile(FileType.FEES,allTransactionsFeeRecords, branchCode);
             if (!status.status)
             {
                 MessageBox.Show(status.message + string.Format(" Error In generating Purchase and PreAuth completion fee Tnx File for branch ", branchCode), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
+       
+
+
             //Get All Credit Transactions
             var allCreditRecords = MPBS.Settlements.SettlementsManager.getTotalCreditAmountPerWallet(records);
             status = MPBS.Settlements.SettlementsManager.createTransactionsSettelmentsFile(FileType.CREDIT, allCreditRecords, branchCode);

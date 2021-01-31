@@ -21,7 +21,7 @@ namespace MPBS.Settlements.PTS.ReportTemplates
         public string WalletNumber { get; set; }
         public string SettlementDate { get; set; }
         public TransactionToCardType DRorCRtoCardholder { get; set; }
-
+        public float TransactionFees { get; set; }
         public String CBSFTDescription { get; set; }
         public String BranchCode { get; set; }
         public String LYDAccountNumber { get; set; }

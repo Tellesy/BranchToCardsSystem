@@ -372,6 +372,12 @@
     <Compile Include="Screens\PTS\Perso\GenerateEMBPIN.Designer.cs">
       <DependentUpon>GenerateEMBPIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\PTS\Perso\UploadEMBPINtoDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Perso\UploadEMBPINtoDB.Designer.cs">
+      <DependentUpon>UploadEMBPINtoDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PTS\Reports\ReportGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -523,6 +529,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Perso\GenerateEMBPIN.resx">
       <DependentUpon>GenerateEMBPIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Perso\UploadEMBPINtoDB.resx">
+      <DependentUpon>UploadEMBPINtoDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Reports\ReportGenerator.resx">
       <DependentUpon>ReportGenerator.cs</DependentUpon>
