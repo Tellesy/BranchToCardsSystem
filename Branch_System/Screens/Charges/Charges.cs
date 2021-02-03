@@ -145,7 +145,7 @@ namespace MPBS.Screens.Charges
                 }
                 else
                 {
-
+                    continue;
                 }
                 dataTable.Add(cols);
 
@@ -202,7 +202,7 @@ namespace MPBS.Screens.Charges
             System.IO.Directory.CreateDirectory(path);
 
             // System.IO.File.WriteAllLines((location + @"\" + folder + @"\" + filename), logs);
-            SettlementsFiles.GenerateTemplateSpreadsheet(fileName, dataTable, true, path);
+            SettlementsFiles.generateT24LoadandChargesFile(fileName, dataTable, true, path);
 
             //Now make the taken charges as generated and load gen Loads in DB
 

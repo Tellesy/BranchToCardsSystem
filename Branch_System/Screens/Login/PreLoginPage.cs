@@ -29,6 +29,7 @@ namespace MPBS.Screens
 
         private void PreLoginPage_Load(object sender, EventArgs e)
         {
+            MPBSConfig.getConfigFromServer();
             Assembly thisAssem = typeof(Login).Assembly;
             AssemblyName thisAssemName = thisAssem.GetName();
 

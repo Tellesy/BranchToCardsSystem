@@ -298,6 +298,18 @@ namespace MPBS.Screens
                         continue;
                     }
 
+                    //Check if Account Exist
+                    var aStatus = PTSAccountController.getAccount(l.CustomerID, programCode);
+                    if (!aStatus.status || aStatus.Object == null)
+                    {
+                        string error = string.Format("Account {0} data does not excist in the system", l.CustomerID);
+                        MessageBox.Show(error, "Error in Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //Add to logs
+                        logs.Add(error);
+                        errorCount++;
+                        continue;
+                    }
+
                     var status = PTSLoadController.getCBSLoadRecordByCustomerIDAndDate(l.CustomerID, cbl.Date, l.Amount);
                     if(status.status || status.Object.Count > 0)
                     {

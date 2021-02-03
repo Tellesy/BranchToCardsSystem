@@ -845,7 +845,7 @@ namespace MPBS.Database
                     cmd.Parameters.AddWithValue("@v7", loadRecord.Inputter);
                     cmd.Parameters.AddWithValue("@v8", loadRecord.InputTime);
                     cmd.Parameters.AddWithValue("@v9", 1);
-                    cmd.Parameters.AddWithValue("@v10", loadRecord.ExchangeRate);
+                    cmd.Parameters.AddWithValue("@v10", loadRecord.ExchangeRate.ToString());
 
 
                     cmd.ExecuteNonQuery();

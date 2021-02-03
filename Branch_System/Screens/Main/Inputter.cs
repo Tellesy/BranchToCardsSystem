@@ -132,6 +132,7 @@ namespace MPBS.Screens
 
         private void PTSLoadWallet_BTN_Click(object sender, EventArgs e)
         {
+            //Check if Manual Load is allowed
             if (PTS_load == null)
             {
                 PTS_load = new PTS.Load.Load();

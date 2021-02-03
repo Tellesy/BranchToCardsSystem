@@ -377,6 +377,7 @@
             this.UploadCBLLoadReport_BTN.AutoSize = true;
             this.UploadCBLLoadReport_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.UploadCBLLoadReport_BTN.Depth = 0;
+            this.UploadCBLLoadReport_BTN.Enabled = false;
             this.UploadCBLLoadReport_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.UploadCBLLoadReport_BTN.Image = ((System.Drawing.Image)(resources.GetObject("UploadCBLLoadReport_BTN.Image")));
             this.UploadCBLLoadReport_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -398,7 +399,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(526, 687);
+            this.ClientSize = new System.Drawing.Size(522, 683);
             this.ControlBox = false;
             this.Controls.Add(this.UploadCBLLoadReport_BTN);
             this.Controls.Add(this.Reports_BTN);

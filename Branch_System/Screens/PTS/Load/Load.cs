@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -143,8 +144,27 @@ namespace MPBS.Screens.PTS.Load
                 MessageBox.Show("Sorry, The total Load Request for this customer exceeds the yearly limit for this program");
                 return;
             }
-             
-            
+
+
+            if(string.IsNullOrWhiteSpace(ExchangeRate_TXT.Text))
+            {
+                MessageBox.Show("Sorry, The Exchange Rate is not Currect");
+                return;
+            }
+
+            if(!IsNumeric(ExchangeRate_TXT.Text))
+            {
+                MessageBox.Show("Sorry, The Exchange Rate is not Currect");
+                return;
+            }
+
+            decimal ExchangeRate = decimal.Parse(ExchangeRate_TXT.Text);
+
+            if(ExchangeRate > decimal.Parse("4.590") || ExchangeRate < decimal.Parse("1.1"))
+            {
+                MessageBox.Show("Sorry, The Exchange Rate is not Currect");
+                return;
+            }
             //if ())
             PTSLoad load = new PTSLoad();
             load.Year = Database.YearController.year;
@@ -152,6 +172,9 @@ namespace MPBS.Screens.PTS.Load
             load.ProgramCode = selectedProgramCode;
             load.BranchCode = sBranch.Object.Code;
             load.Inputter = Database.Login.id;
+            load.ExchangeRate = ExchangeRate;
+            load.FromCBLFlag = true;
+            load.InputTime = DateTime.Now;
             //load.WalletNumber = sAccount.Object.WalletNumber;
             load.Amount = amount;
 
@@ -160,9 +183,11 @@ namespace MPBS.Screens.PTS.Load
             if (dialogResult == DialogResult.Yes)
             {
                 //Add Load Record
-                Status status = PTSLoadController.addLoadRecord(load);
+               // Status status = PTSLoadController.addLoadRecord(load);
+                Status status = PTSLoadController.addLoadRecordFromCBLReport(load);
 
-              if(!status.status)
+
+                if (!status.status)
                 {
                     MessageBox.Show("Error in adding Load Record" + status.message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -175,6 +200,17 @@ namespace MPBS.Screens.PTS.Load
             {
                 return;
             }
+        }
+
+        private bool IsNumeric(string s)
+        {
+            Regex r = new Regex(@"^[0-9]");
+
+            return r.IsMatch(s);
+        }
+        private void ConfirmAmount_TXT_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

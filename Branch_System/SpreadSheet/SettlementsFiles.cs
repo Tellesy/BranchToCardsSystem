@@ -303,7 +303,7 @@ namespace MPBS.SpreadSheet
             for (int i = 1; i <= dataTable[0].Count; i++)
             {
 
-                xlWorkSheet.Cells[1, i] = dataTable[0][i - 1];
+                xlWorkSheet.Cells[1, i] = (string) dataTable[0][i - 1];
 
             }
 
@@ -313,6 +313,7 @@ namespace MPBS.SpreadSheet
 
 
             range.NumberFormat = "@";
+            
 
             //Extract the other rows (Start from index No.1
             for (int i = 1; i < dataTable.Count; i++)
@@ -324,13 +325,77 @@ namespace MPBS.SpreadSheet
                 int cellCounter = 1;
                 foreach (string cell in dataTable[counter])
                 {
-                    xlWorkSheet.Cells[counter + 1, cellCounter] = dataTable[counter][cellCounter - 1];
+                    xlWorkSheet.Cells[counter + 1, cellCounter] = (string) dataTable[counter][cellCounter - 1];
                     cellCounter++;
                 }
             }
 
 
     
+            if (!isCSV)
+            {
+                xlWorkBook.SaveAs(path + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            }
+            else
+            {
+                //xlWorkBook.SaveAs(location + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlCSV, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange);
+                xlWorkBook.SaveAs(path + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlCSV, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
+            }
+            //xlWorkSheet.SaveAs(location + @"\" + "sample.csv", ",", Encoding.UTF8);
+
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+        }
+
+        public static void generateT24LoadandChargesFile(string fileName, List<List<string>> dataTable, bool isCSV, string path)
+        {
+
+            xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+
+            object misValue = System.Reflection.Missing.Value;
+
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            int rows = dataTable.Count;
+
+            //Create Headers out of First Row in DataTable
+            for (int i = 0; i < dataTable[0].Count; i++)
+            {
+
+                xlWorkSheet.Cells[1, i+1] = (string)dataTable[0][i];
+
+            }
+
+
+            range = xlWorkSheet.UsedRange.EntireColumn;
+            // range = xlWorkSheet.get_Range("A1").EntireColumn;
+
+
+            range.NumberFormat = "@";
+
+
+            //Extract the other rows (Start from index No.1
+            for (int i = 0; i < dataTable.Count; i++)
+            {
+                //In case csv ignore header
+                //int counter = i;
+                //if (isCSV) counter = i - 1;
+
+                int cellCounter = 1;
+                foreach (string cell in dataTable[i])
+                {
+                    xlWorkSheet.Cells[i + 1, cellCounter] = (string)dataTable[i][cellCounter - 1];
+                    cellCounter++;
+                }
+            }
+
+            range.NumberFormat = "@";
+
             if (!isCSV)
             {
                 xlWorkBook.SaveAs(path + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
