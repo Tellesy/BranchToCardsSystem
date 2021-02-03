@@ -19,6 +19,9 @@ using MPBS.Screens.PTS.Generate_File;
 using MPBS.Screens.PTS.AuthIssue;
 using MPBS.Screens.UploadFile;
 using MPBS.Screens.PTS.Load;
+using Microsoft.VisualBasic;
+using MPBS.Screens.PTS.Account;
+using MPBS.Screens.PTS.Customer;
 
 namespace MPBS.Screens.Main
 {
@@ -28,7 +31,8 @@ namespace MPBS.Screens.Main
         private BranchAuthIssue branchAuthIssue;
         private HQAuthIssue hQAuthIssue;
         private GenAppRecord genAppRecord;
-
+        private EditCustomer editCustomer;
+        private EditAccount editAccount;
         public HQIssueMenu()
         {
             InitializeComponent();
@@ -152,6 +156,73 @@ namespace MPBS.Screens.Main
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditCustomerInformation_BTN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                string customerID = Interaction.InputBox("Please Enter Customer ID?", "Search for Customer", "1000000");
+
+                if (customerID.Count() < 7)
+                {
+                    MessageBox.Show("رقم الزبون غير صحيح");
+                    return;
+                }
+
+
+                var status = PTSCustomerController.getCustomer(customerID);
+                if (!status.status)
+                {
+                    MessageBox.Show("لا يوجد زبون بهذا الرقم");
+                    return;
+                }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(status.Object.CustomerID))
+                    {
+                        MessageBox.Show("لا يوجد زبون بهذا الرقم");
+                        return;
+                    }
+                    if (editCustomer == null)
+                    {
+                        editCustomer = new EditCustomer();
+                        editCustomer.customer_id = customerID;
+
+                        editCustomer.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                            editCustomer = null; EditCustomerInformation_BTN.Enabled = true;
+                        };
+                        editCustomer.Show();
+                        EditCustomerInformation_BTN.Enabled = false;
+                    }
+
+
+                }
+
+
+
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void EditAccountInformation_BTN_Click(object sender, EventArgs e)
+        {
+            if (editAccount == null)
+            {
+                editAccount = new EditAccount();
+
+
+                editAccount.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    editAccount = null; EditAccountInformation_BTN.Enabled = true;
+                };
+                editAccount.Show();
+                EditAccountInformation_BTN.Enabled = false;
+            }
         }
     }
 }

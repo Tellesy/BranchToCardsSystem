@@ -39,8 +39,6 @@
             this.Name_LBL = new MaterialSkin.Controls.MaterialLabel();
             this.Welcome_LBL = new MaterialSkin.Controls.MaterialLabel();
             this.Password_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            this.UpdateUser_BTN = new MaterialSkin.Controls.MaterialFlatButton();
-            this.AddUser_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.unAuthAppRecord_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.HQAuthAppRecord_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.GenFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
@@ -186,38 +184,6 @@
             this.Password_BTN.Text = "Change Password";
             this.Password_BTN.UseVisualStyleBackColor = true;
             this.Password_BTN.Click += new System.EventHandler(this.Password_BTN_Click);
-            // 
-            // UpdateUser_BTN
-            // 
-            this.UpdateUser_BTN.AutoSize = true;
-            this.UpdateUser_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.UpdateUser_BTN.Depth = 0;
-            this.UpdateUser_BTN.Location = new System.Drawing.Point(367, 193);
-            this.UpdateUser_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.UpdateUser_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.UpdateUser_BTN.Name = "UpdateUser_BTN";
-            this.UpdateUser_BTN.Primary = false;
-            this.UpdateUser_BTN.Size = new System.Drawing.Size(104, 36);
-            this.UpdateUser_BTN.TabIndex = 50;
-            this.UpdateUser_BTN.Text = "Update  User";
-            this.UpdateUser_BTN.UseVisualStyleBackColor = true;
-            this.UpdateUser_BTN.Click += new System.EventHandler(this.UpdateUser_BTN_Click);
-            // 
-            // AddUser_BTN
-            // 
-            this.AddUser_BTN.AutoSize = true;
-            this.AddUser_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AddUser_BTN.Depth = 0;
-            this.AddUser_BTN.Location = new System.Drawing.Point(367, 153);
-            this.AddUser_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AddUser_BTN.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AddUser_BTN.Name = "AddUser_BTN";
-            this.AddUser_BTN.Primary = false;
-            this.AddUser_BTN.Size = new System.Drawing.Size(109, 36);
-            this.AddUser_BTN.TabIndex = 52;
-            this.AddUser_BTN.Text = "Add New User";
-            this.AddUser_BTN.UseVisualStyleBackColor = true;
-            this.AddUser_BTN.Click += new System.EventHandler(this.AddUser_BTN_Click);
             // 
             // unAuthAppRecord_BTN
             // 
@@ -400,8 +366,6 @@
             this.Controls.Add(this.GenFiles_BTN);
             this.Controls.Add(this.HQAuthAppRecord_BTN);
             this.Controls.Add(this.unAuthAppRecord_BTN);
-            this.Controls.Add(this.AddUser_BTN);
-            this.Controls.Add(this.UpdateUser_BTN);
             this.Controls.Add(this.Password_BTN);
             this.Controls.Add(this.Welcome_LBL);
             this.Controls.Add(this.Name_LBL);
@@ -427,8 +391,6 @@
         private MaterialSkin.Controls.MaterialLabel Year;
         private MaterialSkin.Controls.MaterialLabel Year_LBL;
         private MaterialSkin.Controls.MaterialLabel Status_LBL;
-        private MaterialSkin.Controls.MaterialFlatButton UpdateUser_BTN;
-        private MaterialSkin.Controls.MaterialFlatButton AddUser_BTN;
         private MaterialSkin.Controls.MaterialFlatButton unAuthAppRecord_BTN;
         private MaterialSkin.Controls.MaterialFlatButton HQAuthAppRecord_BTN;
         private MaterialSkin.Controls.MaterialFlatButton GenFiles_BTN;

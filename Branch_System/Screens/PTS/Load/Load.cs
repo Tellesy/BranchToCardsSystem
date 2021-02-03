@@ -128,7 +128,7 @@ namespace MPBS.Screens.PTS.Load
             }
 
             //Check if the total Load requests doesn't exceed the yearyl limit
-            var sBalance = PTSLoadController.getTotalLoadAuthorizedRecordsForClient(CustomerID_TXT.Text, selectedProgramCode, Database.YearController.year);
+            var sBalance = PTSLoadController.getTotalLoadRequestByYear(CustomerID_TXT.Text, selectedProgramCode, Database.YearController.year);
 
             if(!sBalance.status)
             {
@@ -139,7 +139,7 @@ namespace MPBS.Screens.PTS.Load
 
             int total = sBalance.Object.Sum(i => i.Amount);
 
-            if((total + amount) >= selectedProgramObject.YearlyLimit)
+            if((total + amount) > selectedProgramObject.YearlyLimit)
             {
                 MessageBox.Show("Sorry, The total Load Request for this customer exceeds the yearly limit for this program");
                 return;

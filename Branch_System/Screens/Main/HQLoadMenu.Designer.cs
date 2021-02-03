@@ -43,6 +43,8 @@
             this.GenLoadFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.GenerateT24_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Logout_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.EditAccountInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.EditCustomerInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -200,7 +202,6 @@
             this.UnauthBrasnchLoad_BTN.AutoSize = true;
             this.UnauthBrasnchLoad_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.UnauthBrasnchLoad_BTN.Depth = 0;
-            this.UnauthBrasnchLoad_BTN.Enabled = false;
             this.UnauthBrasnchLoad_BTN.Location = new System.Drawing.Point(9, 280);
             this.UnauthBrasnchLoad_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.UnauthBrasnchLoad_BTN.MouseState = MaterialSkin.MouseState.HOVER;
@@ -217,7 +218,7 @@
             this.GenLoadFiles_BTN.AutoSize = true;
             this.GenLoadFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenLoadFiles_BTN.Depth = 0;
-            this.GenLoadFiles_BTN.Location = new System.Drawing.Point(9, 424);
+            this.GenLoadFiles_BTN.Location = new System.Drawing.Point(9, 530);
             this.GenLoadFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenLoadFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenLoadFiles_BTN.Name = "GenLoadFiles_BTN";
@@ -233,7 +234,7 @@
             this.GenerateT24_BTN.AutoSize = true;
             this.GenerateT24_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenerateT24_BTN.Depth = 0;
-            this.GenerateT24_BTN.Location = new System.Drawing.Point(9, 376);
+            this.GenerateT24_BTN.Location = new System.Drawing.Point(9, 482);
             this.GenerateT24_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenerateT24_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenerateT24_BTN.Name = "GenerateT24_BTN";
@@ -260,12 +261,46 @@
             this.Logout_BTN.UseVisualStyleBackColor = true;
             this.Logout_BTN.Click += new System.EventHandler(this.Logout_BTN_Click);
             // 
+            // EditAccountInformation_BTN
+            // 
+            this.EditAccountInformation_BTN.AutoSize = true;
+            this.EditAccountInformation_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditAccountInformation_BTN.Depth = 0;
+            this.EditAccountInformation_BTN.Location = new System.Drawing.Point(9, 424);
+            this.EditAccountInformation_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.EditAccountInformation_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.EditAccountInformation_BTN.Name = "EditAccountInformation_BTN";
+            this.EditAccountInformation_BTN.Primary = false;
+            this.EditAccountInformation_BTN.Size = new System.Drawing.Size(203, 36);
+            this.EditAccountInformation_BTN.TabIndex = 69;
+            this.EditAccountInformation_BTN.Text = "Edit Account Information";
+            this.EditAccountInformation_BTN.UseVisualStyleBackColor = true;
+            this.EditAccountInformation_BTN.Click += new System.EventHandler(this.EditAccountInformation_BTN_Click);
+            // 
+            // EditCustomerInformation_BTN
+            // 
+            this.EditCustomerInformation_BTN.AutoSize = true;
+            this.EditCustomerInformation_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditCustomerInformation_BTN.Depth = 0;
+            this.EditCustomerInformation_BTN.Location = new System.Drawing.Point(9, 376);
+            this.EditCustomerInformation_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.EditCustomerInformation_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.EditCustomerInformation_BTN.Name = "EditCustomerInformation_BTN";
+            this.EditCustomerInformation_BTN.Primary = false;
+            this.EditCustomerInformation_BTN.Size = new System.Drawing.Size(212, 36);
+            this.EditCustomerInformation_BTN.TabIndex = 68;
+            this.EditCustomerInformation_BTN.Text = "Edit Customer Information";
+            this.EditCustomerInformation_BTN.UseVisualStyleBackColor = true;
+            this.EditCustomerInformation_BTN.Click += new System.EventHandler(this.EditCustomerInformation_BTN_Click);
+            // 
             // HQLoadMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(547, 632);
+            this.Controls.Add(this.EditAccountInformation_BTN);
+            this.Controls.Add(this.EditCustomerInformation_BTN);
             this.Controls.Add(this.GenLoadFiles_BTN);
             this.Controls.Add(this.GenerateT24_BTN);
             this.Controls.Add(this.Logout_BTN);
@@ -302,5 +337,7 @@
         private MaterialSkin.Controls.MaterialFlatButton GenLoadFiles_BTN;
         private MaterialSkin.Controls.MaterialFlatButton GenerateT24_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Logout_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton EditAccountInformation_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton EditCustomerInformation_BTN;
     }
 }
