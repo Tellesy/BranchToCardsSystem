@@ -26,6 +26,7 @@ using MPBS.SpreadSheet.Structure;
 using MPBS.SpreadSheet;
 using MPBS.Database.Objects;
 using MPBS.Screens.Charges;
+using MPBS.Screens.Main.SubMenu;
 
 namespace MPBS.Screens
 {
@@ -34,13 +35,16 @@ namespace MPBS.Screens
 
         public ChangePassword changePassword;
         private GenerateChargesFiles generateChargesFiles;
-        private BranchAuthLoad branchAuthLoad;
-
-        //PTSScreens
-        private BranchAuthIssue authIssue;
+        
         private EditCustomer editCustomer;
         private EditAccount editAccount;
         private ReportsGenerator reportGenerator;
+
+        private BranchAuthorizeSubMenu branchAuthorizeSubMenu;
+
+        private BranchEditSubMenu branchEditSubMenu;
+
+        private BranchDeleteSubMenu branchDeleteSubMenu;
 
         public BranchAdmin()
         {
@@ -114,19 +118,7 @@ namespace MPBS.Screens
 
     
 
-        private void PTSIssueAuthBTN_Click(object sender, EventArgs e)
-        {
 
-            if (authIssue == null)
-            {
-                authIssue = new BranchAuthIssue();
-                authIssue.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    authIssue = null; PTSIssueAuth_BTN.Enabled = true;
-                };
-                authIssue.Show();
-                PTSIssueAuth_BTN.Enabled = false;
-            }
-        }
 
         private void Password_BTN_Click(object sender, EventArgs e)
         {
@@ -143,85 +135,9 @@ namespace MPBS.Screens
             }
         }
 
-        private void PTSLoadAuth_BTN_Click(object sender, EventArgs e)
-        {
-            if (branchAuthLoad == null)
-            {
-                branchAuthLoad = new BranchAuthLoad();
-                branchAuthLoad.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    branchAuthLoad = null; PTSLoadAuth_BTN.Enabled = true;
-                };
-                branchAuthLoad.Show();
-                PTSLoadAuth_BTN.Enabled = false;
-            }
-        }
-
-        private void EditCustomerInformation_BTN_Click(object sender, EventArgs e)
-        {
-            try
-            {
+       
 
 
-                string customerID = Interaction.InputBox("Please Enter Customer ID?", "Search for Customer", "1000000");
-
-                if (customerID.Count() < 7)
-                {
-                    MessageBox.Show("رقم الزبون غير صحيح");
-                    return;
-                }
-
-
-                var status = PTSCustomerController.getCustomer(customerID);
-                if (!status.status)
-                {
-                    MessageBox.Show("لا يوجد زبون بهذا الرقم");
-                    return;
-                }
-                else
-                {
-                    if (string.IsNullOrWhiteSpace(status.Object.CustomerID))
-                    {
-                        MessageBox.Show("لا يوجد زبون بهذا الرقم");
-                        return;
-                    }
-                    if (editCustomer == null)
-                    {
-                        editCustomer = new EditCustomer();
-                        editCustomer.customer_id = customerID;
-
-                        editCustomer.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                            editCustomer = null; EditCustomerInformation_BTN.Enabled = true;
-                        };
-                        editCustomer.Show();
-                        EditCustomerInformation_BTN.Enabled = false;
-                    }
-
-
-                }
-
-
-
-            }
-            catch (Exception er)
-            {
-                MessageBox.Show(er.Message);
-            }
-        }
-
-        private void EditAccountInformation_BTN_Click(object sender, EventArgs e)
-        {
-            if (editAccount == null)
-            {
-                editAccount = new EditAccount();
-
-
-                editAccount.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    editAccount = null; EditAccountInformation_BTN.Enabled = true;
-                };
-                editAccount.Show();
-                EditAccountInformation_BTN.Enabled = false;
-            }
-        }
 
         private void Reports_BTN_Click(object sender, EventArgs e)
         {
@@ -451,6 +367,52 @@ namespace MPBS.Screens
                 }
             
 
+        }
+
+        private void BranchAuthorzieSubMenu_Click(object sender, EventArgs e)
+        {
+            if (branchAuthorizeSubMenu == null)
+            {
+                branchAuthorizeSubMenu = new BranchAuthorizeSubMenu();
+                branchAuthorizeSubMenu.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    BranchAuthorzieSubMenu.Enabled = true;
+                    branchAuthorizeSubMenu = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                branchAuthorizeSubMenu.Show();
+                BranchAuthorzieSubMenu.Enabled = false;
+            }
+        }
+
+        private void EditRecordsSubMenu_BTN_Click(object sender, EventArgs e)
+        {
+
+            if (branchEditSubMenu == null)
+            {
+                branchEditSubMenu = new BranchEditSubMenu();
+                branchEditSubMenu.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    EditRecordsSubMenu_BTN.Enabled = true;
+                    branchEditSubMenu = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                branchEditSubMenu.Show();
+                EditRecordsSubMenu_BTN.Enabled = false;
+            }
+        }
+
+        private void DeleteSubMenu_BTN_Click(object sender, EventArgs e)
+        {
+            if (branchDeleteSubMenu == null)
+            {
+                branchDeleteSubMenu = new BranchDeleteSubMenu();
+                branchDeleteSubMenu.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    DeleteSubMenu_BTN.Enabled = true;
+                    branchEditSubMenu = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                branchDeleteSubMenu.Show();
+                DeleteSubMenu_BTN.Enabled = false;
+            }
         }
     }
 }

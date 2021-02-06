@@ -383,6 +383,7 @@ namespace MPBS.Screens.PTS.Issue
 
                 if (appRecordStatus.status)
                 {
+                    int refRecordID = int.Parse(appRecordStatus.message);
                         if (AddAccount())
                         {
                               MessageBox.Show("تم الإضافة بنجاح");
@@ -401,7 +402,7 @@ namespace MPBS.Screens.PTS.Issue
                         return;
                         }
 
-                    if (AddCharge())
+                    if (AddCharge(refRecordID))
                     {
                         MessageBox.Show("تم إضافة عمولة الإصدار بنجاح");
                     }
@@ -426,12 +427,13 @@ namespace MPBS.Screens.PTS.Issue
          
 
         }
-        public bool AddCharge()
+        public bool AddCharge(int refRecordID)
         {
             Charge charge = new Charge();
             charge.CustomerID = int.Parse(CustomerID_TXT.Text);
             charge.ProgramCode = Program_CBox.SelectedValue.ToString();
             charge.ChargeType = 1;
+            charge.RefRecordID = refRecordID;
             var bstatus = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
 
             if (bstatus.status)

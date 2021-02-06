@@ -26,5 +26,7 @@ namespace MPBS.Database.Objects
         public DateTime ExeDate { get; set; }
         
         public string BranchCode { get; set; }
+
+        public int RefRecordID { get; set; }
     }
 }

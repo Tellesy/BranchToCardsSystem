@@ -43,7 +43,7 @@ namespace MPBS.Database
                    ,@v6
                    ,@v7
                    ,@v8
-                   ,@v9)";
+                   ,@v9);SELECT SCOPE_IDENTITY();";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -61,10 +61,13 @@ namespace MPBS.Database
                     cmd.Parameters.AddWithValue("@v8", appRecord.BranchCode);
                     cmd.Parameters.AddWithValue("@v9", appRecord.Inputter);
 
+                    int modified = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    cmd.ExecuteNonQuery();
+                    //cmd.ExecuteNonQuery();
+                    
                     conn.Close();
                     status.status = true;
+                    status.message = modified.ToString();
                     return status;
                 }
                 catch (Exception e)
@@ -339,6 +342,47 @@ namespace MPBS.Database
                     conn.Close();
                     status.status = false;
                     status.message = "App Record Branch Auth (Update Auth)\n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                conn.Close();
+                return status;
+            }
+
+        }
+
+        public static Status deleteAppRecord(int recordID)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = Database.DBConnection.Connection();
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "DELETE FROM [CTS].[dbo].[PTS_AppRecord]  WHERE [record_id] = @v1";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+
+                    cmd.Parameters.AddWithValue("@v1", recordID);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    conn.Close();
+                    status.status = false;
+                    status.message = "Delete AppRecord (Update Auth)\n" + Errors.ErrorsString.Error002;
                     return status;
                 }
 

@@ -28,12 +28,14 @@ namespace MPBS.Database
             [Charge_Type]
            ,[Customer_ID]
            ,[Program_Code]
-           ,[Branch_Code])
+           ,[Branch_Code]
+           ,[ref_record_id])
             VALUES
            (@v1
            ,@v2
            ,@v3
-           ,@v4)";
+           ,@v4
+           ,@v5)";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -41,6 +43,8 @@ namespace MPBS.Database
                     cmd.Parameters.AddWithValue("@v2", charge.CustomerID);
                     cmd.Parameters.AddWithValue("@v3", charge.ProgramCode);
                     cmd.Parameters.AddWithValue("@v4", charge.BranchCode);
+                    cmd.Parameters.AddWithValue("@v5", charge.RefRecordID);
+
 
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -63,6 +67,45 @@ namespace MPBS.Database
             }
         }
 
+        public static Status deleteCharges(int refRecrodID)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = DBConnection.Connection();
+
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string query = @"DELETE FROM [dbo].[Charge] WHERE ref_record_id = @v1";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@v1", refRecrodID);
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch (Exception e)
+                {
+                    status.status = false;
+                    status.status = false;
+                    status.message = "Delete to Charge\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return status;
+                }
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                return status;
+            }
+        }
         public static Status<List<Charge>> getUngenCharges(string branch_code)
         {
             Status<List<Charge>> statusObject = new Status<List<Charge>>();

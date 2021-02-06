@@ -39,13 +39,13 @@ namespace MPBS.Screens.PTS.Load
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            if (Database.Login.role == "0")
+            if (Database.Login.role == "2")
             {
-                isBranchAdmin = false;
+                isBranchAdmin = true;
             }
             else
             {
-                isBranchAdmin = true;
+                isBranchAdmin = false;
             }
             GetUnAuthRecords();
         }

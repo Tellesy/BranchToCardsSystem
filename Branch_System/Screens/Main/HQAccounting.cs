@@ -20,6 +20,10 @@ using MPBS.Screens.UploadFile;
 using MPBS.Screens.PTS.Load;
 using MPBS.Screens.SettlementsSecreens;
 
+using MPBS.Screens.PTS.Customer;
+using Microsoft.VisualBasic;
+using MPBS.Screens.PTS.Account;
+
 namespace MPBS.Screens.Main
 {
     public partial class HQAccounting : MaterialSkin.Controls.MaterialForm
@@ -35,6 +39,8 @@ namespace MPBS.Screens.Main
         private GenLoadFile genLoadFile;
         private SettlementsManager settlementsManager;
 
+        private EditCustomer editCustomer;
+        private EditAccount editAccount;
         public HQAccounting()
         {
             InitializeComponent();
@@ -49,6 +55,11 @@ namespace MPBS.Screens.Main
             //this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
+            Name_LBL.Text = Database.Login.name;
+            //Branch_LBL.Text = Database.Login.branch;
+            Amount_LBL.Text = Database.YearController.amount.ToString();
+            Year_LBL.Text = Database.YearController.year;
         }
 
         private void UnauthBrasnchLoad_BTN_Click(object sender, EventArgs e)
@@ -56,8 +67,7 @@ namespace MPBS.Screens.Main
             if (branchAuthLoad == null)
             {
                 branchAuthLoad = new BranchAuthLoad();
-
-
+        
                 branchAuthLoad.Closed += (s, args) => { //authRecharge.UnlockRecord();
                     branchAuthLoad = null; UnauthBrasnchLoad_BTN.Enabled = true;
                 };
@@ -81,20 +91,7 @@ namespace MPBS.Screens.Main
             }
         }
 
-        private void GenLoadFiles_BTN_Click(object sender, EventArgs e)
-        {
-            if (genLoadFile == null)
-            {
-                genLoadFile = new GenLoadFile();
 
-
-                genLoadFile.Closed += (s, args) => { //authRecharge.UnlockRecord();
-                    genLoadFile = null; GenLoadFiles_BTN.Enabled = true;
-                };
-                genLoadFile.Show();
-                GenLoadFiles_BTN.Enabled = false;
-            }
-        }
 
         private void GenerateT24_BTN_Click(object sender, EventArgs e)
         {
@@ -135,6 +132,89 @@ namespace MPBS.Screens.Main
         private void Logout_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditCustomerInformation_BTN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                string customerID = Interaction.InputBox("Please Enter Customer ID?", "Search for Customer", "1000000");
+
+                if (customerID.Count() < 7)
+                {
+                    MessageBox.Show("رقم الزبون غير صحيح");
+                    return;
+                }
+
+
+                var status = PTSCustomerController.getCustomer(customerID);
+                if (!status.status)
+                {
+                    MessageBox.Show("لا يوجد زبون بهذا الرقم");
+                    return;
+                }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(status.Object.CustomerID))
+                    {
+                        MessageBox.Show("لا يوجد زبون بهذا الرقم");
+                        return;
+                    }
+                    if (editCustomer == null)
+                    {
+                        editCustomer = new EditCustomer();
+                        editCustomer.customer_id = customerID;
+
+                        editCustomer.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                            editCustomer = null; EditCustomerInformation_BTN.Enabled = true;
+                        };
+                        editCustomer.Show();
+                        EditCustomerInformation_BTN.Enabled = false;
+                    }
+
+
+                }
+
+
+
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void EditAccountInformation_BTN_Click(object sender, EventArgs e)
+        {
+            if (editAccount == null)
+            {
+                editAccount = new EditAccount();
+
+
+                editAccount.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    editAccount = null; EditAccountInformation_BTN.Enabled = true;
+                };
+                editAccount.Show();
+                EditAccountInformation_BTN.Enabled = false;
+            }
+        }
+
+        private void Password_BTN_Click(object sender, EventArgs e)
+        {
+
+            if (changePassword == null)
+            {
+                changePassword = new ChangePassword();
+                changePassword.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    Password_BTN.Enabled = true;
+                    changePassword = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                changePassword.Show();
+                Password_BTN.Enabled = false;
+            }
         }
     }
 }

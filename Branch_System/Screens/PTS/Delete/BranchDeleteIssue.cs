@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MPBS.Database;
 using MPBS.Database.Objects;
-using MPBS.Screens.PTS.BranchAuthIssue.SubScreen;
+using MPBS.Screens.PTS.Delete.SubScreen;
 
-namespace MPBS.Screens.PTS.BranchAuthIssue
+namespace MPBS.Screens.PTS.Delete
 {
-    public partial class BranchAuthIssue : MaterialSkin.Controls.MaterialForm
+    public partial class BranchDeleteIssue : MaterialSkin.Controls.MaterialForm
     {
         private bool isBranchAdmin = true;
         public List<Database.Objects.PTSAppRecord> records;
@@ -21,7 +21,7 @@ namespace MPBS.Screens.PTS.BranchAuthIssue
         private List<ViewList> viewListsByTime;
         //public bool isEnquire = false;
 
-        public BranchAuthIssue()
+        public BranchDeleteIssue()
         {
             InitializeComponent();
         }
@@ -141,7 +141,7 @@ namespace MPBS.Screens.PTS.BranchAuthIssue
             if(isBranchAdmin)
             {
                 DataGridViewRow r = Record_DGView.SelectedRows[0];
-                IssueBranchAuthScreen authorize = new IssueBranchAuthScreen();
+                IssueBranchDeleteScreen delete = new IssueBranchDeleteScreen();
                 if (records != null)
                 {
                     var q = records.Where(x => x.RecordID == Convert.ToInt32(r.Cells[0].Value)).ToArray();
@@ -149,12 +149,12 @@ namespace MPBS.Screens.PTS.BranchAuthIssue
                     if (q.Count() > 0)
                     {
                         this.Hide();
-                        authorize.record = q[0];
-                        authorize.Closed += (s, args) => {
+                        delete.record = q[0];
+                        delete.Closed += (s, args) => {
                             this.GetUnAuthRecords();
                             returnToSameStateAfterAuthScreenCloses(); this.Show();
                         };
-                        authorize.Show();
+                        delete.Show();
                     }
                 }
             }

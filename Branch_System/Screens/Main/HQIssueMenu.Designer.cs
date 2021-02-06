@@ -259,6 +259,7 @@
             this.GenerateT24_BTN.TabIndex = 65;
             this.GenerateT24_BTN.Text = "Upload and Generate T24 Files";
             this.GenerateT24_BTN.UseVisualStyleBackColor = true;
+            this.GenerateT24_BTN.Click += new System.EventHandler(this.GenerateT24_BTN_Click);
             // 
             // EditAccountInformation_BTN
             // 

@@ -270,6 +270,24 @@
     <Compile Include="Screens\Main\PersoPinMaster.Designer.cs">
       <DependentUpon>PersoPinMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Main\SubMenu\BranchAuthorizeSubMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\SubMenu\BranchAuthorizeSubMenu.Designer.cs">
+      <DependentUpon>BranchAuthorizeSubMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Main\SubMenu\BranchDeleteSubMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\SubMenu\BranchDeleteSubMenu.Designer.cs">
+      <DependentUpon>BranchDeleteSubMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Main\SubMenu\BranchEditSubMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\SubMenu\BranchEditSubMenu.Designer.cs">
+      <DependentUpon>BranchEditSubMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PTS\Account\EditAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +323,18 @@
     </Compile>
     <Compile Include="Screens\PTS\Customer\EditCustomer.Designer.cs">
       <DependentUpon>EditCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PTS\Delete\BranchDeleteIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Delete\BranchDeleteIssue.Designer.cs">
+      <DependentUpon>BranchDeleteIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PTS\Delete\SubScreen\IssueBranchDeleteScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Delete\SubScreen\IssueBranchDeleteScreen.Designer.cs">
+      <DependentUpon>IssueBranchDeleteScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\PTS\Edit\Edit.cs">
       <SubType>Form</SubType>
@@ -479,6 +509,15 @@
     <EmbeddedResource Include="Screens\Main\PersoPinMaster.resx">
       <DependentUpon>PersoPinMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\SubMenu\BranchAuthorizeSubMenu.resx">
+      <DependentUpon>BranchAuthorizeSubMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\SubMenu\BranchDeleteSubMenu.resx">
+      <DependentUpon>BranchDeleteSubMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\SubMenu\BranchEditSubMenu.resx">
+      <DependentUpon>BranchEditSubMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Account\EditAccount.resx">
       <DependentUpon>EditAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -496,6 +535,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Customer\EditCustomer.resx">
       <DependentUpon>EditCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Delete\BranchDeleteIssue.resx">
+      <DependentUpon>BranchDeleteIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Delete\SubScreen\IssueBranchDeleteScreen.resx">
+      <DependentUpon>IssueBranchDeleteScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Edit\Edit.resx">
       <DependentUpon>Edit.cs</DependentUpon>

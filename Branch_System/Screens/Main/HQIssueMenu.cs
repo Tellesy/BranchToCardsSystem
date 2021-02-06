@@ -33,6 +33,8 @@ namespace MPBS.Screens.Main
         private GenAppRecord genAppRecord;
         private EditCustomer editCustomer;
         private EditAccount editAccount;
+        private GenerateT24Files generateT24Files;
+
         public HQIssueMenu()
         {
             InitializeComponent();
@@ -222,6 +224,21 @@ namespace MPBS.Screens.Main
                 };
                 editAccount.Show();
                 EditAccountInformation_BTN.Enabled = false;
+            }
+        }
+
+        private void GenerateT24_BTN_Click(object sender, EventArgs e)
+        {
+            if (generateT24Files == null)
+            {
+                generateT24Files = new GenerateT24Files();
+
+
+                generateT24Files.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    generateT24Files = null; GenerateT24_BTN.Enabled = true;
+                };
+                generateT24Files.Show();
+                GenerateT24_BTN.Enabled = false;
             }
         }
     }

@@ -224,6 +224,9 @@ namespace MPBS.Screens.Charges
                 }
             }
 
+
+            MessageBox.Show("Done");
+
         }
     }
 }

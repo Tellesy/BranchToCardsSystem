@@ -150,7 +150,7 @@ namespace MPBS.Screens
                     hQIssueMenu.Show();
                     break;
 
-                //Load Admin is No.5
+                //Load Accounting is No.5
                 case "5":
                     HQAccounting hqAccountingMenu = new HQAccounting();
                     hqAccountingMenu.Closed += (s, args) => this.Show();
@@ -161,6 +161,12 @@ namespace MPBS.Screens
                     GenerateEMBPIN generateEMBPIN = new GenerateEMBPIN();
                     generateEMBPIN.Closed += (s, args) => this.Show();
                     generateEMBPIN.Show();
+                    break;
+
+                case "9":
+                    HQLoadMenu hQLoad = new HQLoadMenu();
+                    hQLoad.Closed += (s, args) => this.Show();
+                    hQLoad.Show();
                     break;
 
                 default:

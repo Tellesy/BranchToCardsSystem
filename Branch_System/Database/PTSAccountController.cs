@@ -87,6 +87,52 @@ namespace MPBS.Database
             }
         }
 
+        public static Status deleteAccount(string customerID, string programCode)
+        {
+            Status status = new Status();
+            status.status = false;
+ 
+
+            SqlConnection conn = Database.DBConnection.Connection();
+
+
+            conn.Open();
+
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+                string query = "DELETE FROM [CTS].[dbo].[PTS_Account] where customer_ID = @v1 and program_code = @v2";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+
+                    cmd.Parameters.AddWithValue("@v1", customerID);
+                    cmd.Parameters.AddWithValue("@v2", programCode);
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch
+                {
+                    conn.Close();
+                    status.status = false;
+                    status.message = "Delete PTS Account \n" + Errors.ErrorsString.Error002;
+                    return status;
+                }
+
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                conn.Close();
+                return status;
+            }
+        }
+
         public static Status<PTSAccount> getAccount(string walletNumber)
         {
             Status<PTSAccount> statusObject = new Status<PTSAccount>();

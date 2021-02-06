@@ -11,7 +11,7 @@ namespace MPBS.Database
     {
        
         //Local DB Laptop (Dev)
-        private static string ConnectionStringDev = @"Data Source=DESKTOP-9T6FOLM\SQLEXPRESS;Initial Catalog=CTS;Integrated Security=True";
+        private static string ConnectionStringDev = @"Data Source=.\SQLEXPRESS;Initial Catalog=CTS;Integrated Security=True";
         //Production
         private static string ConnectionStringProduction =  @"Server=10.128.130.119,8888; Database=CTS; User Id= sa; Password = TellesyM1195; ";
 
