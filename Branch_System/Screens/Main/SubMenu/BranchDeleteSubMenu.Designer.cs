@@ -71,6 +71,7 @@
             this.PTSLoadAuth_BTN.Text = "Delete Load Request (PTS)";
             this.PTSLoadAuth_BTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.PTSLoadAuth_BTN.UseVisualStyleBackColor = true;
+            this.PTSLoadAuth_BTN.Click += new System.EventHandler(this.PTSLoadAuth_BTN_Click);
             // 
             // PTSIssueDelete_BTN
             // 

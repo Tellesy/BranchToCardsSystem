@@ -14,7 +14,7 @@ namespace MPBS.Screens.Main.SubMenu
     public partial class BranchDeleteSubMenu : MaterialSkin.Controls.MaterialForm
     {
         private BranchDeleteIssue branchDeleteIssue;
-        //private BranchDeleteLoad branchDeleteIssue;
+        private BranchDeleteLoad branchDeleteLoad;
 
         public BranchDeleteSubMenu()
         {
@@ -45,6 +45,21 @@ namespace MPBS.Screens.Main.SubMenu
         private void Back_BTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void PTSLoadAuth_BTN_Click(object sender, EventArgs e)
+        {
+            if (branchDeleteLoad == null)
+            {
+                branchDeleteLoad = new BranchDeleteLoad();
+                branchDeleteLoad.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    PTSLoadAuth_BTN.Enabled = true;
+                    branchDeleteLoad = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                branchDeleteLoad.Show();
+                PTSLoadAuth_BTN.Enabled = false;
+            }
         }
     }
 }

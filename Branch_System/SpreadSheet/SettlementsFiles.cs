@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Office.Interop.Excel;
 using MPBS.Database.Objects;
 using MPBS.SpreadSheet.Structure;
 
@@ -387,6 +388,8 @@ namespace MPBS.SpreadSheet
                 //if (isCSV) counter = i - 1;
 
                 int cellCounter = 1;
+                if(dataTable[i].Count > 0)
+                
                 foreach (string cell in dataTable[i])
                 {
                     xlWorkSheet.Cells[i + 1, cellCounter] = (string)dataTable[i][cellCounter - 1];
@@ -394,9 +397,15 @@ namespace MPBS.SpreadSheet
                 }
             }
 
+
             range.NumberFormat = "@";
 
-            if (!isCSV)
+        
+           // Worksheet sheet = xlWorkBook.Worksheets[0];
+           
+          
+
+                if (!isCSV)
             {
                 xlWorkBook.SaveAs(path + @"\" + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             }

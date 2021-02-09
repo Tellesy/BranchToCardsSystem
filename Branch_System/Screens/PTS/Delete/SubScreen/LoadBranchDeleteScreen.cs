@@ -10,15 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPBS.Screens.PTS.Load.SubScreen
+namespace MPBS.Screens.PTS.Delete.SubScreen
 {
 
-    public partial class LoadBranchAuthScreen : Form
+    public partial class LoadBranchDeleteScreen : Form
     {
 
         public PTSLoad record;
 
-        public LoadBranchAuthScreen()
+        public LoadBranchDeleteScreen()
         {
             InitializeComponent();
         }
@@ -84,18 +84,18 @@ namespace MPBS.Screens.PTS.Load.SubScreen
 
         private void Authorize_BTN_Click(object sender, EventArgs e)
         {
-               DialogResult dialogResult = MessageBox.Show("هل انت متأكد من تخويل هذه العملية؟", "تخويل العملية", MessageBoxButtons.YesNo);
+               DialogResult dialogResult = MessageBox.Show("هل انت متأكد من حذف هذه العملية؟", "حذف العملية", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
 
-                Database.Status status = Database.PTSLoadController.authBranchLoadRequest(record.ID);
+                Database.Status status = Database.PTSLoadController.deleteLoadRecord(record.ID);
 
                 if (status.status)
                 {
                     
 
 
-                    MessageBox.Show("تم تخويل العملية بنجاح");
+                    MessageBox.Show("تم حذف العملية بنجاح");
                     record = null;
                     this.Close();
                 }

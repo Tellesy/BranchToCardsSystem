@@ -23,6 +23,7 @@ using MPBS.Screens.SettlementsSecreens;
 using MPBS.Screens.PTS.Customer;
 using Microsoft.VisualBasic;
 using MPBS.Screens.PTS.Account;
+using MPBS.Screens.PTS.Reports;
 
 namespace MPBS.Screens.Main
 {
@@ -38,7 +39,7 @@ namespace MPBS.Screens.Main
         private HQAuthLoad hQAuthLoad;
         private GenLoadFile genLoadFile;
         private SettlementsManager settlementsManager;
-
+        private ReportsGenerator reportGenerator;
         private EditCustomer editCustomer;
         private EditAccount editAccount;
         public HQAccounting()
@@ -214,6 +215,20 @@ namespace MPBS.Screens.Main
                 };
                 changePassword.Show();
                 Password_BTN.Enabled = false;
+            }
+        }
+
+        private void Reports_BTN_Click(object sender, EventArgs e)
+        {
+            if (reportGenerator == null)
+            {
+                reportGenerator = new ReportsGenerator();
+                reportGenerator.isBranch = false;
+                reportGenerator.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    reportGenerator = null; Reports_BTN.Enabled = true;
+                };
+                reportGenerator.Show();
+                Reports_BTN.Enabled = false;
             }
         }
     }

@@ -101,6 +101,47 @@ namespace MPBS.Screens.Charges
             List<List<string>> dataTable = new List<List<string>>();
 
 
+            foreach (var c in charges)
+            {
+                List<string> cols = new List<string>();
+                //ID
+                cols.Add(c.ID.ToString());
+                var astatus = PTSAccountController.getAccount(c.CustomerID.ToString(), c.ProgramCode);
+                if (astatus.status && astatus.Object != null)
+                {
+
+                    //LYD Account
+                    cols.Add(astatus.Object.AccountNumberLYD);
+
+                }
+                //Credit account
+                cols.Add(ChargeCreditAccount);
+                //Amount
+                cols.Add("70");
+                //Currency
+                cols.Add("LYD");
+                //Exchange rate
+                cols.Add("0");
+                //Value Date
+                string dString = string.Format(date.Year.ToString() + date.Month.ToString().PadLeft(2, '0') + date.Day.ToString().PadLeft(2, '0'));
+                cols.Add(dString);
+                //Program Code
+                cols.Add(c.ProgramCode);
+                //headers.Add("Waive Flag");
+                cols.Add("CARDMAIN");
+                //Type
+                cols.Add("ACCI");
+                //Desc
+                cols.Add("Travel Card");
+                //FT Type
+                cols.Add("Issue");
+
+
+
+                genCharges.Add(c);
+                dataTable.Add(cols);
+
+            }
 
             //Add coloums 
             foreach (var l in loads)
@@ -151,48 +192,7 @@ namespace MPBS.Screens.Charges
 
             }
 
-            foreach (var c in charges)
-            {
-                List<string> cols = new List<string>();
-                //ID
-                cols.Add(c.ID.ToString());
-                var astatus = PTSAccountController.getAccount(c.CustomerID.ToString(), c.ProgramCode);
-                if (astatus.status && astatus.Object != null)
-                {
-
-                    //LYD Account
-                    cols.Add(astatus.Object.AccountNumberLYD);
-
-                }
-                //Credit account
-                cols.Add(ChargeCreditAccount);
-                //Amount
-                cols.Add("70");
-                //Currency
-                cols.Add("LYD");
-                //Exchange rate
-                cols.Add("0");
-                //Value Date
-                string dString = string.Format(date.Year.ToString() + date.Month.ToString().PadLeft(2, '0') + date.Day.ToString().PadLeft(2, '0'));
-                cols.Add(dString);
-                //Program Code
-                cols.Add(c.ProgramCode);
-                //headers.Add("Waive Flag");
-                cols.Add("CARDMAIN");
-                //Type
-                cols.Add("ACCI");
-                //Desc
-                cols.Add("Travel Card");
-                //FT Type
-                cols.Add("Issue");
-
-
-
-                genCharges.Add(c);
-                dataTable.Add(cols);
-
-            }
-
+           
             //string fileName = "CBSLoadAndIssueFile-" + date.Day.ToString().PadLeft(2, '0') + date.Month.ToString().PadLeft(2, '0') + date.Year.ToString() + date.Hour.ToString().PadLeft(2, '0') + date.Minute.ToString().PadLeft(2, '0') + date.Millisecond.ToString().PadLeft(2, '0');
 
             string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\CBL Load Files\" + sBranch.Object.Code;

@@ -132,7 +132,6 @@ namespace MPBS.Screens.PTS.Load
 
             if(!sBalance.status)
             {
-
                 MessageBox.Show("There is an issue related to getting the customer yearly balance");
                 return;
             }
@@ -211,6 +210,39 @@ namespace MPBS.Screens.PTS.Load
         private void ConfirmAmount_TXT_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void MaterialLabel12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomerID_TXT_TextChanged(object sender, EventArgs e)
+        {
+            if(CustomerID_TXT.Text.Count() >= 7)
+            {
+                string selectedProgramCode = String.Concat(Program_CBox.SelectedValue.ToString().Where(c => !Char.IsWhiteSpace(c)));
+                var sBalance = PTSLoadController.getTotalLoadRequestByYear(CustomerID_TXT.Text, selectedProgramCode, Database.YearController.year);
+
+                if (!sBalance.status)
+                {
+                    MessageBox.Show("There is an issue related to getting the customer yearly balance","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+                var amount = sBalance.Object.Sum(i => i.Amount);
+
+                var selectedProgramObject = programs.First(p => p.Code == selectedProgramCode);
+
+                if (amount >= selectedProgramObject.YearlyLimit)
+                {
+                    MessageBox.Show("customer yearly balance reaches the limit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                Total_LBL.Text = sBalance.Object.Sum(i => i.Amount).ToString();
+
+           
+
+            }
         }
     }
 

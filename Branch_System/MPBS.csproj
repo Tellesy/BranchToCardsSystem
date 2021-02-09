@@ -330,11 +330,23 @@
     <Compile Include="Screens\PTS\Delete\BranchDeleteIssue.Designer.cs">
       <DependentUpon>BranchDeleteIssue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\PTS\Delete\BranchDeleteLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Delete\BranchDeleteLoad.Designer.cs">
+      <DependentUpon>BranchDeleteLoad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PTS\Delete\SubScreen\IssueBranchDeleteScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screens\PTS\Delete\SubScreen\IssueBranchDeleteScreen.Designer.cs">
       <DependentUpon>IssueBranchDeleteScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PTS\Delete\SubScreen\LoadBranchDeleteScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Delete\SubScreen\LoadBranchDeleteScreen.Designer.cs">
+      <DependentUpon>LoadBranchDeleteScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\PTS\Edit\Edit.cs">
       <SubType>Form</SubType>
@@ -539,8 +551,14 @@
     <EmbeddedResource Include="Screens\PTS\Delete\BranchDeleteIssue.resx">
       <DependentUpon>BranchDeleteIssue.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Delete\BranchDeleteLoad.resx">
+      <DependentUpon>BranchDeleteLoad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Delete\SubScreen\IssueBranchDeleteScreen.resx">
       <DependentUpon>IssueBranchDeleteScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Delete\SubScreen\LoadBranchDeleteScreen.resx">
+      <DependentUpon>LoadBranchDeleteScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Edit\Edit.resx">
       <DependentUpon>Edit.cs</DependentUpon>

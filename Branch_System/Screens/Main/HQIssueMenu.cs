@@ -22,7 +22,7 @@ using MPBS.Screens.PTS.Load;
 using Microsoft.VisualBasic;
 using MPBS.Screens.PTS.Account;
 using MPBS.Screens.PTS.Customer;
-
+using MPBS.Screens.PTS.Reports;
 namespace MPBS.Screens.Main
 {
     public partial class HQIssueMenu : MaterialSkin.Controls.MaterialForm
@@ -34,6 +34,7 @@ namespace MPBS.Screens.Main
         private EditCustomer editCustomer;
         private EditAccount editAccount;
         private GenerateT24Files generateT24Files;
+        private ReportsGenerator reportGenerator;
 
         public HQIssueMenu()
         {
@@ -239,6 +240,20 @@ namespace MPBS.Screens.Main
                 };
                 generateT24Files.Show();
                 GenerateT24_BTN.Enabled = false;
+            }
+        }
+
+        private void Reports_BTN_Click(object sender, EventArgs e)
+        {
+            if (reportGenerator == null)
+            {
+                reportGenerator = new ReportsGenerator();
+                reportGenerator.isBranch = false;
+                reportGenerator.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    reportGenerator = null; Reports_BTN.Enabled = true;
+                };
+                reportGenerator.Show();
+                Reports_BTN.Enabled = false;
             }
         }
     }

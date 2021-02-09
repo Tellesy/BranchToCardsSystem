@@ -32,11 +32,14 @@ namespace MPBS.Screens.PTS.Generate_File
 
             List<PTSAppRecord> records = new List<PTSAppRecord>();
 
+            List<string> logs = new List<string>();
+
             if(recordsStatus.status)
             {
 
                 //Get all Customer  info and Account  info
                 //First get Customer info
+                var ModRecords = new List<PTSAppRecord>();
                 foreach (PTSAppRecord record in recordsStatus.Object)
                 {
                     var customerStatus = PTSCustomerController.getCustomer(record.CustomerID);
@@ -54,21 +57,28 @@ namespace MPBS.Screens.PTS.Generate_File
                         }
                         else
                         {
-                            MessageBox.Show(accountStatus.message + "هنالك مشكلة في بيانات حساب احد الزبائن " + " Customer ID " + record.CustomerID);
-                            return;
+                            string error = string.Format("Account Data does not exist for Customer ID {0} and Program {1}", record.CustomerID, record.ProgramCode);
+                            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            logs.Add(error);
+                            //return;
                         }
                     }
                     else
                     {
-                        MessageBox.Show(customerStatus.message + "هنالك مشكلة في بيانات حساب احد الزبائن " + " Customer ID " + record.CustomerID);
-                        return;
+                        string error = string.Format("Customer Data does not exist for Customer ID {0} and Program {1}", record.CustomerID, record.ProgramCode);
+                        MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        logs.Add(error);
+                        //return;
                     }
                 }
 
                 try
                 {
+                    
                     foreach (var r in records)
                     {
+                        ModRecords.Add(r);
                         if (r.ApplicationSubType == 'E')
                         {
 
@@ -79,8 +89,11 @@ namespace MPBS.Screens.PTS.Generate_File
                             }
                             else
                             {
-                                MessageBox.Show(devuceStatus.message + "هنالك مشكلة في بياناات رقم البطاقة لاحد الزبائن " + " Customer ID " + r.CustomerID);
-                                records.Remove(r);
+                                string error = string.Format("Device Data does not exist for Customer ID {0} and Program {1}", r.CustomerID, r.ProgramCode);
+                                MessageBox.Show(error,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                                //r.ApplicationSubType = 'N';
+                                logs.Add(error);
+                                ModRecords.Remove(r);
                             }
                         }
 
@@ -92,8 +105,18 @@ namespace MPBS.Screens.PTS.Generate_File
                     MessageBox.Show(err.Message);
                     return;
                 }
-                //Get Device Number
-             
+
+                records = ModRecords;
+
+                string location = MPBSConfig.Logs + @"\Application Logs\";
+                string filename = "AppRecGenLogs-" + DateTime.Now.ToString("dd-MM-yyyy hh-mm-ss");
+                System.IO.Directory.CreateDirectory(location);
+
+                System.IO.File.WriteAllLines((location  + filename), logs);
+
+
+
+
                 var status = AppRecrodFileCreator.GenerateAppRecordFile(records);
 
                 if(status.status)

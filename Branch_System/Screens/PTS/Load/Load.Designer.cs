@@ -44,6 +44,10 @@
             this.CustomerID_TXT = new System.Windows.Forms.TextBox();
             this.ExchangeRate_TXT = new System.Windows.Forms.TextBox();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+            this.Total_LBL = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // Program_CBox
@@ -163,7 +167,7 @@
             this.Sumbit_BTN.AutoSize = true;
             this.Sumbit_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Sumbit_BTN.Depth = 0;
-            this.Sumbit_BTN.Location = new System.Drawing.Point(209, 393);
+            this.Sumbit_BTN.Location = new System.Drawing.Point(630, 329);
             this.Sumbit_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Sumbit_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Sumbit_BTN.Name = "Sumbit_BTN";
@@ -179,7 +183,7 @@
             this.Back_BTN.AutoSize = true;
             this.Back_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Back_BTN.Depth = 0;
-            this.Back_BTN.Location = new System.Drawing.Point(13, 393);
+            this.Back_BTN.Location = new System.Drawing.Point(434, 329);
             this.Back_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Back_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Back_BTN.Name = "Back_BTN";
@@ -216,6 +220,7 @@
             this.CustomerID_TXT.Name = "CustomerID_TXT";
             this.CustomerID_TXT.Size = new System.Drawing.Size(93, 20);
             this.CustomerID_TXT.TabIndex = 2;
+            this.CustomerID_TXT.TextChanged += new System.EventHandler(this.CustomerID_TXT_TextChanged);
             // 
             // ExchangeRate_TXT
             // 
@@ -238,11 +243,68 @@
             this.materialLabel9.TabIndex = 94;
             this.materialLabel9.Text = "سعر الصرف حسب منظومة  مصرف ليبيا المركزي";
             // 
+            // materialLabel10
+            // 
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialLabel10.ForeColor = System.Drawing.Color.Red;
+            this.materialLabel10.Location = new System.Drawing.Point(512, 98);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(206, 20);
+            this.materialLabel10.TabIndex = 95;
+            this.materialLabel10.Text = "إجمالي ماتم شحنه لهذا الزبون حتى الان";
+            // 
+            // Total_LBL
+            // 
+            this.Total_LBL.AutoSize = true;
+            this.Total_LBL.Depth = 0;
+            this.Total_LBL.Font = new System.Drawing.Font("Roboto", 12F);
+            this.Total_LBL.ForeColor = System.Drawing.Color.Red;
+            this.Total_LBL.Location = new System.Drawing.Point(673, 125);
+            this.Total_LBL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Total_LBL.Name = "Total_LBL";
+            this.Total_LBL.Size = new System.Drawing.Size(45, 20);
+            this.Total_LBL.TabIndex = 96;
+            this.Total_LBL.Text = "0000";
+            // 
+            // materialLabel11
+            // 
+            this.materialLabel11.AutoSize = true;
+            this.materialLabel11.Depth = 0;
+            this.materialLabel11.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialLabel11.ForeColor = System.Drawing.Color.Red;
+            this.materialLabel11.Location = new System.Drawing.Point(365, 166);
+            this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel11.Name = "materialLabel11";
+            this.materialLabel11.Size = new System.Drawing.Size(358, 20);
+            this.materialLabel11.TabIndex = 97;
+            this.materialLabel11.Text = "الرجاء التأكد من إدخال القيمة بشكل صحيح و عدم تكرار العمل اليومي";
+            // 
+            // materialLabel12
+            // 
+            this.materialLabel12.AutoSize = true;
+            this.materialLabel12.Depth = 0;
+            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialLabel12.ForeColor = System.Drawing.Color.Red;
+            this.materialLabel12.Location = new System.Drawing.Point(488, 190);
+            this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel12.Name = "materialLabel12";
+            this.materialLabel12.Size = new System.Drawing.Size(233, 20);
+            this.materialLabel12.TabIndex = 98;
+            this.materialLabel12.Text = "عملية الشحن تحتاج الى تركيز و حذر شديدين";
+            this.materialLabel12.Click += new System.EventHandler(this.MaterialLabel12_Click);
+            // 
             // Load
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 444);
+            this.ClientSize = new System.Drawing.Size(719, 370);
+            this.Controls.Add(this.materialLabel12);
+            this.Controls.Add(this.materialLabel11);
+            this.Controls.Add(this.Total_LBL);
+            this.Controls.Add(this.materialLabel10);
             this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.ExchangeRate_TXT);
             this.Controls.Add(this.CustomerID_TXT);
@@ -284,5 +346,9 @@
         private System.Windows.Forms.TextBox CustomerID_TXT;
         private System.Windows.Forms.TextBox ExchangeRate_TXT;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private MaterialSkin.Controls.MaterialLabel materialLabel10;
+        private MaterialSkin.Controls.MaterialLabel Total_LBL;
+        private MaterialSkin.Controls.MaterialLabel materialLabel11;
+        private MaterialSkin.Controls.MaterialLabel materialLabel12;
     }
 }
