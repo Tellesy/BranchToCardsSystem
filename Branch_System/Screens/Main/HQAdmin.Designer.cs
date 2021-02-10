@@ -49,6 +49,7 @@
             this.GenLoadFiles_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.GenerateEMBPIN_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Reports_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Enquiry_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -222,7 +223,7 @@
             this.GenFiles_BTN.AutoSize = true;
             this.GenFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenFiles_BTN.Depth = 0;
-            this.GenFiles_BTN.Location = new System.Drawing.Point(13, 632);
+            this.GenFiles_BTN.Location = new System.Drawing.Point(13, 678);
             this.GenFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenFiles_BTN.Name = "GenFiles_BTN";
@@ -238,7 +239,7 @@
             this.Logout_BTN.AutoSize = true;
             this.Logout_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Logout_BTN.Depth = 0;
-            this.Logout_BTN.Location = new System.Drawing.Point(13, 723);
+            this.Logout_BTN.Location = new System.Drawing.Point(13, 774);
             this.Logout_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Logout_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Logout_BTN.Name = "Logout_BTN";
@@ -287,7 +288,7 @@
             this.GenerateT24_BTN.AutoSize = true;
             this.GenerateT24_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenerateT24_BTN.Depth = 0;
-            this.GenerateT24_BTN.Location = new System.Drawing.Point(13, 535);
+            this.GenerateT24_BTN.Location = new System.Drawing.Point(13, 581);
             this.GenerateT24_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenerateT24_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenerateT24_BTN.Name = "GenerateT24_BTN";
@@ -303,7 +304,7 @@
             this.GenLoadFiles_BTN.AutoSize = true;
             this.GenLoadFiles_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenLoadFiles_BTN.Depth = 0;
-            this.GenLoadFiles_BTN.Location = new System.Drawing.Point(13, 680);
+            this.GenLoadFiles_BTN.Location = new System.Drawing.Point(13, 726);
             this.GenLoadFiles_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenLoadFiles_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenLoadFiles_BTN.Name = "GenLoadFiles_BTN";
@@ -319,7 +320,7 @@
             this.GenerateEMBPIN_BTN.AutoSize = true;
             this.GenerateEMBPIN_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GenerateEMBPIN_BTN.Depth = 0;
-            this.GenerateEMBPIN_BTN.Location = new System.Drawing.Point(13, 584);
+            this.GenerateEMBPIN_BTN.Location = new System.Drawing.Point(12, 630);
             this.GenerateEMBPIN_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GenerateEMBPIN_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.GenerateEMBPIN_BTN.Name = "GenerateEMBPIN_BTN";
@@ -338,7 +339,7 @@
             this.Reports_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(12, 485);
+            this.Reports_BTN.Location = new System.Drawing.Point(13, 533);
             this.Reports_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Reports_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Reports_BTN.Name = "Reports_BTN";
@@ -350,12 +351,30 @@
             this.Reports_BTN.UseVisualStyleBackColor = true;
             this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
             // 
+            // Enquiry_BTN
+            // 
+            this.Enquiry_BTN.AutoSize = true;
+            this.Enquiry_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Enquiry_BTN.Depth = 0;
+            this.Enquiry_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Enquiry_BTN.Location = new System.Drawing.Point(12, 485);
+            this.Enquiry_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Enquiry_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Enquiry_BTN.Name = "Enquiry_BTN";
+            this.Enquiry_BTN.Primary = false;
+            this.Enquiry_BTN.Size = new System.Drawing.Size(69, 36);
+            this.Enquiry_BTN.TabIndex = 74;
+            this.Enquiry_BTN.Text = "Enquiry";
+            this.Enquiry_BTN.UseVisualStyleBackColor = true;
+            this.Enquiry_BTN.Click += new System.EventHandler(this.Enquiry_BTN_Click);
+            // 
             // HQAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(517, 774);
+            this.ClientSize = new System.Drawing.Size(517, 847);
+            this.Controls.Add(this.Enquiry_BTN);
             this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.GenerateEMBPIN_BTN);
             this.Controls.Add(this.GenLoadFiles_BTN);
@@ -401,5 +420,6 @@
         private MaterialSkin.Controls.MaterialFlatButton GenLoadFiles_BTN;
         private MaterialSkin.Controls.MaterialFlatButton GenerateEMBPIN_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Reports_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton Enquiry_BTN;
     }
 }

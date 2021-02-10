@@ -50,6 +50,7 @@
             this.EditCustomerInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.EditAccountInformation_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.Reports_BTN = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Enquiry_BTN = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             this.Logout_BTN.Font = new System.Drawing.Font("Modern No. 20", 16.25F);
             this.Logout_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Logout_BTN.Image")));
             this.Logout_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Logout_BTN.Location = new System.Drawing.Point(18, 555);
+            this.Logout_BTN.Location = new System.Drawing.Point(17, 597);
             this.Logout_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Logout_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Logout_BTN.Name = "Logout_BTN";
@@ -94,7 +95,7 @@
             this.label6.Enabled = false;
             this.label6.Font = new System.Drawing.Font("Roboto", 11F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(197, 604);
+            this.label6.Location = new System.Drawing.Point(196, 646);
             this.label6.MouseState = MaterialSkin.MouseState.HOVER;
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(141, 19);
@@ -107,7 +108,7 @@
             this.ShareFolder_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ShareFolder_BTN.Depth = 0;
             this.ShareFolder_BTN.Font = new System.Drawing.Font("Modern No. 20", 10.25F);
-            this.ShareFolder_BTN.Location = new System.Drawing.Point(18, 507);
+            this.ShareFolder_BTN.Location = new System.Drawing.Point(17, 549);
             this.ShareFolder_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ShareFolder_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.ShareFolder_BTN.Name = "ShareFolder_BTN";
@@ -357,7 +358,7 @@
             this.Reports_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.Reports_BTN.Image = ((System.Drawing.Image)(resources.GetObject("Reports_BTN.Image")));
             this.Reports_BTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Reports_BTN.Location = new System.Drawing.Point(19, 459);
+            this.Reports_BTN.Location = new System.Drawing.Point(18, 501);
             this.Reports_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Reports_BTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.Reports_BTN.Name = "Reports_BTN";
@@ -369,14 +370,32 @@
             this.Reports_BTN.UseVisualStyleBackColor = true;
             this.Reports_BTN.Click += new System.EventHandler(this.Reports_BTN_Click);
             // 
+            // Enquiry_BTN
+            // 
+            this.Enquiry_BTN.AutoSize = true;
+            this.Enquiry_BTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Enquiry_BTN.Depth = 0;
+            this.Enquiry_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Enquiry_BTN.Location = new System.Drawing.Point(18, 453);
+            this.Enquiry_BTN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Enquiry_BTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Enquiry_BTN.Name = "Enquiry_BTN";
+            this.Enquiry_BTN.Primary = false;
+            this.Enquiry_BTN.Size = new System.Drawing.Size(69, 36);
+            this.Enquiry_BTN.TabIndex = 74;
+            this.Enquiry_BTN.Text = "Enquiry";
+            this.Enquiry_BTN.UseVisualStyleBackColor = true;
+            this.Enquiry_BTN.Click += new System.EventHandler(this.Enquiry_BTN_Click);
+            // 
             // Inputter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(542, 632);
+            this.ClientSize = new System.Drawing.Size(542, 714);
             this.ControlBox = false;
+            this.Controls.Add(this.Enquiry_BTN);
             this.Controls.Add(this.Reports_BTN);
             this.Controls.Add(this.EditAccountInformation_BTN);
             this.Controls.Add(this.EditCustomerInformation_BTN);
@@ -427,5 +446,6 @@
         private MaterialSkin.Controls.MaterialFlatButton EditCustomerInformation_BTN;
         private MaterialSkin.Controls.MaterialFlatButton EditAccountInformation_BTN;
         private MaterialSkin.Controls.MaterialFlatButton Reports_BTN;
+        private MaterialSkin.Controls.MaterialFlatButton Enquiry_BTN;
     }
 }

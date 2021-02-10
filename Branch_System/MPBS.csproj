@@ -288,6 +288,12 @@
     <Compile Include="Screens\Main\SubMenu\BranchEditSubMenu.Designer.cs">
       <DependentUpon>BranchEditSubMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Main\SubMenu\Enquiry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Main\SubMenu\Enquiry.Designer.cs">
+      <DependentUpon>Enquiry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PTS\Account\EditAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,11 +426,23 @@
     <Compile Include="Screens\PTS\Perso\UploadEMBPINtoDB.Designer.cs">
       <DependentUpon>UploadEMBPINtoDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\PTS\Reports\LoadReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Reports\LoadReports.Designer.cs">
+      <DependentUpon>LoadReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PTS\Reports\ReportGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screens\PTS\Reports\ReportGenerator.Designer.cs">
       <DependentUpon>ReportGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PTS\Reports\SubScreens\LoadRecordStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PTS\Reports\SubScreens\LoadRecordStatus.Designer.cs">
+      <DependentUpon>LoadRecordStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Settlements\SettlementsManager.cs">
       <SubType>Form</SubType>
@@ -530,6 +548,9 @@
     <EmbeddedResource Include="Screens\Main\SubMenu\BranchEditSubMenu.resx">
       <DependentUpon>BranchEditSubMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Main\SubMenu\Enquiry.resx">
+      <DependentUpon>Enquiry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Account\EditAccount.resx">
       <DependentUpon>EditAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -596,8 +617,14 @@
     <EmbeddedResource Include="Screens\PTS\Perso\UploadEMBPINtoDB.resx">
       <DependentUpon>UploadEMBPINtoDB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Reports\LoadReports.resx">
+      <DependentUpon>LoadReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\PTS\Reports\ReportGenerator.resx">
       <DependentUpon>ReportGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PTS\Reports\SubScreens\LoadRecordStatus.resx">
+      <DependentUpon>LoadRecordStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Settlements\SettlementsManager.resx">
       <DependentUpon>SettlementsManager.cs</DependentUpon>

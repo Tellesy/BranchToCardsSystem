@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using MPBS.Database;
-
+using MPBS.Screens.Main.SubMenu;
 using MPBS.Screens.PTS.Account;
 using MPBS.Screens.PTS.Customer;
 using MPBS.Screens.PTS.Reports;
@@ -25,7 +25,7 @@ namespace MPBS.Screens
         private EditCustomer editCustomer;
         private EditAccount editAccount;
         private ReportsGenerator reportGenerator;
-
+        private Enquiry enquiry;
         public Inputter()
         {
             InitializeComponent();
@@ -224,6 +224,21 @@ namespace MPBS.Screens
                 };
                 reportGenerator.Show();
                 Reports_BTN.Enabled = false;
+            }
+        }
+
+        private void Enquiry_BTN_Click(object sender, EventArgs e)
+        {
+            if (enquiry == null)
+            {
+                enquiry = new Enquiry();
+                enquiry.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    Enquiry_BTN.Enabled = true;
+                    enquiry = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                enquiry.Show();
+                Enquiry_BTN.Enabled = false;
             }
         }
     }

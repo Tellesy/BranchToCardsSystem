@@ -1,0 +1,37 @@
+﻿1>------ Build started: Project: MPBS, Configuration: Debug Any CPU ------
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\SpreadSheet\GenericSpreadsheetReader.cs(32,17,32,27): warning CS0168: The variable 'colCounter' is declared but never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\FilesCreator\PTSTransactionUploadFileCreator.cs(75,17,75,20): warning CS0219: The variable 'seq' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Database\Branch.cs(46,34,46,35): warning CS0168: The variable 'e' is declared but never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Database\PTSAppRecordController.cs(217,20,217,31): warning CS0219: The variable 'branch_code' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\Login\Login.cs(29,28,29,38): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\Settlements\SettlementsManager.cs(152,28,152,50): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\Main\HQAccounting.cs(40,29,40,40): warning CS0169: The field 'HQAccounting.hQAuthIssue' is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\Main\BranchAdmin.cs(40,29,40,40): warning CS0169: The field 'BranchAdmin.editAccount' is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\Main\HQLoadMenu.cs(36,29,36,40): warning CS0169: The field 'HQLoadMenu.hQAuthIssue' is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\Main\BranchAdmin.cs(39,30,39,42): warning CS0169: The field 'BranchAdmin.editCustomer' is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\Main\HQAccounting.cs(43,29,43,40): warning CS0169: The field 'HQAccounting.genLoadFile' is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\Main\HQLoadMenu.cs(33,33,33,48): warning CS0169: The field 'HQLoadMenu.branchAuthIssue' is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\SheetManager\SheetManager.cs(14,31,14,40): warning CS0169: The field 'SheetManager.TodayFile' is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\Main\HQAccounting.cs(37,33,37,48): warning CS0169: The field 'HQAccounting.branchAuthIssue' is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(46,31,46,60): warning CS0414: The field 'SettlementsManager.T24DebitAccountNumberCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(61,31,61,53): warning CS0414: The field 'SettlementsManager.T24DescriptionCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(54,31,54,61): warning CS0414: The field 'SettlementsManager.T24CreditAccountNumberCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(62,31,62,46): warning CS0414: The field 'SettlementsManager.T24TypeCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\SpreadSheet\SettlementsFiles.cs(49,31,49,46): warning CS0414: The field 'SettlementsFiles.T24TypeCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(52,31,52,55): warning CS0414: The field 'SettlementsManager.T24DebitTheirRefCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(50,31,50,48): warning CS0414: The field 'SettlementsManager.T24AmountCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(65,31,65,54): warning CS0414: The field 'SettlementsManager.T24OrderingBankCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(51,31,51,51): warning CS0414: The field 'SettlementsManager.T24ValueDateCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(63,31,63,53): warning CS0414: The field 'SettlementsManager.T24CompanyCodeCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\PTS\Issue\PTS_Issue.cs(20,22,20,61): warning CS0414: The field 'Issue.customerHasAnAccountUnderTheSameProgram' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\SheetManager\SheetManager.cs(15,31,15,39): warning CS0414: The field 'SheetManager.FilePath' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\SpreadSheet\SettlementsFiles.cs(48,31,48,53): warning CS0414: The field 'SettlementsFiles.T24DescriptionCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(47,31,47,55): warning CS0414: The field 'SettlementsManager.T24DebitCurrencyCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(55,31,55,56): warning CS0414: The field 'SettlementsManager.T24CreditCurrencyCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(57,31,57,57): warning CS0414: The field 'SettlementsManager.T24CreditValueDateCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(64,31,64,58): warning CS0414: The field 'SettlementsManager.T24OredringCustomerCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(56,31,56,54): warning CS0414: The field 'SettlementsManager.T24CreditAmountCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Settlements\SettlementsManager.cs(53,31,53,56): warning CS0414: The field 'SettlementsManager.T24CreditTheirRefCellName' is assigned but its value is never used
+1>C:\Users\mtell\source\repos\Branch_System\Branch_System\Screens\PTS\Load\HQAuthLoad.cs(19,22,19,35): warning CS0414: The field 'HQAuthLoad.isBranchAdmin' is assigned but its value is never used
+1>  MPBS -> C:\Users\mtell\source\repos\Branch_System\Branch_System\bin\Debug\MPBS.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

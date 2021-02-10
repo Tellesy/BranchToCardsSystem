@@ -62,6 +62,11 @@ namespace MPBS.Database
                                           ,[HQ_auth_time]
                                           ,[generated]
                                           ,[gen_time]
+                                          ,[cbs_file_gen]
+                                          ,[cbs_file_gen_date]
+                                          ,[from_cbl_flag]
+                                          ,[exchange_rate]
+                                          ,[MFlag]
                                       FROM [CTS].[dbo].[PTS_Load] where [branch_code] = '" + branch_code + "' AND branch_authorizer is NULL AND HQ_authorizer is NULL AND generated = 0";
                     }
                     else
@@ -81,6 +86,11 @@ namespace MPBS.Database
                                           ,[HQ_auth_time]
                                           ,[generated]
                                           ,[gen_time]
+                                          ,[cbs_file_gen]
+                                          ,[cbs_file_gen_date]
+                                          ,[from_cbl_flag]
+                                          ,[exchange_rate]
+                                          ,[MFlag]
                                       FROM [CTS].[dbo].[PTS_Load] where branch_authorizer is NULL AND HQ_authorizer is NULL AND generated = 0";
                     }
 
@@ -146,6 +156,214 @@ namespace MPBS.Database
 
                             if (!string.IsNullOrEmpty(reader[13].ToString()))
                                 request.GenTime = DateTime.Parse(reader[13].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[14].ToString()))
+                                request.CBSFileGen = Boolean.Parse(reader[14].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[15].ToString()))
+                                request.CBSFileGenTime = DateTime.Parse(reader[15].ToString());
+
+
+
+                            if (!string.IsNullOrEmpty(reader[16].ToString()))
+                                request.FromCBLFlag = Boolean.Parse(reader[16].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[17].ToString()))
+                                request.ExchangeRate = decimal.Parse(reader[17].ToString());
+
+                            //if (!string.IsNullOrEmpty(reader[18].ToString()))
+                            //    request.f = DateTime.Parse(reader[18].ToString());
+
+
+                            statusObject.Object.Add(request);
+                        }
+                        conn.Close();
+                        statusObject.status = true;
+                        return statusObject;
+                    }
+
+
+                }
+                catch (Exception e)
+                {
+                    conn.Close();
+                    statusObject.status = false;
+                    statusObject.message = "Get Unauth PTS Load requests \n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return statusObject;
+                }
+            }
+            else
+            {
+                statusObject.status = false;
+                statusObject.message = Errors.ErrorsString.Error001;
+
+                return statusObject;
+            }
+        }
+
+        public static Status<List<Objects.PTSLoad>> getAllLoadPerBranchAndDate(bool branchFlag, string fromDate, string toDate)
+        {
+            string branch_code = "";
+            Status<List<Objects.PTSLoad>> statusObject = new Status<List<Objects.PTSLoad>>();
+            statusObject.Object = new List<Objects.PTSLoad>();
+            statusObject.status = false;
+
+
+            SqlConnection conn = DBConnection.Connection();
+
+            if (branchFlag)
+            {
+                var bstatus = PTSBranchController.getBranch(int.Parse(Database.Login.branch));
+                if (bstatus.status)
+                {
+                    branch_code = bstatus.Object.Code;
+                }
+                else
+                {
+                    branch_code = "0003";
+                    branchFlag = false;
+                }
+
+            }
+
+            conn.Open();
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+
+
+                try
+                {
+                    string query = "";
+
+                    if (branchFlag)
+                    {
+                        query = string.Format(@"SELECT [ID]
+                                          ,[customer_ID]
+                                          ,[program_code]
+                                          
+                                          ,[branch_code]
+                                          ,[year]
+                                          ,[amount]
+                                          ,[inputter]
+                                          ,[input_time]
+                                          ,[branch_authorizer]
+                                          ,[branch_auth_time]
+                                          ,[HQ_authorizer]
+                                          ,[HQ_auth_time]
+                                          ,[generated]
+                                          ,[gen_time]
+                                          ,[cbs_file_gen]
+                                          ,[cbs_file_gen_date]
+                                          ,[from_cbl_flag]
+                                          ,[exchange_rate]
+                                          ,[MFlag]
+                                      FROM [CTS].[dbo].[PTS_Load] where [branch_code] = '{0}' AND [input_time] > '{1} 00:00:00' AND [input_time]  <= '{2} 23:59:59'", branch_code,fromDate,toDate);
+                    }
+                    else
+                    {
+                         query = string.Format(@"SELECT [ID]
+                                          ,[customer_ID]
+                                          ,[program_code]
+                                          
+                                          ,[branch_code]
+                                          ,[year]
+                                          ,[amount]
+                                          ,[inputter]
+                                          ,[input_time]
+                                          ,[branch_authorizer]
+                                          ,[branch_auth_time]
+                                          ,[HQ_authorizer]
+                                          ,[HQ_auth_time]
+                                          ,[generated]
+                                          ,[gen_time]
+                                          ,[cbs_file_gen]
+                                          ,[cbs_file_gen_date]
+                                          ,[from_cbl_flag]
+                                          ,[exchange_rate]
+                                          ,[MFlag]
+                                      FROM [CTS].[dbo].[PTS_Load] where [input_time] > '{0} 00:00:00' AND [input_time]  <= '{1} 23:59:59'", fromDate, toDate);
+                    }
+
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (!reader.HasRows)
+                        {
+                            statusObject.status = false;
+                            statusObject.message = "لا يوجد سجلات تحتاج الى تخويل";
+                            return statusObject;
+
+                        }
+
+                        while (reader.Read())
+                        {
+                            Objects.PTSLoad request = new Objects.PTSLoad();
+                            if (!string.IsNullOrEmpty(reader[0].ToString()))
+                                request.ID = int.Parse(reader[0].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[1].ToString()))
+                                request.CustomerID = reader[1].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[2].ToString()))
+                                request.ProgramCode = reader[2].ToString();
+
+
+
+                            if (!string.IsNullOrEmpty(reader[3].ToString()))
+                                request.BranchCode = reader[3].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[4].ToString()))
+                                request.Year = reader[4].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[5].ToString()))
+                                request.Amount = int.Parse(reader[5].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[6].ToString()))
+                                request.Inputter = reader[6].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[7].ToString()))
+                                request.InputTime = DateTime.Parse(reader[7].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[8].ToString()))
+                                request.BranchAuthorizer = reader[8].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[9].ToString()))
+                                request.BranchAuthorizeTime = DateTime.Parse(reader[9].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[10].ToString()))
+                                request.HQAuthorizer = reader[10].ToString();
+
+                            if (!string.IsNullOrEmpty(reader[11].ToString()))
+                                request.HQAuthorizeTime = DateTime.Parse(reader[11].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[12].ToString()))
+                                request.Generated = Boolean.Parse(reader[12].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[13].ToString()))
+                                request.GenTime = DateTime.Parse(reader[13].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[14].ToString()))
+                                request.CBSFileGen = Boolean.Parse(reader[14].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[15].ToString()))
+                                request.CBSFileGenTime = DateTime.Parse(reader[15].ToString());
+
+
+
+                            if (!string.IsNullOrEmpty(reader[16].ToString()))
+                                request.FromCBLFlag = Boolean.Parse(reader[16].ToString());
+
+                            if (!string.IsNullOrEmpty(reader[17].ToString()))
+                                request.ExchangeRate = decimal.Parse(reader[17].ToString());
+
+                            //if (!string.IsNullOrEmpty(reader[18].ToString()))
+                            //    request.f = DateTime.Parse(reader[18].ToString());
+
 
                             statusObject.Object.Add(request);
                         }

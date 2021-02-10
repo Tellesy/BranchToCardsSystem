@@ -46,6 +46,9 @@ namespace MPBS.Screens
 
         private BranchDeleteSubMenu branchDeleteSubMenu;
 
+        private Enquiry enquiry;
+
+
         public BranchAdmin()
         {
             InitializeComponent();
@@ -412,6 +415,21 @@ namespace MPBS.Screens
                 };
                 branchDeleteSubMenu.Show();
                 DeleteSubMenu_BTN.Enabled = false;
+            }
+        }
+
+        private void Enquiry_BTN_Click(object sender, EventArgs e)
+        {
+            if (enquiry == null)
+            {
+                enquiry = new Enquiry();
+                enquiry.Closed += (s, args) => {
+                    //authRecharge.UnlockRecord();
+                    Enquiry_BTN.Enabled = true;
+                    enquiry = null; //PBF_Auth_BTN.Enabled = true;
+                };
+                enquiry.Show();
+                Enquiry_BTN.Enabled = false;
             }
         }
     }
