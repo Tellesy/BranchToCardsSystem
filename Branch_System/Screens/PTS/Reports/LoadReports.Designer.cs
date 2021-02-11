@@ -172,7 +172,7 @@
             this.SearchByTime_CHBox.AutoSize = true;
             this.SearchByTime_CHBox.Depth = 0;
             this.SearchByTime_CHBox.Font = new System.Drawing.Font("Roboto", 10F);
-            this.SearchByTime_CHBox.Location = new System.Drawing.Point(362, 76);
+            this.SearchByTime_CHBox.Location = new System.Drawing.Point(117, 76);
             this.SearchByTime_CHBox.Margin = new System.Windows.Forms.Padding(0);
             this.SearchByTime_CHBox.MouseLocation = new System.Drawing.Point(-1, -1);
             this.SearchByTime_CHBox.MouseState = MaterialSkin.MouseState.HOVER;
@@ -192,9 +192,9 @@
             this.SearchByTime_GBox.Controls.Add(this.label3);
             this.SearchByTime_GBox.Controls.Add(this.To_DTP);
             this.SearchByTime_GBox.Enabled = false;
-            this.SearchByTime_GBox.Location = new System.Drawing.Point(525, 73);
+            this.SearchByTime_GBox.Location = new System.Drawing.Point(515, 73);
             this.SearchByTime_GBox.Name = "SearchByTime_GBox";
-            this.SearchByTime_GBox.Size = new System.Drawing.Size(216, 111);
+            this.SearchByTime_GBox.Size = new System.Drawing.Size(226, 111);
             this.SearchByTime_GBox.TabIndex = 16;
             this.SearchByTime_GBox.TabStop = false;
             this.SearchByTime_GBox.Text = "Search By Time";
