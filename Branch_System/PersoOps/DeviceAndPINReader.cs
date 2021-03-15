@@ -33,17 +33,23 @@ namespace MPBS.PersoOps
                    counter++;
                    continue;
                 }
-                EmbPINRecord record = new EmbPINRecord();
-                record.Sequence = counter;
-                record.Line = line;
-                record.FileDate = fileDate;
-                record.DeviceNumber = line.Substring(16, 16);
-                record.FileName = fileName;
-                //In case BIN is six digits 
-                record.BIN = line.Substring(2, 8).Replace(" ", "");
 
-                counter++;
-                records.Add(record);
+              if(line.Count() > 30)
+                {
+                    EmbPINRecord record = new EmbPINRecord();
+                    record.Sequence = counter;
+                    record.Line = line;
+                    record.FileDate = fileDate;
+                    record.DeviceNumber = line.Substring(16, 16);
+                    record.FileName = fileName;
+                    //In case BIN is six digits 
+                    record.BIN = line.Substring(2, 8).Replace(" ", "");
+                    counter++;
+                    records.Add(record);
+                }
+              
+
+              
                 System.Console.WriteLine(line);
             }
 

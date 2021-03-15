@@ -168,6 +168,11 @@ namespace MPBS.Screens
                     hQLoad.Closed += (s, args) => this.Show();
                     hQLoad.Show();
                     break;
+                case "10":
+                    PersoPinMaster persoOffice = new PersoPinMaster();
+                    persoOffice.Closed += (s, args) => this.Show();
+                    persoOffice.Show();
+                    break;
 
                 default:
                     MessageBox.Show("لا تملك الصلاحيات للدخول الى هذا النظام");

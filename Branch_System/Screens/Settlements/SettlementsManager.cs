@@ -161,27 +161,28 @@ namespace MPBS.Screens.SettlementsSecreens
             }
 
 
-            //Get All Purchase and AuthCompletion Transactio Fee Transactions
-            var allTransactionsFeeRecords = MPBS.Settlements.SettlementsManager.getBallanceEnquriyFees(records);
-            //Sum all fees 
-            foreach (var tnx in allDebitRecords)
-            {
-                if (tnx.TotalFeesAndCharges > 0)
-                {
-                    tnx.BillingAmount = tnx.TransactionFees;
-                    allTransactionsFeeRecords.Add(tnx);
-                }
+            //Balance Enqury only
+            var balanceEnquiryRecords = MPBS.Settlements.SettlementsManager.getBallanceEnquriyFees(records);
+            ////Sum all fees 
+            //foreach (var tnx in allDebitRecords)
+            //{
+            //    if (tnx.TotalFeesAndCharges > 0)
+            //    {
+            //        tnx.BillingAmount = tnx.TransactionFees;
+            //        allTransactionsFeeRecords.Add(tnx);
+            //    }
 
-            }
+            //}
 
-            status = MPBS.Settlements.SettlementsManager.createTransactionsSettelmentsFile(FileType.FEES,allTransactionsFeeRecords, branchCode);
+            status = MPBS.Settlements.SettlementsManager.createTransactionsSettelmentsFile(FileType.BALANCE_FEE,balanceEnquiryRecords, branchCode);
             if (!status.status)
             {
                 MessageBox.Show(status.message + string.Format(" Error In generating Purchase and PreAuth completion fee Tnx File for branch ", branchCode), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            //
+            var ba = MPBS.Settlements.SettlementsManager.getBallanceEnquriyFees(records);
 
-       
 
 
             //Get All Credit Transactions

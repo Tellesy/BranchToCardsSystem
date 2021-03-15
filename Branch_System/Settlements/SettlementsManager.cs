@@ -277,7 +277,7 @@ namespace MPBS.Settlements
         public static List<TransactionReport> getPurchaseAndAuthCompletionTransactioFeePerWallet(List<TransactionReport> transactionReports)
         {
 
-            List<TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.DR && t.TransactionCode == "22").GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
+            List<TransactionReport> transactions = transactionReports.FindAll(t => t.DRorCRtoCardholder == TransactionToCardType.DR && t.TransactionCode == "22" ).GroupBy(i => i.WalletNumber).Select(tr => new TransactionReport
             {
                 WalletNumber = tr.First().WalletNumber,
                 DeviceNumber = tr.First().DeviceNumber,
@@ -360,6 +360,37 @@ namespace MPBS.Settlements
         {
             string FT_ValueDate = DateTime.Now.ToString("yyyyMMdd");
             Status<int> status = new Status<int>();
+
+            string CreditAccount = "";
+
+            string folder = "UNKNOWN";
+            switch (fileType)
+            {
+                case FileType.DEBIT:
+                    folder = "DEBIT";
+                    CreditAccount = "USD1755300010001";
+                    break;
+                case FileType.BALANCE_FEE:
+                    folder = "BALANCEENQ_FEE";
+                    CreditAccount = "PL52126";
+                    break;
+                case FileType.PPAUTH_FEE:
+                    folder = "PURCHASE_FEE";
+                    CreditAccount = "PL52122";
+                    break;
+                case FileType.CWD_FEE:
+                    folder = "CWD_FEE";
+                    CreditAccount = "PL52124";
+                    break;
+                case FileType.REVERSAL:
+                    folder = "REVERSAL";
+                    break;
+                case FileType.CREDIT:
+                    folder = "CREDIT";
+                    break;
+            }
+
+
             try
             {
                 xlApp = new Microsoft.Office.Interop.Excel.Application();
@@ -416,7 +447,7 @@ namespace MPBS.Settlements
                     xlWorkSheet.Cells[i + 1, 6] = FT_ValueDate;
                     xlWorkSheet.Cells[i + 1, 7] = "Account Transfer";
                     xlWorkSheet.Cells[i + 1, 8] = "Account Transfer";
-                    xlWorkSheet.Cells[i + 1, 9] = "USD1755300010001";
+                    xlWorkSheet.Cells[i + 1, 9] = CreditAccount;
                     xlWorkSheet.Cells[i + 1, 10] = "USD";
                     xlWorkSheet.Cells[i + 1, 11] = "";
                    
@@ -433,22 +464,7 @@ namespace MPBS.Settlements
                 //range = xlWorkSheet.get_Range("A1", "N" + (transactions.Count + 1).ToString()).EntireColumn;
                 range.NumberFormat = "@";
                 string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Settlements\" + branch;
-                string folder = "UNKNOWN";
-                switch(fileType)
-                {
-                    case FileType.DEBIT:
-                        folder = "DEBIT";
-                        break;
-                    case FileType.FEES:
-                        folder = "FEES";
-                        break;
-                    case FileType.REVERSAL:
-                        folder = "REVERSAL";
-                        break;
-                    case FileType.CREDIT:
-                        folder = "CREDIT";
-                        break;
-                }
+              
                 //xlWorkBook.SaveAs(location+ @"\transactionFile.xls");
                 string fileName = "TS" + branch + "DATE" + DateTime.Parse(DateTime.Now.ToString()).ToString("dd-MM-yyyy-hhmmss");
 
@@ -480,6 +496,6 @@ namespace MPBS.Settlements
 
     public enum FileType
     {
-        DEBIT,CREDIT,REVERSAL,FEES
+        DEBIT,CREDIT,REVERSAL,BALANCE_FEE,CWD_FEE,PPAUTH_FEE
     }
 }

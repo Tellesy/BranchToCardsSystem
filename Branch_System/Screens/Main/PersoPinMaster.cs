@@ -15,6 +15,7 @@ namespace MPBS.Screens.Main
     {
 
         GenerateEMBPIN generateEMBPIN;
+        UploadEMBPINtoDB uploadEMBPINtoDB;
         public PersoPinMaster()
         {
             InitializeComponent();
@@ -58,6 +59,17 @@ namespace MPBS.Screens.Main
 
         private void UploadEMPAndPinFilesTODB_BTN_Click(object sender, EventArgs e)
         {
+            if (uploadEMBPINtoDB == null)
+            {
+                uploadEMBPINtoDB = new UploadEMBPINtoDB();
+
+
+                uploadEMBPINtoDB.Closed += (s, args) => { //authRecharge.UnlockRecord();
+                    uploadEMBPINtoDB = null; UploadEMPAndPinFilesTODB_BTN.Enabled = true;
+                };
+                uploadEMBPINtoDB.Show();
+                UploadEMPAndPinFilesTODB_BTN.Enabled = false;
+            }
 
         }
     }

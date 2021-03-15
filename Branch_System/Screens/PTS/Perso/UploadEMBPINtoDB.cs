@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MPBS.Database;
 using MPBS.PersoOps;
 
 namespace MPBS.Screens.PTS.Perso
@@ -78,7 +79,21 @@ namespace MPBS.Screens.PTS.Perso
 
         private void Upload_BTN_Click(object sender, EventArgs e)
         {
+           var embRecords =  DeviceAndPINReader.extractEMBFile(embFileLocation);
 
+            int progress = 0;
+            int count = 100 / embRecords.Count;
+            foreach (EmbPINRecord emb in embRecords)
+            {
+               var status = PTSDeviceController.printDevice(emb.DeviceNumber);
+                if(!status.status)
+                {
+                    MessageBox.Show(string.Format(@"Error in Updating device Number {0}", emb.DeviceNumber), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
+
+                progressBar.Increment(count);
+            }
         }
     }
 }

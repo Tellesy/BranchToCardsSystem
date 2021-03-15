@@ -214,5 +214,94 @@ namespace MPBS.Database
             }
         }
 
+
+        public static Status printDevice(string deviceNumber)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = DBConnection.Connection();
+
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string query = @"update PTS_Device set printed = @v1, print_date = @v2 where device_number = @v3";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@v1", 1);
+                    cmd.Parameters.AddWithValue("@v2", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@v3", deviceNumber);
+
+
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch (Exception e)
+                {
+                    status.status = false;
+                    status.status = false;
+                    status.message = "Print PTS Device\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return status;
+                }
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                return status;
+            }
+        }
+
+        public static Status deliverDevice(string deviceNumber)
+        {
+            Status status = new Status();
+            status.status = false;
+
+            SqlConnection conn = DBConnection.Connection();
+
+            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string query = @"update PTS_Device set delivered = @v1, delivery_date = @v2 where device_number = @v3";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@v1", 1);
+                    cmd.Parameters.AddWithValue("@v2", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@v3", deviceNumber);
+
+
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    status.status = true;
+                    return status;
+                }
+                catch (Exception e)
+                {
+                    status.status = false;
+                    status.status = false;
+                    status.message = "Print PTS Device\n" + Errors.ErrorsString.Error002 + "\n" + e;
+                    return status;
+                }
+            }
+            else
+            {
+                status.status = false;
+                status.message = Errors.ErrorsString.Error001;
+                return status;
+            }
+        }
+
     }
 }
